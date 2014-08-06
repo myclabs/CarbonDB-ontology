@@ -659,15 +659,15 @@
     <owl:Class rdf:about="&bc;ElementaryFlow">
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;isFlowOf"/>
-                <owl:onClass rdf:resource="&bc;SingleProcess"/>
+                <owl:onProperty rdf:resource="&bc;hasNature"/>
+                <owl:onClass rdf:resource="&bc;ElementaryFlowNature"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;hasNature"/>
-                <owl:onClass rdf:resource="&bc;ElementaryFlowNature"/>
+                <owl:onProperty rdf:resource="&bc;isFlowOf"/>
+                <owl:onClass rdf:resource="&bc;SingleProcess"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -705,6 +705,12 @@
     <owl:Class rdf:about="&bc;Group">
         <rdfs:subClassOf>
             <owl:Restriction>
+                <owl:onProperty rdf:resource="&bc;hasDimension"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
                 <owl:onProperty rdf:resource="&bc;hasCategory"/>
                 <owl:onClass rdf:resource="&bc;Category"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
@@ -712,21 +718,15 @@
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
+                <owl:onProperty rdf:resource="&bc;hasDimension"/>
+                <owl:someValuesFrom rdf:resource="&bc;Dimension"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
                 <owl:onProperty rdf:resource="&bc;foreignUnitID"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
                 <owl:onDataRange rdf:resource="&xsd;string"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;hasDimension"/>
-                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;hasDimension"/>
-                <owl:someValuesFrom rdf:resource="&bc;Dimension"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <owl:disjointWith rdf:resource="&bc;Keyword"/>
@@ -791,7 +791,7 @@
     <owl:Class rdf:about="&bc;Relation">
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;hasDestination"/>
+                <owl:onProperty rdf:resource="&bc;hasOrigin"/>
                 <owl:onClass rdf:resource="&bc;Process"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
@@ -805,7 +805,7 @@
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;hasOrigin"/>
+                <owl:onProperty rdf:resource="&bc;hasDestination"/>
                 <owl:onClass rdf:resource="&bc;Process"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
@@ -822,6 +822,13 @@
         <rdfs:subClassOf rdf:resource="&bc;SingleElement"/>
         <rdfs:subClassOf>
             <owl:Restriction>
+                <owl:onProperty rdf:resource="&bc;uncertainty"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;double"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
                 <owl:onProperty rdf:resource="&bc;foreignUnitID"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
                 <owl:onDataRange rdf:resource="&xsd;string"/>
@@ -830,13 +837,6 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&bc;value"/>
-                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onDataRange rdf:resource="&xsd;double"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;uncertainty"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
                 <owl:onDataRange rdf:resource="&xsd;double"/>
             </owl:Restriction>
@@ -852,13 +852,13 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&bc;hasTag"/>
-                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
+                <owl:someValuesFrom rdf:resource="&bc;Keyword"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&bc;hasTag"/>
-                <owl:someValuesFrom rdf:resource="&bc;Keyword"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
@@ -872,15 +872,15 @@
         <rdfs:subClassOf rdf:resource="&bc;SingleElement"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;hasFlow"/>
-                <owl:someValuesFrom rdf:resource="&bc;ElementaryFlow"/>
+                <owl:onProperty rdf:resource="&bc;foreignUnitID"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;foreignUnitID"/>
-                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onDataRange rdf:resource="&xsd;string"/>
+                <owl:onProperty rdf:resource="&bc;hasFlow"/>
+                <owl:someValuesFrom rdf:resource="&bc;ElementaryFlow"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
@@ -963,6 +963,18 @@
     
 
 
+    <!-- http://www.myc-sense.com/ontologies/bc#c/diesel_engine+diesel_fuel -->
+
+    <owl:NamedIndividual rdf:about="&bc;c/diesel_engine+diesel_fuel">
+        <uncertainty rdf:datatype="&xsd;double">0.0</uncertainty>
+        <value rdf:datatype="&xsd;double">100.0</value>
+        <hasTag rdf:resource="&bc;k/diesel_engine"/>
+        <hasTag rdf:resource="&bc;k/diesel_fuel"/>
+        <hasUnit rdf:resource="&bc;u/percent"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.myc-sense.com/ontologies/bc#c/direct_emission_of_greenhouse_gas -->
 
     <owl:NamedIndividual rdf:about="&bc;c/direct_emission_of_greenhouse_gas">
@@ -991,6 +1003,18 @@
         <hasGroup rdf:resource="&bc;gp/combustion_unit_of_energy"/>
         <hasGroup rdf:resource="&bc;gp/combustion_unit_of_mass"/>
         <hasGroup rdf:resource="&bc;gp/combustion_unit_of_volume"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#c/gasoline_engine+motor_gasoline -->
+
+    <owl:NamedIndividual rdf:about="&bc;c/gasoline_engine+motor_gasoline">
+        <uncertainty rdf:datatype="&xsd;double">0.0</uncertainty>
+        <value rdf:datatype="&xsd;double">100.0</value>
+        <hasTag rdf:resource="&bc;k/gasoline_engine"/>
+        <hasTag rdf:resource="&bc;k/motor_gasoline"/>
+        <hasUnit rdf:resource="&bc;u/percent"/>
     </owl:NamedIndividual>
     
 
@@ -1121,12 +1145,6 @@
     
 
 
-    <!-- http://www.myc-sense.com/ontologies/bc#d/dairy_product -->
-
-    <owl:NamedIndividual rdf:about="&bc;d/dairy_product"/>
-    
-
-
     <!-- http://www.myc-sense.com/ontologies/bc#d/farmed_animal -->
 
     <owl:NamedIndividual rdf:about="&bc;d/farmed_animal"/>
@@ -1166,6 +1184,7 @@
         <rdfs:label xml:lang="en">Fuel</rdfs:label>
         <rdfs:label xml:lang="fr">Combustible</rdfs:label>
         <hasKeyword rdf:resource="&bc;k/diesel_fuel"/>
+        <hasKeyword rdf:resource="&bc;k/heating_oil"/>
         <hasKeyword rdf:resource="&bc;k/motor_gasoline"/>
     </owl:NamedIndividual>
     
@@ -1246,6 +1265,12 @@
         <hasKeyword rdf:resource="&bc;k/electricity"/>
         <hasKeyword rdf:resource="&bc;k/undifferentiated"/>
     </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#d/transformed_dairy_product -->
+
+    <owl:NamedIndividual rdf:about="&bc;d/transformed_dairy_product"/>
     
 
 
@@ -1463,6 +1488,28 @@
     
 
 
+    <!-- http://www.myc-sense.com/ontologies/bc#f/00012 -->
+
+    <owl:NamedIndividual rdf:about="&bc;f/00012">
+        <rdfs:label xml:lang="fr">Elementary flow</rdfs:label>
+        <value rdf:datatype="&xsd;double">2693.0</value>
+        <uncertainty rdf:datatype="&xsd;double">5.0</uncertainty>
+        <hasNature rdf:resource="&bc;ghg/co2"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#f/00013 -->
+
+    <owl:NamedIndividual rdf:about="&bc;f/00013">
+        <rdfs:label xml:lang="fr">Elementary flow</rdfs:label>
+        <uncertainty rdf:datatype="&xsd;double">5.0</uncertainty>
+        <value rdf:datatype="&xsd;double">562.0</value>
+        <hasNature rdf:resource="&bc;ghg/co2e"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.myc-sense.com/ontologies/bc#gc/capacity_utilisation_of_freight_transport_ship -->
 
     <owl:NamedIndividual rdf:about="&bc;gc/capacity_utilisation_of_freight_transport_ship">
@@ -1566,6 +1613,22 @@
     
 
 
+    <!-- http://www.myc-sense.com/ontologies/bc#gc/fuel_used_by_car_motor_engine -->
+
+    <owl:NamedIndividual rdf:about="&bc;gc/fuel_used_by_car_motor_engine">
+        <rdf:type rdf:resource="&bc;CoefficientGroup"/>
+        <rdfs:label xml:lang="en">Fuel used by car motor engine</rdfs:label>
+        <rdfs:label xml:lang="fr">Carburant utilisé par le moteur d&apos;une voiture</rdfs:label>
+        <containsSingleCoefficient rdf:resource="&bc;c/diesel_engine+diesel_fuel"/>
+        <containsSingleCoefficient rdf:resource="&bc;c/gasoline_engine+motor_gasoline"/>
+        <hasCategory rdf:resource="&bc;c/road_passenger_transport"/>
+        <hasDimension rdf:resource="&bc;d/fuel_unit_of_volume"/>
+        <hasDimension rdf:resource="&bc;d/type_of_car_engine"/>
+        <hasUnit rdf:resource="&bc;u/percent"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.myc-sense.com/ontologies/bc#gc/life_time_of_road_freight_vehicle -->
 
     <owl:NamedIndividual rdf:about="&bc;gc/life_time_of_road_freight_vehicle">
@@ -1579,22 +1642,22 @@
     
 
 
-    <!-- http://www.myc-sense.com/ontologies/bc#gc/lifespan_of_animal_for_slaughter -->
+    <!-- http://www.myc-sense.com/ontologies/bc#gc/lifespan_allocation_of_animal_for_slaughter -->
 
-    <owl:NamedIndividual rdf:about="&bc;gc/lifespan_of_animal_for_slaughter">
+    <owl:NamedIndividual rdf:about="&bc;gc/lifespan_allocation_of_animal_for_slaughter">
         <rdf:type rdf:resource="&bc;CoefficientGroup"/>
-        <rdfs:label xml:lang="en">Lifespan of animal for slaughter</rdfs:label>
-        <rdfs:label xml:lang="fr">Durée de vie d&apos;un animal de boucherie</rdfs:label>
+        <rdfs:label xml:lang="en">Lifespan allocation to an animal for slaughter</rdfs:label>
+        <rdfs:label xml:lang="fr">Allocation de durée de vie pour un animal de boucherie</rdfs:label>
         <hasCategory rdf:resource="&bc;c/animal_husbandry"/>
         <hasDimension rdf:resource="&bc;d/farmed_animal"/>
         <hasDimension rdf:resource="&bc;d/meat"/>
-        <containsSingleCoefficient rdf:resource="&bc;sc/lifespan+beef_meat+beef"/>
-        <containsSingleCoefficient rdf:resource="&bc;sc/lifespan+beef_meat+calf"/>
-        <containsSingleCoefficient rdf:resource="&bc;sc/lifespan+beef_meat+suckler_cow"/>
-        <containsSingleCoefficient rdf:resource="&bc;sc/lifespan+calf_meat+calf"/>
-        <containsSingleCoefficient rdf:resource="&bc;sc/lifespan+calf_meat+suckler_cow"/>
-        <containsSingleCoefficient rdf:resource="&bc;sc/lifespan+suckler_cow_meat+calf"/>
-        <containsSingleCoefficient rdf:resource="&bc;sc/lifespan+suckler_cow_meat+heifer_young_bull"/>
+        <containsSingleCoefficient rdf:resource="&bc;sc/lifespan_allocation+beef_meat+beef"/>
+        <containsSingleCoefficient rdf:resource="&bc;sc/lifespan_allocation+beef_meat+calf"/>
+        <containsSingleCoefficient rdf:resource="&bc;sc/lifespan_allocation+beef_meat+suckler_cow"/>
+        <containsSingleCoefficient rdf:resource="&bc;sc/lifespan_allocation+calf_meat+calf"/>
+        <containsSingleCoefficient rdf:resource="&bc;sc/lifespan_allocation+calf_meat+suckler_cow"/>
+        <containsSingleCoefficient rdf:resource="&bc;sc/lifespan_allocation+suckler_cow_meat+calf"/>
+        <containsSingleCoefficient rdf:resource="&bc;sc/lifespan_allocation+suckler_cow_meat+heifer_young_bull"/>
         <hasUnit rdf:resource="&bc;u/day"/>
     </owl:NamedIndividual>
     
@@ -1614,14 +1677,19 @@
     
 
 
-    <!-- http://www.myc-sense.com/ontologies/bc#gc/live_weight_of_animal_for_slaughter -->
+    <!-- http://www.myc-sense.com/ontologies/bc#gc/live_weight_of_slaughtered_animal -->
 
-    <owl:NamedIndividual rdf:about="&bc;gc/live_weight_of_animal_for_slaughter">
+    <owl:NamedIndividual rdf:about="&bc;gc/live_weight_of_slaughtered_animal">
         <rdf:type rdf:resource="&bc;CoefficientGroup"/>
-        <rdfs:label xml:lang="en">Live weight of an animal for slaughter</rdfs:label>
-        <rdfs:label xml:lang="fr">Poids vif d&apos;un animal de boucherie</rdfs:label>
+        <rdfs:label xml:lang="en">Live weight of a farmed animal when slaughtered</rdfs:label>
+        <rdfs:label xml:lang="fr">Poids vif d&apos;un animal d&apos;élevage au moment de l&apos;abattage</rdfs:label>
         <hasCategory rdf:resource="&bc;c/production_of_processed_food_product"/>
         <hasDimension rdf:resource="&bc;d/meat"/>
+        <hasCommonKeyword rdf:resource="&bc;k/live_weight_of_slaughtered_animal"/>
+        <containsSingleCoefficient rdf:resource="&bc;sc/live_weight_of_slaughtered_animal+beef_meat"/>
+        <containsSingleCoefficient rdf:resource="&bc;sc/live_weight_of_slaughtered_animal+calf_meat"/>
+        <containsSingleCoefficient rdf:resource="&bc;sc/live_weight_of_slaughtered_animal+dairy_cow_meat"/>
+        <containsSingleCoefficient rdf:resource="&bc;sc/live_weight_of_slaughtered_animal+suckler_cow_meat"/>
         <hasUnit rdf:resource="&bc;u/kilogram_per_animal"/>
     </owl:NamedIndividual>
     
@@ -1746,6 +1814,8 @@
         <rdfs:label xml:lang="fr">Rendement d&apos;un animal producteur de lait</rdfs:label>
         <hasCategory rdf:resource="&bc;c/animal_husbandry"/>
         <hasDimension rdf:resource="&bc;d/dairy_animal"/>
+        <hasCommonKeyword rdf:resource="&bc;k/milk_yield"/>
+        <containsSingleCoefficient rdf:resource="&bc;sc/milk_yield+dairy_cow"/>
         <hasUnit rdf:resource="&bc;u/liter_per_animal_per_year"/>
     </owl:NamedIndividual>
     
@@ -1759,6 +1829,11 @@
         <rdfs:label xml:lang="fr">Proportion de viande nette commercialisable dans le poids vif d&apos;un animal de boucherie</rdfs:label>
         <hasCategory rdf:resource="&bc;c/production_of_processed_food_product"/>
         <hasDimension rdf:resource="&bc;d/meat"/>
+        <hasCommonKeyword rdf:resource="&bc;k/net_saleable_weight_over_live_weight"/>
+        <containsSingleCoefficient rdf:resource="&bc;sc/net_saleable_weight_over_live_weight+beef_meat"/>
+        <containsSingleCoefficient rdf:resource="&bc;sc/net_saleable_weight_over_live_weight+calf_meat"/>
+        <containsSingleCoefficient rdf:resource="&bc;sc/net_saleable_weight_over_live_weight+dairy_cow_meat"/>
+        <containsSingleCoefficient rdf:resource="&bc;sc/net_saleable_weight_over_live_weight+suclker_cow_meat"/>
         <hasUnit rdf:resource="&bc;u/percent"/>
     </owl:NamedIndividual>
     
@@ -1838,27 +1913,39 @@
     
 
 
-    <!-- http://www.myc-sense.com/ontologies/bc#gc/volume_of_fuel_oil_consumed_for_animal_husbandry -->
+    <!-- http://www.myc-sense.com/ontologies/bc#gc/volume_of_heating_oil_consumed_for_animal_husbandry -->
 
-    <owl:NamedIndividual rdf:about="&bc;gc/volume_of_fuel_oil_consumed_for_animal_husbandry">
+    <owl:NamedIndividual rdf:about="&bc;gc/volume_of_heating_oil_consumed_for_animal_husbandry">
         <rdf:type rdf:resource="&bc;CoefficientGroup"/>
-        <rdfs:label xml:lang="en">Volume of fuel oil consumed for animal husbandry during a unit of time</rdfs:label>
+        <rdfs:label xml:lang="en">Volume of heating oil consumed for animal husbandry during a unit of time</rdfs:label>
         <rdfs:label xml:lang="fr">Volume de fioul consommé pour l&apos;élevage d&apos;un animal pendant une unité de temps</rdfs:label>
         <hasCategory rdf:resource="&bc;c/animal_husbandry"/>
         <hasDimension rdf:resource="&bc;d/farmed_animal"/>
+        <hasCommonKeyword rdf:resource="&bc;k/heating_oil"/>
+        <containsSingleCoefficient rdf:resource="&bc;sc/heating_oil+beef"/>
+        <containsSingleCoefficient rdf:resource="&bc;sc/heating_oil+bull"/>
+        <containsSingleCoefficient rdf:resource="&bc;sc/heating_oil+calf"/>
+        <containsSingleCoefficient rdf:resource="&bc;sc/heating_oil+dairy_cow"/>
+        <containsSingleCoefficient rdf:resource="&bc;sc/heating_oil+heafer_young_bull"/>
+        <containsSingleCoefficient rdf:resource="&bc;sc/heating_oil+suckler_cow"/>
         <hasUnit rdf:resource="&bc;u/liter_per_animal_per_year"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.myc-sense.com/ontologies/bc#gc/volume_of_milk_required_for_production_of_dairy_product -->
+    <!-- http://www.myc-sense.com/ontologies/bc#gc/volume_of_milk_required_for_production_of_transformed_dairy_product -->
 
-    <owl:NamedIndividual rdf:about="&bc;gc/volume_of_milk_required_for_production_of_dairy_product">
+    <owl:NamedIndividual rdf:about="&bc;gc/volume_of_milk_required_for_production_of_transformed_dairy_product">
         <rdf:type rdf:resource="&bc;CoefficientGroup"/>
         <rdfs:label xml:lang="en">Volume of milk required for production of a unit of mass of dairy product</rdfs:label>
         <rdfs:label xml:lang="fr">Volume de lait nécessaire à la production d&apos;une unité de mase de produit laitier</rdfs:label>
-        <hasCategory rdf:resource="&bc;c/animal_husbandry"/>
-        <hasDimension rdf:resource="&bc;d/dairy_product"/>
+        <hasCategory rdf:resource="&bc;c/production_of_processed_food_product"/>
+        <hasDimension rdf:resource="&bc;d/transformed_dairy_product"/>
+        <hasCommonKeyword rdf:resource="&bc;k/volume_of_milk_required"/>
+        <containsSingleCoefficient rdf:resource="&bc;sc/volume_of_milk_required+butter"/>
+        <containsSingleCoefficient rdf:resource="&bc;sc/volume_of_milk_required+hard_cheese"/>
+        <containsSingleCoefficient rdf:resource="&bc;sc/volume_of_milk_required+soft_cheese"/>
+        <containsSingleCoefficient rdf:resource="&bc;sc/volume_of_milk_required+yoghurt"/>
         <hasUnit rdf:resource="&bc;u/liter_per_kilogram"/>
     </owl:NamedIndividual>
     
@@ -1958,8 +2045,10 @@
         <hasDimension rdf:resource="&bc;d/combustion_process"/>
         <hasDimension rdf:resource="&bc;d/fuel_unit_of_volume"/>
         <containsSingleProcess rdf:resource="&bc;sp/combustion+diesel_fuel+volume"/>
+        <containsSingleProcess rdf:resource="&bc;sp/combustion+heating_oil"/>
         <containsSingleProcess rdf:resource="&bc;sp/combustion+motor_gasoline+volume"/>
         <containsSingleProcess rdf:resource="&bc;sp/upstream_of_fuel+diesel_fuel+volume"/>
+        <containsSingleProcess rdf:resource="&bc;sp/upstream_of_fuel+heating_oil"/>
         <containsSingleProcess rdf:resource="&bc;sp/upstream_of_fuel+motor_gasoline+volume"/>
         <hasUnit rdf:resource="&bc;u/cube_meter"/>
     </owl:NamedIndividual>
@@ -2083,18 +2172,31 @@
         <rdfs:label xml:lang="en">Production of dairy product</rdfs:label>
         <rdfs:label xml:lang="fr">Production de produit laitier</rdfs:label>
         <hasCategory rdf:resource="&bc;c/production_of_processed_food_product"/>
-        <hasDimension rdf:resource="&bc;d/dairy_product"/>
+        <hasDimension rdf:resource="&bc;d/transformed_dairy_product"/>
         <hasUnit rdf:resource="&bc;u/kilogram"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.myc-sense.com/ontologies/bc#gp/production_of_meat -->
+    <!-- http://www.myc-sense.com/ontologies/bc#gp/production_of_meat_unit_live_weight -->
 
-    <owl:NamedIndividual rdf:about="&bc;gp/production_of_meat">
+    <owl:NamedIndividual rdf:about="&bc;gp/production_of_meat_unit_live_weight">
         <rdf:type rdf:resource="&bc;ProcessGroup"/>
-        <rdfs:label xml:lang="en">Production of meat, measured in unit of mass</rdfs:label>
-        <rdfs:label xml:lang="fr">Production de viande, mesurée en unité de masse</rdfs:label>
+        <rdfs:label xml:lang="en">Production of meat, measured in unit of live weight</rdfs:label>
+        <rdfs:label xml:lang="fr">Production de viande, mesurée en unité de poids vif</rdfs:label>
+        <hasCategory rdf:resource="&bc;c/production_of_processed_food_product"/>
+        <hasDimension rdf:resource="&bc;d/meat"/>
+        <hasUnit rdf:resource="&bc;u/kilogram"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#gp/production_of_meat_unit_net_saleable_weight -->
+
+    <owl:NamedIndividual rdf:about="&bc;gp/production_of_meat_unit_net_saleable_weight">
+        <rdf:type rdf:resource="&bc;ProcessGroup"/>
+        <rdfs:label xml:lang="en">Production of meat, measured in unit of net saleable weight</rdfs:label>
+        <rdfs:label xml:lang="fr">Production de viande, mesurée en unité de poids net vendable</rdfs:label>
         <hasCategory rdf:resource="&bc;c/production_of_processed_food_product"/>
         <hasDimension rdf:resource="&bc;d/meat"/>
         <hasUnit rdf:resource="&bc;u/kilogram"/>
@@ -2420,8 +2522,8 @@
     <!-- http://www.myc-sense.com/ontologies/bc#k/alimentary_product -->
 
     <owl:NamedIndividual rdf:about="&bc;k/alimentary_product">
+        <isBroaderThan rdf:resource="&bc;k/cattle_meat"/>
         <isBroaderThan rdf:resource="&bc;k/dairy_product"/>
-        <isBroaderThan rdf:resource="&bc;k/meat"/>
     </owl:NamedIndividual>
     
 
@@ -2593,8 +2695,8 @@
     <!-- http://www.myc-sense.com/ontologies/bc#k/beef_meat -->
 
     <owl:NamedIndividual rdf:about="&bc;k/beef_meat">
-        <rdfs:label xml:lang="en">Beef</rdfs:label>
-        <rdfs:label xml:lang="fr">Bœuf</rdfs:label>
+        <rdfs:label xml:lang="en">Beef (meat)</rdfs:label>
+        <rdfs:label xml:lang="fr">Bœuf (viande)</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -2847,8 +2949,8 @@
     <!-- http://www.myc-sense.com/ontologies/bc#k/calf_meat -->
 
     <owl:NamedIndividual rdf:about="&bc;k/calf_meat">
-        <rdfs:label xml:lang="en">Calf</rdfs:label>
-        <rdfs:label xml:lang="fr">Veau</rdfs:label>
+        <rdfs:label xml:lang="en">Calf (meat)</rdfs:label>
+        <rdfs:label xml:lang="fr">Veau (viande)</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -2923,6 +3025,19 @@
         <isBroaderThan rdf:resource="&bc;k/dairy_cow"/>
         <isBroaderThan rdf:resource="&bc;k/heifer_young_bull"/>
         <isBroaderThan rdf:resource="&bc;k/suckler_cow"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#k/cattle_meat -->
+
+    <owl:NamedIndividual rdf:about="&bc;k/cattle_meat">
+        <rdfs:label xml:lang="en">Meat</rdfs:label>
+        <rdfs:label xml:lang="fr">Viande</rdfs:label>
+        <isBroaderThan rdf:resource="&bc;k/beef_meat"/>
+        <isBroaderThan rdf:resource="&bc;k/calf_meat"/>
+        <isBroaderThan rdf:resource="&bc;k/dairy_cow_meat"/>
+        <isBroaderThan rdf:resource="&bc;k/suckler_cow_meat"/>
     </owl:NamedIndividual>
     
 
@@ -3136,8 +3251,8 @@
     <!-- http://www.myc-sense.com/ontologies/bc#k/dairy_cow_meat -->
 
     <owl:NamedIndividual rdf:about="&bc;k/dairy_cow_meat">
-        <rdfs:label xml:lang="en">Dairy cow</rdfs:label>
-        <rdfs:label xml:lang="fr">Vache laitière</rdfs:label>
+        <rdfs:label xml:lang="en">Dairy cow (meat)</rdfs:label>
+        <rdfs:label xml:lang="fr">Vache laitière (viande)</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -3148,7 +3263,6 @@
         <rdfs:label xml:lang="en">Dairy_product</rdfs:label>
         <rdfs:label xml:lang="fr">Laitage</rdfs:label>
         <isBroaderThan rdf:resource="&bc;k/butter"/>
-        <isBroaderThan rdf:resource="&bc;k/cow_milk"/>
         <isBroaderThan rdf:resource="&bc;k/hard_cheese"/>
         <isBroaderThan rdf:resource="&bc;k/soft_cheese"/>
         <isBroaderThan rdf:resource="&bc;k/yoghurt"/>
@@ -3836,7 +3950,6 @@
 
     <owl:NamedIndividual rdf:about="&bc;k/heating_oil">
         <rdfs:label xml:lang="en">Heating oil</rdfs:label>
-        <rdfs:label xml:lang="en">Number 2 fuel oil</rdfs:label>
         <rdfs:label xml:lang="fr">Fioul domestique</rdfs:label>
         <hasPrimarySource rdf:resource="&bc;k/fossil"/>
         <hasMatterState rdf:resource="&bc;k/liquid"/>
@@ -4054,6 +4167,12 @@
     
 
 
+    <!-- http://www.myc-sense.com/ontologies/bc#k/live_weight_of_slaughtered_animal -->
+
+    <owl:NamedIndividual rdf:about="&bc;k/live_weight_of_slaughtered_animal"/>
+    
+
+
     <!-- http://www.myc-sense.com/ontologies/bc#k/low_density_polyethylene -->
 
     <owl:NamedIndividual rdf:about="&bc;k/low_density_polyethylene">
@@ -4178,16 +4297,8 @@
     <!-- http://www.myc-sense.com/ontologies/bc#k/meat -->
 
     <owl:NamedIndividual rdf:about="&bc;k/meat">
-        <rdfs:label xml:lang="en">Meat</rdfs:label>
-        <rdfs:label xml:lang="fr">Viande</rdfs:label>
-        <isBroaderThan rdf:resource="&bc;k/adult_sheep_meat"/>
-        <isBroaderThan rdf:resource="&bc;k/beef_meat"/>
-        <isBroaderThan rdf:resource="&bc;k/calf_meat"/>
-        <isBroaderThan rdf:resource="&bc;k/dairy_cow_meat"/>
-        <isBroaderThan rdf:resource="&bc;k/ewe_meat"/>
-        <isBroaderThan rdf:resource="&bc;k/grazing_lamb_meat"/>
-        <isBroaderThan rdf:resource="&bc;k/suckler_cow_meat"/>
-        <isBroaderThan rdf:resource="&bc;k/suckling_lamb_meat"/>
+        <isBroaderThan rdf:resource="&bc;k/cattle_meat"/>
+        <isBroaderThan rdf:resource="&bc;k/sheep_meat"/>
     </owl:NamedIndividual>
     
 
@@ -4204,6 +4315,12 @@
         <isBroaderThan rdf:resource="&bc;k/steel_sheet_metal"/>
         <isBroaderThan rdf:resource="&bc;k/zinc"/>
     </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#k/milk_yield -->
+
+    <owl:NamedIndividual rdf:about="&bc;k/milk_yield"/>
     
 
 
@@ -4275,6 +4392,12 @@
         <hasPrimarySource rdf:resource="&bc;k/fossil"/>
         <hasMatterState rdf:resource="&bc;k/gas"/>
     </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#k/net_saleable_weight_over_live_weight -->
+
+    <owl:NamedIndividual rdf:about="&bc;k/net_saleable_weight_over_live_weight"/>
     
 
 
@@ -4716,6 +4839,17 @@
     
 
 
+    <!-- http://www.myc-sense.com/ontologies/bc#k/sheep_meat -->
+
+    <owl:NamedIndividual rdf:about="&bc;k/sheep_meat">
+        <isBroaderThan rdf:resource="&bc;k/adult_sheep_meat"/>
+        <isBroaderThan rdf:resource="&bc;k/ewe_meat"/>
+        <isBroaderThan rdf:resource="&bc;k/grazing_lamb_meat"/>
+        <isBroaderThan rdf:resource="&bc;k/suckling_lamb_meat"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.myc-sense.com/ontologies/bc#k/ship_passenger_transport -->
 
     <owl:NamedIndividual rdf:about="&bc;k/ship_passenger_transport">
@@ -4801,8 +4935,8 @@
     <!-- http://www.myc-sense.com/ontologies/bc#k/suckler_cow_meat -->
 
     <owl:NamedIndividual rdf:about="&bc;k/suckler_cow_meat">
-        <rdfs:label xml:lang="en">Suckler cow</rdfs:label>
-        <rdfs:label xml:lang="fr">Vache allaitante</rdfs:label>
+        <rdfs:label xml:lang="en">Suckler cow (meat)</rdfs:label>
+        <rdfs:label xml:lang="fr">Vache allaitante (viande)</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -5140,6 +5274,12 @@
     
 
 
+    <!-- http://www.myc-sense.com/ontologies/bc#k/volume_of_milk_required -->
+
+    <owl:NamedIndividual rdf:about="&bc;k/volume_of_milk_required"/>
+    
+
+
     <!-- http://www.myc-sense.com/ontologies/bc#k/waste_electrical_electronic_equipment -->
 
     <owl:NamedIndividual rdf:about="&bc;k/waste_electrical_electronic_equipment">
@@ -5260,6 +5400,16 @@
     
 
 
+    <!-- http://www.myc-sense.com/ontologies/bc#r/fuel_used_by_car_motor_engine -->
+
+    <owl:NamedIndividual rdf:about="&bc;r/fuel_used_by_car_motor_engine">
+        <hasWeight rdf:resource="&bc;gc/fuel_used_by_car_motor_engine"/>
+        <hasDestination rdf:resource="&bc;gp/combustion_of_fuel_for_car"/>
+        <hasOrigin rdf:resource="&bc;gp/combustion_unit_of_volume"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.myc-sense.com/ontologies/bc#r/life_time_of_road_freight_vehicle -->
 
     <owl:NamedIndividual rdf:about="&bc;r/life_time_of_road_freight_vehicle">
@@ -5273,7 +5423,7 @@
     <!-- http://www.myc-sense.com/ontologies/bc#r/lifespan_of_animal_for_slaughter -->
 
     <owl:NamedIndividual rdf:about="&bc;r/lifespan_of_animal_for_slaughter">
-        <hasWeight rdf:resource="&bc;gc/lifespan_of_animal_for_slaughter"/>
+        <hasWeight rdf:resource="&bc;gc/lifespan_allocation_of_animal_for_slaughter"/>
         <hasOrigin rdf:resource="&bc;gp/animal_husbandry_unit_of_time"/>
         <hasDestination rdf:resource="&bc;gp/production_of_animal_for_slaughter"/>
     </owl:NamedIndividual>
@@ -5286,6 +5436,16 @@
         <hasWeight rdf:resource="&bc;gc/lifetime_of_car"/>
         <hasOrigin rdf:resource="&bc;gp/manufacture_of_car_unit_vehicle"/>
         <hasDestination rdf:resource="&bc;gp/travel_by_car"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#r/live_weight_of_slaughtered_animal -->
+
+    <owl:NamedIndividual rdf:about="&bc;r/live_weight_of_slaughtered_animal">
+        <hasWeight rdf:resource="&bc;gc/live_weight_of_slaughtered_animal"/>
+        <hasOrigin rdf:resource="&bc;gp/production_of_animal_for_slaughter"/>
+        <hasDestination rdf:resource="&bc;gp/production_of_meat_unit_live_weight"/>
     </owl:NamedIndividual>
     
 
@@ -5320,22 +5480,22 @@
     
 
 
-    <!-- http://www.myc-sense.com/ontologies/bc#r/quantity_of_fuel_oil_consumed_for_animal_husbandry -->
+    <!-- http://www.myc-sense.com/ontologies/bc#r/proportion_of_net_saleable_meat_in_live_weight -->
 
-    <owl:NamedIndividual rdf:about="&bc;r/quantity_of_fuel_oil_consumed_for_animal_husbandry">
-        <hasWeight rdf:resource="&bc;gc/volume_of_fuel_oil_consumed_for_animal_husbandry"/>
-        <hasDestination rdf:resource="&bc;gp/animal_husbandry_unit_of_time"/>
-        <hasOrigin rdf:resource="&bc;gp/combustion_unit_of_volume"/>
+    <owl:NamedIndividual rdf:about="&bc;r/proportion_of_net_saleable_meat_in_live_weight">
+        <hasWeight rdf:resource="&bc;gc/proportion_of_net_saleable_meat_in_live_weight"/>
+        <hasOrigin rdf:resource="&bc;gp/production_of_meat_unit_live_weight"/>
+        <hasDestination rdf:resource="&bc;gp/production_of_meat_unit_net_saleable_weight"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.myc-sense.com/ontologies/bc#r/quantity_of_net_saleable_meat_in_slaughtered_animal -->
+    <!-- http://www.myc-sense.com/ontologies/bc#r/quantity_of_fuel_oil_consumed_for_animal_husbandry -->
 
-    <owl:NamedIndividual rdf:about="&bc;r/quantity_of_net_saleable_meat_in_slaughtered_animal">
-        <hasWeight rdf:resource="&bc;gc/live_weight_of_animal_for_slaughter"/>
-        <hasOrigin rdf:resource="&bc;gp/production_of_animal_for_slaughter"/>
-        <hasDestination rdf:resource="&bc;gp/production_of_meat"/>
+    <owl:NamedIndividual rdf:about="&bc;r/quantity_of_fuel_oil_consumed_for_animal_husbandry">
+        <hasWeight rdf:resource="&bc;gc/volume_of_heating_oil_consumed_for_animal_husbandry"/>
+        <hasDestination rdf:resource="&bc;gp/animal_husbandry_unit_of_time"/>
+        <hasOrigin rdf:resource="&bc;gp/combustion_unit_of_volume"/>
     </owl:NamedIndividual>
     
 
@@ -5363,8 +5523,8 @@
     <!-- http://www.myc-sense.com/ontologies/bc#r/volume_of_fuel_consumed_per_unit_of_distance_travelled_car -->
 
     <owl:NamedIndividual rdf:about="&bc;r/volume_of_fuel_consumed_per_unit_of_distance_travelled_car">
-        <hasOrigin rdf:resource="&bc;gc/volume_of_fuel_consumed_per_unit_of_distance_travelled_car"/>
         <hasWeight rdf:resource="&bc;gc/volume_of_fuel_consumed_per_unit_of_distance_travelled_car"/>
+        <hasOrigin rdf:resource="&bc;gp/combustion_of_fuel_for_car"/>
         <hasDestination rdf:resource="&bc;gp/travel_by_car"/>
     </owl:NamedIndividual>
     
@@ -5393,7 +5553,7 @@
     <!-- http://www.myc-sense.com/ontologies/bc#r/volume_of_milk_required_for_production_of_dairy_product -->
 
     <owl:NamedIndividual rdf:about="&bc;r/volume_of_milk_required_for_production_of_dairy_product">
-        <hasWeight rdf:resource="&bc;gc/volume_of_milk_required_for_production_of_dairy_product"/>
+        <hasWeight rdf:resource="&bc;gc/volume_of_milk_required_for_production_of_transformed_dairy_product"/>
         <hasDestination rdf:resource="&bc;gp/production_of_dairy_product"/>
         <hasOrigin rdf:resource="&bc;gp/production_of_milk"/>
     </owl:NamedIndividual>
@@ -5560,9 +5720,75 @@
     
 
 
-    <!-- http://www.myc-sense.com/ontologies/bc#sc/lifespan+beef_meat+beef -->
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/heating_oil+beef -->
 
-    <owl:NamedIndividual rdf:about="&bc;sc/lifespan+beef_meat+beef">
+    <owl:NamedIndividual rdf:about="&bc;sc/heating_oil+beef">
+        <value rdf:datatype="&xsd;double">44.0</value>
+        <hasTag rdf:resource="&bc;k/beef"/>
+        <hasTag rdf:resource="&bc;k/heating_oil"/>
+        <hasUnit rdf:resource="&bc;u/liter_per_animal_per_year"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/heating_oil+bull -->
+
+    <owl:NamedIndividual rdf:about="&bc;sc/heating_oil+bull">
+        <value rdf:datatype="&xsd;double">44.0</value>
+        <hasTag rdf:resource="&bc;k/bull"/>
+        <hasTag rdf:resource="&bc;k/heating_oil"/>
+        <hasUnit rdf:resource="&bc;u/liter_per_animal_per_year"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/heating_oil+calf -->
+
+    <owl:NamedIndividual rdf:about="&bc;sc/heating_oil+calf">
+        <value rdf:datatype="&xsd;double">44.0</value>
+        <hasTag rdf:resource="&bc;k/calf"/>
+        <hasTag rdf:resource="&bc;k/heating_oil"/>
+        <hasUnit rdf:resource="&bc;u/liter_per_animal_per_year"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/heating_oil+dairy_cow -->
+
+    <owl:NamedIndividual rdf:about="&bc;sc/heating_oil+dairy_cow">
+        <value rdf:datatype="&xsd;double">61.0</value>
+        <hasTag rdf:resource="&bc;k/dairy_cow"/>
+        <hasTag rdf:resource="&bc;k/heating_oil"/>
+        <hasUnit rdf:resource="&bc;u/liter_per_animal_per_year"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/heating_oil+heafer_young_bull -->
+
+    <owl:NamedIndividual rdf:about="&bc;sc/heating_oil+heafer_young_bull">
+        <value rdf:datatype="&xsd;double">44.0</value>
+        <hasTag rdf:resource="&bc;k/heating_oil"/>
+        <hasTag rdf:resource="&bc;k/heifer_young_bull"/>
+        <hasUnit rdf:resource="&bc;u/liter_per_animal_per_year"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/heating_oil+suckler_cow -->
+
+    <owl:NamedIndividual rdf:about="&bc;sc/heating_oil+suckler_cow">
+        <value rdf:datatype="&xsd;double">44.0</value>
+        <hasTag rdf:resource="&bc;k/heating_oil"/>
+        <hasTag rdf:resource="&bc;k/suckler_cow"/>
+        <hasUnit rdf:resource="&bc;u/liter_per_animal_per_year"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/lifespan_allocation+beef_meat+beef -->
+
+    <owl:NamedIndividual rdf:about="&bc;sc/lifespan_allocation+beef_meat+beef">
         <value rdf:datatype="&xsd;double">730.0</value>
         <hasTag rdf:resource="&bc;k/beef"/>
         <hasTag rdf:resource="&bc;k/beef_meat"/>
@@ -5571,9 +5797,9 @@
     
 
 
-    <!-- http://www.myc-sense.com/ontologies/bc#sc/lifespan+beef_meat+calf -->
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/lifespan_allocation+beef_meat+calf -->
 
-    <owl:NamedIndividual rdf:about="&bc;sc/lifespan+beef_meat+calf">
+    <owl:NamedIndividual rdf:about="&bc;sc/lifespan_allocation+beef_meat+calf">
         <value rdf:datatype="&xsd;double">365.0</value>
         <hasTag rdf:resource="&bc;k/beef_meat"/>
         <hasTag rdf:resource="&bc;k/calf"/>
@@ -5582,9 +5808,9 @@
     
 
 
-    <!-- http://www.myc-sense.com/ontologies/bc#sc/lifespan+beef_meat+suckler_cow -->
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/lifespan_allocation+beef_meat+suckler_cow -->
 
-    <owl:NamedIndividual rdf:about="&bc;sc/lifespan+beef_meat+suckler_cow">
+    <owl:NamedIndividual rdf:about="&bc;sc/lifespan_allocation+beef_meat+suckler_cow">
         <value rdf:datatype="&xsd;double">365.0</value>
         <hasTag rdf:resource="&bc;k/beef_meat"/>
         <hasTag rdf:resource="&bc;k/suckler_cow"/>
@@ -5593,10 +5819,10 @@
     
 
 
-    <!-- http://www.myc-sense.com/ontologies/bc#sc/lifespan+calf_meat+calf -->
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/lifespan_allocation+calf_meat+calf -->
 
-    <owl:NamedIndividual rdf:about="&bc;sc/lifespan+calf_meat+calf">
-        <value rdf:datatype="&xsd;double">365.0</value>
+    <owl:NamedIndividual rdf:about="&bc;sc/lifespan_allocation+calf_meat+calf">
+        <value rdf:datatype="&xsd;double">182.5</value>
         <hasTag rdf:resource="&bc;k/calf"/>
         <hasTag rdf:resource="&bc;k/calf_meat"/>
         <hasUnit rdf:resource="&bc;u/day"/>
@@ -5604,9 +5830,9 @@
     
 
 
-    <!-- http://www.myc-sense.com/ontologies/bc#sc/lifespan+calf_meat+suckler_cow -->
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/lifespan_allocation+calf_meat+suckler_cow -->
 
-    <owl:NamedIndividual rdf:about="&bc;sc/lifespan+calf_meat+suckler_cow">
+    <owl:NamedIndividual rdf:about="&bc;sc/lifespan_allocation+calf_meat+suckler_cow">
         <value rdf:datatype="&xsd;double">365.0</value>
         <hasTag rdf:resource="&bc;k/calf_meat"/>
         <hasTag rdf:resource="&bc;k/suckler_cow"/>
@@ -5615,9 +5841,9 @@
     
 
 
-    <!-- http://www.myc-sense.com/ontologies/bc#sc/lifespan+suckler_cow_meat+calf -->
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/lifespan_allocation+suckler_cow_meat+calf -->
 
-    <owl:NamedIndividual rdf:about="&bc;sc/lifespan+suckler_cow_meat+calf">
+    <owl:NamedIndividual rdf:about="&bc;sc/lifespan_allocation+suckler_cow_meat+calf">
         <value rdf:datatype="&xsd;double">365.0</value>
         <hasTag rdf:resource="&bc;k/calf"/>
         <hasTag rdf:resource="&bc;k/suckler_cow_meat"/>
@@ -5626,13 +5852,57 @@
     
 
 
-    <!-- http://www.myc-sense.com/ontologies/bc#sc/lifespan+suckler_cow_meat+heifer_young_bull -->
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/lifespan_allocation+suckler_cow_meat+heifer_young_bull -->
 
-    <owl:NamedIndividual rdf:about="&bc;sc/lifespan+suckler_cow_meat+heifer_young_bull">
+    <owl:NamedIndividual rdf:about="&bc;sc/lifespan_allocation+suckler_cow_meat+heifer_young_bull">
         <value rdf:datatype="&xsd;double">365.0</value>
         <hasTag rdf:resource="&bc;k/heifer_young_bull"/>
         <hasTag rdf:resource="&bc;k/suckler_cow_meat"/>
         <hasUnit rdf:resource="&bc;u/day"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/live_weight_of_slaughtered_animal+beef_meat -->
+
+    <owl:NamedIndividual rdf:about="&bc;sc/live_weight_of_slaughtered_animal+beef_meat">
+        <value rdf:datatype="&xsd;double">680.0</value>
+        <hasTag rdf:resource="&bc;k/beef_meat"/>
+        <hasTag rdf:resource="&bc;k/live_weight_of_slaughtered_animal"/>
+        <hasUnit rdf:resource="&bc;u/kilogram_per_animal"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/live_weight_of_slaughtered_animal+calf_meat -->
+
+    <owl:NamedIndividual rdf:about="&bc;sc/live_weight_of_slaughtered_animal+calf_meat">
+        <value rdf:datatype="&xsd;double">181.0</value>
+        <hasTag rdf:resource="&bc;k/calf_meat"/>
+        <hasTag rdf:resource="&bc;k/live_weight_of_slaughtered_animal"/>
+        <hasUnit rdf:resource="&bc;u/kilogram_per_animal"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/live_weight_of_slaughtered_animal+dairy_cow_meat -->
+
+    <owl:NamedIndividual rdf:about="&bc;sc/live_weight_of_slaughtered_animal+dairy_cow_meat">
+        <value rdf:datatype="&xsd;double">680.0</value>
+        <hasTag rdf:resource="&bc;k/dairy_cow_meat"/>
+        <hasTag rdf:resource="&bc;k/live_weight_of_slaughtered_animal"/>
+        <hasUnit rdf:resource="&bc;u/kilogram_per_animal"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/live_weight_of_slaughtered_animal+suckler_cow_meat -->
+
+    <owl:NamedIndividual rdf:about="&bc;sc/live_weight_of_slaughtered_animal+suckler_cow_meat">
+        <value rdf:datatype="&xsd;double">680.0</value>
+        <hasTag rdf:resource="&bc;k/live_weight_of_slaughtered_animal"/>
+        <hasTag rdf:resource="&bc;k/suckler_cow_meat"/>
+        <hasUnit rdf:resource="&bc;u/kilogram_per_animal"/>
     </owl:NamedIndividual>
     
 
@@ -5781,12 +6051,122 @@
     
 
 
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/milk_yield+dairy_cow -->
+
+    <owl:NamedIndividual rdf:about="&bc;sc/milk_yield+dairy_cow">
+        <value rdf:datatype="&xsd;double">6600.0</value>
+        <hasTag rdf:resource="&bc;k/dairy_cow"/>
+        <hasTag rdf:resource="&bc;k/milk_yield"/>
+        <hasUnit rdf:resource="&bc;u/liter_per_animal_per_year"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/net_saleable_weight_over_live_weight+beef_meat -->
+
+    <owl:NamedIndividual rdf:about="&bc;sc/net_saleable_weight_over_live_weight+beef_meat">
+        <value rdf:datatype="&xsd;double">38.0</value>
+        <hasTag rdf:resource="&bc;k/beef_meat"/>
+        <hasTag rdf:resource="&bc;k/net_saleable_weight_over_live_weight"/>
+        <hasUnit rdf:resource="&bc;u/percent"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/net_saleable_weight_over_live_weight+calf_meat -->
+
+    <owl:NamedIndividual rdf:about="&bc;sc/net_saleable_weight_over_live_weight+calf_meat">
+        <value rdf:datatype="&xsd;double">35.0</value>
+        <hasTag rdf:resource="&bc;k/calf_meat"/>
+        <hasTag rdf:resource="&bc;k/net_saleable_weight_over_live_weight"/>
+        <hasUnit rdf:resource="&bc;u/percent"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/net_saleable_weight_over_live_weight+dairy_cow_meat -->
+
+    <owl:NamedIndividual rdf:about="&bc;sc/net_saleable_weight_over_live_weight+dairy_cow_meat">
+        <value rdf:datatype="&xsd;double">38.0</value>
+        <hasTag rdf:resource="&bc;k/dairy_cow_meat"/>
+        <hasTag rdf:resource="&bc;k/net_saleable_weight_over_live_weight"/>
+        <hasUnit rdf:resource="&bc;u/percent"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/net_saleable_weight_over_live_weight+suclker_cow_meat -->
+
+    <owl:NamedIndividual rdf:about="&bc;sc/net_saleable_weight_over_live_weight+suclker_cow_meat">
+        <value rdf:datatype="&xsd;double">38.0</value>
+        <hasTag rdf:resource="&bc;k/net_saleable_weight_over_live_weight"/>
+        <hasTag rdf:resource="&bc;k/suckler_cow_meat"/>
+        <hasUnit rdf:resource="&bc;u/percent"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/volume_of_milk_required+butter -->
+
+    <owl:NamedIndividual rdf:about="&bc;sc/volume_of_milk_required+butter">
+        <value rdf:datatype="&xsd;double">8.3</value>
+        <hasTag rdf:resource="&bc;k/butter"/>
+        <hasTag rdf:resource="&bc;k/volume_of_milk_required"/>
+        <hasUnit rdf:resource="&bc;u/liter_per_kilogram"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/volume_of_milk_required+hard_cheese -->
+
+    <owl:NamedIndividual rdf:about="&bc;sc/volume_of_milk_required+hard_cheese">
+        <value rdf:datatype="&xsd;double">11.5</value>
+        <hasTag rdf:resource="&bc;k/hard_cheese"/>
+        <hasTag rdf:resource="&bc;k/volume_of_milk_required"/>
+        <hasUnit rdf:resource="&bc;u/liter_per_kilogram"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/volume_of_milk_required+soft_cheese -->
+
+    <owl:NamedIndividual rdf:about="&bc;sc/volume_of_milk_required+soft_cheese">
+        <value rdf:datatype="&xsd;double">6.0</value>
+        <hasTag rdf:resource="&bc;k/soft_cheese"/>
+        <hasTag rdf:resource="&bc;k/volume_of_milk_required"/>
+        <hasUnit rdf:resource="&bc;u/liter_per_kilogram"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/volume_of_milk_required+yoghurt -->
+
+    <owl:NamedIndividual rdf:about="&bc;sc/volume_of_milk_required+yoghurt">
+        <value rdf:datatype="&xsd;double">1.0</value>
+        <hasTag rdf:resource="&bc;k/volume_of_milk_required"/>
+        <hasTag rdf:resource="&bc;k/yoghurt"/>
+        <hasUnit rdf:resource="&bc;u/liter_per_kilogram"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.myc-sense.com/ontologies/bc#sp/combustion+diesel_fuel+volume -->
 
     <owl:NamedIndividual rdf:about="&bc;sp/combustion+diesel_fuel+volume">
         <hasInputFlow rdf:resource="&bc;f/00000"/>
         <hasTag rdf:resource="&bc;k/combustion"/>
         <hasTag rdf:resource="&bc;k/diesel_fuel"/>
+        <hasUnit rdf:resource="&bc;u/cube_meter"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#sp/combustion+heating_oil -->
+
+    <owl:NamedIndividual rdf:about="&bc;sp/combustion+heating_oil">
+        <hasInputFlow rdf:resource="&bc;f/00012"/>
+        <hasTag rdf:resource="&bc;k/combustion"/>
+        <hasTag rdf:resource="&bc;k/heating_oil"/>
         <hasUnit rdf:resource="&bc;u/cube_meter"/>
     </owl:NamedIndividual>
     
@@ -5841,6 +6221,17 @@
     <owl:NamedIndividual rdf:about="&bc;sp/upstream_of_fuel+diesel_fuel+volume">
         <hasInputFlow rdf:resource="&bc;f/00002"/>
         <hasTag rdf:resource="&bc;k/diesel_fuel"/>
+        <hasTag rdf:resource="&bc;k/upstream_of_fuel"/>
+        <hasUnit rdf:resource="&bc;u/cube_meter"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#sp/upstream_of_fuel+heating_oil -->
+
+    <owl:NamedIndividual rdf:about="&bc;sp/upstream_of_fuel+heating_oil">
+        <hasInputFlow rdf:resource="&bc;f/00013"/>
+        <hasTag rdf:resource="&bc;k/heating_oil"/>
         <hasTag rdf:resource="&bc;k/upstream_of_fuel"/>
         <hasUnit rdf:resource="&bc;u/cube_meter"/>
     </owl:NamedIndividual>
@@ -6082,6 +6473,14 @@
     
 
 
+    <!-- http://www.myc-sense.com/ontologies/bc#u/unit -->
+
+    <owl:NamedIndividual rdf:about="&bc;u/unit">
+        <foreignUnitID>un</foreignUnitID>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.myc-sense.com/ontologies/bc#u/vehicle -->
 
     <owl:NamedIndividual rdf:about="&bc;u/vehicle">
@@ -6119,6 +6518,51 @@
     </rdf:Description>
     <rdf:Description>
         <rdf:type rdf:resource="&swrl;Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="&swrl;AtomList"/>
+                <rdf:rest rdf:resource="&rdf;nil"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
+                        <swrl:argument1 rdf:resource="&bc;k/dairy_product"/>
+                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
+                    </rdf:Description>
+                </rdf:first>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="&swrl;AtomList"/>
+                <rdf:rest rdf:resource="&rdf;nil"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
+                        <swrl:argument1 rdf:resource="&bc;d/transformed_dairy_product"/>
+                        <swrl:propertyPredicate rdf:resource="&bc;hasKeyword"/>
+                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
+                    </rdf:Description>
+                </rdf:first>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&swrl;Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="&swrl;AtomList"/>
+                <rdf:rest rdf:resource="&rdf;nil"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
+                        <swrl:argument1 rdf:resource="&bc;k/self_propelled"/>
+                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
+                    </rdf:Description>
+                </rdf:first>
+            </rdf:Description>
+        </swrl:body>
         <swrl:head>
             <rdf:Description>
                 <rdf:type rdf:resource="&swrl;AtomList"/>
@@ -6133,6 +6577,319 @@
                 </rdf:first>
             </rdf:Description>
         </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&swrl;Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="&swrl;AtomList"/>
+                <rdf:rest rdf:resource="&rdf;nil"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
+                        <swrl:argument1 rdf:resource="&bc;k/root_tuber"/>
+                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
+                    </rdf:Description>
+                </rdf:first>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="&swrl;AtomList"/>
+                <rdf:rest rdf:resource="&rdf;nil"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
+                        <swrl:argument1 rdf:resource="&bc;d/type_of_crop"/>
+                        <swrl:propertyPredicate rdf:resource="&bc;hasKeyword"/>
+                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
+                    </rdf:Description>
+                </rdf:first>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&swrl;Imp"/>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="&swrl;AtomList"/>
+                <rdf:rest rdf:resource="&rdf;nil"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
+                        <swrl:argument1 rdf:resource="&bc;d/type_of_meal"/>
+                        <swrl:propertyPredicate rdf:resource="&bc;hasKeyword"/>
+                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
+                    </rdf:Description>
+                </rdf:first>
+            </rdf:Description>
+        </swrl:head>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="&swrl;AtomList"/>
+                <rdf:rest rdf:resource="&rdf;nil"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
+                        <swrl:argument1 rdf:resource="&bc;k/type_of_meal"/>
+                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
+                    </rdf:Description>
+                </rdf:first>
+            </rdf:Description>
+        </swrl:body>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&swrl;Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="&swrl;AtomList"/>
+                <rdf:rest rdf:resource="&rdf;nil"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
+                        <swrl:argument1 rdf:resource="&bc;k/bulk_carrier"/>
+                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
+                    </rdf:Description>
+                </rdf:first>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="&swrl;AtomList"/>
+                <rdf:rest rdf:resource="&rdf;nil"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
+                        <swrl:argument1 rdf:resource="&bc;d/type_of_ship"/>
+                        <swrl:propertyPredicate rdf:resource="&bc;hasKeyword"/>
+                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
+                    </rdf:Description>
+                </rdf:first>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&swrl;Imp"/>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="&swrl;AtomList"/>
+                <rdf:rest rdf:resource="&rdf;nil"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
+                        <swrl:argument1 rdf:resource="&bc;d/type_of_crop"/>
+                        <swrl:propertyPredicate rdf:resource="&bc;hasKeyword"/>
+                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
+                    </rdf:Description>
+                </rdf:first>
+            </rdf:Description>
+        </swrl:head>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="&swrl;AtomList"/>
+                <rdf:rest rdf:resource="&rdf;nil"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
+                        <swrl:argument1 rdf:resource="&bc;k/oilcrop"/>
+                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
+                    </rdf:Description>
+                </rdf:first>
+            </rdf:Description>
+        </swrl:body>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&swrl;Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="&swrl;AtomList"/>
+                <rdf:rest rdf:resource="&rdf;nil"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
+                        <swrl:argument1 rdf:resource="&bc;k/cattle"/>
+                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
+                    </rdf:Description>
+                </rdf:first>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="&swrl;AtomList"/>
+                <rdf:rest rdf:resource="&rdf;nil"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
+                        <swrl:argument1 rdf:resource="&bc;d/farmed_animal"/>
+                        <swrl:propertyPredicate rdf:resource="&bc;hasKeyword"/>
+                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
+                    </rdf:Description>
+                </rdf:first>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&swrl;Imp"/>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="&swrl;AtomList"/>
+                <rdf:rest rdf:resource="&rdf;nil"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
+                        <swrl:argument1 rdf:resource="&bc;d/fuel"/>
+                        <swrl:propertyPredicate rdf:resource="&bc;hasKeyword"/>
+                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
+                    </rdf:Description>
+                </rdf:first>
+            </rdf:Description>
+        </swrl:head>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="&swrl;AtomList"/>
+                <rdf:rest rdf:resource="&rdf;nil"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
+                        <swrl:argument1 rdf:resource="&bc;k/fuel"/>
+                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
+                    </rdf:Description>
+                </rdf:first>
+            </rdf:Description>
+        </swrl:body>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&swrl;Imp"/>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="&swrl;AtomList"/>
+                <rdf:rest rdf:resource="&rdf;nil"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
+                        <swrl:argument1 rdf:resource="&bc;d/meat"/>
+                        <swrl:propertyPredicate rdf:resource="&bc;hasKeyword"/>
+                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
+                    </rdf:Description>
+                </rdf:first>
+            </rdf:Description>
+        </swrl:head>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="&swrl;AtomList"/>
+                <rdf:rest rdf:resource="&rdf;nil"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
+                        <swrl:argument1 rdf:resource="&bc;k/cattle_meat"/>
+                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
+                    </rdf:Description>
+                </rdf:first>
+            </rdf:Description>
+        </swrl:body>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&swrl;Imp"/>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="&swrl;AtomList"/>
+                <rdf:rest rdf:resource="&rdf;nil"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
+                        <swrl:argument1 rdf:resource="&bc;d/type_of_waste"/>
+                        <swrl:propertyPredicate rdf:resource="&bc;hasKeyword"/>
+                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
+                    </rdf:Description>
+                </rdf:first>
+            </rdf:Description>
+        </swrl:head>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="&swrl;AtomList"/>
+                <rdf:rest rdf:resource="&rdf;nil"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
+                        <swrl:argument1 rdf:resource="&bc;k/type_of_waste"/>
+                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
+                    </rdf:Description>
+                </rdf:first>
+            </rdf:Description>
+        </swrl:body>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&swrl;Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="&swrl;AtomList"/>
+                <rdf:rest rdf:resource="&rdf;nil"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
+                        <swrl:argument1 rdf:resource="&bc;k/legume"/>
+                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
+                    </rdf:Description>
+                </rdf:first>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="&swrl;AtomList"/>
+                <rdf:rest rdf:resource="&rdf;nil"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
+                        <swrl:argument1 rdf:resource="&bc;d/type_of_crop"/>
+                        <swrl:propertyPredicate rdf:resource="&bc;hasKeyword"/>
+                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
+                    </rdf:Description>
+                </rdf:first>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&swrl;Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="&swrl;AtomList"/>
+                <rdf:rest rdf:resource="&rdf;nil"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
+                        <swrl:argument1 rdf:resource="&bc;k/container_ship"/>
+                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
+                    </rdf:Description>
+                </rdf:first>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="&swrl;AtomList"/>
+                <rdf:rest rdf:resource="&rdf;nil"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
+                        <swrl:argument1 rdf:resource="&bc;d/type_of_ship"/>
+                        <swrl:propertyPredicate rdf:resource="&bc;hasKeyword"/>
+                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
+                    </rdf:Description>
+                </rdf:first>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&swrl;Imp"/>
         <swrl:body>
             <rdf:Description>
                 <rdf:type rdf:resource="&swrl;AtomList"/>
@@ -6147,6 +6904,20 @@
                 </rdf:first>
             </rdf:Description>
         </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="&swrl;AtomList"/>
+                <rdf:rest rdf:resource="&rdf;nil"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
+                        <swrl:argument1 rdf:resource="&bc;d/type_of_ship"/>
+                        <swrl:propertyPredicate rdf:resource="&bc;hasKeyword"/>
+                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
+                    </rdf:Description>
+                </rdf:first>
+            </rdf:Description>
+        </swrl:head>
     </rdf:Description>
     <rdf:Description>
         <rdf:type rdf:resource="&swrl;Imp"/>
@@ -6203,291 +6974,12 @@
                     <rdf:Description>
                         <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
                         <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
-                        <swrl:argument1 rdf:resource="&bc;k/container_ship"/>
+                        <swrl:argument1 rdf:resource="&bc;k/gas_carrier"/>
                         <swrl:argument2 rdf:resource="urn:swrl#kw"/>
                     </rdf:Description>
                 </rdf:first>
             </rdf:Description>
         </swrl:body>
-    </rdf:Description>
-    <rdf:Description>
-        <rdf:type rdf:resource="&swrl;Imp"/>
-        <swrl:head>
-            <rdf:Description>
-                <rdf:type rdf:resource="&swrl;AtomList"/>
-                <rdf:rest rdf:resource="&rdf;nil"/>
-                <rdf:first>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
-                        <swrl:argument1 rdf:resource="&bc;d/dairy_product"/>
-                        <swrl:propertyPredicate rdf:resource="&bc;hasKeyword"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
-                    </rdf:Description>
-                </rdf:first>
-            </rdf:Description>
-        </swrl:head>
-        <swrl:body>
-            <rdf:Description>
-                <rdf:type rdf:resource="&swrl;AtomList"/>
-                <rdf:rest rdf:resource="&rdf;nil"/>
-                <rdf:first>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
-                        <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
-                        <swrl:argument1 rdf:resource="&bc;k/dairy_product"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
-                    </rdf:Description>
-                </rdf:first>
-            </rdf:Description>
-        </swrl:body>
-    </rdf:Description>
-    <rdf:Description>
-        <rdf:type rdf:resource="&swrl;Imp"/>
-        <swrl:body>
-            <rdf:Description>
-                <rdf:type rdf:resource="&swrl;AtomList"/>
-                <rdf:rest rdf:resource="&rdf;nil"/>
-                <rdf:first>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
-                        <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
-                        <swrl:argument1 rdf:resource="&bc;k/type_of_waste"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
-                    </rdf:Description>
-                </rdf:first>
-            </rdf:Description>
-        </swrl:body>
-        <swrl:head>
-            <rdf:Description>
-                <rdf:type rdf:resource="&swrl;AtomList"/>
-                <rdf:rest rdf:resource="&rdf;nil"/>
-                <rdf:first>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
-                        <swrl:argument1 rdf:resource="&bc;d/type_of_waste"/>
-                        <swrl:propertyPredicate rdf:resource="&bc;hasKeyword"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
-                    </rdf:Description>
-                </rdf:first>
-            </rdf:Description>
-        </swrl:head>
-    </rdf:Description>
-    <rdf:Description>
-        <rdf:type rdf:resource="&swrl;Imp"/>
-        <swrl:body>
-            <rdf:Description>
-                <rdf:type rdf:resource="&swrl;AtomList"/>
-                <rdf:rest rdf:resource="&rdf;nil"/>
-                <rdf:first>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
-                        <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
-                        <swrl:argument1 rdf:resource="&bc;k/cereal"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
-                    </rdf:Description>
-                </rdf:first>
-            </rdf:Description>
-        </swrl:body>
-        <swrl:head>
-            <rdf:Description>
-                <rdf:type rdf:resource="&swrl;AtomList"/>
-                <rdf:rest rdf:resource="&rdf;nil"/>
-                <rdf:first>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
-                        <swrl:argument1 rdf:resource="&bc;d/type_of_crop"/>
-                        <swrl:propertyPredicate rdf:resource="&bc;hasKeyword"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
-                    </rdf:Description>
-                </rdf:first>
-            </rdf:Description>
-        </swrl:head>
-    </rdf:Description>
-    <rdf:Description>
-        <rdf:type rdf:resource="&swrl;Imp"/>
-        <swrl:body>
-            <rdf:Description>
-                <rdf:type rdf:resource="&swrl;AtomList"/>
-                <rdf:rest rdf:resource="&rdf;nil"/>
-                <rdf:first>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
-                        <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
-                        <swrl:argument1 rdf:resource="&bc;k/root_tuber"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
-                    </rdf:Description>
-                </rdf:first>
-            </rdf:Description>
-        </swrl:body>
-        <swrl:head>
-            <rdf:Description>
-                <rdf:type rdf:resource="&swrl;AtomList"/>
-                <rdf:rest rdf:resource="&rdf;nil"/>
-                <rdf:first>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
-                        <swrl:argument1 rdf:resource="&bc;d/type_of_crop"/>
-                        <swrl:propertyPredicate rdf:resource="&bc;hasKeyword"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
-                    </rdf:Description>
-                </rdf:first>
-            </rdf:Description>
-        </swrl:head>
-    </rdf:Description>
-    <rdf:Description>
-        <rdf:type rdf:resource="&swrl;Imp"/>
-        <swrl:body>
-            <rdf:Description>
-                <rdf:type rdf:resource="&swrl;AtomList"/>
-                <rdf:rest rdf:resource="&rdf;nil"/>
-                <rdf:first>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
-                        <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
-                        <swrl:argument1 rdf:resource="&bc;k/self_propelled"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
-                    </rdf:Description>
-                </rdf:first>
-            </rdf:Description>
-        </swrl:body>
-        <swrl:head>
-            <rdf:Description>
-                <rdf:type rdf:resource="&swrl;AtomList"/>
-                <rdf:rest rdf:resource="&rdf;nil"/>
-                <rdf:first>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
-                        <swrl:argument1 rdf:resource="&bc;d/type_of_ship"/>
-                        <swrl:propertyPredicate rdf:resource="&bc;hasKeyword"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
-                    </rdf:Description>
-                </rdf:first>
-            </rdf:Description>
-        </swrl:head>
-    </rdf:Description>
-    <rdf:Description>
-        <rdf:type rdf:resource="&swrl;Imp"/>
-        <swrl:body>
-            <rdf:Description>
-                <rdf:type rdf:resource="&swrl;AtomList"/>
-                <rdf:rest rdf:resource="&rdf;nil"/>
-                <rdf:first>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
-                        <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
-                        <swrl:argument1 rdf:resource="&bc;k/legume"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
-                    </rdf:Description>
-                </rdf:first>
-            </rdf:Description>
-        </swrl:body>
-        <swrl:head>
-            <rdf:Description>
-                <rdf:type rdf:resource="&swrl;AtomList"/>
-                <rdf:rest rdf:resource="&rdf;nil"/>
-                <rdf:first>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
-                        <swrl:argument1 rdf:resource="&bc;d/type_of_crop"/>
-                        <swrl:propertyPredicate rdf:resource="&bc;hasKeyword"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
-                    </rdf:Description>
-                </rdf:first>
-            </rdf:Description>
-        </swrl:head>
-    </rdf:Description>
-    <rdf:Description>
-        <rdf:type rdf:resource="&swrl;Imp"/>
-        <swrl:body>
-            <rdf:Description>
-                <rdf:type rdf:resource="&swrl;AtomList"/>
-                <rdf:rest rdf:resource="&rdf;nil"/>
-                <rdf:first>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
-                        <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
-                        <swrl:argument1 rdf:resource="&bc;k/meat"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
-                    </rdf:Description>
-                </rdf:first>
-            </rdf:Description>
-        </swrl:body>
-        <swrl:head>
-            <rdf:Description>
-                <rdf:type rdf:resource="&swrl;AtomList"/>
-                <rdf:rest rdf:resource="&rdf;nil"/>
-                <rdf:first>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
-                        <swrl:argument1 rdf:resource="&bc;d/meat"/>
-                        <swrl:propertyPredicate rdf:resource="&bc;hasKeyword"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
-                    </rdf:Description>
-                </rdf:first>
-            </rdf:Description>
-        </swrl:head>
-    </rdf:Description>
-    <rdf:Description>
-        <rdf:type rdf:resource="&swrl;Imp"/>
-        <swrl:body>
-            <rdf:Description>
-                <rdf:type rdf:resource="&swrl;AtomList"/>
-                <rdf:rest rdf:resource="&rdf;nil"/>
-                <rdf:first>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
-                        <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
-                        <swrl:argument1 rdf:resource="&bc;k/cattle"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
-                    </rdf:Description>
-                </rdf:first>
-            </rdf:Description>
-        </swrl:body>
-        <swrl:head>
-            <rdf:Description>
-                <rdf:type rdf:resource="&swrl;AtomList"/>
-                <rdf:rest rdf:resource="&rdf;nil"/>
-                <rdf:first>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
-                        <swrl:argument1 rdf:resource="&bc;d/farmed_animal"/>
-                        <swrl:propertyPredicate rdf:resource="&bc;hasKeyword"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
-                    </rdf:Description>
-                </rdf:first>
-            </rdf:Description>
-        </swrl:head>
-    </rdf:Description>
-    <rdf:Description>
-        <rdf:type rdf:resource="&swrl;Imp"/>
-        <swrl:body>
-            <rdf:Description>
-                <rdf:type rdf:resource="&swrl;AtomList"/>
-                <rdf:rest rdf:resource="&rdf;nil"/>
-                <rdf:first>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
-                        <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
-                        <swrl:argument1 rdf:resource="&bc;k/type_of_meal"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
-                    </rdf:Description>
-                </rdf:first>
-            </rdf:Description>
-        </swrl:body>
-        <swrl:head>
-            <rdf:Description>
-                <rdf:type rdf:resource="&swrl;AtomList"/>
-                <rdf:rest rdf:resource="&rdf;nil"/>
-                <rdf:first>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
-                        <swrl:argument1 rdf:resource="&bc;d/type_of_meal"/>
-                        <swrl:propertyPredicate rdf:resource="&bc;hasKeyword"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
-                    </rdf:Description>
-                </rdf:first>
-            </rdf:Description>
-        </swrl:head>
     </rdf:Description>
     <rdf:Description>
         <rdf:type rdf:resource="&swrl;Imp"/>
@@ -6522,20 +7014,6 @@
     </rdf:Description>
     <rdf:Description>
         <rdf:type rdf:resource="&swrl;Imp"/>
-        <swrl:body>
-            <rdf:Description>
-                <rdf:type rdf:resource="&swrl;AtomList"/>
-                <rdf:rest rdf:resource="&rdf;nil"/>
-                <rdf:first>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
-                        <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
-                        <swrl:argument1 rdf:resource="&bc;k/oilcrop"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
-                    </rdf:Description>
-                </rdf:first>
-            </rdf:Description>
-        </swrl:body>
         <swrl:head>
             <rdf:Description>
                 <rdf:type rdf:resource="&swrl;AtomList"/>
@@ -6550,23 +7028,6 @@
                 </rdf:first>
             </rdf:Description>
         </swrl:head>
-    </rdf:Description>
-    <rdf:Description>
-        <rdf:type rdf:resource="&swrl;Imp"/>
-        <swrl:head>
-            <rdf:Description>
-                <rdf:type rdf:resource="&swrl;AtomList"/>
-                <rdf:rest rdf:resource="&rdf;nil"/>
-                <rdf:first>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
-                        <swrl:argument1 rdf:resource="&bc;d/type_of_ship"/>
-                        <swrl:propertyPredicate rdf:resource="&bc;hasKeyword"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
-                    </rdf:Description>
-                </rdf:first>
-            </rdf:Description>
-        </swrl:head>
         <swrl:body>
             <rdf:Description>
                 <rdf:type rdf:resource="&swrl;AtomList"/>
@@ -6575,105 +7036,12 @@
                     <rdf:Description>
                         <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
                         <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
-                        <swrl:argument1 rdf:resource="&bc;k/bulk_carrier"/>
+                        <swrl:argument1 rdf:resource="&bc;k/cereal"/>
                         <swrl:argument2 rdf:resource="urn:swrl#kw"/>
                     </rdf:Description>
                 </rdf:first>
             </rdf:Description>
         </swrl:body>
-    </rdf:Description>
-    <rdf:Description>
-        <rdf:type rdf:resource="&swrl;Imp"/>
-        <swrl:body>
-            <rdf:Description>
-                <rdf:type rdf:resource="&swrl;AtomList"/>
-                <rdf:rest rdf:resource="&rdf;nil"/>
-                <rdf:first>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
-                        <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
-                        <swrl:argument1 rdf:resource="&bc;k/gas_carrier"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
-                    </rdf:Description>
-                </rdf:first>
-            </rdf:Description>
-        </swrl:body>
-        <swrl:head>
-            <rdf:Description>
-                <rdf:type rdf:resource="&swrl;AtomList"/>
-                <rdf:rest rdf:resource="&rdf;nil"/>
-                <rdf:first>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
-                        <swrl:argument1 rdf:resource="&bc;d/type_of_ship"/>
-                        <swrl:propertyPredicate rdf:resource="&bc;hasKeyword"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
-                    </rdf:Description>
-                </rdf:first>
-            </rdf:Description>
-        </swrl:head>
-    </rdf:Description>
-    <rdf:Description>
-        <rdf:type rdf:resource="&swrl;Imp"/>
-        <swrl:body>
-            <rdf:Description>
-                <rdf:type rdf:resource="&swrl;AtomList"/>
-                <rdf:rest rdf:resource="&rdf;nil"/>
-                <rdf:first>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
-                        <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
-                        <swrl:argument1 rdf:resource="&bc;k/grassland"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
-                    </rdf:Description>
-                </rdf:first>
-            </rdf:Description>
-        </swrl:body>
-        <swrl:head>
-            <rdf:Description>
-                <rdf:type rdf:resource="&swrl;AtomList"/>
-                <rdf:rest rdf:resource="&rdf;nil"/>
-                <rdf:first>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
-                        <swrl:argument1 rdf:resource="&bc;d/type_of_crop"/>
-                        <swrl:propertyPredicate rdf:resource="&bc;hasKeyword"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
-                    </rdf:Description>
-                </rdf:first>
-            </rdf:Description>
-        </swrl:head>
-    </rdf:Description>
-    <rdf:Description>
-        <rdf:type rdf:resource="&swrl;Imp"/>
-        <swrl:body>
-            <rdf:Description>
-                <rdf:type rdf:resource="&swrl;AtomList"/>
-                <rdf:rest rdf:resource="&rdf;nil"/>
-                <rdf:first>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
-                        <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
-                        <swrl:argument1 rdf:resource="&bc;k/fuel"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
-                    </rdf:Description>
-                </rdf:first>
-            </rdf:Description>
-        </swrl:body>
-        <swrl:head>
-            <rdf:Description>
-                <rdf:type rdf:resource="&swrl;AtomList"/>
-                <rdf:rest rdf:resource="&rdf;nil"/>
-                <rdf:first>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
-                        <swrl:argument1 rdf:resource="&bc;d/fuel"/>
-                        <swrl:propertyPredicate rdf:resource="&bc;hasKeyword"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
-                    </rdf:Description>
-                </rdf:first>
-            </rdf:Description>
-        </swrl:head>
     </rdf:Description>
     <rdf:Description>
         <rdf:type rdf:resource="&swrl;Imp"/>
@@ -6705,6 +7073,37 @@
                 </rdf:first>
             </rdf:Description>
         </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&swrl;Imp"/>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="&swrl;AtomList"/>
+                <rdf:rest rdf:resource="&rdf;nil"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
+                        <swrl:argument1 rdf:resource="&bc;d/type_of_crop"/>
+                        <swrl:propertyPredicate rdf:resource="&bc;hasKeyword"/>
+                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
+                    </rdf:Description>
+                </rdf:first>
+            </rdf:Description>
+        </swrl:head>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="&swrl;AtomList"/>
+                <rdf:rest rdf:resource="&rdf;nil"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
+                        <swrl:argument1 rdf:resource="&bc;k/grassland"/>
+                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
+                    </rdf:Description>
+                </rdf:first>
+            </rdf:Description>
+        </swrl:body>
     </rdf:Description>
 </rdf:RDF>
 
