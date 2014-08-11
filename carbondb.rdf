@@ -1212,6 +1212,9 @@
 
     <owl:NamedIndividual rdf:about="&bc;d/fuel_unit_of_mass">
         <hasKeyword rdf:resource="&bc;k/coal"/>
+        <hasKeyword rdf:resource="&bc;k/gas_diesel_oil"/>
+        <hasKeyword rdf:resource="&bc;k/gasoline"/>
+        <hasKeyword rdf:resource="&bc;k/lignite"/>
     </owl:NamedIndividual>
     
 
@@ -1316,6 +1319,7 @@
 
     <owl:NamedIndividual rdf:about="&bc;d/solid_fossil_fuel">
         <hasKeyword rdf:resource="&bc;k/coal"/>
+        <hasKeyword rdf:resource="&bc;k/lignite"/>
     </owl:NamedIndividual>
     
 
@@ -1515,49 +1519,6 @@
     
 
 
-    <!-- http://www.myc-sense.com/ontologies/bc#f/00000 -->
-
-    <owl:NamedIndividual rdf:about="&bc;f/00000">
-        <rdfs:label xml:lang="fr">Elementary Flow</rdfs:label>
-        <value rdf:datatype="&xsd;double">2620.0</value>
-        <uncertainty rdf:datatype="&xsd;double">5.0</uncertainty>
-        <hasNature rdf:resource="&bc;ghg/co2"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.myc-sense.com/ontologies/bc#f/00002 -->
-
-    <owl:NamedIndividual rdf:about="&bc;f/00002">
-        <rdfs:label xml:lang="fr">Elementary Flow</rdfs:label>
-        <uncertainty rdf:datatype="&xsd;double">5.0</uncertainty>
-        <value rdf:datatype="&xsd;double">563.0</value>
-        <hasNature rdf:resource="&bc;ghg/co2e"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.myc-sense.com/ontologies/bc#f/00003 -->
-
-    <owl:NamedIndividual rdf:about="&bc;f/00003">
-        <rdfs:label xml:lang="fr">Elementary flow</rdfs:label>
-        <value rdf:datatype="&xsd;double">2460.0</value>
-        <uncertainty rdf:datatype="&xsd;double">5.0</uncertainty>
-        <hasNature rdf:resource="&bc;ghg/co2"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.myc-sense.com/ontologies/bc#f/00005 -->
-
-    <owl:NamedIndividual rdf:about="&bc;f/00005">
-        <value rdf:datatype="&xsd;double">470.0</value>
-        <uncertainty rdf:datatype="&xsd;double">5.0</uncertainty>
-        <hasNature rdf:resource="&bc;ghg/co2e"/>
-    </owl:NamedIndividual>
-    
-
-
     <!-- http://www.myc-sense.com/ontologies/bc#f/00007 -->
 
     <owl:NamedIndividual rdf:about="&bc;f/00007">
@@ -1587,17 +1548,6 @@
         <uncertainty rdf:datatype="&xsd;double">0.0</uncertainty>
         <value rdf:datatype="&xsd;double">1.0</value>
         <hasNature rdf:resource="&bc;ghg/n2o"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.myc-sense.com/ontologies/bc#f/00013 -->
-
-    <owl:NamedIndividual rdf:about="&bc;f/00013">
-        <rdfs:label xml:lang="fr">Elementary flow</rdfs:label>
-        <uncertainty rdf:datatype="&xsd;double">5.0</uncertainty>
-        <value rdf:datatype="&xsd;double">562.0</value>
-        <hasNature rdf:resource="&bc;ghg/co2e"/>
     </owl:NamedIndividual>
     
 
@@ -1732,6 +1682,7 @@
         <hasDimension rdf:resource="&bc;d/fuel_unit_of_volume"/>
         <hasCommonKeyword rdf:resource="&bc;k/density"/>
         <containsSingleCoefficient rdf:resource="&bc;sc/density+gas_diesel_oil"/>
+        <containsSingleCoefficient rdf:resource="&bc;sc/density+gasoline"/>
         <hasUnit rdf:resource="&bc;u/kilogram_per_cube_meter"/>
     </owl:NamedIndividual>
     
@@ -1912,6 +1863,14 @@
     
 
 
+    <!-- http://www.myc-sense.com/ontologies/bc#gc/mass_of_greenhouse_gas_combustion_of_gaseous_fossil_fuel_unit_of_energy -->
+
+    <owl:NamedIndividual rdf:about="&bc;gc/mass_of_greenhouse_gas_combustion_of_gaseous_fossil_fuel_unit_of_energy">
+        <rdf:type rdf:resource="&bc;CoefficientGroup"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.myc-sense.com/ontologies/bc#gc/mass_of_greenhouse_gas_combustion_of_liquid_fossil_fuel_unit_of_energy -->
 
     <owl:NamedIndividual rdf:about="&bc;gc/mass_of_greenhouse_gas_combustion_of_liquid_fossil_fuel_unit_of_energy">
@@ -1925,6 +1884,9 @@
         <containsSingleCoefficient rdf:resource="&bc;sc/combustion+gas_diesel_oil+ch4"/>
         <containsSingleCoefficient rdf:resource="&bc;sc/combustion+gas_diesel_oil+co2"/>
         <containsSingleCoefficient rdf:resource="&bc;sc/combustion+gas_diesel_oil+n2o"/>
+        <containsSingleCoefficient rdf:resource="&bc;sc/combustion+gasoline+ch4"/>
+        <containsSingleCoefficient rdf:resource="&bc;sc/combustion+gasoline+co2"/>
+        <containsSingleCoefficient rdf:resource="&bc;sc/combustion+gasoline+n2o"/>
         <hasUnit rdf:resource="&bc;u/ton_per_tera_joule"/>
     </owl:NamedIndividual>
     
@@ -1943,6 +1905,9 @@
         <containsSingleCoefficient rdf:resource="&bc;sc/combustion+coal+ch4"/>
         <containsSingleCoefficient rdf:resource="&bc;sc/combustion+coal+co2"/>
         <containsSingleCoefficient rdf:resource="&bc;sc/combustion+coal+n2o"/>
+        <containsSingleCoefficient rdf:resource="&bc;sc/combustion+lignite+ch4"/>
+        <containsSingleCoefficient rdf:resource="&bc;sc/combustion+lignite+co2"/>
+        <containsSingleCoefficient rdf:resource="&bc;sc/combustion+lignite+n2o"/>
         <hasUnit rdf:resource="&bc;u/ton_per_tera_joule"/>
     </owl:NamedIndividual>
     
@@ -1981,6 +1946,14 @@
     
 
 
+    <!-- http://www.myc-sense.com/ontologies/bc#gc/mass_of_greenhouse_gas_upstream_of_gaseous_fossil_fuel_unit_of_energy -->
+
+    <owl:NamedIndividual rdf:about="&bc;gc/mass_of_greenhouse_gas_upstream_of_gaseous_fossil_fuel_unit_of_energy">
+        <rdf:type rdf:resource="&bc;CoefficientGroup"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.myc-sense.com/ontologies/bc#gc/mass_of_greenhouse_gas_upstream_of_liquid_fossil_fuel_unit_of_energy -->
 
     <owl:NamedIndividual rdf:about="&bc;gc/mass_of_greenhouse_gas_upstream_of_liquid_fossil_fuel_unit_of_energy">
@@ -1993,11 +1966,17 @@
         <hasDimension rdf:resource="&bc;d/upstream_of_liquid_fossil_fuel"/>
         <hasCommonKeyword rdf:resource="&bc;k/upstream_of_fuel"/>
         <containsSingleCoefficient rdf:resource="&bc;sc/distribution+gas_diesel_oil+co2"/>
+        <containsSingleCoefficient rdf:resource="&bc;sc/distribution+gasoline+co2"/>
         <containsSingleCoefficient rdf:resource="&bc;sc/extraction_and_processing+gas_diesel_oil+ch4"/>
         <containsSingleCoefficient rdf:resource="&bc;sc/extraction_and_processing+gas_diesel_oil+co2"/>
+        <containsSingleCoefficient rdf:resource="&bc;sc/extraction_processing+gasoline+ch4"/>
+        <containsSingleCoefficient rdf:resource="&bc;sc/extraction_processing+gasoline+co2"/>
         <containsSingleCoefficient rdf:resource="&bc;sc/refining+gas_diesel_oil+ch4"/>
         <containsSingleCoefficient rdf:resource="&bc;sc/refining+gas_diesel_oil+co2"/>
+        <containsSingleCoefficient rdf:resource="&bc;sc/refining+gasoline+ch4"/>
+        <containsSingleCoefficient rdf:resource="&bc;sc/refining+gasoline+co2"/>
         <containsSingleCoefficient rdf:resource="&bc;sc/transport+gas_diesel_oil+co2"/>
+        <containsSingleCoefficient rdf:resource="&bc;sc/transport+gasoline+co2"/>
         <hasUnit rdf:resource="&bc;u/ton_per_tera_joule"/>
     </owl:NamedIndividual>
     
@@ -2120,7 +2099,10 @@
         <hasCategory rdf:resource="&bc;c/fuel"/>
         <hasDimension rdf:resource="&bc;d/fuel_unit_of_energy"/>
         <hasCommonKeyword rdf:resource="&bc;k/specific_energy"/>
+        <containsSingleCoefficient rdf:resource="&bc;sc/specific_energy+coal"/>
         <containsSingleCoefficient rdf:resource="&bc;sc/specific_energy+gas_diesel_oil"/>
+        <containsSingleCoefficient rdf:resource="&bc;sc/specific_energy+gasoline"/>
+        <containsSingleCoefficient rdf:resource="&bc;sc/specific_energy+lignite"/>
         <hasUnit rdf:resource="&bc;u/gigajoule_per_ton"/>
     </owl:NamedIndividual>
     
@@ -2344,11 +2326,6 @@
         <hasCategory rdf:resource="&bc;c/fuel"/>
         <hasDimension rdf:resource="&bc;d/combustion_process"/>
         <hasDimension rdf:resource="&bc;d/fuel_unit_of_volume"/>
-        <containsSingleProcess rdf:resource="&bc;sp/combustion+gas_diesel_oil+volume"/>
-        <containsSingleProcess rdf:resource="&bc;sp/combustion+gasoline+volume"/>
-        <containsSingleProcess rdf:resource="&bc;sp/upstream_of_fuel+gas_diesel_oil"/>
-        <containsSingleProcess rdf:resource="&bc;sp/upstream_of_fuel+gas_diesel_oil+volume"/>
-        <containsSingleProcess rdf:resource="&bc;sp/upstream_of_fuel+gasoline+volume"/>
         <hasUnit rdf:resource="&bc;u/cube_meter"/>
     </owl:NamedIndividual>
     
@@ -6379,6 +6356,78 @@
     
 
 
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/combustion+gasoline+ch4 -->
+
+    <owl:NamedIndividual rdf:about="&bc;sc/combustion+gasoline+ch4">
+        <value rdf:datatype="&xsd;double">0.0199</value>
+        <hasTag rdf:resource="&bc;k/ch4"/>
+        <hasTag rdf:resource="&bc;k/combustion"/>
+        <hasTag rdf:resource="&bc;k/gasoline"/>
+        <hasUnit rdf:resource="&bc;u/ton_per_tera_joule"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/combustion+gasoline+co2 -->
+
+    <owl:NamedIndividual rdf:about="&bc;sc/combustion+gasoline+co2">
+        <value rdf:datatype="&xsd;double">73.0</value>
+        <hasTag rdf:resource="&bc;k/co2"/>
+        <hasTag rdf:resource="&bc;k/combustion"/>
+        <hasTag rdf:resource="&bc;k/gasoline"/>
+        <hasUnit rdf:resource="&bc;u/ton_per_tera_joule"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/combustion+gasoline+n2o -->
+
+    <owl:NamedIndividual rdf:about="&bc;sc/combustion+gasoline+n2o">
+        <value rdf:datatype="&xsd;double">0.0023</value>
+        <hasTag rdf:resource="&bc;k/combustion"/>
+        <hasTag rdf:resource="&bc;k/gasoline"/>
+        <hasTag rdf:resource="&bc;k/n2o"/>
+        <hasUnit rdf:resource="&bc;u/ton_per_tera_joule"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/combustion+lignite+ch4 -->
+
+    <owl:NamedIndividual rdf:about="&bc;sc/combustion+lignite+ch4">
+        <value rdf:datatype="&xsd;double">0.01</value>
+        <hasTag rdf:resource="&bc;k/ch4"/>
+        <hasTag rdf:resource="&bc;k/combustion"/>
+        <hasTag rdf:resource="&bc;k/lignite"/>
+        <hasUnit rdf:resource="&bc;u/ton_per_tera_joule"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/combustion+lignite+co2 -->
+
+    <owl:NamedIndividual rdf:about="&bc;sc/combustion+lignite+co2">
+        <value rdf:datatype="&xsd;double">100.0</value>
+        <hasTag rdf:resource="&bc;k/co2"/>
+        <hasTag rdf:resource="&bc;k/combustion"/>
+        <hasTag rdf:resource="&bc;k/lignite"/>
+        <hasUnit rdf:resource="&bc;u/ton_per_tera_joule"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/combustion+lignite+n2o -->
+
+    <owl:NamedIndividual rdf:about="&bc;sc/combustion+lignite+n2o">
+        <value rdf:datatype="&xsd;double">0.0030</value>
+        <hasTag rdf:resource="&bc;k/combustion"/>
+        <hasTag rdf:resource="&bc;k/lignite"/>
+        <hasTag rdf:resource="&bc;k/n2o"/>
+        <hasUnit rdf:resource="&bc;u/ton_per_tera_joule"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.myc-sense.com/ontologies/bc#sc/crop_yield+fodder_corn -->
 
     <owl:NamedIndividual rdf:about="&bc;sc/crop_yield+fodder_corn">
@@ -6412,6 +6461,17 @@
     
 
 
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/density+gasoline -->
+
+    <owl:NamedIndividual rdf:about="&bc;sc/density+gasoline">
+        <value rdf:datatype="&xsd;double">755.0</value>
+        <hasTag rdf:resource="&bc;k/density"/>
+        <hasTag rdf:resource="&bc;k/gasoline"/>
+        <hasUnit rdf:resource="&bc;u/kilogram_per_cube_meter"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.myc-sense.com/ontologies/bc#sc/diesel_engine+gas_diesel_oil -->
 
     <owl:NamedIndividual rdf:about="&bc;sc/diesel_engine+gas_diesel_oil">
@@ -6431,6 +6491,19 @@
         <hasTag rdf:resource="&bc;k/co2"/>
         <hasTag rdf:resource="&bc;k/distribution"/>
         <hasTag rdf:resource="&bc;k/gas_diesel_oil"/>
+        <hasTag rdf:resource="&bc;k/upstream_of_fuel"/>
+        <hasUnit rdf:resource="&bc;u/ton_per_tera_joule"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/distribution+gasoline+co2 -->
+
+    <owl:NamedIndividual rdf:about="&bc;sc/distribution+gasoline+co2">
+        <value rdf:datatype="&xsd;double">1.0</value>
+        <hasTag rdf:resource="&bc;k/co2"/>
+        <hasTag rdf:resource="&bc;k/distribution"/>
+        <hasTag rdf:resource="&bc;k/gasoline"/>
         <hasTag rdf:resource="&bc;k/upstream_of_fuel"/>
         <hasUnit rdf:resource="&bc;u/ton_per_tera_joule"/>
     </owl:NamedIndividual>
@@ -6529,6 +6602,32 @@
         <hasTag rdf:resource="&bc;k/co2"/>
         <hasTag rdf:resource="&bc;k/exctraction_and_processing"/>
         <hasTag rdf:resource="&bc;k/gas_diesel_oil"/>
+        <hasTag rdf:resource="&bc;k/upstream_of_fuel"/>
+        <hasUnit rdf:resource="&bc;u/ton_per_tera_joule"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/extraction_processing+gasoline+ch4 -->
+
+    <owl:NamedIndividual rdf:about="&bc;sc/extraction_processing+gasoline+ch4">
+        <value rdf:datatype="&xsd;double">0.04</value>
+        <hasTag rdf:resource="&bc;k/ch4"/>
+        <hasTag rdf:resource="&bc;k/exctraction_and_processing"/>
+        <hasTag rdf:resource="&bc;k/gasoline"/>
+        <hasTag rdf:resource="&bc;k/upstream_of_fuel"/>
+        <hasUnit rdf:resource="&bc;u/ton_per_tera_joule"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/extraction_processing+gasoline+co2 -->
+
+    <owl:NamedIndividual rdf:about="&bc;sc/extraction_processing+gasoline+co2">
+        <value rdf:datatype="&xsd;double">4.34</value>
+        <hasTag rdf:resource="&bc;k/co2"/>
+        <hasTag rdf:resource="&bc;k/exctraction_and_processing"/>
+        <hasTag rdf:resource="&bc;k/gasoline"/>
         <hasTag rdf:resource="&bc;k/upstream_of_fuel"/>
         <hasUnit rdf:resource="&bc;u/ton_per_tera_joule"/>
     </owl:NamedIndividual>
@@ -7053,11 +7152,70 @@
     
 
 
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/refining+gasoline+ch4 -->
+
+    <owl:NamedIndividual rdf:about="&bc;sc/refining+gasoline+ch4">
+        <value rdf:datatype="&xsd;double">0.01</value>
+        <hasTag rdf:resource="&bc;k/ch4"/>
+        <hasTag rdf:resource="&bc;k/gasoline"/>
+        <hasTag rdf:resource="&bc;k/refining"/>
+        <hasTag rdf:resource="&bc;k/upstream_of_fuel"/>
+        <hasUnit rdf:resource="&bc;u/ton_per_tera_joule"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/refining+gasoline+co2 -->
+
+    <owl:NamedIndividual rdf:about="&bc;sc/refining+gasoline+co2">
+        <value rdf:datatype="&xsd;double">6.78</value>
+        <hasTag rdf:resource="&bc;k/co2"/>
+        <hasTag rdf:resource="&bc;k/gasoline"/>
+        <hasTag rdf:resource="&bc;k/refining"/>
+        <hasTag rdf:resource="&bc;k/upstream_of_fuel"/>
+        <hasUnit rdf:resource="&bc;u/ton_per_tera_joule"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/specific_energy+coal -->
+
+    <owl:NamedIndividual rdf:about="&bc;sc/specific_energy+coal">
+        <value rdf:datatype="&xsd;double">32.0</value>
+        <hasTag rdf:resource="&bc;k/coal"/>
+        <hasTag rdf:resource="&bc;k/specific_energy"/>
+        <hasUnit rdf:resource="&bc;u/gigajoule_per_ton"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.myc-sense.com/ontologies/bc#sc/specific_energy+gas_diesel_oil -->
 
     <owl:NamedIndividual rdf:about="&bc;sc/specific_energy+gas_diesel_oil">
         <value rdf:datatype="&xsd;double">43.0</value>
         <hasTag rdf:resource="&bc;k/gas_diesel_oil"/>
+        <hasTag rdf:resource="&bc;k/specific_energy"/>
+        <hasUnit rdf:resource="&bc;u/gigajoule_per_ton"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/specific_energy+gasoline -->
+
+    <owl:NamedIndividual rdf:about="&bc;sc/specific_energy+gasoline">
+        <value rdf:datatype="&xsd;double">43.0</value>
+        <hasTag rdf:resource="&bc;k/gasoline"/>
+        <hasTag rdf:resource="&bc;k/specific_energy"/>
+        <hasUnit rdf:resource="&bc;u/gigajoule_per_ton"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/specific_energy+lignite -->
+
+    <owl:NamedIndividual rdf:about="&bc;sc/specific_energy+lignite">
+        <value rdf:datatype="&xsd;double">17.0</value>
+        <hasTag rdf:resource="&bc;k/lignite"/>
         <hasTag rdf:resource="&bc;k/specific_energy"/>
         <hasUnit rdf:resource="&bc;u/gigajoule_per_ton"/>
     </owl:NamedIndividual>
@@ -7123,6 +7281,19 @@
         <value rdf:datatype="&xsd;double">0.9</value>
         <hasTag rdf:resource="&bc;k/co2"/>
         <hasTag rdf:resource="&bc;k/gas_diesel_oil"/>
+        <hasTag rdf:resource="&bc;k/transport"/>
+        <hasTag rdf:resource="&bc;k/upstream_of_fuel"/>
+        <hasUnit rdf:resource="&bc;u/ton_per_tera_joule"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/transport+gasoline+co2 -->
+
+    <owl:NamedIndividual rdf:about="&bc;sc/transport+gasoline+co2">
+        <value rdf:datatype="&xsd;double">0.9</value>
+        <hasTag rdf:resource="&bc;k/co2"/>
+        <hasTag rdf:resource="&bc;k/gasoline"/>
         <hasTag rdf:resource="&bc;k/transport"/>
         <hasTag rdf:resource="&bc;k/upstream_of_fuel"/>
         <hasUnit rdf:resource="&bc;u/ton_per_tera_joule"/>
@@ -7209,28 +7380,6 @@
         <hasTag rdf:resource="&bc;k/volume_of_milk_required"/>
         <hasTag rdf:resource="&bc;k/yoghurt"/>
         <hasUnit rdf:resource="&bc;u/liter_per_kilogram"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.myc-sense.com/ontologies/bc#sp/combustion+gas_diesel_oil+volume -->
-
-    <owl:NamedIndividual rdf:about="&bc;sp/combustion+gas_diesel_oil+volume">
-        <hasInputFlow rdf:resource="&bc;f/00000"/>
-        <hasTag rdf:resource="&bc;k/combustion"/>
-        <hasTag rdf:resource="&bc;k/gas_diesel_oil"/>
-        <hasUnit rdf:resource="&bc;u/cube_meter"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.myc-sense.com/ontologies/bc#sp/combustion+gasoline+volume -->
-
-    <owl:NamedIndividual rdf:about="&bc;sp/combustion+gasoline+volume">
-        <hasInputFlow rdf:resource="&bc;f/00003"/>
-        <hasTag rdf:resource="&bc;k/combustion"/>
-        <hasTag rdf:resource="&bc;k/gasoline"/>
-        <hasUnit rdf:resource="&bc;u/cube_meter"/>
     </owl:NamedIndividual>
     
 
@@ -7324,39 +7473,6 @@
         <hasInputFlow rdf:resource="&bc;f/00016"/>
         <hasTag rdf:resource="&bc;k/potash_fertilizer"/>
         <hasUnit rdf:resource="&bc;u/kilogram"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.myc-sense.com/ontologies/bc#sp/upstream_of_fuel+gas_diesel_oil -->
-
-    <owl:NamedIndividual rdf:about="&bc;sp/upstream_of_fuel+gas_diesel_oil">
-        <hasInputFlow rdf:resource="&bc;f/00013"/>
-        <hasTag rdf:resource="&bc;k/gas_diesel_oil"/>
-        <hasTag rdf:resource="&bc;k/upstream_of_fuel"/>
-        <hasUnit rdf:resource="&bc;u/cube_meter"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.myc-sense.com/ontologies/bc#sp/upstream_of_fuel+gas_diesel_oil+volume -->
-
-    <owl:NamedIndividual rdf:about="&bc;sp/upstream_of_fuel+gas_diesel_oil+volume">
-        <hasInputFlow rdf:resource="&bc;f/00002"/>
-        <hasTag rdf:resource="&bc;k/gas_diesel_oil"/>
-        <hasTag rdf:resource="&bc;k/upstream_of_fuel"/>
-        <hasUnit rdf:resource="&bc;u/cube_meter"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.myc-sense.com/ontologies/bc#sp/upstream_of_fuel+gasoline+volume -->
-
-    <owl:NamedIndividual rdf:about="&bc;sp/upstream_of_fuel+gasoline+volume">
-        <hasInputFlow rdf:resource="&bc;f/00005"/>
-        <hasTag rdf:resource="&bc;k/gasoline"/>
-        <hasTag rdf:resource="&bc;k/upstream_of_fuel"/>
-        <hasUnit rdf:resource="&bc;u/cube_meter"/>
     </owl:NamedIndividual>
     
 
@@ -7740,20 +7856,6 @@
     </rdf:Description>
     <rdf:Description>
         <rdf:type rdf:resource="&swrl;Imp"/>
-        <swrl:body>
-            <rdf:Description>
-                <rdf:type rdf:resource="&swrl;AtomList"/>
-                <rdf:rest rdf:resource="&rdf;nil"/>
-                <rdf:first>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
-                        <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
-                        <swrl:argument1 rdf:resource="&bc;k/container_ship"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
-                    </rdf:Description>
-                </rdf:first>
-            </rdf:Description>
-        </swrl:body>
         <swrl:head>
             <rdf:Description>
                 <rdf:type rdf:resource="&swrl;AtomList"/>
@@ -7768,23 +7870,23 @@
                 </rdf:first>
             </rdf:Description>
         </swrl:head>
-    </rdf:Description>
-    <rdf:Description>
-        <rdf:type rdf:resource="&swrl;Imp"/>
-        <swrl:head>
+        <swrl:body>
             <rdf:Description>
                 <rdf:type rdf:resource="&swrl;AtomList"/>
                 <rdf:rest rdf:resource="&rdf;nil"/>
                 <rdf:first>
                     <rdf:Description>
                         <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
-                        <swrl:argument1 rdf:resource="&bc;d/agricultural_input"/>
-                        <swrl:propertyPredicate rdf:resource="&bc;hasKeyword"/>
+                        <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
+                        <swrl:argument1 rdf:resource="&bc;k/container_ship"/>
                         <swrl:argument2 rdf:resource="urn:swrl#kw"/>
                     </rdf:Description>
                 </rdf:first>
             </rdf:Description>
-        </swrl:head>
+        </swrl:body>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&swrl;Imp"/>
         <swrl:body>
             <rdf:Description>
                 <rdf:type rdf:resource="&swrl;AtomList"/>
@@ -7799,23 +7901,23 @@
                 </rdf:first>
             </rdf:Description>
         </swrl:body>
-    </rdf:Description>
-    <rdf:Description>
-        <rdf:type rdf:resource="&swrl;Imp"/>
-        <swrl:body>
+        <swrl:head>
             <rdf:Description>
                 <rdf:type rdf:resource="&swrl;AtomList"/>
                 <rdf:rest rdf:resource="&rdf;nil"/>
                 <rdf:first>
                     <rdf:Description>
                         <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
-                        <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
-                        <swrl:argument1 rdf:resource="&bc;k/cattle"/>
+                        <swrl:argument1 rdf:resource="&bc;d/agricultural_input"/>
+                        <swrl:propertyPredicate rdf:resource="&bc;hasKeyword"/>
                         <swrl:argument2 rdf:resource="urn:swrl#kw"/>
                     </rdf:Description>
                 </rdf:first>
             </rdf:Description>
-        </swrl:body>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&swrl;Imp"/>
         <swrl:head>
             <rdf:Description>
                 <rdf:type rdf:resource="&swrl;AtomList"/>
@@ -7830,6 +7932,20 @@
                 </rdf:first>
             </rdf:Description>
         </swrl:head>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="&swrl;AtomList"/>
+                <rdf:rest rdf:resource="&rdf;nil"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
+                        <swrl:argument1 rdf:resource="&bc;k/cattle"/>
+                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
+                    </rdf:Description>
+                </rdf:first>
+            </rdf:Description>
+        </swrl:body>
     </rdf:Description>
     <rdf:Description>
         <rdf:type rdf:resource="&swrl;Imp"/>
@@ -7864,20 +7980,6 @@
     </rdf:Description>
     <rdf:Description>
         <rdf:type rdf:resource="&swrl;Imp"/>
-        <swrl:body>
-            <rdf:Description>
-                <rdf:type rdf:resource="&swrl;AtomList"/>
-                <rdf:rest rdf:resource="&rdf;nil"/>
-                <rdf:first>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
-                        <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
-                        <swrl:argument1 rdf:resource="&bc;k/type_of_meal"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
-                    </rdf:Description>
-                </rdf:first>
-            </rdf:Description>
-        </swrl:body>
         <swrl:head>
             <rdf:Description>
                 <rdf:type rdf:resource="&swrl;AtomList"/>
@@ -7892,23 +7994,23 @@
                 </rdf:first>
             </rdf:Description>
         </swrl:head>
-    </rdf:Description>
-    <rdf:Description>
-        <rdf:type rdf:resource="&swrl;Imp"/>
-        <swrl:head>
+        <swrl:body>
             <rdf:Description>
                 <rdf:type rdf:resource="&swrl;AtomList"/>
                 <rdf:rest rdf:resource="&rdf;nil"/>
                 <rdf:first>
                     <rdf:Description>
                         <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
-                        <swrl:argument1 rdf:resource="&bc;d/transformed_dairy_product"/>
-                        <swrl:propertyPredicate rdf:resource="&bc;hasKeyword"/>
+                        <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
+                        <swrl:argument1 rdf:resource="&bc;k/type_of_meal"/>
                         <swrl:argument2 rdf:resource="urn:swrl#kw"/>
                     </rdf:Description>
                 </rdf:first>
             </rdf:Description>
-        </swrl:head>
+        </swrl:body>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&swrl;Imp"/>
         <swrl:body>
             <rdf:Description>
                 <rdf:type rdf:resource="&swrl;AtomList"/>
@@ -7923,6 +8025,20 @@
                 </rdf:first>
             </rdf:Description>
         </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="&swrl;AtomList"/>
+                <rdf:rest rdf:resource="&rdf;nil"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
+                        <swrl:argument1 rdf:resource="&bc;d/transformed_dairy_product"/>
+                        <swrl:propertyPredicate rdf:resource="&bc;hasKeyword"/>
+                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
+                    </rdf:Description>
+                </rdf:first>
+            </rdf:Description>
+        </swrl:head>
     </rdf:Description>
     <rdf:Description>
         <rdf:type rdf:resource="&swrl;Imp"/>
@@ -7957,6 +8073,20 @@
     </rdf:Description>
     <rdf:Description>
         <rdf:type rdf:resource="&swrl;Imp"/>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="&swrl;AtomList"/>
+                <rdf:rest rdf:resource="&rdf;nil"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
+                        <swrl:argument1 rdf:resource="&bc;d/type_of_ship"/>
+                        <swrl:propertyPredicate rdf:resource="&bc;hasKeyword"/>
+                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
+                    </rdf:Description>
+                </rdf:first>
+            </rdf:Description>
+        </swrl:head>
         <swrl:body>
             <rdf:Description>
                 <rdf:type rdf:resource="&swrl;AtomList"/>
@@ -7971,6 +8101,9 @@
                 </rdf:first>
             </rdf:Description>
         </swrl:body>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&swrl;Imp"/>
         <swrl:head>
             <rdf:Description>
                 <rdf:type rdf:resource="&swrl;AtomList"/>
@@ -7985,9 +8118,6 @@
                 </rdf:first>
             </rdf:Description>
         </swrl:head>
-    </rdf:Description>
-    <rdf:Description>
-        <rdf:type rdf:resource="&swrl;Imp"/>
         <swrl:body>
             <rdf:Description>
                 <rdf:type rdf:resource="&swrl;AtomList"/>
@@ -8002,20 +8132,6 @@
                 </rdf:first>
             </rdf:Description>
         </swrl:body>
-        <swrl:head>
-            <rdf:Description>
-                <rdf:type rdf:resource="&swrl;AtomList"/>
-                <rdf:rest rdf:resource="&rdf;nil"/>
-                <rdf:first>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
-                        <swrl:argument1 rdf:resource="&bc;d/type_of_ship"/>
-                        <swrl:propertyPredicate rdf:resource="&bc;hasKeyword"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
-                    </rdf:Description>
-                </rdf:first>
-            </rdf:Description>
-        </swrl:head>
     </rdf:Description>
     <rdf:Description>
         <rdf:type rdf:resource="&swrl;Imp"/>
@@ -8050,20 +8166,6 @@
     </rdf:Description>
     <rdf:Description>
         <rdf:type rdf:resource="&swrl;Imp"/>
-        <swrl:body>
-            <rdf:Description>
-                <rdf:type rdf:resource="&swrl;AtomList"/>
-                <rdf:rest rdf:resource="&rdf;nil"/>
-                <rdf:first>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
-                        <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
-                        <swrl:argument1 rdf:resource="&bc;k/greenhouse_gas"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
-                    </rdf:Description>
-                </rdf:first>
-            </rdf:Description>
-        </swrl:body>
         <swrl:head>
             <rdf:Description>
                 <rdf:type rdf:resource="&swrl;AtomList"/>
@@ -8078,6 +8180,20 @@
                 </rdf:first>
             </rdf:Description>
         </swrl:head>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="&swrl;AtomList"/>
+                <rdf:rest rdf:resource="&rdf;nil"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
+                        <swrl:argument1 rdf:resource="&bc;k/greenhouse_gas"/>
+                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
+                    </rdf:Description>
+                </rdf:first>
+            </rdf:Description>
+        </swrl:body>
     </rdf:Description>
     <rdf:Description>
         <rdf:type rdf:resource="&swrl;Imp"/>
