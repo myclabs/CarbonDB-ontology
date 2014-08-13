@@ -492,6 +492,15 @@
     
 
 
+    <!-- http://www.myc-sense.com/ontologies/bc#exponent -->
+
+    <owl:DatatypeProperty rdf:about="&bc;exponent">
+        <rdfs:domain rdf:resource="&bc;Relation"/>
+        <rdfs:range rdf:resource="&xsd;short"/>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://www.myc-sense.com/ontologies/bc#foreignUnitID -->
 
     <owl:DatatypeProperty rdf:about="&bc;foreignUnitID">
@@ -1370,6 +1379,17 @@
     
 
 
+    <!-- http://www.myc-sense.com/ontologies/bc#d/greenhouse_gas_emitted_by_production_of_chemical -->
+
+    <owl:NamedIndividual rdf:about="&bc;d/greenhouse_gas_emitted_by_production_of_chemical">
+        <hasKeyword rdf:resource="&bc;k/ch4"/>
+        <hasKeyword rdf:resource="&bc;k/co2"/>
+        <hasKeyword rdf:resource="&bc;k/co2e"/>
+        <hasKeyword rdf:resource="&bc;k/n2o"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.myc-sense.com/ontologies/bc#d/greenhouse_gas_emitted_by_upstream_of_fossil_fuel -->
 
     <owl:NamedIndividual rdf:about="&bc;d/greenhouse_gas_emitted_by_upstream_of_fossil_fuel">
@@ -1669,67 +1689,12 @@
     
 
 
-    <!-- http://www.myc-sense.com/ontologies/bc#f/00015 -->
+    <!-- http://www.myc-sense.com/ontologies/bc#f/00023 -->
 
-    <owl:NamedIndividual rdf:about="&bc;f/00015">
+    <owl:NamedIndividual rdf:about="&bc;f/00023">
         <rdfs:label xml:lang="fr">Elementary flow</rdfs:label>
-        <uncertainty rdf:datatype="&xsd;double">30.0</uncertainty>
-        <value rdf:datatype="&xsd;double">5.33</value>
-        <hasNature rdf:resource="&bc;ghg/co2e"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.myc-sense.com/ontologies/bc#f/00016 -->
-
-    <owl:NamedIndividual rdf:about="&bc;f/00016">
-        <rdfs:label xml:lang="fr">Elementary flow</rdfs:label>
-        <value rdf:datatype="&xsd;double">0.444</value>
-        <uncertainty rdf:datatype="&xsd;double">30.0</uncertainty>
-        <hasNature rdf:resource="&bc;ghg/co2e"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.myc-sense.com/ontologies/bc#f/00017 -->
-
-    <owl:NamedIndividual rdf:about="&bc;f/00017">
-        <rdfs:label xml:lang="fr">Elementary flow</rdfs:label>
-        <value rdf:datatype="&xsd;double">0.568</value>
-        <uncertainty rdf:datatype="&xsd;double">30.0</uncertainty>
-        <hasNature rdf:resource="&bc;ghg/co2e"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.myc-sense.com/ontologies/bc#f/00018 -->
-
-    <owl:NamedIndividual rdf:about="&bc;f/00018">
-        <rdfs:label xml:lang="fr">Elementary flow</rdfs:label>
-        <uncertainty rdf:datatype="&xsd;double">20.0</uncertainty>
-        <value rdf:datatype="&xsd;double">6.05</value>
-        <hasNature rdf:resource="&bc;ghg/co2e"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.myc-sense.com/ontologies/bc#f/00019 -->
-
-    <owl:NamedIndividual rdf:about="&bc;f/00019">
-        <rdfs:label xml:lang="fr">Elementary flow</rdfs:label>
-        <uncertainty rdf:datatype="&xsd;double">20.0</uncertainty>
-        <value rdf:datatype="&xsd;double">9.02</value>
-        <hasNature rdf:resource="&bc;ghg/co2e"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.myc-sense.com/ontologies/bc#f/00020 -->
-
-    <owl:NamedIndividual rdf:about="&bc;f/00020">
-        <rdfs:label xml:lang="fr">Elementary flow</rdfs:label>
-        <uncertainty rdf:datatype="&xsd;double">20.0</uncertainty>
-        <value rdf:datatype="&xsd;double">25.23</value>
+        <uncertainty rdf:datatype="&xsd;double">0.0</uncertainty>
+        <value rdf:datatype="&xsd;double">1.0</value>
         <hasNature rdf:resource="&bc;ghg/co2e"/>
     </owl:NamedIndividual>
     
@@ -2002,6 +1967,21 @@
         <hasHorizontalDimension rdf:resource="&bc;d/greenhouse_gas_emittted_by_farmed_animal"/>
         <hasHorizontalDimension rdf:resource="&bc;d/impact_of_animal_husbandry"/>
         <hasUnit rdf:resource="&bc;u/kilogram_per_animal_per_year"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#gc/mass_of_greenhouse_gas_emitted_by_production_of_chemical -->
+
+    <owl:NamedIndividual rdf:about="&bc;gc/mass_of_greenhouse_gas_emitted_by_production_of_chemical">
+        <rdf:type rdf:resource="&bc;CoefficientGroup"/>
+        <rdfs:label xml:lang="en">Mass of greenhouse gas emitted by production of chemical</rdfs:label>
+        <rdfs:label xml:lang="fr">Masse de gaz à effet de serre émis par la production de produit chimique</rdfs:label>
+        <hasCategory rdf:resource="&bc;c/processing_industry"/>
+        <hasVerticalDimension rdf:resource="&bc;d/agricultural_input"/>
+        <hasHorizontalDimension rdf:resource="&bc;d/greenhouse_gas_emitted_by_production_of_chemical"/>
+        <hasCommonKeyword rdf:resource="&bc;k/production"/>
+        <hasUnit rdf:resource="&bc;u/kilogram_per_kilogram"/>
     </owl:NamedIndividual>
     
 
@@ -2484,6 +2464,7 @@
         <rdfs:label xml:lang="fr">Production de produit chimique, mesuré en unité de masse</rdfs:label>
         <hasCategory rdf:resource="&bc;c/processing_industry"/>
         <hasVerticalDimension rdf:resource="&bc;d/agricultural_input"/>
+        <hasCommonKeyword rdf:resource="&bc;k/production"/>
         <hasUnit rdf:resource="&bc;u/kilogram"/>
     </owl:NamedIndividual>
     
@@ -3484,6 +3465,15 @@
     
 
 
+    <!-- http://www.myc-sense.com/ontologies/bc#k/co2e -->
+
+    <owl:NamedIndividual rdf:about="&bc;k/co2e">
+        <rdfs:label xml:lang="en">CO2 equivalent</rdfs:label>
+        <rdfs:label xml:lang="fr">Équivalent CO2</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.myc-sense.com/ontologies/bc#k/coal -->
 
     <owl:NamedIndividual rdf:about="&bc;k/coal">
@@ -4289,6 +4279,7 @@
         <rdfs:label xml:lang="fr">Gaz à effet de serre</rdfs:label>
         <isBroaderThan rdf:resource="&bc;k/ch4"/>
         <isBroaderThan rdf:resource="&bc;k/co2"/>
+        <isBroaderThan rdf:resource="&bc;k/co2e"/>
         <isBroaderThan rdf:resource="&bc;k/n2o"/>
     </owl:NamedIndividual>
     
@@ -5201,7 +5192,10 @@
 
     <!-- http://www.myc-sense.com/ontologies/bc#k/production -->
 
-    <owl:NamedIndividual rdf:about="&bc;k/production"/>
+    <owl:NamedIndividual rdf:about="&bc;k/production">
+        <rdfs:label xml:lang="en">Production</rdfs:label>
+        <rdfs:label xml:lang="fr">Production</rdfs:label>
+    </owl:NamedIndividual>
     
 
 
@@ -6124,6 +6118,16 @@
     
 
 
+    <!-- http://www.myc-sense.com/ontologies/bc#r/mass_of_greenhouse_gas_emitted_by_production_of_chemical -->
+
+    <owl:NamedIndividual rdf:about="&bc;r/mass_of_greenhouse_gas_emitted_by_production_of_chemical">
+        <hasWeight rdf:resource="&bc;gc/mass_of_greenhouse_gas_emitted_by_production_of_chemical"/>
+        <hasOrigin rdf:resource="&bc;gp/direct_emission_of_greenhouse_gas"/>
+        <hasDestination rdf:resource="&bc;gp/production_of_chemical_unit_of_mass"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.myc-sense.com/ontologies/bc#r/mass_of_greenhouse_gas_upstream_of_fossil_fuel_unit_of_energy_lhv -->
 
     <owl:NamedIndividual rdf:about="&bc;r/mass_of_greenhouse_gas_upstream_of_fossil_fuel_unit_of_energy_lhv">
@@ -6137,7 +6141,6 @@
     <!-- http://www.myc-sense.com/ontologies/bc#r/mass_of_nitrogen_fertilizer_for_cultivation_of_unit_of_area -->
 
     <owl:NamedIndividual rdf:about="&bc;r/mass_of_nitrogen_fertilizer_for_cultivation_of_unit_of_area">
-        <rdf:type rdf:resource="&bc;Relation"/>
         <hasWeight rdf:resource="&bc;gc/mass_of_agricultural_input_for_cultivation_of_unit_of_area"/>
         <hasDestination rdf:resource="&bc;gp/cultivation_of_agricultural_area"/>
         <hasOrigin rdf:resource="&bc;gp/emanation_of_nitrous_oxide_from_nitrogen_fertilizer"/>
@@ -6148,7 +6151,6 @@
     <!-- http://www.myc-sense.com/ontologies/bc#r/mass_of_volatised_nitrous_oxide_per_mass_of_nitrogen_in_fertilizer -->
 
     <owl:NamedIndividual rdf:about="&bc;r/mass_of_volatised_nitrous_oxide_per_mass_of_nitrogen_in_fertilizer">
-        <rdf:type rdf:resource="&bc;Relation"/>
         <hasWeight rdf:resource="&bc;gc/mass_of_volatised_nitrous_oxide_per_mass_of_nitrogen_in_fertilizer"/>
         <hasOrigin rdf:resource="&bc;gp/direct_emission_of_greenhouse_gas"/>
         <hasDestination rdf:resource="&bc;gp/emanation_of_nitrous_oxide_from_nitrogen_fertilizer"/>
@@ -7650,6 +7652,87 @@
     
 
 
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/production+fungicide+co2 -->
+
+    <owl:NamedIndividual rdf:about="&bc;sc/production+fungicide+co2">
+        <rdf:type rdf:resource="&bc;SingleCoefficient"/>
+        <value rdf:datatype="&xsd;double">5.537</value>
+        <hasTag rdf:resource="&bc;k/co2"/>
+        <hasTag rdf:resource="&bc;k/fungicide"/>
+        <hasTag rdf:resource="&bc;k/production"/>
+        <hasUnit rdf:resource="&bc;u/kilogram_per_kilogram"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/production+herbicide+co2 -->
+
+    <owl:NamedIndividual rdf:about="&bc;sc/production+herbicide+co2">
+        <rdf:type rdf:resource="&bc;SingleCoefficient"/>
+        <value rdf:datatype="&xsd;double">8.33</value>
+        <hasTag rdf:resource="&bc;k/co2"/>
+        <hasTag rdf:resource="&bc;k/herbicide"/>
+        <hasTag rdf:resource="&bc;k/production"/>
+        <hasUnit rdf:resource="&bc;u/kilogram_per_kilogram"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/production+insecticide+co2 -->
+
+    <owl:NamedIndividual rdf:about="&bc;sc/production+insecticide+co2">
+        <rdf:type rdf:resource="&bc;SingleCoefficient"/>
+        <value rdf:datatype="&xsd;double">23.7</value>
+        <hasTag rdf:resource="&bc;k/co2"/>
+        <hasTag rdf:resource="&bc;k/insecticide"/>
+        <hasTag rdf:resource="&bc;k/production"/>
+        <hasUnit rdf:resource="&bc;u/kilogram_per_kilogram"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/production+nitrogen_fertilizer+co2e -->
+
+    <owl:NamedIndividual rdf:about="&bc;sc/production+nitrogen_fertilizer+co2e">
+        <rdf:type rdf:resource="&bc;SingleCoefficient"/>
+        <uncertainty rdf:datatype="&xsd;double">30.0</uncertainty>
+        <value rdf:datatype="&xsd;double">5.33</value>
+        <hasTag rdf:resource="&bc;k/co2e"/>
+        <hasTag rdf:resource="&bc;k/nitrogen_fertilizer"/>
+        <hasTag rdf:resource="&bc;k/production"/>
+        <hasUnit rdf:resource="&bc;u/kilogram_per_kilogram"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/production+phosphate_fertilizer+co2e -->
+
+    <owl:NamedIndividual rdf:about="&bc;sc/production+phosphate_fertilizer+co2e">
+        <rdf:type rdf:resource="&bc;SingleCoefficient"/>
+        <value rdf:datatype="&xsd;double">0.568</value>
+        <uncertainty rdf:datatype="&xsd;double">30.0</uncertainty>
+        <hasTag rdf:resource="&bc;k/co2e"/>
+        <hasTag rdf:resource="&bc;k/phosphate_fertilizer"/>
+        <hasTag rdf:resource="&bc;k/production"/>
+        <hasUnit rdf:resource="&bc;u/kilogram_per_kilogram"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/production+potash_fertilizer+co2e -->
+
+    <owl:NamedIndividual rdf:about="&bc;sc/production+potash_fertilizer+co2e">
+        <rdf:type rdf:resource="&bc;SingleCoefficient"/>
+        <value rdf:datatype="&xsd;double">0.444</value>
+        <uncertainty rdf:datatype="&xsd;double">30.0</uncertainty>
+        <hasTag rdf:resource="&bc;k/co2e"/>
+        <hasTag rdf:resource="&bc;k/potash_fertilizer"/>
+        <hasTag rdf:resource="&bc;k/production"/>
+        <hasUnit rdf:resource="&bc;u/kilogram_per_kilogram"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.myc-sense.com/ontologies/bc#sc/proportion_of_dry_matter+fodder_corn -->
 
     <owl:NamedIndividual rdf:about="&bc;sc/proportion_of_dry_matter+fodder_corn">
@@ -8039,6 +8122,18 @@
     
 
 
+    <!-- http://www.myc-sense.com/ontologies/bc#sp/direct_emission+co2e -->
+
+    <owl:NamedIndividual rdf:about="&bc;sp/direct_emission+co2e">
+        <rdf:type rdf:resource="&bc;SingleProcess"/>
+        <hasInputFlow rdf:resource="&bc;f/00023"/>
+        <hasTag rdf:resource="&bc;k/co2e"/>
+        <hasTag rdf:resource="&bc;k/direct_emission"/>
+        <hasUnit rdf:resource="&bc;u/kilogram"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.myc-sense.com/ontologies/bc#sp/direct_emission+n2o -->
 
     <owl:NamedIndividual rdf:about="&bc;sp/direct_emission+n2o">
@@ -8046,72 +8141,6 @@
         <hasInputFlow rdf:resource="&bc;f/00009"/>
         <hasTag rdf:resource="&bc;k/direct_emission"/>
         <hasTag rdf:resource="&bc;k/n2o"/>
-        <hasUnit rdf:resource="&bc;u/kilogram"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.myc-sense.com/ontologies/bc#sp/fungicide -->
-
-    <owl:NamedIndividual rdf:about="&bc;sp/fungicide">
-        <rdf:type rdf:resource="&bc;SingleProcess"/>
-        <hasInputFlow rdf:resource="&bc;f/00018"/>
-        <hasTag rdf:resource="&bc;k/fungicide"/>
-        <hasUnit rdf:resource="&bc;u/kilogram"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.myc-sense.com/ontologies/bc#sp/herbicide -->
-
-    <owl:NamedIndividual rdf:about="&bc;sp/herbicide">
-        <rdf:type rdf:resource="&bc;SingleProcess"/>
-        <hasInputFlow rdf:resource="&bc;f/00019"/>
-        <hasTag rdf:resource="&bc;k/herbicide"/>
-        <hasUnit rdf:resource="&bc;u/kilogram"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.myc-sense.com/ontologies/bc#sp/insecticide -->
-
-    <owl:NamedIndividual rdf:about="&bc;sp/insecticide">
-        <rdf:type rdf:resource="&bc;SingleProcess"/>
-        <hasInputFlow rdf:resource="&bc;f/00020"/>
-        <hasTag rdf:resource="&bc;k/insecticide"/>
-        <hasUnit rdf:resource="&bc;u/kilogram"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.myc-sense.com/ontologies/bc#sp/nitrogen_fertilizer -->
-
-    <owl:NamedIndividual rdf:about="&bc;sp/nitrogen_fertilizer">
-        <rdf:type rdf:resource="&bc;SingleProcess"/>
-        <hasInputFlow rdf:resource="&bc;f/00015"/>
-        <hasTag rdf:resource="&bc;k/nitrogen_fertilizer"/>
-        <hasUnit rdf:resource="&bc;u/kilogram"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.myc-sense.com/ontologies/bc#sp/phosphate_fertilizer -->
-
-    <owl:NamedIndividual rdf:about="&bc;sp/phosphate_fertilizer">
-        <rdf:type rdf:resource="&bc;SingleProcess"/>
-        <hasInputFlow rdf:resource="&bc;f/00017"/>
-        <hasTag rdf:resource="&bc;k/phosphate_fertilizer"/>
-        <hasUnit rdf:resource="&bc;u/kilogram"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.myc-sense.com/ontologies/bc#sp/potash_fertilizer -->
-
-    <owl:NamedIndividual rdf:about="&bc;sp/potash_fertilizer">
-        <rdf:type rdf:resource="&bc;SingleProcess"/>
-        <hasInputFlow rdf:resource="&bc;f/00016"/>
-        <hasTag rdf:resource="&bc;k/potash_fertilizer"/>
         <hasUnit rdf:resource="&bc;u/kilogram"/>
     </owl:NamedIndividual>
     
@@ -8176,7 +8205,7 @@
     <!-- http://www.myc-sense.com/ontologies/bc#u/hour -->
 
     <owl:NamedIndividual rdf:about="&bc;u/hour">
-        <foreignUnitID>heure</foreignUnitID>
+        <foreignUnitID>h</foreignUnitID>
     </owl:NamedIndividual>
     
 
@@ -8184,7 +8213,7 @@
     <!-- http://www.myc-sense.com/ontologies/bc#u/hour_per_hectare -->
 
     <owl:NamedIndividual rdf:about="&bc;u/hour_per_hectare">
-        <foreignUnitID>heure.ha^-1</foreignUnitID>
+        <foreignUnitID>h.ha^-1</foreignUnitID>
     </owl:NamedIndividual>
     
 
@@ -8233,6 +8262,14 @@
 
     <owl:NamedIndividual rdf:about="&bc;u/kilogram_per_hectare">
         <foreignUnitID>kg.ha^-1</foreignUnitID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#u/kilogram_per_kilogram -->
+
+    <owl:NamedIndividual rdf:about="&bc;u/kilogram_per_kilogram">
+        <foreignUnitID>kg.kg^-1</foreignUnitID>
     </owl:NamedIndividual>
     
 
@@ -8304,7 +8341,7 @@
     <!-- http://www.myc-sense.com/ontologies/bc#u/liter_per_hour -->
 
     <owl:NamedIndividual rdf:about="&bc;u/liter_per_hour">
-        <foreignUnitID>l.heure^-1</foreignUnitID>
+        <foreignUnitID>l.^-1</foreignUnitID>
     </owl:NamedIndividual>
     
 
@@ -8434,20 +8471,6 @@
     </rdf:Description>
     <rdf:Description>
         <rdf:type rdf:resource="&swrl;Imp"/>
-        <swrl:head>
-            <rdf:Description>
-                <rdf:type rdf:resource="&swrl;AtomList"/>
-                <rdf:rest rdf:resource="&rdf;nil"/>
-                <rdf:first>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
-                        <swrl:argument1 rdf:resource="&bc;d/type_of_ship"/>
-                        <swrl:propertyPredicate rdf:resource="&bc;hasKeyword"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
-                    </rdf:Description>
-                </rdf:first>
-            </rdf:Description>
-        </swrl:head>
         <swrl:body>
             <rdf:Description>
                 <rdf:type rdf:resource="&swrl;AtomList"/>
@@ -8462,9 +8485,6 @@
                 </rdf:first>
             </rdf:Description>
         </swrl:body>
-    </rdf:Description>
-    <rdf:Description>
-        <rdf:type rdf:resource="&swrl;Imp"/>
         <swrl:head>
             <rdf:Description>
                 <rdf:type rdf:resource="&swrl;AtomList"/>
@@ -8479,6 +8499,9 @@
                 </rdf:first>
             </rdf:Description>
         </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&swrl;Imp"/>
         <swrl:body>
             <rdf:Description>
                 <rdf:type rdf:resource="&swrl;AtomList"/>
@@ -8493,6 +8516,20 @@
                 </rdf:first>
             </rdf:Description>
         </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="&swrl;AtomList"/>
+                <rdf:rest rdf:resource="&rdf;nil"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
+                        <swrl:argument1 rdf:resource="&bc;d/type_of_ship"/>
+                        <swrl:propertyPredicate rdf:resource="&bc;hasKeyword"/>
+                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
+                    </rdf:Description>
+                </rdf:first>
+            </rdf:Description>
+        </swrl:head>
     </rdf:Description>
     <rdf:Description>
         <rdf:type rdf:resource="&swrl;Imp"/>
@@ -8527,20 +8564,6 @@
     </rdf:Description>
     <rdf:Description>
         <rdf:type rdf:resource="&swrl;Imp"/>
-        <swrl:head>
-            <rdf:Description>
-                <rdf:type rdf:resource="&swrl;AtomList"/>
-                <rdf:rest rdf:resource="&rdf;nil"/>
-                <rdf:first>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
-                        <swrl:argument1 rdf:resource="&bc;d/agricultural_input"/>
-                        <swrl:propertyPredicate rdf:resource="&bc;hasKeyword"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
-                    </rdf:Description>
-                </rdf:first>
-            </rdf:Description>
-        </swrl:head>
         <swrl:body>
             <rdf:Description>
                 <rdf:type rdf:resource="&swrl;AtomList"/>
@@ -8555,6 +8578,20 @@
                 </rdf:first>
             </rdf:Description>
         </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="&swrl;AtomList"/>
+                <rdf:rest rdf:resource="&rdf;nil"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
+                        <swrl:argument1 rdf:resource="&bc;d/agricultural_input"/>
+                        <swrl:propertyPredicate rdf:resource="&bc;hasKeyword"/>
+                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
+                    </rdf:Description>
+                </rdf:first>
+            </rdf:Description>
+        </swrl:head>
     </rdf:Description>
     <rdf:Description>
         <rdf:type rdf:resource="&swrl;Imp"/>
@@ -8589,20 +8626,6 @@
     </rdf:Description>
     <rdf:Description>
         <rdf:type rdf:resource="&swrl;Imp"/>
-        <swrl:body>
-            <rdf:Description>
-                <rdf:type rdf:resource="&swrl;AtomList"/>
-                <rdf:rest rdf:resource="&rdf;nil"/>
-                <rdf:first>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
-                        <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
-                        <swrl:argument1 rdf:resource="&bc;k/type_of_meal"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
-                    </rdf:Description>
-                </rdf:first>
-            </rdf:Description>
-        </swrl:body>
         <swrl:head>
             <rdf:Description>
                 <rdf:type rdf:resource="&swrl;AtomList"/>
@@ -8617,6 +8640,20 @@
                 </rdf:first>
             </rdf:Description>
         </swrl:head>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="&swrl;AtomList"/>
+                <rdf:rest rdf:resource="&rdf;nil"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
+                        <swrl:argument1 rdf:resource="&bc;k/type_of_meal"/>
+                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
+                    </rdf:Description>
+                </rdf:first>
+            </rdf:Description>
+        </swrl:body>
     </rdf:Description>
     <rdf:Description>
         <rdf:type rdf:resource="&swrl;Imp"/>
@@ -8682,20 +8719,6 @@
     </rdf:Description>
     <rdf:Description>
         <rdf:type rdf:resource="&swrl;Imp"/>
-        <swrl:body>
-            <rdf:Description>
-                <rdf:type rdf:resource="&swrl;AtomList"/>
-                <rdf:rest rdf:resource="&rdf;nil"/>
-                <rdf:first>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
-                        <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
-                        <swrl:argument1 rdf:resource="&bc;k/dairy_product"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
-                    </rdf:Description>
-                </rdf:first>
-            </rdf:Description>
-        </swrl:body>
         <swrl:head>
             <rdf:Description>
                 <rdf:type rdf:resource="&swrl;AtomList"/>
@@ -8710,6 +8733,20 @@
                 </rdf:first>
             </rdf:Description>
         </swrl:head>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="&swrl;AtomList"/>
+                <rdf:rest rdf:resource="&rdf;nil"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
+                        <swrl:argument1 rdf:resource="&bc;k/dairy_product"/>
+                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
+                    </rdf:Description>
+                </rdf:first>
+            </rdf:Description>
+        </swrl:body>
     </rdf:Description>
     <rdf:Description>
         <rdf:type rdf:resource="&swrl;Imp"/>
@@ -8744,20 +8781,6 @@
     </rdf:Description>
     <rdf:Description>
         <rdf:type rdf:resource="&swrl;Imp"/>
-        <swrl:head>
-            <rdf:Description>
-                <rdf:type rdf:resource="&swrl;AtomList"/>
-                <rdf:rest rdf:resource="&rdf;nil"/>
-                <rdf:first>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
-                        <swrl:argument1 rdf:resource="&bc;d/farmed_animal"/>
-                        <swrl:propertyPredicate rdf:resource="&bc;hasKeyword"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
-                    </rdf:Description>
-                </rdf:first>
-            </rdf:Description>
-        </swrl:head>
         <swrl:body>
             <rdf:Description>
                 <rdf:type rdf:resource="&swrl;AtomList"/>
@@ -8772,6 +8795,20 @@
                 </rdf:first>
             </rdf:Description>
         </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="&swrl;AtomList"/>
+                <rdf:rest rdf:resource="&rdf;nil"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
+                        <swrl:argument1 rdf:resource="&bc;d/farmed_animal"/>
+                        <swrl:propertyPredicate rdf:resource="&bc;hasKeyword"/>
+                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
+                    </rdf:Description>
+                </rdf:first>
+            </rdf:Description>
+        </swrl:head>
     </rdf:Description>
     <rdf:Description>
         <rdf:type rdf:resource="&swrl;Imp"/>
