@@ -1332,7 +1332,10 @@
 
     <!-- http://www.myc-sense.com/ontologies/bc#d/fuel_for_ship_generic -->
 
-    <owl:NamedIndividual rdf:about="&bc;d/fuel_for_ship_generic"/>
+    <owl:NamedIndividual rdf:about="&bc;d/fuel_for_ship_generic">
+        <hasKeyword rdf:resource="&bc;k/gas_diesel_oil"/>
+        <hasKeyword rdf:resource="&bc;k/residual_fuel_oil"/>
+    </owl:NamedIndividual>
     
 
 
@@ -1611,9 +1614,7 @@
     <!-- http://www.myc-sense.com/ontologies/bc#d/type_of_road_vehicle -->
 
     <owl:NamedIndividual rdf:about="&bc;d/type_of_road_vehicle">
-        <rdfs:label xml:lang="en">Type of road vehicle</rdfs:label>
-        <rdfs:label xml:lang="fr">Type de véhicule routier</rdfs:label>
-        <hasKeyword rdf:resource="&bc;k/undifferentiated"/>
+        <hasKeyword rdf:resource="&bc;k/undifferentiated_vehicle"/>
     </owl:NamedIndividual>
     
 
@@ -1625,14 +1626,6 @@
         <rdfs:label xml:lang="fr">Type de bateau</rdfs:label>
         <hasKeyword rdf:resource="&bc;k/800_teu"/>
         <hasKeyword rdf:resource="&bc;k/9500_teu"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.myc-sense.com/ontologies/bc#d/type_of_vehicle -->
-
-    <owl:NamedIndividual rdf:about="&bc;d/type_of_vehicle">
-        <hasKeyword rdf:resource="&bc;k/undifferentiated_vehicle"/>
     </owl:NamedIndividual>
     
 
@@ -1728,6 +1721,7 @@
         <rdfs:label xml:lang="fr">Masse moyenne transportée par un navire de transport de marchandise</rdfs:label>
         <hasCategory rdf:resource="&bc;c/ship_freight_transport_source_data"/>
         <hasVerticalDimension rdf:resource="&bc;d/type_of_ship"/>
+        <hasCommonKeyword rdf:resource="&bc;k/average_loaded_mass"/>
         <hasUnit rdf:resource="&bc;u/ton_per_vehicle"/>
     </owl:NamedIndividual>
     
@@ -1972,6 +1966,7 @@
         <rdf:type rdf:resource="&bc;CoefficientGroup"/>
         <rdfs:label xml:lang="en">Mass of fuel consumed per unit of distance travelled, freight transport ship</rdfs:label>
         <rdfs:label xml:lang="fr">Masse de carburant consommé par unité de distance parcourue, navire de transport de marchandise</rdfs:label>
+        <hasCategory rdf:resource="&bc;c/ship_freight_transport_source_data"/>
         <hasHorizontalDimension rdf:resource="&bc;d/fuel_for_ship_specialized"/>
         <hasVerticalDimension rdf:resource="&bc;d/type_of_ship"/>
         <hasUnit rdf:resource="&bc;u/kilogram_per_kilometer"/>
@@ -2013,10 +2008,11 @@
 
     <owl:NamedIndividual rdf:about="&bc;gc/mass_of_greenhouse_gas_emitted_by_manufacture_of_vehicle_unit_mass">
         <rdf:type rdf:resource="&bc;CoefficientGroup"/>
-        <rdfs:label xml:lang="fr">Mass of greenhouse gas emitted by manufacture of a vehicle, measured in unit of mass</rdfs:label>
+        <rdfs:label xml:lang="en">Mass of greenhouse gas emitted by manufacture of a vehicle, measured in unit of mass</rdfs:label>
         <rdfs:label xml:lang="fr">Masse de gas à effet de serre émise par la fabrication d&apos;un véhicule, mesuré en unité de masse</rdfs:label>
         <hasHorizontalDimension rdf:resource="&bc;d/greenhouse_gas_emitted_by_manufacture_of_vehicle"/>
-        <hasVerticalDimension rdf:resource="&bc;d/type_of_vehicle"/>
+        <hasVerticalDimension rdf:resource="&bc;d/type_of_road_vehicle"/>
+        <hasCommonKeyword rdf:resource="&bc;k/manufacture"/>
         <hasUnit rdf:resource="&bc;u/kilogram_per_kilogram"/>
     </owl:NamedIndividual>
     
@@ -8930,20 +8926,6 @@
     </rdf:Description>
     <rdf:Description>
         <rdf:type rdf:resource="&swrl;Imp"/>
-        <swrl:head>
-            <rdf:Description>
-                <rdf:type rdf:resource="&swrl;AtomList"/>
-                <rdf:rest rdf:resource="&rdf;nil"/>
-                <rdf:first>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
-                        <swrl:argument1 rdf:resource="&bc;d/agricultural_input"/>
-                        <swrl:propertyPredicate rdf:resource="&bc;hasKeyword"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
-                    </rdf:Description>
-                </rdf:first>
-            </rdf:Description>
-        </swrl:head>
         <swrl:body>
             <rdf:Description>
                 <rdf:type rdf:resource="&swrl;AtomList"/>
@@ -8958,6 +8940,20 @@
                 </rdf:first>
             </rdf:Description>
         </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="&swrl;AtomList"/>
+                <rdf:rest rdf:resource="&rdf;nil"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
+                        <swrl:argument1 rdf:resource="&bc;d/agricultural_input"/>
+                        <swrl:propertyPredicate rdf:resource="&bc;hasKeyword"/>
+                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
+                    </rdf:Description>
+                </rdf:first>
+            </rdf:Description>
+        </swrl:head>
     </rdf:Description>
     <rdf:Description>
         <rdf:type rdf:resource="&swrl;Imp"/>
@@ -9116,20 +9112,6 @@
     </rdf:Description>
     <rdf:Description>
         <rdf:type rdf:resource="&swrl;Imp"/>
-        <swrl:body>
-            <rdf:Description>
-                <rdf:type rdf:resource="&swrl;AtomList"/>
-                <rdf:rest rdf:resource="&rdf;nil"/>
-                <rdf:first>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
-                        <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
-                        <swrl:argument1 rdf:resource="&bc;k/greenhouse_gas"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
-                    </rdf:Description>
-                </rdf:first>
-            </rdf:Description>
-        </swrl:body>
         <swrl:head>
             <rdf:Description>
                 <rdf:type rdf:resource="&swrl;AtomList"/>
@@ -9144,6 +9126,20 @@
                 </rdf:first>
             </rdf:Description>
         </swrl:head>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="&swrl;AtomList"/>
+                <rdf:rest rdf:resource="&rdf;nil"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
+                        <swrl:argument1 rdf:resource="&bc;k/greenhouse_gas"/>
+                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
+                    </rdf:Description>
+                </rdf:first>
+            </rdf:Description>
+        </swrl:body>
     </rdf:Description>
 </rdf:RDF>
 
