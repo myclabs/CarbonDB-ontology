@@ -212,6 +212,16 @@
     
 
 
+    <!-- http://www.myc-sense.com/ontologies/bc#hasReference -->
+
+    <owl:ObjectProperty rdf:about="&bc;hasReference">
+        <rdfs:domain rdf:resource="&bc;Element"/>
+        <rdfs:range rdf:resource="&bc;Reference"/>
+        <owl:inverseOf rdf:resource="&bc;isReferenceOf"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://www.myc-sense.com/ontologies/bc#hasRelationType -->
 
     <owl:ObjectProperty rdf:about="&bc;hasRelationType">
@@ -427,6 +437,15 @@
 
     <owl:ObjectProperty rdf:about="&bc;isPrimarySourceOf">
         <rdfs:subPropertyOf rdf:resource="&bc;isLinkedTo"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#isReferenceOf -->
+
+    <owl:ObjectProperty rdf:about="&bc;isReferenceOf">
+        <rdfs:range rdf:resource="&bc;Element"/>
+        <rdfs:domain rdf:resource="&bc;Reference"/>
     </owl:ObjectProperty>
     
 
@@ -772,6 +791,12 @@
         <rdfs:subClassOf rdf:resource="&bc;Group"/>
         <rdfs:subClassOf rdf:resource="&bc;Process"/>
     </owl:Class>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#Reference -->
+
+    <owl:Class rdf:about="&bc;Reference"/>
     
 
 
@@ -9555,20 +9580,6 @@
     </rdf:Description>
     <rdf:Description>
         <rdf:type rdf:resource="&swrl;Imp"/>
-        <swrl:body>
-            <rdf:Description>
-                <rdf:type rdf:resource="&swrl;AtomList"/>
-                <rdf:rest rdf:resource="&rdf;nil"/>
-                <rdf:first>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
-                        <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
-                        <swrl:argument1 rdf:resource="&bc;k/type_of_meal"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
-                    </rdf:Description>
-                </rdf:first>
-            </rdf:Description>
-        </swrl:body>
         <swrl:head>
             <rdf:Description>
                 <rdf:type rdf:resource="&swrl;AtomList"/>
@@ -9583,9 +9594,6 @@
                 </rdf:first>
             </rdf:Description>
         </swrl:head>
-    </rdf:Description>
-    <rdf:Description>
-        <rdf:type rdf:resource="&swrl;Imp"/>
         <swrl:body>
             <rdf:Description>
                 <rdf:type rdf:resource="&swrl;AtomList"/>
@@ -9594,12 +9602,15 @@
                     <rdf:Description>
                         <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
                         <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
-                        <swrl:argument1 rdf:resource="&bc;k/dairy_product"/>
+                        <swrl:argument1 rdf:resource="&bc;k/type_of_meal"/>
                         <swrl:argument2 rdf:resource="urn:swrl#kw"/>
                     </rdf:Description>
                 </rdf:first>
             </rdf:Description>
         </swrl:body>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&swrl;Imp"/>
         <swrl:head>
             <rdf:Description>
                 <rdf:type rdf:resource="&swrl;AtomList"/>
@@ -9614,6 +9625,20 @@
                 </rdf:first>
             </rdf:Description>
         </swrl:head>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="&swrl;AtomList"/>
+                <rdf:rest rdf:resource="&rdf;nil"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
+                        <swrl:argument1 rdf:resource="&bc;k/dairy_product"/>
+                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
+                    </rdf:Description>
+                </rdf:first>
+            </rdf:Description>
+        </swrl:body>
     </rdf:Description>
     <rdf:Description>
         <rdf:type rdf:resource="&swrl;Imp"/>
