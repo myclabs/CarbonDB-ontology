@@ -6293,6 +6293,7 @@
     <!-- http://www.myc-sense.com/ontologies/bc#r/average_loaded_mass_of_freight_transport_ship -->
 
     <owl:NamedIndividual rdf:about="&bc;r/average_loaded_mass_of_freight_transport_ship">
+        <rdf:type rdf:resource="&bc;MacroRelation"/>
         <exponent rdf:datatype="&xsd;short">-1</exponent>
         <hasWeight rdf:resource="&bc;gc/average_loaded_mass_of_freight_transport_ship"/>
         <hasDestination rdf:resource="&bc;gp/ship_freight_transport_unit_of_mass_times_distance"/>
@@ -6305,6 +6306,7 @@
     <!-- http://www.myc-sense.com/ontologies/bc#r/average_loaded_mass_of_road_freight_transport_vehicle -->
 
     <owl:NamedIndividual rdf:about="&bc;r/average_loaded_mass_of_road_freight_transport_vehicle">
+        <rdf:type rdf:resource="&bc;MacroRelation"/>
         <exponent rdf:datatype="&xsd;short">-1</exponent>
         <hasWeight rdf:resource="&bc;gc/average_loaded_mass_of_road_freight_transport_vehicle"/>
         <hasDestination rdf:resource="&bc;gp/road_freight_transport_unit_of_mass_times_distance"/>
@@ -6317,6 +6319,7 @@
     <!-- http://www.myc-sense.com/ontologies/bc#r/average_loaded_volume_of_road_freight_transport_vehicle -->
 
     <owl:NamedIndividual rdf:about="&bc;r/average_loaded_volume_of_road_freight_transport_vehicle">
+        <rdf:type rdf:resource="&bc;MacroRelation"/>
         <exponent rdf:datatype="&xsd;short">-1</exponent>
         <hasWeight rdf:resource="&bc;gc/average_loaded_volume_of_road_freight_transport_vehicle"/>
         <hasOrigin rdf:resource="&bc;gp/road_freight_transport_unit_of_vehicle_times_distance"/>
@@ -6329,6 +6332,7 @@
     <!-- http://www.myc-sense.com/ontologies/bc#r/crop_yield -->
 
     <owl:NamedIndividual rdf:about="&bc;r/crop_yield">
+        <rdf:type rdf:resource="&bc;MacroRelation"/>
         <exponent rdf:datatype="&xsd;short">-1</exponent>
         <hasWeight rdf:resource="&bc;gc/crop_yield"/>
         <hasDestination rdf:resource="&bc;gp/crop_production_unit_of_mass_of_hydrated_matter"/>
@@ -6341,6 +6345,7 @@
     <!-- http://www.myc-sense.com/ontologies/bc#r/density_of_fuel -->
 
     <owl:NamedIndividual rdf:about="&bc;r/density_of_fuel">
+        <rdf:type rdf:resource="&bc;MacroRelation"/>
         <exponent rdf:datatype="&xsd;short">1</exponent>
         <hasWeight rdf:resource="&bc;gc/density_of_fuel"/>
         <hasOrigin rdf:resource="&bc;gp/combustion_unit_of_mass"/>
@@ -6353,6 +6358,7 @@
     <!-- http://www.myc-sense.com/ontologies/bc#r/empty_weight_of_car -->
 
     <owl:NamedIndividual rdf:about="&bc;r/empty_weight_of_car">
+        <rdf:type rdf:resource="&bc;MacroRelation"/>
         <exponent rdf:datatype="&xsd;short">1</exponent>
         <hasWeight rdf:resource="&bc;gc/empty_weight_of_car"/>
         <hasDestination rdf:resource="&bc;gp/manufacture_of_car_unit_of_vehicle"/>
@@ -6365,6 +6371,7 @@
     <!-- http://www.myc-sense.com/ontologies/bc#r/empty_weight_of_road_freight_transport_vehicle -->
 
     <owl:NamedIndividual rdf:about="&bc;r/empty_weight_of_road_freight_transport_vehicle">
+        <rdf:type rdf:resource="&bc;MacroRelation"/>
         <exponent rdf:datatype="&xsd;short">1</exponent>
         <hasWeight rdf:resource="&bc;gc/empty_weight_of_road_freight_transport_vehicle"/>
         <hasDestination rdf:resource="&bc;gp/manufacture_of_road_freight_transport_vehicle_unit_of_vehicle"/>
@@ -6377,6 +6384,7 @@
     <!-- http://www.myc-sense.com/ontologies/bc#r/fuel_used_by_car_motor_engine -->
 
     <owl:NamedIndividual rdf:about="&bc;r/fuel_used_by_car_motor_engine">
+        <rdf:type rdf:resource="&bc;MacroRelation"/>
         <exponent rdf:datatype="&xsd;short">1</exponent>
         <hasWeight rdf:resource="&bc;gc/fuel_used_by_car_motor_engine"/>
         <hasDestination rdf:resource="&bc;gp/combustion_of_fuel_for_car"/>
@@ -6389,6 +6397,7 @@
     <!-- http://www.myc-sense.com/ontologies/bc#r/fuel_used_by_ship -->
 
     <owl:NamedIndividual rdf:about="&bc;r/fuel_used_by_ship">
+        <rdf:type rdf:resource="&bc;MacroRelation"/>
         <exponent rdf:datatype="&xsd;short">1</exponent>
         <hasWeight rdf:resource="&bc;gc/fuel_used_by_ship"/>
         <hasDestination rdf:resource="&bc;gp/combustion_of_fuel_for_ship"/>
@@ -6401,6 +6410,7 @@
     <!-- http://www.myc-sense.com/ontologies/bc#r/identity_coefficient_group+agricultural_input -->
 
     <owl:NamedIndividual rdf:about="&bc;r/identity_coefficient_group+agricultural_input">
+        <rdf:type rdf:resource="&bc;MacroRelation"/>
         <exponent rdf:datatype="&xsd;short">1</exponent>
         <hasWeight rdf:resource="&bc;gc/identity_coefficient_group"/>
         <hasDestination rdf:resource="&bc;gp/cultivation_of_agricultural_area"/>
@@ -6413,6 +6423,7 @@
     <!-- http://www.myc-sense.com/ontologies/bc#r/identity_coefficient_group+upstream_of_fuel -->
 
     <owl:NamedIndividual rdf:about="&bc;r/identity_coefficient_group+upstream_of_fuel">
+        <rdf:type rdf:resource="&bc;MacroRelation"/>
         <exponent rdf:datatype="&xsd;short">1</exponent>
         <hasWeight rdf:resource="&bc;gc/identity_coefficient_group"/>
         <hasDestination rdf:resource="&bc;gp/combustion_unit_of_energy_lhv"/>
@@ -6425,6 +6436,7 @@
     <!-- http://www.myc-sense.com/ontologies/bc#r/identity_coefficient_group+use_of_agricultural_machinery -->
 
     <owl:NamedIndividual rdf:about="&bc;r/identity_coefficient_group+use_of_agricultural_machinery">
+        <rdf:type rdf:resource="&bc;MacroRelation"/>
         <hasWeight rdf:resource="&bc;gc/identity_coefficient_group"/>
         <hasDestination rdf:resource="&bc;gp/cultivation_of_agricultural_area"/>
         <hasOrigin rdf:resource="&bc;gp/use_of_agricultural_machinery_for_cultivation_of_area"/>
@@ -6436,6 +6448,7 @@
     <!-- http://www.myc-sense.com/ontologies/bc#r/lifespan_of_animal_for_slaughter -->
 
     <owl:NamedIndividual rdf:about="&bc;r/lifespan_of_animal_for_slaughter">
+        <rdf:type rdf:resource="&bc;MacroRelation"/>
         <exponent rdf:datatype="&xsd;short">1</exponent>
         <hasWeight rdf:resource="&bc;gc/lifespan_allocation_of_animal_for_slaughter"/>
         <hasOrigin rdf:resource="&bc;gp/animal_husbandry_unit_of_time"/>
@@ -6448,6 +6461,7 @@
     <!-- http://www.myc-sense.com/ontologies/bc#r/lifetime_of_car -->
 
     <owl:NamedIndividual rdf:about="&bc;r/lifetime_of_car">
+        <rdf:type rdf:resource="&bc;MacroRelation"/>
         <exponent rdf:datatype="&xsd;short">-1</exponent>
         <hasWeight rdf:resource="&bc;gc/lifetime_of_car"/>
         <hasOrigin rdf:resource="&bc;gp/manufacture_of_car_unit_of_vehicle"/>
@@ -6460,6 +6474,7 @@
     <!-- http://www.myc-sense.com/ontologies/bc#r/lifetime_of_road_freight_vehicle -->
 
     <owl:NamedIndividual rdf:about="&bc;r/lifetime_of_road_freight_vehicle">
+        <rdf:type rdf:resource="&bc;MacroRelation"/>
         <exponent rdf:datatype="&xsd;short">-1</exponent>
         <hasWeight rdf:resource="&bc;gc/lifetime_of_road_freight_vehicle"/>
         <hasOrigin rdf:resource="&bc;gp/manufacture_of_road_freight_transport_vehicle_unit_of_vehicle"/>
@@ -6472,6 +6487,7 @@
     <!-- http://www.myc-sense.com/ontologies/bc#r/live_weight_of_slaughtered_animal -->
 
     <owl:NamedIndividual rdf:about="&bc;r/live_weight_of_slaughtered_animal">
+        <rdf:type rdf:resource="&bc;MacroRelation"/>
         <exponent rdf:datatype="&xsd;short">-1</exponent>
         <hasWeight rdf:resource="&bc;gc/live_weight_of_slaughtered_animal"/>
         <hasOrigin rdf:resource="&bc;gp/production_of_animal_for_slaughter"/>
@@ -6484,6 +6500,7 @@
     <!-- http://www.myc-sense.com/ontologies/bc#r/lower_heating_value_of_fuel -->
 
     <owl:NamedIndividual rdf:about="&bc;r/lower_heating_value_of_fuel">
+        <rdf:type rdf:resource="&bc;MacroRelation"/>
         <exponent rdf:datatype="&xsd;short">1</exponent>
         <hasWeight rdf:resource="&bc;gc/lower_heating_value_of_fuel"/>
         <hasOrigin rdf:resource="&bc;gp/combustion_unit_of_energy_lhv"/>
@@ -6496,6 +6513,7 @@
     <!-- http://www.myc-sense.com/ontologies/bc#r/mass_of_agricultural_input_for_cultivation_of_unit_of_area -->
 
     <owl:NamedIndividual rdf:about="&bc;r/mass_of_agricultural_input_for_cultivation_of_unit_of_area">
+        <rdf:type rdf:resource="&bc;MacroRelation"/>
         <exponent rdf:datatype="&xsd;short">1</exponent>
         <hasWeight rdf:resource="&bc;gc/mass_of_agricultural_input_for_cultivation_of_unit_of_area"/>
         <hasDestination rdf:resource="&bc;gp/production_of_chemical_for_cultivation_of_area"/>
@@ -6508,6 +6526,7 @@
     <!-- http://www.myc-sense.com/ontologies/bc#r/mass_of_fodder_eaten_by_farmed_animal -->
 
     <owl:NamedIndividual rdf:about="&bc;r/mass_of_fodder_eaten_by_farmed_animal">
+        <rdf:type rdf:resource="&bc;MacroRelation"/>
         <exponent rdf:datatype="&xsd;short">1</exponent>
         <hasWeight rdf:resource="&bc;gc/mass_of_dry_matter_of_fodder_eaten_by_farmed_animal"/>
         <hasDestination rdf:resource="&bc;gp/animal_husbandry_unit_of_time"/>
@@ -6520,6 +6539,7 @@
     <!-- http://www.myc-sense.com/ontologies/bc#r/mass_of_fuel_consumed_per_unit_of_distance_travelled_maritime_freight_transport -->
 
     <owl:NamedIndividual rdf:about="&bc;r/mass_of_fuel_consumed_per_unit_of_distance_travelled_maritime_freight_transport">
+        <rdf:type rdf:resource="&bc;MacroRelation"/>
         <exponent rdf:datatype="&xsd;short">1</exponent>
         <hasWeight rdf:resource="&bc;gc/mass_of_fuel_consumed_per_unit_of_distance_travelled_maritime_freight_transport"/>
         <hasOrigin rdf:resource="&bc;gp/combustion_of_fuel_for_ship"/>
@@ -6532,6 +6552,7 @@
     <!-- http://www.myc-sense.com/ontologies/bc#r/mass_of_greenhouse_gas_emitted_by_combustion_of_fuel_unit_of_energy_lhv -->
 
     <owl:NamedIndividual rdf:about="&bc;r/mass_of_greenhouse_gas_emitted_by_combustion_of_fuel_unit_of_energy_lhv">
+        <rdf:type rdf:resource="&bc;MacroRelation"/>
         <exponent rdf:datatype="&xsd;short">1</exponent>
         <hasWeight rdf:resource="&bc;gc/mass_of_greenhouse_gas_emitted_by_combustion_of_fuel_unit_energy_lhv"/>
         <hasDestination rdf:resource="&bc;gp/combustion_unit_of_energy_lhv"/>
@@ -6544,6 +6565,7 @@
     <!-- http://www.myc-sense.com/ontologies/bc#r/mass_of_greenhouse_gas_emitted_by_farmed_animal -->
 
     <owl:NamedIndividual rdf:about="&bc;r/mass_of_greenhouse_gas_emitted_by_farmed_animal">
+        <rdf:type rdf:resource="&bc;MacroRelation"/>
         <exponent rdf:datatype="&xsd;short">1</exponent>
         <hasWeight rdf:resource="&bc;gc/mass_of_greenhouse_gas_emitted_by_farmed_animal"/>
         <hasDestination rdf:resource="&bc;gp/animal_husbandry_unit_of_time"/>
@@ -6556,6 +6578,7 @@
     <!-- http://www.myc-sense.com/ontologies/bc#r/mass_of_greenhouse_gas_emitted_by_manufacture_of_vehicle_unit_of_mass -->
 
     <owl:NamedIndividual rdf:about="&bc;r/mass_of_greenhouse_gas_emitted_by_manufacture_of_vehicle_unit_of_mass">
+        <rdf:type rdf:resource="&bc;MacroRelation"/>
         <exponent rdf:datatype="&xsd;short">1</exponent>
         <hasWeight rdf:resource="&bc;gc/mass_of_greenhouse_gas_emitted_by_manufacture_of_vehicle_unit_of_mass"/>
         <hasOrigin rdf:resource="&bc;gp/direct_emission_of_greenhouse_gas"/>
@@ -6568,6 +6591,7 @@
     <!-- http://www.myc-sense.com/ontologies/bc#r/mass_of_greenhouse_gas_emitted_by_production_of_chemical -->
 
     <owl:NamedIndividual rdf:about="&bc;r/mass_of_greenhouse_gas_emitted_by_production_of_chemical">
+        <rdf:type rdf:resource="&bc;MacroRelation"/>
         <exponent rdf:datatype="&xsd;short">1</exponent>
         <hasWeight rdf:resource="&bc;gc/mass_of_greenhouse_gas_emitted_by_production_of_chemical"/>
         <hasOrigin rdf:resource="&bc;gp/direct_emission_of_greenhouse_gas"/>
@@ -6580,6 +6604,7 @@
     <!-- http://www.myc-sense.com/ontologies/bc#r/mass_of_greenhouse_gas_emitted_by_upstream_of_fuel_unit_of_energy_lhv -->
 
     <owl:NamedIndividual rdf:about="&bc;r/mass_of_greenhouse_gas_emitted_by_upstream_of_fuel_unit_of_energy_lhv">
+        <rdf:type rdf:resource="&bc;MacroRelation"/>
         <exponent rdf:datatype="&xsd;short">1</exponent>
         <hasWeight rdf:resource="&bc;gc/mass_of_greenhouse_gas_emitted_by_upstream_of_fuel_unit_of_energy_lhv"/>
         <hasOrigin rdf:resource="&bc;gp/direct_emission_of_greenhouse_gas"/>
@@ -6592,6 +6617,7 @@
     <!-- http://www.myc-sense.com/ontologies/bc#r/mass_of_nitrogen_fertilizer_for_cultivation_of_unit_of_area -->
 
     <owl:NamedIndividual rdf:about="&bc;r/mass_of_nitrogen_fertilizer_for_cultivation_of_unit_of_area">
+        <rdf:type rdf:resource="&bc;MacroRelation"/>
         <exponent rdf:datatype="&xsd;short">1</exponent>
         <hasWeight rdf:resource="&bc;gc/mass_of_agricultural_input_for_cultivation_of_unit_of_area"/>
         <hasDestination rdf:resource="&bc;gp/cultivation_of_agricultural_area"/>
@@ -6604,6 +6630,7 @@
     <!-- http://www.myc-sense.com/ontologies/bc#r/mass_of_volatised_nitrous_oxide_per_mass_of_nitrogen_in_fertilizer -->
 
     <owl:NamedIndividual rdf:about="&bc;r/mass_of_volatised_nitrous_oxide_per_mass_of_nitrogen_in_fertilizer">
+        <rdf:type rdf:resource="&bc;MacroRelation"/>
         <exponent rdf:datatype="&xsd;short">1</exponent>
         <hasWeight rdf:resource="&bc;gc/mass_of_volatised_nitrous_oxide_per_mass_of_nitrogen_in_fertilizer"/>
         <hasOrigin rdf:resource="&bc;gp/direct_emission_of_greenhouse_gas"/>
@@ -6615,6 +6642,7 @@
     <!-- http://www.myc-sense.com/ontologies/bc#r/milk_yield_of_dairy_animal -->
 
     <owl:NamedIndividual rdf:about="&bc;r/milk_yield_of_dairy_animal">
+        <rdf:type rdf:resource="&bc;MacroRelation"/>
         <exponent rdf:datatype="&xsd;short">-1</exponent>
         <hasWeight rdf:resource="&bc;gc/milk_yield_of_dairy_animal"/>
         <hasOrigin rdf:resource="&bc;gp/animal_husbandry_unit_of_time"/>
@@ -6627,6 +6655,7 @@
     <!-- http://www.myc-sense.com/ontologies/bc#r/proportion_of_dry_matter_in_agricultural_procuct -->
 
     <owl:NamedIndividual rdf:about="&bc;r/proportion_of_dry_matter_in_agricultural_procuct">
+        <rdf:type rdf:resource="&bc;MacroRelation"/>
         <exponent rdf:datatype="&xsd;short">-1</exponent>
         <hasWeight rdf:resource="&bc;gc/proportion_of_dry_matter_in_agricultural_procuct"/>
         <hasDestination rdf:resource="&bc;gp/crop_production_unit_of_mass_of_dry_matter"/>
@@ -6639,6 +6668,7 @@
     <!-- http://www.myc-sense.com/ontologies/bc#r/proportion_of_net_saleable_meat_in_live_weight -->
 
     <owl:NamedIndividual rdf:about="&bc;r/proportion_of_net_saleable_meat_in_live_weight">
+        <rdf:type rdf:resource="&bc;MacroRelation"/>
         <exponent rdf:datatype="&xsd;short">-1</exponent>
         <hasWeight rdf:resource="&bc;gc/proportion_of_net_saleable_meat_in_live_weight"/>
         <hasOrigin rdf:resource="&bc;gp/production_of_meat_unit_of_live_weight"/>
@@ -6651,6 +6681,7 @@
     <!-- http://www.myc-sense.com/ontologies/bc#r/quantity_of_gas_diesel_oil_consumed_for_animal_husbandry -->
 
     <owl:NamedIndividual rdf:about="&bc;r/quantity_of_gas_diesel_oil_consumed_for_animal_husbandry">
+        <rdf:type rdf:resource="&bc;MacroRelation"/>
         <exponent rdf:datatype="&xsd;short">1</exponent>
         <hasWeight rdf:resource="&bc;gc/volume_of_gas_diesel_oil_consumed_for_animal_husbandry"/>
         <hasDestination rdf:resource="&bc;gp/animal_husbandry_unit_of_time"/>
@@ -6663,6 +6694,7 @@
     <!-- http://www.myc-sense.com/ontologies/bc#r/ratio_of_hhv_to_lhv_of_fuel -->
 
     <owl:NamedIndividual rdf:about="&bc;r/ratio_of_hhv_to_lhv_of_fuel">
+        <rdf:type rdf:resource="&bc;MacroRelation"/>
         <exponent rdf:datatype="&xsd;short">-1</exponent>
         <rdfs:comment xml:lang="en">1 kwh HHV of fuel represents a smaller quantity of fuel than 1 kwh LHV. Therfore, in order to obtain impact by kwh HHV, you have to divide by (and not multiply by) those ratios, that are slightly larger than 1. </rdfs:comment>
         <hasWeight rdf:resource="&bc;gc/ratio_of_hhv_to_lhv_of_fuel"/>
@@ -6676,6 +6708,7 @@
     <!-- http://www.myc-sense.com/ontologies/bc#r/time_of_use_of_agricultural_machinery_for_cultivation -->
 
     <owl:NamedIndividual rdf:about="&bc;r/time_of_use_of_agricultural_machinery_for_cultivation">
+        <rdf:type rdf:resource="&bc;MacroRelation"/>
         <exponent rdf:datatype="&xsd;short">1</exponent>
         <hasWeight rdf:resource="&bc;gc/time_of_use_of_agricultural_machinery_for_cultivation"/>
         <hasDestination rdf:resource="&bc;gp/use_of_agricultural_machinery_for_cultivation_of_area"/>
@@ -6688,6 +6721,7 @@
     <!-- http://www.myc-sense.com/ontologies/bc#r/volume_of_fuel_consumed_per_hour_of_use_agricultural_machinery -->
 
     <owl:NamedIndividual rdf:about="&bc;r/volume_of_fuel_consumed_per_hour_of_use_agricultural_machinery">
+        <rdf:type rdf:resource="&bc;MacroRelation"/>
         <exponent rdf:datatype="&xsd;short">1</exponent>
         <hasWeight rdf:resource="&bc;gc/volume_of_fuel_consumed_per_hour_of_use_agricultural_machinery"/>
         <hasOrigin rdf:resource="&bc;gp/combustion_unit_of_volume"/>
@@ -6700,6 +6734,7 @@
     <!-- http://www.myc-sense.com/ontologies/bc#r/volume_of_fuel_consumed_per_unit_of_distance_travelled_car -->
 
     <owl:NamedIndividual rdf:about="&bc;r/volume_of_fuel_consumed_per_unit_of_distance_travelled_car">
+        <rdf:type rdf:resource="&bc;MacroRelation"/>
         <exponent rdf:datatype="&xsd;short">1</exponent>
         <hasWeight rdf:resource="&bc;gc/volume_of_fuel_consumed_per_unit_of_distance_travelled_car"/>
         <hasOrigin rdf:resource="&bc;gp/combustion_of_fuel_for_car"/>
@@ -6712,6 +6747,7 @@
     <!-- http://www.myc-sense.com/ontologies/bc#r/volume_of_fuel_consumed_per_unit_of_distance_travelled_motorcycle -->
 
     <owl:NamedIndividual rdf:about="&bc;r/volume_of_fuel_consumed_per_unit_of_distance_travelled_motorcycle">
+        <rdf:type rdf:resource="&bc;MacroRelation"/>
         <exponent rdf:datatype="&xsd;short">1</exponent>
         <hasWeight rdf:resource="&bc;gc/volume_of_fuel_consumed_per_unit_of_distance_travelled_motorcycle"/>
         <hasOrigin rdf:resource="&bc;gp/combustion_unit_of_volume"/>
@@ -6724,6 +6760,7 @@
     <!-- http://www.myc-sense.com/ontologies/bc#r/volume_of_fuel_consumed_per_unit_of_distance_travelled_road_freight_transport -->
 
     <owl:NamedIndividual rdf:about="&bc;r/volume_of_fuel_consumed_per_unit_of_distance_travelled_road_freight_transport">
+        <rdf:type rdf:resource="&bc;MacroRelation"/>
         <exponent rdf:datatype="&xsd;short">1</exponent>
         <hasWeight rdf:resource="&bc;gc/volume_of_fuel_consumed_per_unit_of_distance_travelled_road_freight_transport"/>
         <hasOrigin rdf:resource="&bc;gp/combustion_unit_of_volume"/>
@@ -6736,6 +6773,7 @@
     <!-- http://www.myc-sense.com/ontologies/bc#r/volume_of_fuel_consumed_per_unit_of_distance_travelled_waterway_freight_transport -->
 
     <owl:NamedIndividual rdf:about="&bc;r/volume_of_fuel_consumed_per_unit_of_distance_travelled_waterway_freight_transport">
+        <rdf:type rdf:resource="&bc;MacroRelation"/>
         <hasWeight rdf:resource="&bc;gc/volume_of_fuel_consumed_per_unit_of_distance_travelled_waterway_freight_transport"/>
         <hasOrigin rdf:resource="&bc;gp/combustion_unit_of_volume"/>
         <hasDestination rdf:resource="&bc;gp/ship_freight_transport_unit_of_vehicle_times_distance"/>
@@ -6747,6 +6785,7 @@
     <!-- http://www.myc-sense.com/ontologies/bc#r/volume_of_milk_required_for_production_of_dairy_product -->
 
     <owl:NamedIndividual rdf:about="&bc;r/volume_of_milk_required_for_production_of_dairy_product">
+        <rdf:type rdf:resource="&bc;MacroRelation"/>
         <exponent rdf:datatype="&xsd;short">1</exponent>
         <hasWeight rdf:resource="&bc;gc/volume_of_milk_required_for_production_of_transformed_dairy_product"/>
         <hasDestination rdf:resource="&bc;gp/production_of_dairy_product"/>
@@ -9516,20 +9555,6 @@
     </rdf:Description>
     <rdf:Description>
         <rdf:type rdf:resource="&swrl;Imp"/>
-        <swrl:head>
-            <rdf:Description>
-                <rdf:type rdf:resource="&swrl;AtomList"/>
-                <rdf:rest rdf:resource="&rdf;nil"/>
-                <rdf:first>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
-                        <swrl:argument1 rdf:resource="&bc;d/meal"/>
-                        <swrl:propertyPredicate rdf:resource="&bc;hasKeyword"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
-                    </rdf:Description>
-                </rdf:first>
-            </rdf:Description>
-        </swrl:head>
         <swrl:body>
             <rdf:Description>
                 <rdf:type rdf:resource="&swrl;AtomList"/>
@@ -9544,9 +9569,6 @@
                 </rdf:first>
             </rdf:Description>
         </swrl:body>
-    </rdf:Description>
-    <rdf:Description>
-        <rdf:type rdf:resource="&swrl;Imp"/>
         <swrl:head>
             <rdf:Description>
                 <rdf:type rdf:resource="&swrl;AtomList"/>
@@ -9554,13 +9576,16 @@
                 <rdf:first>
                     <rdf:Description>
                         <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
-                        <swrl:argument1 rdf:resource="&bc;d/transformed_dairy_product"/>
+                        <swrl:argument1 rdf:resource="&bc;d/meal"/>
                         <swrl:propertyPredicate rdf:resource="&bc;hasKeyword"/>
                         <swrl:argument2 rdf:resource="urn:swrl#kw"/>
                     </rdf:Description>
                 </rdf:first>
             </rdf:Description>
         </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&swrl;Imp"/>
         <swrl:body>
             <rdf:Description>
                 <rdf:type rdf:resource="&swrl;AtomList"/>
@@ -9575,6 +9600,20 @@
                 </rdf:first>
             </rdf:Description>
         </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="&swrl;AtomList"/>
+                <rdf:rest rdf:resource="&rdf;nil"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
+                        <swrl:argument1 rdf:resource="&bc;d/transformed_dairy_product"/>
+                        <swrl:propertyPredicate rdf:resource="&bc;hasKeyword"/>
+                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
+                    </rdf:Description>
+                </rdf:first>
+            </rdf:Description>
+        </swrl:head>
     </rdf:Description>
     <rdf:Description>
         <rdf:type rdf:resource="&swrl;Imp"/>
@@ -9609,20 +9648,6 @@
     </rdf:Description>
     <rdf:Description>
         <rdf:type rdf:resource="&swrl;Imp"/>
-        <swrl:head>
-            <rdf:Description>
-                <rdf:type rdf:resource="&swrl;AtomList"/>
-                <rdf:rest rdf:resource="&rdf;nil"/>
-                <rdf:first>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
-                        <swrl:argument1 rdf:resource="&bc;d/greenhouse_gas"/>
-                        <swrl:propertyPredicate rdf:resource="&bc;hasKeyword"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
-                    </rdf:Description>
-                </rdf:first>
-            </rdf:Description>
-        </swrl:head>
         <swrl:body>
             <rdf:Description>
                 <rdf:type rdf:resource="&swrl;AtomList"/>
@@ -9637,6 +9662,20 @@
                 </rdf:first>
             </rdf:Description>
         </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="&swrl;AtomList"/>
+                <rdf:rest rdf:resource="&rdf;nil"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
+                        <swrl:argument1 rdf:resource="&bc;d/greenhouse_gas"/>
+                        <swrl:propertyPredicate rdf:resource="&bc;hasKeyword"/>
+                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
+                    </rdf:Description>
+                </rdf:first>
+            </rdf:Description>
+        </swrl:head>
     </rdf:Description>
     <rdf:Description>
         <rdf:type rdf:resource="&swrl;Imp"/>
@@ -9671,20 +9710,6 @@
     </rdf:Description>
     <rdf:Description>
         <rdf:type rdf:resource="&swrl;Imp"/>
-        <swrl:head>
-            <rdf:Description>
-                <rdf:type rdf:resource="&swrl;AtomList"/>
-                <rdf:rest rdf:resource="&rdf;nil"/>
-                <rdf:first>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
-                        <swrl:argument1 rdf:resource="&bc;d/farmed_animal"/>
-                        <swrl:propertyPredicate rdf:resource="&bc;hasKeyword"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
-                    </rdf:Description>
-                </rdf:first>
-            </rdf:Description>
-        </swrl:head>
         <swrl:body>
             <rdf:Description>
                 <rdf:type rdf:resource="&swrl;AtomList"/>
@@ -9699,6 +9724,20 @@
                 </rdf:first>
             </rdf:Description>
         </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="&swrl;AtomList"/>
+                <rdf:rest rdf:resource="&rdf;nil"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
+                        <swrl:argument1 rdf:resource="&bc;d/farmed_animal"/>
+                        <swrl:propertyPredicate rdf:resource="&bc;hasKeyword"/>
+                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
+                    </rdf:Description>
+                </rdf:first>
+            </rdf:Description>
+        </swrl:head>
     </rdf:Description>
 </rdf:RDF>
 
