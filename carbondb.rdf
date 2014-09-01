@@ -551,6 +551,7 @@
 
     <owl:Class rdf:about="&bc;Asynchronous">
         <rdfs:subClassOf rdf:resource="&bc;RelationType"/>
+        <owl:disjointWith rdf:resource="&bc;Synchronous"/>
     </owl:Class>
     
 
@@ -587,8 +588,11 @@
         <owl:disjointWith rdf:resource="&bc;ElementaryFlowNature"/>
         <owl:disjointWith rdf:resource="&bc;Group"/>
         <owl:disjointWith rdf:resource="&bc;Keyword"/>
+        <owl:disjointWith rdf:resource="&bc;Reference"/>
         <owl:disjointWith rdf:resource="&bc;Relation"/>
+        <owl:disjointWith rdf:resource="&bc;RelationType"/>
         <owl:disjointWith rdf:resource="&bc;SingleElement"/>
+        <owl:disjointWith rdf:resource="&bc;Unit"/>
     </owl:Class>
     
 
@@ -597,6 +601,7 @@
 
     <owl:Class rdf:about="&bc;Coefficient">
         <rdfs:subClassOf rdf:resource="&bc;Element"/>
+        <owl:disjointWith rdf:resource="&bc;Process"/>
     </owl:Class>
     
 
@@ -606,6 +611,8 @@
     <owl:Class rdf:about="&bc;CoefficientGroup">
         <rdfs:subClassOf rdf:resource="&bc;Coefficient"/>
         <rdfs:subClassOf rdf:resource="&bc;Group"/>
+        <owl:disjointWith rdf:resource="&bc;ProcessGroup"/>
+        <owl:disjointWith rdf:resource="&bc;SingleCoefficient"/>
     </owl:Class>
     
 
@@ -614,6 +621,7 @@
 
     <owl:Class rdf:about="&bc;DetailedRelation">
         <rdfs:subClassOf rdf:resource="&bc;Relation"/>
+        <owl:disjointWith rdf:resource="&bc;MacroRelation"/>
     </owl:Class>
     
 
@@ -638,8 +646,11 @@
         <owl:disjointWith rdf:resource="&bc;ElementaryFlowNature"/>
         <owl:disjointWith rdf:resource="&bc;Group"/>
         <owl:disjointWith rdf:resource="&bc;Keyword"/>
+        <owl:disjointWith rdf:resource="&bc;Reference"/>
         <owl:disjointWith rdf:resource="&bc;Relation"/>
+        <owl:disjointWith rdf:resource="&bc;RelationType"/>
         <owl:disjointWith rdf:resource="&bc;SingleElement"/>
+        <owl:disjointWith rdf:resource="&bc;Unit"/>
     </owl:Class>
     
 
@@ -657,7 +668,10 @@
         <owl:disjointWith rdf:resource="&bc;ElementaryFlow"/>
         <owl:disjointWith rdf:resource="&bc;ElementaryFlowNature"/>
         <owl:disjointWith rdf:resource="&bc;Keyword"/>
+        <owl:disjointWith rdf:resource="&bc;Reference"/>
         <owl:disjointWith rdf:resource="&bc;Relation"/>
+        <owl:disjointWith rdf:resource="&bc;RelationType"/>
+        <owl:disjointWith rdf:resource="&bc;Unit"/>
     </owl:Class>
     
 
@@ -682,8 +696,11 @@
         <owl:disjointWith rdf:resource="&bc;ElementaryFlowNature"/>
         <owl:disjointWith rdf:resource="&bc;Group"/>
         <owl:disjointWith rdf:resource="&bc;Keyword"/>
+        <owl:disjointWith rdf:resource="&bc;Reference"/>
         <owl:disjointWith rdf:resource="&bc;Relation"/>
+        <owl:disjointWith rdf:resource="&bc;RelationType"/>
         <owl:disjointWith rdf:resource="&bc;SingleElement"/>
+        <owl:disjointWith rdf:resource="&bc;Unit"/>
     </owl:Class>
     
 
@@ -693,6 +710,7 @@
     <owl:Class rdf:about="&bc;ElementaryFlowNature">
         <owl:disjointWith rdf:resource="&bc;Group"/>
         <owl:disjointWith rdf:resource="&bc;Keyword"/>
+        <owl:disjointWith rdf:resource="&bc;Reference"/>
         <owl:disjointWith rdf:resource="&bc;Relation"/>
         <owl:disjointWith rdf:resource="&bc;SingleElement"/>
     </owl:Class>
@@ -731,8 +749,11 @@
             </owl:Restriction>
         </rdfs:subClassOf>
         <owl:disjointWith rdf:resource="&bc;Keyword"/>
+        <owl:disjointWith rdf:resource="&bc;Reference"/>
         <owl:disjointWith rdf:resource="&bc;Relation"/>
+        <owl:disjointWith rdf:resource="&bc;RelationType"/>
         <owl:disjointWith rdf:resource="&bc;SingleElement"/>
+        <owl:disjointWith rdf:resource="&bc;Unit"/>
     </owl:Class>
     
 
@@ -757,7 +778,10 @@
     <owl:Class rdf:about="&bc;Keyword">
         <rdfs:label xml:lang="en">Alimentary product</rdfs:label>
         <rdfs:label xml:lang="fr">Produit alimentaire</rdfs:label>
+        <owl:disjointWith rdf:resource="&bc;Reference"/>
+        <owl:disjointWith rdf:resource="&bc;RelationType"/>
         <owl:disjointWith rdf:resource="&bc;SingleElement"/>
+        <owl:disjointWith rdf:resource="&bc;Unit"/>
     </owl:Class>
     
 
@@ -783,13 +807,19 @@
     <owl:Class rdf:about="&bc;ProcessGroup">
         <rdfs:subClassOf rdf:resource="&bc;Group"/>
         <rdfs:subClassOf rdf:resource="&bc;Process"/>
+        <owl:disjointWith rdf:resource="&bc;SingleProcess"/>
     </owl:Class>
     
 
 
     <!-- http://www.myc-sense.com/ontologies/bc#Reference -->
 
-    <owl:Class rdf:about="&bc;Reference"/>
+    <owl:Class rdf:about="&bc;Reference">
+        <owl:disjointWith rdf:resource="&bc;Relation"/>
+        <owl:disjointWith rdf:resource="&bc;RelationType"/>
+        <owl:disjointWith rdf:resource="&bc;SingleElement"/>
+        <owl:disjointWith rdf:resource="&bc;Unit"/>
+    </owl:Class>
     
 
 
@@ -812,15 +842,15 @@
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;hasWeight"/>
-                <owl:onClass rdf:resource="&bc;Coefficient"/>
+                <owl:onProperty rdf:resource="&bc;hasDestination"/>
+                <owl:onClass rdf:resource="&bc;Process"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;hasDestination"/>
-                <owl:onClass rdf:resource="&bc;Process"/>
+                <owl:onProperty rdf:resource="&bc;hasWeight"/>
+                <owl:onClass rdf:resource="&bc;Coefficient"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -9557,20 +9587,6 @@
     </rdf:Description>
     <rdf:Description>
         <rdf:type rdf:resource="&swrl;Imp"/>
-        <swrl:body>
-            <rdf:Description>
-                <rdf:type rdf:resource="&swrl;AtomList"/>
-                <rdf:rest rdf:resource="&rdf;nil"/>
-                <rdf:first>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
-                        <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
-                        <swrl:argument1 rdf:resource="&bc;k/dairy_product"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
-                    </rdf:Description>
-                </rdf:first>
-            </rdf:Description>
-        </swrl:body>
         <swrl:head>
             <rdf:Description>
                 <rdf:type rdf:resource="&swrl;AtomList"/>
@@ -9585,23 +9601,23 @@
                 </rdf:first>
             </rdf:Description>
         </swrl:head>
-    </rdf:Description>
-    <rdf:Description>
-        <rdf:type rdf:resource="&swrl;Imp"/>
-        <swrl:head>
+        <swrl:body>
             <rdf:Description>
                 <rdf:type rdf:resource="&swrl;AtomList"/>
                 <rdf:rest rdf:resource="&rdf;nil"/>
                 <rdf:first>
                     <rdf:Description>
                         <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
-                        <swrl:argument1 rdf:resource="&bc;d/meat"/>
-                        <swrl:propertyPredicate rdf:resource="&bc;hasKeyword"/>
+                        <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
+                        <swrl:argument1 rdf:resource="&bc;k/dairy_product"/>
                         <swrl:argument2 rdf:resource="urn:swrl#kw"/>
                     </rdf:Description>
                 </rdf:first>
             </rdf:Description>
-        </swrl:head>
+        </swrl:body>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&swrl;Imp"/>
         <swrl:body>
             <rdf:Description>
                 <rdf:type rdf:resource="&swrl;AtomList"/>
@@ -9616,23 +9632,23 @@
                 </rdf:first>
             </rdf:Description>
         </swrl:body>
-    </rdf:Description>
-    <rdf:Description>
-        <rdf:type rdf:resource="&swrl;Imp"/>
-        <swrl:body>
+        <swrl:head>
             <rdf:Description>
                 <rdf:type rdf:resource="&swrl;AtomList"/>
                 <rdf:rest rdf:resource="&rdf;nil"/>
                 <rdf:first>
                     <rdf:Description>
                         <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
-                        <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
-                        <swrl:argument1 rdf:resource="&bc;k/cattle"/>
+                        <swrl:argument1 rdf:resource="&bc;d/meat"/>
+                        <swrl:propertyPredicate rdf:resource="&bc;hasKeyword"/>
                         <swrl:argument2 rdf:resource="urn:swrl#kw"/>
                     </rdf:Description>
                 </rdf:first>
             </rdf:Description>
-        </swrl:body>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&swrl;Imp"/>
         <swrl:head>
             <rdf:Description>
                 <rdf:type rdf:resource="&swrl;AtomList"/>
@@ -9647,9 +9663,6 @@
                 </rdf:first>
             </rdf:Description>
         </swrl:head>
-    </rdf:Description>
-    <rdf:Description>
-        <rdf:type rdf:resource="&swrl;Imp"/>
         <swrl:body>
             <rdf:Description>
                 <rdf:type rdf:resource="&swrl;AtomList"/>
@@ -9658,12 +9671,15 @@
                     <rdf:Description>
                         <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
                         <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
-                        <swrl:argument1 rdf:resource="&bc;k/type_of_waste"/>
+                        <swrl:argument1 rdf:resource="&bc;k/cattle"/>
                         <swrl:argument2 rdf:resource="urn:swrl#kw"/>
                     </rdf:Description>
                 </rdf:first>
             </rdf:Description>
         </swrl:body>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&swrl;Imp"/>
         <swrl:head>
             <rdf:Description>
                 <rdf:type rdf:resource="&swrl;AtomList"/>
@@ -9678,9 +9694,6 @@
                 </rdf:first>
             </rdf:Description>
         </swrl:head>
-    </rdf:Description>
-    <rdf:Description>
-        <rdf:type rdf:resource="&swrl;Imp"/>
         <swrl:body>
             <rdf:Description>
                 <rdf:type rdf:resource="&swrl;AtomList"/>
@@ -9689,12 +9702,15 @@
                     <rdf:Description>
                         <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
                         <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
-                        <swrl:argument1 rdf:resource="&bc;k/agricultural_input"/>
+                        <swrl:argument1 rdf:resource="&bc;k/type_of_waste"/>
                         <swrl:argument2 rdf:resource="urn:swrl#kw"/>
                     </rdf:Description>
                 </rdf:first>
             </rdf:Description>
         </swrl:body>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&swrl;Imp"/>
         <swrl:head>
             <rdf:Description>
                 <rdf:type rdf:resource="&swrl;AtomList"/>
@@ -9709,6 +9725,20 @@
                 </rdf:first>
             </rdf:Description>
         </swrl:head>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="&swrl;AtomList"/>
+                <rdf:rest rdf:resource="&rdf;nil"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
+                        <swrl:argument1 rdf:resource="&bc;k/agricultural_input"/>
+                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
+                    </rdf:Description>
+                </rdf:first>
+            </rdf:Description>
+        </swrl:body>
     </rdf:Description>
     <rdf:Description>
         <rdf:type rdf:resource="&swrl;Imp"/>
