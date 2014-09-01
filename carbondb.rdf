@@ -667,15 +667,15 @@
     <owl:Class rdf:about="&bc;ElementaryFlow">
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;hasNature"/>
-                <owl:onClass rdf:resource="&bc;ElementaryFlowNature"/>
+                <owl:onProperty rdf:resource="&bc;isFlowOf"/>
+                <owl:onClass rdf:resource="&bc;SingleProcess"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;isFlowOf"/>
-                <owl:onClass rdf:resource="&bc;SingleProcess"/>
+                <owl:onProperty rdf:resource="&bc;hasNature"/>
+                <owl:onClass rdf:resource="&bc;ElementaryFlowNature"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -713,15 +713,9 @@
     <owl:Class rdf:about="&bc;Group">
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;hasDimension"/>
-                <owl:someValuesFrom rdf:resource="&bc;Dimension"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;foreignUnitID"/>
+                <owl:onProperty rdf:resource="&bc;hasCategory"/>
+                <owl:onClass rdf:resource="&bc;Category"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onDataRange rdf:resource="&xsd;string"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -732,9 +726,8 @@
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;hasCategory"/>
-                <owl:onClass rdf:resource="&bc;Category"/>
-                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onProperty rdf:resource="&bc;hasDimension"/>
+                <owl:someValuesFrom rdf:resource="&bc;Dimension"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <owl:disjointWith rdf:resource="&bc;Keyword"/>
@@ -805,13 +798,6 @@
     <owl:Class rdf:about="&bc;Relation">
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;hasDestination"/>
-                <owl:onClass rdf:resource="&bc;Process"/>
-                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
                 <owl:onProperty rdf:resource="&bc;exponent"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
                 <owl:onDataRange rdf:resource="&xsd;short"/>
@@ -828,6 +814,13 @@
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&bc;hasWeight"/>
                 <owl:onClass rdf:resource="&bc;Coefficient"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&bc;hasDestination"/>
+                <owl:onClass rdf:resource="&bc;Process"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -856,13 +849,6 @@
         <rdfs:subClassOf rdf:resource="&bc;SingleElement"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;foreignUnitID"/>
-                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onDataRange rdf:resource="&xsd;string"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
                 <owl:onProperty rdf:resource="&bc;uncertainty"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
                 <owl:onDataRange rdf:resource="&xsd;double"/>
@@ -886,13 +872,13 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&bc;hasTag"/>
-                <owl:someValuesFrom rdf:resource="&bc;Keyword"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&bc;hasTag"/>
-                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
+                <owl:someValuesFrom rdf:resource="&bc;Keyword"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
@@ -910,13 +896,6 @@
                 <owl:someValuesFrom rdf:resource="&bc;ElementaryFlow"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;foreignUnitID"/>
-                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onDataRange rdf:resource="&xsd;string"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -931,7 +910,15 @@
 
     <!-- http://www.myc-sense.com/ontologies/bc#Unit -->
 
-    <owl:Class rdf:about="&bc;Unit"/>
+    <owl:Class rdf:about="&bc;Unit">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&bc;foreignUnitID"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
     
 
 
@@ -2250,6 +2237,17 @@
         <hasCommonKeyword rdf:resource="&bc;k/fuel_consumption"/>
         <hasCommonKeyword rdf:resource="&bc;k/gas_diesel_oil"/>
         <hasUnit rdf:resource="&bc;u/liter_per_hour"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#gc/volume_of_fuel_consumed_per_unit_of_distance_times_unit_of_mass_cargo_aircraft -->
+
+    <owl:NamedIndividual rdf:about="&bc;gc/volume_of_fuel_consumed_per_unit_of_distance_times_unit_of_mass_cargo_aircraft">
+        <rdf:type rdf:resource="&bc;CoefficientGroup"/>
+        <rdfs:label xml:lang="en">Volume of fuel consumed per unit of distance and of mass by a cargo aircraft</rdfs:label>
+        <rdfs:label xml:lang="fr">Volume de carburant consommé par unité de distance et de masse par un avion de transport de marchandises</rdfs:label>
+        <hasUnit rdf:resource="&bc;u/liter_per_ton_times_100_kilometers"/>
     </owl:NamedIndividual>
     
 
@@ -5113,6 +5111,16 @@
         <isBroaderThan rdf:resource="&bc;k/metal"/>
         <isBroaderThan rdf:resource="&bc;k/paper_cardboard"/>
         <isBroaderThan rdf:resource="&bc;k/plastic"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#k/maximum_takeoff_weight -->
+
+    <owl:NamedIndividual rdf:about="&bc;k/maximum_takeoff_weight">
+        <rdf:type rdf:resource="&bc;Keyword"/>
+        <rdfs:label xml:lang="en">Maximum takeoff weight</rdfs:label>
+        <rdfs:label xml:lang="fr">Masse maximale au décollage</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -9211,7 +9219,7 @@
     <!-- http://www.myc-sense.com/ontologies/bc#u/animal -->
 
     <owl:NamedIndividual rdf:about="&bc;u/animal">
-        <foreignUnitID>animal</foreignUnitID>
+        <foreignUnitID rdf:datatype="&xsd;string">animal</foreignUnitID>
     </owl:NamedIndividual>
     
 
@@ -9219,7 +9227,7 @@
     <!-- http://www.myc-sense.com/ontologies/bc#u/animal_year -->
 
     <owl:NamedIndividual rdf:about="&bc;u/animal_year">
-        <foreignUnitID>animal.an</foreignUnitID>
+        <foreignUnitID rdf:datatype="&xsd;string">animal.an</foreignUnitID>
     </owl:NamedIndividual>
     
 
@@ -9227,7 +9235,7 @@
     <!-- http://www.myc-sense.com/ontologies/bc#u/cube_meter -->
 
     <owl:NamedIndividual rdf:about="&bc;u/cube_meter">
-        <foreignUnitID>m3</foreignUnitID>
+        <foreignUnitID rdf:datatype="&xsd;string">m3</foreignUnitID>
     </owl:NamedIndividual>
     
 
@@ -9235,7 +9243,7 @@
     <!-- http://www.myc-sense.com/ontologies/bc#u/cube_meter_kilometer -->
 
     <owl:NamedIndividual rdf:about="&bc;u/cube_meter_kilometer">
-        <foreignUnitID>m3.km</foreignUnitID>
+        <foreignUnitID rdf:datatype="&xsd;string">m3.km</foreignUnitID>
     </owl:NamedIndividual>
     
 
@@ -9243,7 +9251,7 @@
     <!-- http://www.myc-sense.com/ontologies/bc#u/cube_meter_per_vehicle -->
 
     <owl:NamedIndividual rdf:about="&bc;u/cube_meter_per_vehicle">
-        <foreignUnitID>m3.vehicule^-1</foreignUnitID>
+        <foreignUnitID rdf:datatype="&xsd;string">m3.vehicule^-1</foreignUnitID>
     </owl:NamedIndividual>
     
 
@@ -9251,7 +9259,7 @@
     <!-- http://www.myc-sense.com/ontologies/bc#u/day -->
 
     <owl:NamedIndividual rdf:about="&bc;u/day">
-        <foreignUnitID>jour</foreignUnitID>
+        <foreignUnitID rdf:datatype="&xsd;string">jour</foreignUnitID>
     </owl:NamedIndividual>
     
 
@@ -9259,7 +9267,7 @@
     <!-- http://www.myc-sense.com/ontologies/bc#u/gigajoule_per_ton -->
 
     <owl:NamedIndividual rdf:about="&bc;u/gigajoule_per_ton">
-        <foreignUnitID>gj.t^-1</foreignUnitID>
+        <foreignUnitID rdf:datatype="&xsd;string">gj.t^-1</foreignUnitID>
     </owl:NamedIndividual>
     
 
@@ -9267,7 +9275,7 @@
     <!-- http://www.myc-sense.com/ontologies/bc#u/hectare -->
 
     <owl:NamedIndividual rdf:about="&bc;u/hectare">
-        <foreignUnitID>ha</foreignUnitID>
+        <foreignUnitID rdf:datatype="&xsd;string">ha</foreignUnitID>
     </owl:NamedIndividual>
     
 
@@ -9275,7 +9283,7 @@
     <!-- http://www.myc-sense.com/ontologies/bc#u/hour -->
 
     <owl:NamedIndividual rdf:about="&bc;u/hour">
-        <foreignUnitID>h</foreignUnitID>
+        <foreignUnitID rdf:datatype="&xsd;string">h</foreignUnitID>
     </owl:NamedIndividual>
     
 
@@ -9283,7 +9291,7 @@
     <!-- http://www.myc-sense.com/ontologies/bc#u/hour_per_hectare -->
 
     <owl:NamedIndividual rdf:about="&bc;u/hour_per_hectare">
-        <foreignUnitID>h.ha^-1</foreignUnitID>
+        <foreignUnitID rdf:datatype="&xsd;string">h.ha^-1</foreignUnitID>
     </owl:NamedIndividual>
     
 
@@ -9291,7 +9299,7 @@
     <!-- http://www.myc-sense.com/ontologies/bc#u/kilogram -->
 
     <owl:NamedIndividual rdf:about="&bc;u/kilogram">
-        <foreignUnitID>kg</foreignUnitID>
+        <foreignUnitID rdf:datatype="&xsd;string">kg</foreignUnitID>
     </owl:NamedIndividual>
     
 
@@ -9299,7 +9307,7 @@
     <!-- http://www.myc-sense.com/ontologies/bc#u/kilogram_per_animal -->
 
     <owl:NamedIndividual rdf:about="&bc;u/kilogram_per_animal">
-        <foreignUnitID>kg.animal^-1</foreignUnitID>
+        <foreignUnitID rdf:datatype="&xsd;string">kg.animal^-1</foreignUnitID>
     </owl:NamedIndividual>
     
 
@@ -9307,7 +9315,7 @@
     <!-- http://www.myc-sense.com/ontologies/bc#u/kilogram_per_animal_per_day -->
 
     <owl:NamedIndividual rdf:about="&bc;u/kilogram_per_animal_per_day">
-        <foreignUnitID>kg.animal^-1.jour^-1</foreignUnitID>
+        <foreignUnitID rdf:datatype="&xsd;string">kg.animal^-1.jour^-1</foreignUnitID>
     </owl:NamedIndividual>
     
 
@@ -9315,7 +9323,7 @@
     <!-- http://www.myc-sense.com/ontologies/bc#u/kilogram_per_animal_per_year -->
 
     <owl:NamedIndividual rdf:about="&bc;u/kilogram_per_animal_per_year">
-        <foreignUnitID>kg.animal^-1.an^-1</foreignUnitID>
+        <foreignUnitID rdf:datatype="&xsd;string">kg.animal^-1.an^-1</foreignUnitID>
     </owl:NamedIndividual>
     
 
@@ -9323,7 +9331,7 @@
     <!-- http://www.myc-sense.com/ontologies/bc#u/kilogram_per_cube_meter -->
 
     <owl:NamedIndividual rdf:about="&bc;u/kilogram_per_cube_meter">
-        <foreignUnitID>kg.m3^-1</foreignUnitID>
+        <foreignUnitID rdf:datatype="&xsd;string">kg.m3^-1</foreignUnitID>
     </owl:NamedIndividual>
     
 
@@ -9331,7 +9339,7 @@
     <!-- http://www.myc-sense.com/ontologies/bc#u/kilogram_per_hectare -->
 
     <owl:NamedIndividual rdf:about="&bc;u/kilogram_per_hectare">
-        <foreignUnitID>kg.ha^-1</foreignUnitID>
+        <foreignUnitID rdf:datatype="&xsd;string">kg.ha^-1</foreignUnitID>
     </owl:NamedIndividual>
     
 
@@ -9339,7 +9347,7 @@
     <!-- http://www.myc-sense.com/ontologies/bc#u/kilogram_per_kilogram -->
 
     <owl:NamedIndividual rdf:about="&bc;u/kilogram_per_kilogram">
-        <foreignUnitID>kg.kg^-1</foreignUnitID>
+        <foreignUnitID rdf:datatype="&xsd;string">kg.kg^-1</foreignUnitID>
     </owl:NamedIndividual>
     
 
@@ -9347,7 +9355,7 @@
     <!-- http://www.myc-sense.com/ontologies/bc#u/kilogram_per_vehicle_times_kilometer -->
 
     <owl:NamedIndividual rdf:about="&bc;u/kilogram_per_vehicle_times_kilometer">
-        <foreignUnitID>kg.vehicule^-1.km^-1</foreignUnitID>
+        <foreignUnitID rdf:datatype="&xsd;string">kg.vehicule^-1.km^-1</foreignUnitID>
     </owl:NamedIndividual>
     
 
@@ -9355,7 +9363,7 @@
     <!-- http://www.myc-sense.com/ontologies/bc#u/kilometer -->
 
     <owl:NamedIndividual rdf:about="&bc;u/kilometer">
-        <foreignUnitID>km</foreignUnitID>
+        <foreignUnitID rdf:datatype="&xsd;string">km</foreignUnitID>
     </owl:NamedIndividual>
     
 
@@ -9363,7 +9371,7 @@
     <!-- http://www.myc-sense.com/ontologies/bc#u/kilowatt_hour -->
 
     <owl:NamedIndividual rdf:about="&bc;u/kilowatt_hour">
-        <foreignUnitID>kwh</foreignUnitID>
+        <foreignUnitID rdf:datatype="&xsd;string">kwh</foreignUnitID>
     </owl:NamedIndividual>
     
 
@@ -9371,7 +9379,7 @@
     <!-- http://www.myc-sense.com/ontologies/bc#u/kilowatt_hour_per_kilogram -->
 
     <owl:NamedIndividual rdf:about="&bc;u/kilowatt_hour_per_kilogram">
-        <foreignUnitID>kwh.kg^-1</foreignUnitID>
+        <foreignUnitID rdf:datatype="&xsd;string">kwh.kg^-1</foreignUnitID>
     </owl:NamedIndividual>
     
 
@@ -9379,7 +9387,7 @@
     <!-- http://www.myc-sense.com/ontologies/bc#u/liter -->
 
     <owl:NamedIndividual rdf:about="&bc;u/liter">
-        <foreignUnitID>l</foreignUnitID>
+        <foreignUnitID rdf:datatype="&xsd;string">l</foreignUnitID>
     </owl:NamedIndividual>
     
 
@@ -9387,15 +9395,7 @@
     <!-- http://www.myc-sense.com/ontologies/bc#u/liter_per_animal_per_year -->
 
     <owl:NamedIndividual rdf:about="&bc;u/liter_per_animal_per_year">
-        <foreignUnitID>l.animal^-1.an^-1</foreignUnitID>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.myc-sense.com/ontologies/bc#u/liter_per_hectare -->
-
-    <owl:NamedIndividual rdf:about="&bc;u/liter_per_hectare">
-        <foreignUnitID>l.ha^-1</foreignUnitID>
+        <foreignUnitID rdf:datatype="&xsd;string">l.animal^-1.an^-1</foreignUnitID>
     </owl:NamedIndividual>
     
 
@@ -9403,7 +9403,7 @@
     <!-- http://www.myc-sense.com/ontologies/bc#u/liter_per_hour -->
 
     <owl:NamedIndividual rdf:about="&bc;u/liter_per_hour">
-        <foreignUnitID>l.h^-1</foreignUnitID>
+        <foreignUnitID rdf:datatype="&xsd;string">l.h^-1</foreignUnitID>
     </owl:NamedIndividual>
     
 
@@ -9411,7 +9411,7 @@
     <!-- http://www.myc-sense.com/ontologies/bc#u/liter_per_kilogram -->
 
     <owl:NamedIndividual rdf:about="&bc;u/liter_per_kilogram">
-        <foreignUnitID>l.kg^-1</foreignUnitID>
+        <foreignUnitID rdf:datatype="&xsd;string">l.kg^-1</foreignUnitID>
     </owl:NamedIndividual>
     
 
@@ -9419,7 +9419,15 @@
     <!-- http://www.myc-sense.com/ontologies/bc#u/liter_per_kilometer -->
 
     <owl:NamedIndividual rdf:about="&bc;u/liter_per_kilometer">
-        <foreignUnitID>l.km^-1</foreignUnitID>
+        <foreignUnitID rdf:datatype="&xsd;string">l.km^-1</foreignUnitID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#u/liter_per_ton_times_100_kilometers -->
+
+    <owl:NamedIndividual rdf:about="&bc;u/liter_per_ton_times_100_kilometers">
+        <foreignUnitID rdf:datatype="&xsd;string">l.t^-1.100km^-1</foreignUnitID>
     </owl:NamedIndividual>
     
 
@@ -9427,7 +9435,7 @@
     <!-- http://www.myc-sense.com/ontologies/bc#u/liter_per_vehicle_times_100_kilometer -->
 
     <owl:NamedIndividual rdf:about="&bc;u/liter_per_vehicle_times_100_kilometer">
-        <foreignUnitID>l.vehicule^-1.100km^-1</foreignUnitID>
+        <foreignUnitID rdf:datatype="&xsd;string">l.vehicule^-1.100km^-1</foreignUnitID>
     </owl:NamedIndividual>
     
 
@@ -9435,7 +9443,7 @@
     <!-- http://www.myc-sense.com/ontologies/bc#u/liter_per_vehicle_times_kilometer -->
 
     <owl:NamedIndividual rdf:about="&bc;u/liter_per_vehicle_times_kilometer">
-        <foreignUnitID>l.vehicule^-1.km^-1</foreignUnitID>
+        <foreignUnitID rdf:datatype="&xsd;string">l.vehicule^-1.km^-1</foreignUnitID>
     </owl:NamedIndividual>
     
 
@@ -9443,7 +9451,7 @@
     <!-- http://www.myc-sense.com/ontologies/bc#u/meal -->
 
     <owl:NamedIndividual rdf:about="&bc;u/meal">
-        <foreignUnitID>repas</foreignUnitID>
+        <foreignUnitID rdf:datatype="&xsd;string">repas</foreignUnitID>
     </owl:NamedIndividual>
     
 
@@ -9451,7 +9459,7 @@
     <!-- http://www.myc-sense.com/ontologies/bc#u/one -->
 
     <owl:NamedIndividual rdf:about="&bc;u/one">
-        <foreignUnitID>un</foreignUnitID>
+        <foreignUnitID rdf:datatype="&xsd;string">un</foreignUnitID>
     </owl:NamedIndividual>
     
 
@@ -9459,7 +9467,7 @@
     <!-- http://www.myc-sense.com/ontologies/bc#u/percent -->
 
     <owl:NamedIndividual rdf:about="&bc;u/percent">
-        <foreignUnitID>pourcent</foreignUnitID>
+        <foreignUnitID rdf:datatype="&xsd;string">pourcent</foreignUnitID>
     </owl:NamedIndividual>
     
 
@@ -9467,7 +9475,7 @@
     <!-- http://www.myc-sense.com/ontologies/bc#u/terajoule -->
 
     <owl:NamedIndividual rdf:about="&bc;u/terajoule">
-        <foreignUnitID>tj</foreignUnitID>
+        <foreignUnitID rdf:datatype="&xsd;string">tj</foreignUnitID>
     </owl:NamedIndividual>
     
 
@@ -9475,7 +9483,7 @@
     <!-- http://www.myc-sense.com/ontologies/bc#u/ton -->
 
     <owl:NamedIndividual rdf:about="&bc;u/ton">
-        <foreignUnitID>t</foreignUnitID>
+        <foreignUnitID rdf:datatype="&xsd;string">t</foreignUnitID>
     </owl:NamedIndividual>
     
 
@@ -9483,7 +9491,7 @@
     <!-- http://www.myc-sense.com/ontologies/bc#u/ton_kilometer -->
 
     <owl:NamedIndividual rdf:about="&bc;u/ton_kilometer">
-        <foreignUnitID>t.km</foreignUnitID>
+        <foreignUnitID rdf:datatype="&xsd;string">t.km</foreignUnitID>
     </owl:NamedIndividual>
     
 
@@ -9491,7 +9499,7 @@
     <!-- http://www.myc-sense.com/ontologies/bc#u/ton_per_hectare -->
 
     <owl:NamedIndividual rdf:about="&bc;u/ton_per_hectare">
-        <foreignUnitID>t.ha^-1</foreignUnitID>
+        <foreignUnitID rdf:datatype="&xsd;string">t.ha^-1</foreignUnitID>
     </owl:NamedIndividual>
     
 
@@ -9499,7 +9507,7 @@
     <!-- http://www.myc-sense.com/ontologies/bc#u/ton_per_tera_joule -->
 
     <owl:NamedIndividual rdf:about="&bc;u/ton_per_tera_joule">
-        <foreignUnitID>t.tj^-1</foreignUnitID>
+        <foreignUnitID rdf:datatype="&xsd;string">t.tj^-1</foreignUnitID>
     </owl:NamedIndividual>
     
 
@@ -9507,7 +9515,7 @@
     <!-- http://www.myc-sense.com/ontologies/bc#u/ton_per_vehicle -->
 
     <owl:NamedIndividual rdf:about="&bc;u/ton_per_vehicle">
-        <foreignUnitID>t.vehicule^-1</foreignUnitID>
+        <foreignUnitID rdf:datatype="&xsd;string">t.vehicule^-1</foreignUnitID>
     </owl:NamedIndividual>
     
 
@@ -9515,7 +9523,7 @@
     <!-- http://www.myc-sense.com/ontologies/bc#u/vehicle -->
 
     <owl:NamedIndividual rdf:about="&bc;u/vehicle">
-        <foreignUnitID>vehicule</foreignUnitID>
+        <foreignUnitID rdf:datatype="&xsd;string">vehicule</foreignUnitID>
     </owl:NamedIndividual>
     
 
@@ -9523,7 +9531,7 @@
     <!-- http://www.myc-sense.com/ontologies/bc#u/vehicle_kilometer -->
 
     <owl:NamedIndividual rdf:about="&bc;u/vehicle_kilometer">
-        <foreignUnitID>vehicule.km</foreignUnitID>
+        <foreignUnitID rdf:datatype="&xsd;string">vehicule.km</foreignUnitID>
     </owl:NamedIndividual>
     
 
@@ -9531,7 +9539,7 @@
     <!-- http://www.myc-sense.com/ontologies/bc#u/year -->
 
     <owl:NamedIndividual rdf:about="&bc;u/year">
-        <foreignUnitID>an</foreignUnitID>
+        <foreignUnitID rdf:datatype="&xsd;string">an</foreignUnitID>
     </owl:NamedIndividual>
     
 
@@ -9546,6 +9554,130 @@
 
     <rdf:Description rdf:about="urn:swrl#kw">
         <rdf:type rdf:resource="&swrl;Variable"/>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&swrl;Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="&swrl;AtomList"/>
+                <rdf:rest rdf:resource="&rdf;nil"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
+                        <swrl:argument1 rdf:resource="&bc;k/dairy_product"/>
+                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
+                    </rdf:Description>
+                </rdf:first>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="&swrl;AtomList"/>
+                <rdf:rest rdf:resource="&rdf;nil"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
+                        <swrl:argument1 rdf:resource="&bc;d/transformed_dairy_product"/>
+                        <swrl:propertyPredicate rdf:resource="&bc;hasKeyword"/>
+                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
+                    </rdf:Description>
+                </rdf:first>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&swrl;Imp"/>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="&swrl;AtomList"/>
+                <rdf:rest rdf:resource="&rdf;nil"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
+                        <swrl:argument1 rdf:resource="&bc;d/meat"/>
+                        <swrl:propertyPredicate rdf:resource="&bc;hasKeyword"/>
+                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
+                    </rdf:Description>
+                </rdf:first>
+            </rdf:Description>
+        </swrl:head>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="&swrl;AtomList"/>
+                <rdf:rest rdf:resource="&rdf;nil"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
+                        <swrl:argument1 rdf:resource="&bc;k/cattle_meat"/>
+                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
+                    </rdf:Description>
+                </rdf:first>
+            </rdf:Description>
+        </swrl:body>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&swrl;Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="&swrl;AtomList"/>
+                <rdf:rest rdf:resource="&rdf;nil"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
+                        <swrl:argument1 rdf:resource="&bc;k/cattle"/>
+                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
+                    </rdf:Description>
+                </rdf:first>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="&swrl;AtomList"/>
+                <rdf:rest rdf:resource="&rdf;nil"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
+                        <swrl:argument1 rdf:resource="&bc;d/farmed_animal"/>
+                        <swrl:propertyPredicate rdf:resource="&bc;hasKeyword"/>
+                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
+                    </rdf:Description>
+                </rdf:first>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&swrl;Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="&swrl;AtomList"/>
+                <rdf:rest rdf:resource="&rdf;nil"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
+                        <swrl:argument1 rdf:resource="&bc;k/type_of_waste"/>
+                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
+                    </rdf:Description>
+                </rdf:first>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="&swrl;AtomList"/>
+                <rdf:rest rdf:resource="&rdf;nil"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
+                        <swrl:argument1 rdf:resource="&bc;d/waste"/>
+                        <swrl:propertyPredicate rdf:resource="&bc;hasKeyword"/>
+                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
+                    </rdf:Description>
+                </rdf:first>
+            </rdf:Description>
+        </swrl:head>
     </rdf:Description>
     <rdf:Description>
         <rdf:type rdf:resource="&swrl;Imp"/>
@@ -9611,68 +9743,6 @@
     </rdf:Description>
     <rdf:Description>
         <rdf:type rdf:resource="&swrl;Imp"/>
-        <swrl:head>
-            <rdf:Description>
-                <rdf:type rdf:resource="&swrl;AtomList"/>
-                <rdf:rest rdf:resource="&rdf;nil"/>
-                <rdf:first>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
-                        <swrl:argument1 rdf:resource="&bc;d/transformed_dairy_product"/>
-                        <swrl:propertyPredicate rdf:resource="&bc;hasKeyword"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
-                    </rdf:Description>
-                </rdf:first>
-            </rdf:Description>
-        </swrl:head>
-        <swrl:body>
-            <rdf:Description>
-                <rdf:type rdf:resource="&swrl;AtomList"/>
-                <rdf:rest rdf:resource="&rdf;nil"/>
-                <rdf:first>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
-                        <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
-                        <swrl:argument1 rdf:resource="&bc;k/dairy_product"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
-                    </rdf:Description>
-                </rdf:first>
-            </rdf:Description>
-        </swrl:body>
-    </rdf:Description>
-    <rdf:Description>
-        <rdf:type rdf:resource="&swrl;Imp"/>
-        <swrl:body>
-            <rdf:Description>
-                <rdf:type rdf:resource="&swrl;AtomList"/>
-                <rdf:rest rdf:resource="&rdf;nil"/>
-                <rdf:first>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
-                        <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
-                        <swrl:argument1 rdf:resource="&bc;k/cattle_meat"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
-                    </rdf:Description>
-                </rdf:first>
-            </rdf:Description>
-        </swrl:body>
-        <swrl:head>
-            <rdf:Description>
-                <rdf:type rdf:resource="&swrl;AtomList"/>
-                <rdf:rest rdf:resource="&rdf;nil"/>
-                <rdf:first>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
-                        <swrl:argument1 rdf:resource="&bc;d/meat"/>
-                        <swrl:propertyPredicate rdf:resource="&bc;hasKeyword"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
-                    </rdf:Description>
-                </rdf:first>
-            </rdf:Description>
-        </swrl:head>
-    </rdf:Description>
-    <rdf:Description>
-        <rdf:type rdf:resource="&swrl;Imp"/>
         <swrl:body>
             <rdf:Description>
                 <rdf:type rdf:resource="&swrl;AtomList"/>
@@ -9695,68 +9765,6 @@
                     <rdf:Description>
                         <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
                         <swrl:argument1 rdf:resource="&bc;d/greenhouse_gas"/>
-                        <swrl:propertyPredicate rdf:resource="&bc;hasKeyword"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
-                    </rdf:Description>
-                </rdf:first>
-            </rdf:Description>
-        </swrl:head>
-    </rdf:Description>
-    <rdf:Description>
-        <rdf:type rdf:resource="&swrl;Imp"/>
-        <swrl:body>
-            <rdf:Description>
-                <rdf:type rdf:resource="&swrl;AtomList"/>
-                <rdf:rest rdf:resource="&rdf;nil"/>
-                <rdf:first>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
-                        <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
-                        <swrl:argument1 rdf:resource="&bc;k/type_of_waste"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
-                    </rdf:Description>
-                </rdf:first>
-            </rdf:Description>
-        </swrl:body>
-        <swrl:head>
-            <rdf:Description>
-                <rdf:type rdf:resource="&swrl;AtomList"/>
-                <rdf:rest rdf:resource="&rdf;nil"/>
-                <rdf:first>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
-                        <swrl:argument1 rdf:resource="&bc;d/waste"/>
-                        <swrl:propertyPredicate rdf:resource="&bc;hasKeyword"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
-                    </rdf:Description>
-                </rdf:first>
-            </rdf:Description>
-        </swrl:head>
-    </rdf:Description>
-    <rdf:Description>
-        <rdf:type rdf:resource="&swrl;Imp"/>
-        <swrl:body>
-            <rdf:Description>
-                <rdf:type rdf:resource="&swrl;AtomList"/>
-                <rdf:rest rdf:resource="&rdf;nil"/>
-                <rdf:first>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
-                        <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
-                        <swrl:argument1 rdf:resource="&bc;k/cattle"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
-                    </rdf:Description>
-                </rdf:first>
-            </rdf:Description>
-        </swrl:body>
-        <swrl:head>
-            <rdf:Description>
-                <rdf:type rdf:resource="&swrl;AtomList"/>
-                <rdf:rest rdf:resource="&rdf;nil"/>
-                <rdf:first>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
-                        <swrl:argument1 rdf:resource="&bc;d/farmed_animal"/>
                         <swrl:propertyPredicate rdf:resource="&bc;hasKeyword"/>
                         <swrl:argument2 rdf:resource="urn:swrl#kw"/>
                     </rdf:Description>
