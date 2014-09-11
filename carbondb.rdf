@@ -175,6 +175,15 @@
     
 
 
+    <!-- http://www.myc-sense.com/ontologies/bc#hasElementaryFlowType -->
+
+    <owl:ObjectProperty rdf:about="&bc;hasElementaryFlowType">
+        <rdfs:domain rdf:resource="&bc;ElementaryFlow"/>
+        <rdfs:range rdf:resource="&bc;ElementaryFlowType"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://www.myc-sense.com/ontologies/bc#hasFlow -->
 
     <owl:ObjectProperty rdf:about="&bc;hasFlow">
@@ -241,15 +250,6 @@
     
 
 
-    <!-- http://www.myc-sense.com/ontologies/bc#hasNature -->
-
-    <owl:ObjectProperty rdf:about="&bc;hasNature">
-        <rdfs:domain rdf:resource="&bc;ElementaryFlow"/>
-        <rdfs:range rdf:resource="&bc;ElementaryFlowType"/>
-    </owl:ObjectProperty>
-    
-
-
     <!-- http://www.myc-sense.com/ontologies/bc#hasOrigin -->
 
     <owl:ObjectProperty rdf:about="&bc;hasOrigin">
@@ -283,7 +283,7 @@
     <owl:ObjectProperty rdf:about="&bc;hasReference">
         <rdfs:domain rdf:resource="&bc;Element"/>
         <rdfs:range rdf:resource="&bc;Reference"/>
-        <owl:inverseOf rdf:resource="&bc;isReferenceOf"/>
+        <owl:inverseOf rdf:resource="&bc;isReferenceOfElement"/>
     </owl:ObjectProperty>
     
 
@@ -496,16 +496,6 @@
     
 
 
-    <!-- http://www.myc-sense.com/ontologies/bc#isNatureOf -->
-
-    <owl:ObjectProperty rdf:about="&bc;isNatureOf">
-        <rdfs:range rdf:resource="&bc;ElementaryFlow"/>
-        <rdfs:domain rdf:resource="&bc;ElementaryFlowType"/>
-        <owl:inverseOf rdf:resource="&bc;hasNature"/>
-    </owl:ObjectProperty>
-    
-
-
     <!-- http://www.myc-sense.com/ontologies/bc#isOriginOf -->
 
     <owl:ObjectProperty rdf:about="&bc;isOriginOf">
@@ -535,9 +525,9 @@
     
 
 
-    <!-- http://www.myc-sense.com/ontologies/bc#isReferenceOf -->
+    <!-- http://www.myc-sense.com/ontologies/bc#isReferenceOfElement -->
 
-    <owl:ObjectProperty rdf:about="&bc;isReferenceOf">
+    <owl:ObjectProperty rdf:about="&bc;isReferenceOfElement">
         <rdfs:range rdf:resource="&bc;Element"/>
         <rdfs:domain rdf:resource="&bc;Reference"/>
     </owl:ObjectProperty>
@@ -559,6 +549,16 @@
         <rdfs:domain rdf:resource="&bc;Keyword"/>
         <rdfs:range rdf:resource="&bc;SingleElement"/>
         <owl:inverseOf rdf:resource="&bc;hasTag"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#isTypeOfElementaryFlow -->
+
+    <owl:ObjectProperty rdf:about="&bc;isTypeOfElementaryFlow">
+        <rdfs:range rdf:resource="&bc;ElementaryFlow"/>
+        <rdfs:domain rdf:resource="&bc;ElementaryFlowType"/>
+        <owl:inverseOf rdf:resource="&bc;hasElementaryFlowType"/>
     </owl:ObjectProperty>
     
 
@@ -817,15 +817,15 @@
     <owl:Class rdf:about="&bc;ElementaryFlow">
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;isFlowOf"/>
-                <owl:onClass rdf:resource="&bc;SingleProcess"/>
+                <owl:onProperty rdf:resource="&bc;hasElementaryFlowType"/>
+                <owl:onClass rdf:resource="&bc;ElementaryFlowType"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;hasNature"/>
-                <owl:onClass rdf:resource="&bc;ElementaryFlowType"/>
+                <owl:onProperty rdf:resource="&bc;isFlowOf"/>
+                <owl:onClass rdf:resource="&bc;SingleProcess"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -2029,7 +2029,7 @@
         <rdfs:label xml:lang="fr">Elementary Flow</rdfs:label>
         <uncertainty rdf:datatype="&xsd;double">0.0</uncertainty>
         <value rdf:datatype="&xsd;double">1.0</value>
-        <hasNature rdf:resource="&bc;ghg/ch4"/>
+        <hasElementaryFlowType rdf:resource="&bc;ghg/ch4"/>
     </owl:NamedIndividual>
     
 
@@ -2040,7 +2040,7 @@
         <rdfs:label xml:lang="fr">Elementary flow</rdfs:label>
         <uncertainty rdf:datatype="&xsd;double">0.0</uncertainty>
         <value rdf:datatype="&xsd;double">1.0</value>
-        <hasNature rdf:resource="&bc;ghg/co2"/>
+        <hasElementaryFlowType rdf:resource="&bc;ghg/co2"/>
     </owl:NamedIndividual>
     
 
@@ -2051,7 +2051,7 @@
         <rdfs:label xml:lang="fr">Elementary flow</rdfs:label>
         <uncertainty rdf:datatype="&xsd;double">0.0</uncertainty>
         <value rdf:datatype="&xsd;double">1.0</value>
-        <hasNature rdf:resource="&bc;ghg/n2o"/>
+        <hasElementaryFlowType rdf:resource="&bc;ghg/n2o"/>
     </owl:NamedIndividual>
     
 
@@ -2062,7 +2062,7 @@
         <rdfs:label xml:lang="fr">Elementary flow</rdfs:label>
         <uncertainty rdf:datatype="&xsd;double">0.0</uncertainty>
         <value rdf:datatype="&xsd;double">1.0</value>
-        <hasNature rdf:resource="&bc;ghg/co2e"/>
+        <hasElementaryFlowType rdf:resource="&bc;ghg/co2e"/>
     </owl:NamedIndividual>
     
 
@@ -9966,20 +9966,6 @@
     </rdf:Description>
     <rdf:Description>
         <rdf:type rdf:resource="&swrl;Imp"/>
-        <swrl:body>
-            <rdf:Description>
-                <rdf:type rdf:resource="&swrl;AtomList"/>
-                <rdf:rest rdf:resource="&rdf;nil"/>
-                <rdf:first>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
-                        <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
-                        <swrl:argument1 rdf:resource="&bc;k/agricultural_input"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
-                    </rdf:Description>
-                </rdf:first>
-            </rdf:Description>
-        </swrl:body>
         <swrl:head>
             <rdf:Description>
                 <rdf:type rdf:resource="&swrl;AtomList"/>
@@ -9994,9 +9980,6 @@
                 </rdf:first>
             </rdf:Description>
         </swrl:head>
-    </rdf:Description>
-    <rdf:Description>
-        <rdf:type rdf:resource="&swrl;Imp"/>
         <swrl:body>
             <rdf:Description>
                 <rdf:type rdf:resource="&swrl;AtomList"/>
@@ -10005,12 +9988,15 @@
                     <rdf:Description>
                         <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
                         <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
-                        <swrl:argument1 rdf:resource="&bc;k/type_of_waste"/>
+                        <swrl:argument1 rdf:resource="&bc;k/agricultural_input"/>
                         <swrl:argument2 rdf:resource="urn:swrl#kw"/>
                     </rdf:Description>
                 </rdf:first>
             </rdf:Description>
         </swrl:body>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&swrl;Imp"/>
         <swrl:head>
             <rdf:Description>
                 <rdf:type rdf:resource="&swrl;AtomList"/>
@@ -10025,9 +10011,6 @@
                 </rdf:first>
             </rdf:Description>
         </swrl:head>
-    </rdf:Description>
-    <rdf:Description>
-        <rdf:type rdf:resource="&swrl;Imp"/>
         <swrl:body>
             <rdf:Description>
                 <rdf:type rdf:resource="&swrl;AtomList"/>
@@ -10036,12 +10019,15 @@
                     <rdf:Description>
                         <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
                         <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
-                        <swrl:argument1 rdf:resource="&bc;k/dairy_product"/>
+                        <swrl:argument1 rdf:resource="&bc;k/type_of_waste"/>
                         <swrl:argument2 rdf:resource="urn:swrl#kw"/>
                     </rdf:Description>
                 </rdf:first>
             </rdf:Description>
         </swrl:body>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&swrl;Imp"/>
         <swrl:head>
             <rdf:Description>
                 <rdf:type rdf:resource="&swrl;AtomList"/>
@@ -10056,6 +10042,20 @@
                 </rdf:first>
             </rdf:Description>
         </swrl:head>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="&swrl;AtomList"/>
+                <rdf:rest rdf:resource="&rdf;nil"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
+                        <swrl:argument1 rdf:resource="&bc;k/dairy_product"/>
+                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
+                    </rdf:Description>
+                </rdf:first>
+            </rdf:Description>
+        </swrl:body>
     </rdf:Description>
     <rdf:Description>
         <rdf:type rdf:resource="&swrl;Imp"/>
@@ -10090,20 +10090,6 @@
     </rdf:Description>
     <rdf:Description>
         <rdf:type rdf:resource="&swrl;Imp"/>
-        <swrl:head>
-            <rdf:Description>
-                <rdf:type rdf:resource="&swrl;AtomList"/>
-                <rdf:rest rdf:resource="&rdf;nil"/>
-                <rdf:first>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
-                        <swrl:argument1 rdf:resource="&bc;d/greenhouse_gas"/>
-                        <swrl:propertyPredicate rdf:resource="&bc;hasKeyword"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
-                    </rdf:Description>
-                </rdf:first>
-            </rdf:Description>
-        </swrl:head>
         <swrl:body>
             <rdf:Description>
                 <rdf:type rdf:resource="&swrl;AtomList"/>
@@ -10118,6 +10104,20 @@
                 </rdf:first>
             </rdf:Description>
         </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="&swrl;AtomList"/>
+                <rdf:rest rdf:resource="&rdf;nil"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
+                        <swrl:argument1 rdf:resource="&bc;d/greenhouse_gas"/>
+                        <swrl:propertyPredicate rdf:resource="&bc;hasKeyword"/>
+                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
+                    </rdf:Description>
+                </rdf:first>
+            </rdf:Description>
+        </swrl:head>
     </rdf:Description>
     <rdf:Description>
         <rdf:type rdf:resource="&swrl;Imp"/>
