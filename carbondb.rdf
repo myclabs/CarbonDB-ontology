@@ -235,8 +235,8 @@
     <!-- http://www.myc-sense.com/ontologies/bc#hasChildCategoryOfGroup -->
 
     <owl:ObjectProperty rdf:about="&bc;hasChildCategoryOfGroup">
-        <rdfs:domain rdf:resource="&bc;Category"/>
         <rdfs:range rdf:resource="&bc;Category"/>
+        <rdfs:domain rdf:resource="&bc;Category"/>
         <owl:inverseOf rdf:resource="&bc;hasParentCategoryOfGroup"/>
     </owl:ObjectProperty>
     
@@ -357,8 +357,8 @@
     <!-- http://www.myc-sense.com/ontologies/bc#hasParentCategoryOfGroup -->
 
     <owl:ObjectProperty rdf:about="&bc;hasParentCategoryOfGroup">
-        <rdfs:domain rdf:resource="&bc;Category"/>
         <rdfs:range rdf:resource="&bc;Category"/>
+        <rdfs:domain rdf:resource="&bc;Category"/>
     </owl:ObjectProperty>
     
 
@@ -568,8 +568,8 @@
     <!-- http://www.myc-sense.com/ontologies/bc#isLinkedToKeyword -->
 
     <owl:ObjectProperty rdf:about="&bc;isLinkedToKeyword">
-        <rdfs:domain rdf:resource="&bc;Keyword"/>
         <rdfs:range rdf:resource="&bc;Keyword"/>
+        <rdfs:domain rdf:resource="&bc;Keyword"/>
     </owl:ObjectProperty>
     
 
@@ -768,15 +768,15 @@
     <owl:Class rdf:about="&bc;Category">
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;categorizesGroup"/>
-                <owl:someValuesFrom rdf:resource="&bc;Group"/>
+                <owl:onProperty rdf:resource="&bc;hasParentCategoryOfGroup"/>
+                <owl:onClass rdf:resource="&bc;Category"/>
+                <owl:maxQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxQualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;hasParentCategoryOfGroup"/>
-                <owl:onClass rdf:resource="&bc;Category"/>
-                <owl:maxQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onProperty rdf:resource="&bc;categorizesGroup"/>
+                <owl:someValuesFrom rdf:resource="&bc;Group"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <owl:disjointWith rdf:resource="&bc;CategoryOfImpactType"/>
@@ -956,9 +956,9 @@
     <owl:Class rdf:about="&bc;ElementaryFlow">
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;value"/>
+                <owl:onProperty rdf:resource="&bc;isFlowOfSingleProcess"/>
+                <owl:onClass rdf:resource="&bc;SingleProcess"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onDataRange rdf:resource="&xsd;double"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -977,9 +977,9 @@
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;isFlowOfSingleProcess"/>
-                <owl:onClass rdf:resource="&bc;SingleProcess"/>
+                <owl:onProperty rdf:resource="&bc;value"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;double"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <owl:disjointWith rdf:resource="&bc;ElementaryFlowType"/>
@@ -1028,15 +1028,15 @@
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;belongsToCategoryOfGroup"/>
-                <owl:onClass rdf:resource="&bc;Category"/>
-                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onProperty rdf:resource="&bc;hasDimension"/>
+                <owl:someValuesFrom rdf:resource="&bc;Dimension"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;hasDimension"/>
-                <owl:someValuesFrom rdf:resource="&bc;Dimension"/>
+                <owl:onProperty rdf:resource="&bc;belongsToCategoryOfGroup"/>
+                <owl:onClass rdf:resource="&bc;Category"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <owl:disjointWith rdf:resource="&bc;ImpactType"/>
@@ -1055,16 +1055,16 @@
     <owl:Class rdf:about="&bc;Impact">
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;hasImpactType"/>
-                <owl:onClass rdf:resource="&bc;ImpactType"/>
+                <owl:onProperty rdf:resource="&bc;uncertainty"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;double"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;uncertainty"/>
+                <owl:onProperty rdf:resource="&bc;hasImpactType"/>
+                <owl:onClass rdf:resource="&bc;ImpactType"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onDataRange rdf:resource="&xsd;double"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -1083,15 +1083,15 @@
     <owl:Class rdf:about="&bc;ImpactType">
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;belongsToCategoryOfImpactType"/>
-                <owl:onClass rdf:resource="&bc;CategoryOfImpactType"/>
-                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onProperty rdf:resource="&bc;isImpactType"/>
+                <owl:someValuesFrom rdf:resource="&bc;Impact"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;isImpactType"/>
-                <owl:someValuesFrom rdf:resource="&bc;Impact"/>
+                <owl:onProperty rdf:resource="&bc;belongsToCategoryOfImpactType"/>
+                <owl:onClass rdf:resource="&bc;CategoryOfImpactType"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <owl:disjointWith rdf:resource="&bc;Keyword"/>
@@ -1175,14 +1175,14 @@
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;exponent"/>
+                <owl:onProperty rdf:resource="&bc;hasDestinationProcess"/>
+                <owl:onClass rdf:resource="&bc;Process"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onDataRange rdf:resource="&xsd;short"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;hasDestinationProcess"/>
+                <owl:onProperty rdf:resource="&bc;hasOriginProcess"/>
                 <owl:onClass rdf:resource="&bc;Process"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
@@ -1196,9 +1196,9 @@
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;hasOriginProcess"/>
-                <owl:onClass rdf:resource="&bc;Process"/>
+                <owl:onProperty rdf:resource="&bc;exponent"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;short"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <owl:disjointWith rdf:resource="&bc;SingleElement"/>
@@ -1681,9 +1681,9 @@
     
 
 
-    <!-- http://www.myc-sense.com/ontologies/bc#ceft/greenhouse_gas_emission -->
+    <!-- http://www.myc-sense.com/ontologies/bc#cateft/greenhouse_gas_emission -->
 
-    <owl:NamedIndividual rdf:about="&bc;ceft/greenhouse_gas_emission">
+    <owl:NamedIndividual rdf:about="&bc;cateft/greenhouse_gas_emission">
         <rdf:type rdf:resource="&bc;CategoryOfElementaryFlowType"/>
         <rdfs:label xml:lang="en">Greenhouse gas emission</rdfs:label>
         <rdfs:label xml:lang="fr">Émission de gaz à effet de serre</rdfs:label>
@@ -1694,9 +1694,9 @@
     
 
 
-    <!-- http://www.myc-sense.com/ontologies/bc#ceft/primary_energy_extraction -->
+    <!-- http://www.myc-sense.com/ontologies/bc#cateft/primary_energy_extraction -->
 
-    <owl:NamedIndividual rdf:about="&bc;ceft/primary_energy_extraction">
+    <owl:NamedIndividual rdf:about="&bc;cateft/primary_energy_extraction">
         <rdf:type rdf:resource="&bc;CategoryOfElementaryFlowType"/>
         <rdfs:label xml:lang="en">Primary energy extraction</rdfs:label>
         <rdfs:label xml:lang="fr">Extraction d&apos;énergie primaire</rdfs:label>
@@ -1707,9 +1707,9 @@
     
 
 
-    <!-- http://www.myc-sense.com/ontologies/bc#cti/greenhouse_gas_emission -->
+    <!-- http://www.myc-sense.com/ontologies/bc#catit/greenhouse_gas_emission -->
 
-    <owl:NamedIndividual rdf:about="&bc;cti/greenhouse_gas_emission">
+    <owl:NamedIndividual rdf:about="&bc;catit/greenhouse_gas_emission">
         <rdf:type rdf:resource="&bc;CategoryOfImpactType"/>
         <rdfs:label xml:lang="en">Greenhouse gas emission</rdfs:label>
         <rdfs:label xml:lang="fr">Émission de gaz à effet de serre</rdfs:label>
@@ -1720,15 +1720,255 @@
     
 
 
-    <!-- http://www.myc-sense.com/ontologies/bc#cti/primary_energy_extraction -->
+    <!-- http://www.myc-sense.com/ontologies/bc#catit/primary_energy_extraction -->
 
-    <owl:NamedIndividual rdf:about="&bc;cti/primary_energy_extraction">
+    <owl:NamedIndividual rdf:about="&bc;catit/primary_energy_extraction">
         <rdf:type rdf:resource="&bc;CategoryOfImpactType"/>
         <rdfs:label xml:lang="en">Primary energy extraction</rdfs:label>
         <rdfs:label xml:lang="fr">Extraction d&apos;énergie primaire</rdfs:label>
         <header xml:lang="en">Type</header>
         <header xml:lang="fr">Type</header>
         <hasUnit rdf:resource="&bc;u/kilowatt_hour"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#compit/biomass_as_renewable_energy -->
+
+    <owl:NamedIndividual rdf:about="&bc;compit/biomass_as_renewable_energy">
+        <rdf:type rdf:resource="&bc;ComponentOfImpactType"/>
+        <uncertainty rdf:datatype="&xsd;double">0.0</uncertainty>
+        <value rdf:datatype="&xsd;double">1.0</value>
+        <isBasedOnElementaryFlowType rdf:resource="&bc;eft/pe/biomass"/>
+        <contributesToImpactType rdf:resource="&bc;it/renewable_energy_extraction"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#compit/coal_as_fossil_fuel -->
+
+    <owl:NamedIndividual rdf:about="&bc;compit/coal_as_fossil_fuel">
+        <rdf:type rdf:resource="&bc;ComponentOfImpactType"/>
+        <uncertainty rdf:datatype="&xsd;double">0.0</uncertainty>
+        <value rdf:datatype="&xsd;double">1.0</value>
+        <isBasedOnElementaryFlowType rdf:resource="&bc;eft/pe/coal"/>
+        <contributesToImpactType rdf:resource="&bc;it/fossil_fuel_extraction"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#compit/geothermal_energy_as_renewable_energy -->
+
+    <owl:NamedIndividual rdf:about="&bc;compit/geothermal_energy_as_renewable_energy">
+        <rdf:type rdf:resource="&bc;ComponentOfImpactType"/>
+        <uncertainty rdf:datatype="&xsd;double">0.0</uncertainty>
+        <value rdf:datatype="&xsd;double">1.0</value>
+        <isBasedOnElementaryFlowType rdf:resource="&bc;eft/pe/geothermal_energy"/>
+        <contributesToImpactType rdf:resource="&bc;it/renewable_energy_extraction"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#compit/global_warming_potential_of_ch4_over_100_years -->
+
+    <owl:NamedIndividual rdf:about="&bc;compit/global_warming_potential_of_ch4_over_100_years">
+        <rdf:type rdf:resource="&bc;ComponentOfImpactType"/>
+        <uncertainty rdf:datatype="&xsd;double">0.0</uncertainty>
+        <value rdf:datatype="&xsd;double">34.0</value>
+        <isBasedOnElementaryFlowType rdf:resource="&bc;eft/ghg/ch4"/>
+        <contributesToImpactType rdf:resource="&bc;ti/ghg_emission_measured_using_gwp_over_100_years"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#compit/global_warming_potential_of_ch4_over_20_years -->
+
+    <owl:NamedIndividual rdf:about="&bc;compit/global_warming_potential_of_ch4_over_20_years">
+        <rdf:type rdf:resource="&bc;ComponentOfImpactType"/>
+        <uncertainty rdf:datatype="&xsd;double">0.0</uncertainty>
+        <value rdf:datatype="&xsd;double">86.0</value>
+        <isBasedOnElementaryFlowType rdf:resource="&bc;eft/ghg/ch4"/>
+        <contributesToImpactType rdf:resource="&bc;it/ghg_emission_measured_using_gwp_over_20_years"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#compit/global_warming_potential_of_ch4_over_500_years -->
+
+    <owl:NamedIndividual rdf:about="&bc;compit/global_warming_potential_of_ch4_over_500_years">
+        <rdf:type rdf:resource="&bc;ComponentOfImpactType"/>
+        <uncertainty rdf:datatype="&xsd;double">0.0</uncertainty>
+        <value rdf:datatype="&xsd;double">7.6</value>
+        <isBasedOnElementaryFlowType rdf:resource="&bc;eft/ghg/ch4"/>
+        <contributesToImpactType rdf:resource="&bc;it/ghg_emission_measured_using_gwp_over_500_years"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#compit/global_warming_potential_of_co2_over_100_years -->
+
+    <owl:NamedIndividual rdf:about="&bc;compit/global_warming_potential_of_co2_over_100_years">
+        <rdf:type rdf:resource="&bc;ComponentOfImpactType"/>
+        <uncertainty rdf:datatype="&xsd;double">0.0</uncertainty>
+        <value rdf:datatype="&xsd;double">1.0</value>
+        <isBasedOnElementaryFlowType rdf:resource="&bc;eft/ghg/co2"/>
+        <contributesToImpactType rdf:resource="&bc;ti/ghg_emission_measured_using_gwp_over_100_years"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#compit/global_warming_potential_of_co2_over_20_years -->
+
+    <owl:NamedIndividual rdf:about="&bc;compit/global_warming_potential_of_co2_over_20_years">
+        <rdf:type rdf:resource="&bc;ComponentOfImpactType"/>
+        <uncertainty rdf:datatype="&xsd;double">0.0</uncertainty>
+        <value rdf:datatype="&xsd;double">1.0</value>
+        <isBasedOnElementaryFlowType rdf:resource="&bc;eft/ghg/co2"/>
+        <contributesToImpactType rdf:resource="&bc;it/ghg_emission_measured_using_gwp_over_20_years"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#compit/global_warming_potential_of_co2_over_500_years -->
+
+    <owl:NamedIndividual rdf:about="&bc;compit/global_warming_potential_of_co2_over_500_years">
+        <rdf:type rdf:resource="&bc;ComponentOfImpactType"/>
+        <uncertainty rdf:datatype="&xsd;double">0.0</uncertainty>
+        <value rdf:datatype="&xsd;double">1.0</value>
+        <isBasedOnElementaryFlowType rdf:resource="&bc;eft/ghg/co2"/>
+        <contributesToImpactType rdf:resource="&bc;it/ghg_emission_measured_using_gwp_over_500_years"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#compit/global_warming_potential_of_co2e_over_100_years -->
+
+    <owl:NamedIndividual rdf:about="&bc;compit/global_warming_potential_of_co2e_over_100_years">
+        <rdf:type rdf:resource="&bc;ComponentOfImpactType"/>
+        <uncertainty rdf:datatype="&xsd;double">0.0</uncertainty>
+        <value rdf:datatype="&xsd;double">1.0</value>
+        <isBasedOnElementaryFlowType rdf:resource="&bc;eft/ghg/co2e"/>
+        <contributesToImpactType rdf:resource="&bc;ti/ghg_emission_measured_using_gwp_over_100_years"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#compit/global_warming_potential_of_co2e_over_20_years -->
+
+    <owl:NamedIndividual rdf:about="&bc;compit/global_warming_potential_of_co2e_over_20_years">
+        <rdf:type rdf:resource="&bc;ComponentOfImpactType"/>
+        <uncertainty rdf:datatype="&xsd;double">0.0</uncertainty>
+        <value rdf:datatype="&xsd;double">1.0</value>
+        <isBasedOnElementaryFlowType rdf:resource="&bc;eft/ghg/co2e"/>
+        <contributesToImpactType rdf:resource="&bc;it/ghg_emission_measured_using_gwp_over_20_years"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#compit/global_warming_potential_of_co2e_over_500_years -->
+
+    <owl:NamedIndividual rdf:about="&bc;compit/global_warming_potential_of_co2e_over_500_years">
+        <rdf:type rdf:resource="&bc;ComponentOfImpactType"/>
+        <uncertainty rdf:datatype="&xsd;double">0.0</uncertainty>
+        <value rdf:datatype="&xsd;double">1.0</value>
+        <isBasedOnElementaryFlowType rdf:resource="&bc;eft/ghg/co2e"/>
+        <contributesToImpactType rdf:resource="&bc;it/ghg_emission_measured_using_gwp_over_500_years"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#compit/global_warming_potential_of_n2o_over_100_years -->
+
+    <owl:NamedIndividual rdf:about="&bc;compit/global_warming_potential_of_n2o_over_100_years">
+        <rdf:type rdf:resource="&bc;ComponentOfImpactType"/>
+        <uncertainty rdf:datatype="&xsd;double">0.0</uncertainty>
+        <value rdf:datatype="&xsd;double">298.0</value>
+        <isBasedOnElementaryFlowType rdf:resource="&bc;eft/ghg/n2o"/>
+        <contributesToImpactType rdf:resource="&bc;ti/ghg_emission_measured_using_gwp_over_100_years"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#compit/global_warming_potential_of_n2o_over_20_years -->
+
+    <owl:NamedIndividual rdf:about="&bc;compit/global_warming_potential_of_n2o_over_20_years">
+        <rdf:type rdf:resource="&bc;ComponentOfImpactType"/>
+        <uncertainty rdf:datatype="&xsd;double">0.0</uncertainty>
+        <value rdf:datatype="&xsd;double">268.0</value>
+        <isBasedOnElementaryFlowType rdf:resource="&bc;eft/ghg/n2o"/>
+        <contributesToImpactType rdf:resource="&bc;it/ghg_emission_measured_using_gwp_over_20_years"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#compit/global_warming_potential_of_n2o_over_500_years -->
+
+    <owl:NamedIndividual rdf:about="&bc;compit/global_warming_potential_of_n2o_over_500_years">
+        <rdf:type rdf:resource="&bc;ComponentOfImpactType"/>
+        <uncertainty rdf:datatype="&xsd;double">0.0</uncertainty>
+        <value rdf:datatype="&xsd;double">153.0</value>
+        <isBasedOnElementaryFlowType rdf:resource="&bc;eft/ghg/n2o"/>
+        <contributesToImpactType rdf:resource="&bc;it/ghg_emission_measured_using_gwp_over_500_years"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#compit/hydropower_as_renewable_energy -->
+
+    <owl:NamedIndividual rdf:about="&bc;compit/hydropower_as_renewable_energy">
+        <rdf:type rdf:resource="&bc;ComponentOfImpactType"/>
+        <uncertainty rdf:datatype="&xsd;double">0.0</uncertainty>
+        <value rdf:datatype="&xsd;double">1.0</value>
+        <isBasedOnElementaryFlowType rdf:resource="&bc;eft/pe/hydropower"/>
+        <contributesToImpactType rdf:resource="&bc;it/renewable_energy_extraction"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#compit/natural_gas_as_fossil_fuel -->
+
+    <owl:NamedIndividual rdf:about="&bc;compit/natural_gas_as_fossil_fuel">
+        <rdf:type rdf:resource="&bc;ComponentOfImpactType"/>
+        <uncertainty rdf:datatype="&xsd;double">0.0</uncertainty>
+        <value rdf:datatype="&xsd;double">1.0</value>
+        <isBasedOnElementaryFlowType rdf:resource="&bc;eft/pe/natural_gas"/>
+        <contributesToImpactType rdf:resource="&bc;it/fossil_fuel_extraction"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#compit/petroleum_as_fossil_fuel -->
+
+    <owl:NamedIndividual rdf:about="&bc;compit/petroleum_as_fossil_fuel">
+        <rdf:type rdf:resource="&bc;ComponentOfImpactType"/>
+        <uncertainty rdf:datatype="&xsd;double">0.0</uncertainty>
+        <value rdf:datatype="&xsd;double">1.0</value>
+        <isBasedOnElementaryFlowType rdf:resource="&bc;eft/pe/petroleum"/>
+        <contributesToImpactType rdf:resource="&bc;it/fossil_fuel_extraction"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#compit/solar_energy_as_renewable_energy -->
+
+    <owl:NamedIndividual rdf:about="&bc;compit/solar_energy_as_renewable_energy">
+        <rdf:type rdf:resource="&bc;ComponentOfImpactType"/>
+        <uncertainty rdf:datatype="&xsd;double">0.0</uncertainty>
+        <value rdf:datatype="&xsd;double">1.0</value>
+        <isBasedOnElementaryFlowType rdf:resource="&bc;eft/pe/solar_energy"/>
+        <contributesToImpactType rdf:resource="&bc;it/renewable_energy_extraction"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#compit/wind_power_as_renewable_energy -->
+
+    <owl:NamedIndividual rdf:about="&bc;compit/wind_power_as_renewable_energy">
+        <rdf:type rdf:resource="&bc;ComponentOfImpactType"/>
+        <uncertainty rdf:datatype="&xsd;double">0.0</uncertainty>
+        <value rdf:datatype="&xsd;double">1.0</value>
+        <isBasedOnElementaryFlowType rdf:resource="&bc;eft/pe/wind_power"/>
+        <contributesToImpactType rdf:resource="&bc;it/renewable_energy_extraction"/>
     </owl:NamedIndividual>
     
 
@@ -2222,6 +2462,50 @@
     
 
 
+    <!-- http://www.myc-sense.com/ontologies/bc#eft/ghg/ch4 -->
+
+    <owl:NamedIndividual rdf:about="&bc;eft/ghg/ch4">
+        <rdf:type rdf:resource="&bc;ElementaryFlowType"/>
+        <rdfs:label xml:lang="en">Methane (CH4)</rdfs:label>
+        <rdfs:label xml:lang="fr">Méthane (CH4)</rdfs:label>
+        <belongsToCategoryOfElementaryFlowType rdf:resource="&bc;cateft/greenhouse_gas_emission"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#eft/ghg/co2 -->
+
+    <owl:NamedIndividual rdf:about="&bc;eft/ghg/co2">
+        <rdf:type rdf:resource="&bc;ElementaryFlowType"/>
+        <rdfs:label xml:lang="en">Carbon dioxide (CO2)</rdfs:label>
+        <rdfs:label xml:lang="fr">Dioxyde de carbone (CO2)</rdfs:label>
+        <belongsToCategoryOfElementaryFlowType rdf:resource="&bc;cateft/greenhouse_gas_emission"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#eft/ghg/co2e -->
+
+    <owl:NamedIndividual rdf:about="&bc;eft/ghg/co2e">
+        <rdf:type rdf:resource="&bc;ElementaryFlowType"/>
+        <rdfs:label xml:lang="en">Undifferentiated greenhouse gas (CO2e)</rdfs:label>
+        <rdfs:label xml:lang="fr">Gaz à effet de serre indifférencié (CO2e)</rdfs:label>
+        <belongsToCategoryOfElementaryFlowType rdf:resource="&bc;cateft/greenhouse_gas_emission"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#eft/ghg/n2o -->
+
+    <owl:NamedIndividual rdf:about="&bc;eft/ghg/n2o">
+        <rdf:type rdf:resource="&bc;ElementaryFlowType"/>
+        <rdfs:label xml:lang="en">Nitrous oxide (N2O)</rdfs:label>
+        <rdfs:label xml:lang="fr">Protoxyde d&apos;azote (N2O)</rdfs:label>
+        <belongsToCategoryOfElementaryFlowType rdf:resource="&bc;cateft/greenhouse_gas_emission"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.myc-sense.com/ontologies/bc#eft/pe/biomass -->
 
     <owl:NamedIndividual rdf:about="&bc;eft/pe/biomass">
@@ -2238,7 +2522,7 @@
         <rdf:type rdf:resource="&bc;ElementaryFlowType"/>
         <rdfs:label xml:lang="en">Coal</rdfs:label>
         <rdfs:label xml:lang="fr">Charbon / lignite</rdfs:label>
-        <belongsToCategoryOfElementaryFlowType rdf:resource="&bc;ceft/primary_energy_extraction"/>
+        <belongsToCategoryOfElementaryFlowType rdf:resource="&bc;cateft/primary_energy_extraction"/>
     </owl:NamedIndividual>
     
 
@@ -2269,7 +2553,7 @@
         <rdf:type rdf:resource="&bc;ElementaryFlowType"/>
         <rdfs:label xml:lang="en">Natural gas</rdfs:label>
         <rdfs:label xml:lang="fr">Gaz naturel</rdfs:label>
-        <belongsToCategoryOfElementaryFlowType rdf:resource="&bc;ceft/primary_energy_extraction"/>
+        <belongsToCategoryOfElementaryFlowType rdf:resource="&bc;cateft/primary_energy_extraction"/>
     </owl:NamedIndividual>
     
 
@@ -2280,7 +2564,7 @@
         <rdf:type rdf:resource="&bc;ElementaryFlowType"/>
         <rdfs:label xml:lang="en">Petroleum</rdfs:label>
         <rdfs:label xml:lang="fr">Pétrole</rdfs:label>
-        <belongsToCategoryOfElementaryFlowType rdf:resource="&bc;ceft/primary_energy_extraction"/>
+        <belongsToCategoryOfElementaryFlowType rdf:resource="&bc;cateft/primary_energy_extraction"/>
     </owl:NamedIndividual>
     
 
@@ -2311,50 +2595,6 @@
         <rdf:type rdf:resource="&bc;ElementaryFlowType"/>
         <rdfs:label xml:lang="en">Wind power</rdfs:label>
         <rdfs:label xml:lang="fr">Énergie éolienne</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.myc-sense.com/ontologies/bc#f/00007 -->
-
-    <owl:NamedIndividual rdf:about="&bc;f/00007">
-        <rdfs:label xml:lang="fr">Elementary Flow</rdfs:label>
-        <uncertainty rdf:datatype="&xsd;double">0.0</uncertainty>
-        <value rdf:datatype="&xsd;double">1.0</value>
-        <hasElementaryFlowType rdf:resource="&bc;ghg/ch4"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.myc-sense.com/ontologies/bc#f/00008 -->
-
-    <owl:NamedIndividual rdf:about="&bc;f/00008">
-        <rdfs:label xml:lang="fr">Elementary flow</rdfs:label>
-        <uncertainty rdf:datatype="&xsd;double">0.0</uncertainty>
-        <value rdf:datatype="&xsd;double">1.0</value>
-        <hasElementaryFlowType rdf:resource="&bc;ghg/co2"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.myc-sense.com/ontologies/bc#f/00009 -->
-
-    <owl:NamedIndividual rdf:about="&bc;f/00009">
-        <rdfs:label xml:lang="fr">Elementary flow</rdfs:label>
-        <uncertainty rdf:datatype="&xsd;double">0.0</uncertainty>
-        <value rdf:datatype="&xsd;double">1.0</value>
-        <hasElementaryFlowType rdf:resource="&bc;ghg/n2o"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.myc-sense.com/ontologies/bc#f/00023 -->
-
-    <owl:NamedIndividual rdf:about="&bc;f/00023">
-        <rdfs:label xml:lang="fr">Elementary flow</rdfs:label>
-        <uncertainty rdf:datatype="&xsd;double">0.0</uncertainty>
-        <value rdf:datatype="&xsd;double">1.0</value>
-        <hasElementaryFlowType rdf:resource="&bc;ghg/co2e"/>
     </owl:NamedIndividual>
     
 
@@ -2931,50 +3171,6 @@
     
 
 
-    <!-- http://www.myc-sense.com/ontologies/bc#ghg/ch4 -->
-
-    <owl:NamedIndividual rdf:about="&bc;ghg/ch4">
-        <rdf:type rdf:resource="&bc;ElementaryFlowType"/>
-        <rdfs:label xml:lang="en">Methane (CH4)</rdfs:label>
-        <rdfs:label xml:lang="fr">Méthane (CH4)</rdfs:label>
-        <belongsToCategoryOfElementaryFlowType rdf:resource="&bc;ceft/greenhouse_gas_emission"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.myc-sense.com/ontologies/bc#ghg/co2 -->
-
-    <owl:NamedIndividual rdf:about="&bc;ghg/co2">
-        <rdf:type rdf:resource="&bc;ElementaryFlowType"/>
-        <rdfs:label xml:lang="en">Carbon dioxide (CO2)</rdfs:label>
-        <rdfs:label xml:lang="fr">Dioxyde de carbone (CO2)</rdfs:label>
-        <belongsToCategoryOfElementaryFlowType rdf:resource="&bc;ceft/greenhouse_gas_emission"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.myc-sense.com/ontologies/bc#ghg/co2e -->
-
-    <owl:NamedIndividual rdf:about="&bc;ghg/co2e">
-        <rdf:type rdf:resource="&bc;ElementaryFlowType"/>
-        <rdfs:label xml:lang="en">Undifferentiated greenhouse gas (CO2e)</rdfs:label>
-        <rdfs:label xml:lang="fr">Gaz à effet de serre indifférencié (CO2e)</rdfs:label>
-        <belongsToCategoryOfElementaryFlowType rdf:resource="&bc;ceft/greenhouse_gas_emission"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.myc-sense.com/ontologies/bc#ghg/n2o -->
-
-    <owl:NamedIndividual rdf:about="&bc;ghg/n2o">
-        <rdf:type rdf:resource="&bc;ElementaryFlowType"/>
-        <rdfs:label xml:lang="en">Nitrous oxide (N2O)</rdfs:label>
-        <rdfs:label xml:lang="fr">Protoxyde d&apos;azote (N2O)</rdfs:label>
-        <belongsToCategoryOfElementaryFlowType rdf:resource="&bc;ceft/greenhouse_gas_emission"/>
-    </owl:NamedIndividual>
-    
-
-
     <!-- http://www.myc-sense.com/ontologies/bc#gp/air_freight_transport_unit_of_mass_times_distance -->
 
     <owl:NamedIndividual rdf:about="&bc;gp/air_freight_transport_unit_of_mass_times_distance">
@@ -3148,6 +3344,17 @@
         <hasCommonTag rdf:resource="&bc;k/direct_emission"/>
         <hasReference rdf:resource="&bc;ref/ipcc_2013_working_group_1_assessment_report_5_chapter_8"/>
         <hasUnit rdf:resource="&bc;u/kilogram"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#gp/direct_extraction_of_primary_energy -->
+
+    <owl:NamedIndividual rdf:about="&bc;gp/direct_extraction_of_primary_energy">
+        <rdf:type rdf:resource="&bc;ProcessGroup"/>
+        <rdfs:label xml:lang="en">Direct extraction of primary energy</rdfs:label>
+        <rdfs:label xml:lang="fr">Extraction directe d&apos;énergie primaire</rdfs:label>
+        <hasUnit rdf:resource="&bc;u/kilowatt_hour"/>
     </owl:NamedIndividual>
     
 
@@ -3460,6 +3667,92 @@
         <hasVerticalDimension rdf:resource="&bc;d/agricultural_machinery"/>
         <hasHorizontalDimension rdf:resource="&bc;d/combustion_process"/>
         <hasUnit rdf:resource="&bc;u/hour"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#ief/00007 -->
+
+    <owl:NamedIndividual rdf:about="&bc;ief/00007">
+        <rdfs:label xml:lang="fr">Elementary Flow</rdfs:label>
+        <uncertainty rdf:datatype="&xsd;double">0.0</uncertainty>
+        <value rdf:datatype="&xsd;double">1.0</value>
+        <hasElementaryFlowType rdf:resource="&bc;eft/ghg/ch4"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#ief/00008 -->
+
+    <owl:NamedIndividual rdf:about="&bc;ief/00008">
+        <rdfs:label xml:lang="fr">Elementary flow</rdfs:label>
+        <uncertainty rdf:datatype="&xsd;double">0.0</uncertainty>
+        <value rdf:datatype="&xsd;double">1.0</value>
+        <hasElementaryFlowType rdf:resource="&bc;eft/ghg/co2"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#ief/00009 -->
+
+    <owl:NamedIndividual rdf:about="&bc;ief/00009">
+        <rdfs:label xml:lang="fr">Elementary flow</rdfs:label>
+        <uncertainty rdf:datatype="&xsd;double">0.0</uncertainty>
+        <value rdf:datatype="&xsd;double">1.0</value>
+        <hasElementaryFlowType rdf:resource="&bc;eft/ghg/n2o"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#ief/00023 -->
+
+    <owl:NamedIndividual rdf:about="&bc;ief/00023">
+        <rdfs:label xml:lang="fr">Elementary flow</rdfs:label>
+        <uncertainty rdf:datatype="&xsd;double">0.0</uncertainty>
+        <value rdf:datatype="&xsd;double">1.0</value>
+        <hasElementaryFlowType rdf:resource="&bc;eft/ghg/co2e"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#it/fossil_fuel_extraction -->
+
+    <owl:NamedIndividual rdf:about="&bc;it/fossil_fuel_extraction">
+        <rdf:type rdf:resource="&bc;ImpactType"/>
+        <rdfs:label xml:lang="en">Extraction of fossil fuel</rdfs:label>
+        <rdfs:label xml:lang="fr">Extraction de combustible fossile</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#it/ghg_emission_measured_using_gwp_over_20_years -->
+
+    <owl:NamedIndividual rdf:about="&bc;it/ghg_emission_measured_using_gwp_over_20_years">
+        <rdf:type rdf:resource="&bc;ImpactType"/>
+        <rdfs:label xml:lang="en">20 years</rdfs:label>
+        <rdfs:label xml:lang="fr">20 ans</rdfs:label>
+        <belongsToCategoryOfImpactType rdf:resource="&bc;catit/greenhouse_gas_emission"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#it/ghg_emission_measured_using_gwp_over_500_years -->
+
+    <owl:NamedIndividual rdf:about="&bc;it/ghg_emission_measured_using_gwp_over_500_years">
+        <rdf:type rdf:resource="&bc;ImpactType"/>
+        <rdfs:label xml:lang="en">500 years</rdfs:label>
+        <rdfs:label xml:lang="fr">500 ans</rdfs:label>
+        <belongsToCategoryOfImpactType rdf:resource="&bc;catit/greenhouse_gas_emission"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#it/renewable_energy_extraction -->
+
+    <owl:NamedIndividual rdf:about="&bc;it/renewable_energy_extraction">
+        <rdf:type rdf:resource="&bc;ImpactType"/>
+        <rdfs:label xml:lang="en">Extraction of renewable energy</rdfs:label>
+        <rdfs:label xml:lang="fr">Extraction d&apos;énergie renouvelable</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -6525,8 +6818,8 @@
     <!-- http://www.myc-sense.com/ontologies/bc#k/sugar_beet -->
 
     <owl:NamedIndividual rdf:about="&bc;k/sugar_beet">
-        <rdfs:label xml:lang="fr">Betterave</rdfs:label>
         <rdfs:label>Sugar beet</rdfs:label>
+        <rdfs:label xml:lang="fr">Betterave</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -6624,8 +6917,8 @@
     <!-- http://www.myc-sense.com/ontologies/bc#k/towboat_between_590_and_880_kw -->
 
     <owl:NamedIndividual rdf:about="&bc;k/towboat_between_590_and_880_kw">
-        <rdfs:label>Towboat 590 - 880 kW</rdfs:label>
         <rdfs:label xml:lang="fr">Pousseur 590 - 880 kW</rdfs:label>
+        <rdfs:label>Towboat 590 - 880 kW</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -6692,8 +6985,8 @@
     <!-- http://www.myc-sense.com/ontologies/bc#k/type_of_crop -->
 
     <owl:NamedIndividual rdf:about="&bc;k/type_of_crop">
-        <rdfs:label xml:lang="fr">Type de culture</rdfs:label>
         <rdfs:label>Type of crop</rdfs:label>
+        <rdfs:label xml:lang="fr">Type de culture</rdfs:label>
         <isBroaderThan rdf:resource="&bc;k/arboriculture_viticulture"/>
         <isBroaderThan rdf:resource="&bc;k/cereal"/>
         <isBroaderThan rdf:resource="&bc;k/grassland"/>
@@ -7835,7 +8128,7 @@
 
     <owl:NamedIndividual rdf:about="&bc;sc/combustion+coal+n2o">
         <rdf:type rdf:resource="&bc;SingleCoefficient"/>
-        <value rdf:datatype="&xsd;double">0.003</value>
+        <value rdf:datatype="&xsd;double">0.0030</value>
         <hasTag rdf:resource="&bc;k/coal"/>
         <hasTag rdf:resource="&bc;k/combustion"/>
         <hasTag rdf:resource="&bc;k/n2o"/>
@@ -7965,7 +8258,7 @@
 
     <owl:NamedIndividual rdf:about="&bc;sc/combustion+lignite+n2o">
         <rdf:type rdf:resource="&bc;SingleCoefficient"/>
-        <value rdf:datatype="&xsd;double">0.003</value>
+        <value rdf:datatype="&xsd;double">0.0030</value>
         <hasTag rdf:resource="&bc;k/combustion"/>
         <hasTag rdf:resource="&bc;k/lignite"/>
         <hasTag rdf:resource="&bc;k/n2o"/>
@@ -7978,7 +8271,7 @@
 
     <owl:NamedIndividual rdf:about="&bc;sc/combustion+natural_gas+ch4">
         <rdf:type rdf:resource="&bc;SingleCoefficient"/>
-        <value rdf:datatype="&xsd;double">0.005</value>
+        <value rdf:datatype="&xsd;double">0.0050</value>
         <hasTag rdf:resource="&bc;k/ch4"/>
         <hasTag rdf:resource="&bc;k/combustion"/>
         <hasTag rdf:resource="&bc;k/natural_gas"/>
@@ -10072,7 +10365,7 @@
 
     <owl:NamedIndividual rdf:about="&bc;sp/direct_emission+ch4">
         <rdf:type rdf:resource="&bc;SingleProcess"/>
-        <hasInputFlow rdf:resource="&bc;f/00007"/>
+        <hasInputFlow rdf:resource="&bc;ief/00007"/>
         <hasTag rdf:resource="&bc;k/ch4"/>
         <hasTag rdf:resource="&bc;k/direct_emission"/>
         <hasUnit rdf:resource="&bc;u/kilogram"/>
@@ -10084,7 +10377,7 @@
 
     <owl:NamedIndividual rdf:about="&bc;sp/direct_emission+co2">
         <rdf:type rdf:resource="&bc;SingleProcess"/>
-        <hasInputFlow rdf:resource="&bc;f/00008"/>
+        <hasInputFlow rdf:resource="&bc;ief/00008"/>
         <hasTag rdf:resource="&bc;k/co2"/>
         <hasTag rdf:resource="&bc;k/direct_emission"/>
         <hasUnit rdf:resource="&bc;u/kilogram"/>
@@ -10096,7 +10389,7 @@
 
     <owl:NamedIndividual rdf:about="&bc;sp/direct_emission+co2e">
         <rdf:type rdf:resource="&bc;SingleProcess"/>
-        <hasInputFlow rdf:resource="&bc;f/00023"/>
+        <hasInputFlow rdf:resource="&bc;ief/00023"/>
         <hasTag rdf:resource="&bc;k/co2e"/>
         <hasTag rdf:resource="&bc;k/direct_emission"/>
         <hasUnit rdf:resource="&bc;u/kilogram"/>
@@ -10108,20 +10401,10 @@
 
     <owl:NamedIndividual rdf:about="&bc;sp/direct_emission+n2o">
         <rdf:type rdf:resource="&bc;SingleProcess"/>
-        <hasInputFlow rdf:resource="&bc;f/00009"/>
+        <hasInputFlow rdf:resource="&bc;ief/00009"/>
         <hasTag rdf:resource="&bc;k/direct_emission"/>
         <hasTag rdf:resource="&bc;k/n2o"/>
         <hasUnit rdf:resource="&bc;u/kilogram"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.myc-sense.com/ontologies/bc#ti/fossil_fuel_extraction -->
-
-    <owl:NamedIndividual rdf:about="&bc;ti/fossil_fuel_extraction">
-        <rdf:type rdf:resource="&bc;ImpactType"/>
-        <rdfs:label xml:lang="en">Fossil fuel</rdfs:label>
-        <rdfs:label xml:lang="fr">Combustible fossile</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -10130,39 +10413,9 @@
 
     <owl:NamedIndividual rdf:about="&bc;ti/ghg_emission_measured_using_gwp_over_100_years">
         <rdf:type rdf:resource="&bc;ImpactType"/>
-        <rdfs:label xml:lang="fr">100 ans</rdfs:label>
         <rdfs:label>100 years</rdfs:label>
-        <belongsToCategoryOfImpactType rdf:resource="&bc;cti/greenhouse_gas_emission"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.myc-sense.com/ontologies/bc#ti/ghg_emission_measured_using_gwp_over_20_years -->
-
-    <owl:NamedIndividual rdf:about="&bc;ti/ghg_emission_measured_using_gwp_over_20_years">
-        <rdf:type rdf:resource="&bc;ImpactType"/>
-        <rdfs:label xml:lang="en">20 years</rdfs:label>
-        <rdfs:label xml:lang="fr">20 ans</rdfs:label>
-        <belongsToCategoryOfImpactType rdf:resource="&bc;cti/greenhouse_gas_emission"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.myc-sense.com/ontologies/bc#ti/ghg_emission_measured_using_gwp_over_500_years -->
-
-    <owl:NamedIndividual rdf:about="&bc;ti/ghg_emission_measured_using_gwp_over_500_years">
-        <rdf:type rdf:resource="&bc;ImpactType"/>
-        <rdfs:label xml:lang="en">500 years</rdfs:label>
-        <rdfs:label xml:lang="fr">500 ans</rdfs:label>
-        <belongsToCategoryOfImpactType rdf:resource="&bc;cti/greenhouse_gas_emission"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.myc-sense.com/ontologies/bc#ti/renewable_energy_extraction -->
-
-    <owl:NamedIndividual rdf:about="&bc;ti/renewable_energy_extraction">
-        <rdf:type rdf:resource="&bc;ImpactType"/>
+        <rdfs:label xml:lang="fr">100 ans</rdfs:label>
+        <belongsToCategoryOfImpactType rdf:resource="&bc;catit/greenhouse_gas_emission"/>
     </owl:NamedIndividual>
     
 
@@ -10503,246 +10756,6 @@
     
 
 
-    <!-- http://www.myc-sense.com/ontologies/bc#wti/biomass_as_renewable_energy -->
-
-    <owl:NamedIndividual rdf:about="&bc;wti/biomass_as_renewable_energy">
-        <rdf:type rdf:resource="&bc;ComponentOfImpactType"/>
-        <uncertainty rdf:datatype="&xsd;double">0.0</uncertainty>
-        <value rdf:datatype="&xsd;double">1.0</value>
-        <isBasedOnElementaryFlowType rdf:resource="&bc;eft/pe/biomass"/>
-        <contributesToImpactType rdf:resource="&bc;ti/renewable_energy_extraction"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.myc-sense.com/ontologies/bc#wti/coal_as_fossil_fuel -->
-
-    <owl:NamedIndividual rdf:about="&bc;wti/coal_as_fossil_fuel">
-        <rdf:type rdf:resource="&bc;ComponentOfImpactType"/>
-        <uncertainty rdf:datatype="&xsd;double">0.0</uncertainty>
-        <value rdf:datatype="&xsd;double">1.0</value>
-        <isBasedOnElementaryFlowType rdf:resource="&bc;eft/pe/coal"/>
-        <contributesToImpactType rdf:resource="&bc;ti/fossil_fuel_extraction"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.myc-sense.com/ontologies/bc#wti/geothermal_energy_as_renewable_energy -->
-
-    <owl:NamedIndividual rdf:about="&bc;wti/geothermal_energy_as_renewable_energy">
-        <rdf:type rdf:resource="&bc;ComponentOfImpactType"/>
-        <uncertainty rdf:datatype="&xsd;double">0.0</uncertainty>
-        <value rdf:datatype="&xsd;double">1.0</value>
-        <isBasedOnElementaryFlowType rdf:resource="&bc;eft/pe/geothermal_energy"/>
-        <contributesToImpactType rdf:resource="&bc;ti/renewable_energy_extraction"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.myc-sense.com/ontologies/bc#wti/global_warming_potential_of_ch4_over_100_years -->
-
-    <owl:NamedIndividual rdf:about="&bc;wti/global_warming_potential_of_ch4_over_100_years">
-        <rdf:type rdf:resource="&bc;ComponentOfImpactType"/>
-        <uncertainty rdf:datatype="&xsd;double">0.0</uncertainty>
-        <value rdf:datatype="&xsd;double">34.0</value>
-        <isBasedOnElementaryFlowType rdf:resource="&bc;ghg/ch4"/>
-        <contributesToImpactType rdf:resource="&bc;ti/ghg_emission_measured_using_gwp_over_100_years"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.myc-sense.com/ontologies/bc#wti/global_warming_potential_of_ch4_over_20_years -->
-
-    <owl:NamedIndividual rdf:about="&bc;wti/global_warming_potential_of_ch4_over_20_years">
-        <rdf:type rdf:resource="&bc;ComponentOfImpactType"/>
-        <uncertainty rdf:datatype="&xsd;double">0.0</uncertainty>
-        <value rdf:datatype="&xsd;double">86.0</value>
-        <isBasedOnElementaryFlowType rdf:resource="&bc;ghg/ch4"/>
-        <contributesToImpactType rdf:resource="&bc;ti/ghg_emission_measured_using_gwp_over_20_years"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.myc-sense.com/ontologies/bc#wti/global_warming_potential_of_ch4_over_500_years -->
-
-    <owl:NamedIndividual rdf:about="&bc;wti/global_warming_potential_of_ch4_over_500_years">
-        <rdf:type rdf:resource="&bc;ComponentOfImpactType"/>
-        <uncertainty rdf:datatype="&xsd;double">0.0</uncertainty>
-        <value rdf:datatype="&xsd;double">7.6</value>
-        <isBasedOnElementaryFlowType rdf:resource="&bc;ghg/ch4"/>
-        <contributesToImpactType rdf:resource="&bc;ti/ghg_emission_measured_using_gwp_over_500_years"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.myc-sense.com/ontologies/bc#wti/global_warming_potential_of_co2_over_100_years -->
-
-    <owl:NamedIndividual rdf:about="&bc;wti/global_warming_potential_of_co2_over_100_years">
-        <rdf:type rdf:resource="&bc;ComponentOfImpactType"/>
-        <uncertainty rdf:datatype="&xsd;double">0.0</uncertainty>
-        <value rdf:datatype="&xsd;double">1.0</value>
-        <isBasedOnElementaryFlowType rdf:resource="&bc;ghg/co2"/>
-        <contributesToImpactType rdf:resource="&bc;ti/ghg_emission_measured_using_gwp_over_100_years"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.myc-sense.com/ontologies/bc#wti/global_warming_potential_of_co2_over_20_years -->
-
-    <owl:NamedIndividual rdf:about="&bc;wti/global_warming_potential_of_co2_over_20_years">
-        <rdf:type rdf:resource="&bc;ComponentOfImpactType"/>
-        <uncertainty rdf:datatype="&xsd;double">0.0</uncertainty>
-        <value rdf:datatype="&xsd;double">1.0</value>
-        <isBasedOnElementaryFlowType rdf:resource="&bc;ghg/co2"/>
-        <contributesToImpactType rdf:resource="&bc;ti/ghg_emission_measured_using_gwp_over_20_years"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.myc-sense.com/ontologies/bc#wti/global_warming_potential_of_co2_over_500_years -->
-
-    <owl:NamedIndividual rdf:about="&bc;wti/global_warming_potential_of_co2_over_500_years">
-        <rdf:type rdf:resource="&bc;ComponentOfImpactType"/>
-        <uncertainty rdf:datatype="&xsd;double">0.0</uncertainty>
-        <value rdf:datatype="&xsd;double">1.0</value>
-        <isBasedOnElementaryFlowType rdf:resource="&bc;ghg/co2"/>
-        <contributesToImpactType rdf:resource="&bc;ti/ghg_emission_measured_using_gwp_over_500_years"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.myc-sense.com/ontologies/bc#wti/global_warming_potential_of_co2e_over_100_years -->
-
-    <owl:NamedIndividual rdf:about="&bc;wti/global_warming_potential_of_co2e_over_100_years">
-        <rdf:type rdf:resource="&bc;ComponentOfImpactType"/>
-        <uncertainty rdf:datatype="&xsd;double">0.0</uncertainty>
-        <value rdf:datatype="&xsd;double">1.0</value>
-        <isBasedOnElementaryFlowType rdf:resource="&bc;ghg/co2e"/>
-        <contributesToImpactType rdf:resource="&bc;ti/ghg_emission_measured_using_gwp_over_100_years"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.myc-sense.com/ontologies/bc#wti/global_warming_potential_of_co2e_over_20_years -->
-
-    <owl:NamedIndividual rdf:about="&bc;wti/global_warming_potential_of_co2e_over_20_years">
-        <rdf:type rdf:resource="&bc;ComponentOfImpactType"/>
-        <uncertainty rdf:datatype="&xsd;double">0.0</uncertainty>
-        <value rdf:datatype="&xsd;double">1.0</value>
-        <isBasedOnElementaryFlowType rdf:resource="&bc;ghg/co2e"/>
-        <contributesToImpactType rdf:resource="&bc;ti/ghg_emission_measured_using_gwp_over_20_years"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.myc-sense.com/ontologies/bc#wti/global_warming_potential_of_co2e_over_500_years -->
-
-    <owl:NamedIndividual rdf:about="&bc;wti/global_warming_potential_of_co2e_over_500_years">
-        <rdf:type rdf:resource="&bc;ComponentOfImpactType"/>
-        <uncertainty rdf:datatype="&xsd;double">0.0</uncertainty>
-        <value rdf:datatype="&xsd;double">1.0</value>
-        <isBasedOnElementaryFlowType rdf:resource="&bc;ghg/co2e"/>
-        <contributesToImpactType rdf:resource="&bc;ti/ghg_emission_measured_using_gwp_over_500_years"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.myc-sense.com/ontologies/bc#wti/global_warming_potential_of_n2o_over_100_years -->
-
-    <owl:NamedIndividual rdf:about="&bc;wti/global_warming_potential_of_n2o_over_100_years">
-        <rdf:type rdf:resource="&bc;ComponentOfImpactType"/>
-        <uncertainty rdf:datatype="&xsd;double">0.0</uncertainty>
-        <value rdf:datatype="&xsd;double">298.0</value>
-        <isBasedOnElementaryFlowType rdf:resource="&bc;ghg/n2o"/>
-        <contributesToImpactType rdf:resource="&bc;ti/ghg_emission_measured_using_gwp_over_100_years"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.myc-sense.com/ontologies/bc#wti/global_warming_potential_of_n2o_over_20_years -->
-
-    <owl:NamedIndividual rdf:about="&bc;wti/global_warming_potential_of_n2o_over_20_years">
-        <rdf:type rdf:resource="&bc;ComponentOfImpactType"/>
-        <uncertainty rdf:datatype="&xsd;double">0.0</uncertainty>
-        <value rdf:datatype="&xsd;double">268.0</value>
-        <isBasedOnElementaryFlowType rdf:resource="&bc;ghg/n2o"/>
-        <contributesToImpactType rdf:resource="&bc;ti/ghg_emission_measured_using_gwp_over_20_years"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.myc-sense.com/ontologies/bc#wti/global_warming_potential_of_n2o_over_500_years -->
-
-    <owl:NamedIndividual rdf:about="&bc;wti/global_warming_potential_of_n2o_over_500_years">
-        <rdf:type rdf:resource="&bc;ComponentOfImpactType"/>
-        <uncertainty rdf:datatype="&xsd;double">0.0</uncertainty>
-        <value rdf:datatype="&xsd;double">153.0</value>
-        <isBasedOnElementaryFlowType rdf:resource="&bc;ghg/n2o"/>
-        <contributesToImpactType rdf:resource="&bc;ti/ghg_emission_measured_using_gwp_over_500_years"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.myc-sense.com/ontologies/bc#wti/hydropower_as_renewable_energy -->
-
-    <owl:NamedIndividual rdf:about="&bc;wti/hydropower_as_renewable_energy">
-        <rdf:type rdf:resource="&bc;ComponentOfImpactType"/>
-        <uncertainty rdf:datatype="&xsd;double">0.0</uncertainty>
-        <value rdf:datatype="&xsd;double">1.0</value>
-        <isBasedOnElementaryFlowType rdf:resource="&bc;eft/pe/hydropower"/>
-        <contributesToImpactType rdf:resource="&bc;ti/renewable_energy_extraction"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.myc-sense.com/ontologies/bc#wti/natural_gas_as_fossil_fuel -->
-
-    <owl:NamedIndividual rdf:about="&bc;wti/natural_gas_as_fossil_fuel">
-        <rdf:type rdf:resource="&bc;ComponentOfImpactType"/>
-        <uncertainty rdf:datatype="&xsd;double">0.0</uncertainty>
-        <value rdf:datatype="&xsd;double">1.0</value>
-        <isBasedOnElementaryFlowType rdf:resource="&bc;eft/pe/natural_gas"/>
-        <contributesToImpactType rdf:resource="&bc;ti/fossil_fuel_extraction"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.myc-sense.com/ontologies/bc#wti/petroleum_as_fossil_fuel -->
-
-    <owl:NamedIndividual rdf:about="&bc;wti/petroleum_as_fossil_fuel">
-        <rdf:type rdf:resource="&bc;ComponentOfImpactType"/>
-        <uncertainty rdf:datatype="&xsd;double">0.0</uncertainty>
-        <value rdf:datatype="&xsd;double">1.0</value>
-        <isBasedOnElementaryFlowType rdf:resource="&bc;eft/pe/petroleum"/>
-        <contributesToImpactType rdf:resource="&bc;ti/fossil_fuel_extraction"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.myc-sense.com/ontologies/bc#wti/solar_energy_as_renewable_energy -->
-
-    <owl:NamedIndividual rdf:about="&bc;wti/solar_energy_as_renewable_energy">
-        <rdf:type rdf:resource="&bc;ComponentOfImpactType"/>
-        <uncertainty rdf:datatype="&xsd;double">0.0</uncertainty>
-        <value rdf:datatype="&xsd;double">1.0</value>
-        <isBasedOnElementaryFlowType rdf:resource="&bc;eft/pe/solar_energy"/>
-        <contributesToImpactType rdf:resource="&bc;ti/renewable_energy_extraction"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.myc-sense.com/ontologies/bc#wti/wind_power_as_renewable_energy -->
-
-    <owl:NamedIndividual rdf:about="&bc;wti/wind_power_as_renewable_energy">
-        <rdf:type rdf:resource="&bc;ComponentOfImpactType"/>
-        <uncertainty rdf:datatype="&xsd;double">0.0</uncertainty>
-        <value rdf:datatype="&xsd;double">1.0</value>
-        <isBasedOnElementaryFlowType rdf:resource="&bc;eft/pe/wind_power"/>
-        <contributesToImpactType rdf:resource="&bc;ti/renewable_energy_extraction"/>
-    </owl:NamedIndividual>
-    
-
-
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
@@ -10764,7 +10777,7 @@
                     <rdf:Description>
                         <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
                         <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
-                        <swrl:argument1 rdf:resource="&bc;k/cattle_meat"/>
+                        <swrl:argument1 rdf:resource="&bc;k/type_of_waste"/>
                         <swrl:argument2 rdf:resource="urn:swrl#kw"/>
                     </rdf:Description>
                 </rdf:first>
@@ -10778,7 +10791,7 @@
                     <rdf:Description>
                         <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
                         <swrl:propertyPredicate rdf:resource="&bc;containsKeyword"/>
-                        <swrl:argument1 rdf:resource="&bc;d/meat"/>
+                        <swrl:argument1 rdf:resource="&bc;d/waste"/>
                         <swrl:argument2 rdf:resource="urn:swrl#kw"/>
                     </rdf:Description>
                 </rdf:first>
@@ -10795,7 +10808,7 @@
                     <rdf:Description>
                         <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
                         <swrl:propertyPredicate rdf:resource="&bc;containsKeyword"/>
-                        <swrl:argument1 rdf:resource="&bc;d/farmed_animal"/>
+                        <swrl:argument1 rdf:resource="&bc;d/greenhouse_gas"/>
                         <swrl:argument2 rdf:resource="urn:swrl#kw"/>
                     </rdf:Description>
                 </rdf:first>
@@ -10809,7 +10822,38 @@
                     <rdf:Description>
                         <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
                         <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
-                        <swrl:argument1 rdf:resource="&bc;k/cattle"/>
+                        <swrl:argument1 rdf:resource="&bc;k/greenhouse_gas"/>
+                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
+                    </rdf:Description>
+                </rdf:first>
+            </rdf:Description>
+        </swrl:body>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&swrl;Imp"/>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="&swrl;AtomList"/>
+                <rdf:rest rdf:resource="&rdf;nil"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="&bc;containsKeyword"/>
+                        <swrl:argument1 rdf:resource="&bc;d/meat"/>
+                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
+                    </rdf:Description>
+                </rdf:first>
+            </rdf:Description>
+        </swrl:head>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="&swrl;AtomList"/>
+                <rdf:rest rdf:resource="&rdf;nil"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
+                        <swrl:argument1 rdf:resource="&bc;k/cattle_meat"/>
                         <swrl:argument2 rdf:resource="urn:swrl#kw"/>
                     </rdf:Description>
                 </rdf:first>
@@ -10857,91 +10901,12 @@
                     <rdf:Description>
                         <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
                         <swrl:propertyPredicate rdf:resource="&bc;containsKeyword"/>
-                        <swrl:argument1 rdf:resource="&bc;d/meal"/>
+                        <swrl:argument1 rdf:resource="&bc;d/agricultural_input"/>
                         <swrl:argument2 rdf:resource="urn:swrl#kw"/>
                     </rdf:Description>
                 </rdf:first>
             </rdf:Description>
         </swrl:head>
-        <swrl:body>
-            <rdf:Description>
-                <rdf:type rdf:resource="&swrl;AtomList"/>
-                <rdf:rest rdf:resource="&rdf;nil"/>
-                <rdf:first>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
-                        <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
-                        <swrl:argument1 rdf:resource="&bc;k/type_of_meal"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
-                    </rdf:Description>
-                </rdf:first>
-            </rdf:Description>
-        </swrl:body>
-    </rdf:Description>
-    <rdf:Description>
-        <rdf:type rdf:resource="&swrl;Imp"/>
-        <swrl:body>
-            <rdf:Description>
-                <rdf:type rdf:resource="&swrl;AtomList"/>
-                <rdf:rest rdf:resource="&rdf;nil"/>
-                <rdf:first>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
-                        <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
-                        <swrl:argument1 rdf:resource="&bc;k/type_of_waste"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
-                    </rdf:Description>
-                </rdf:first>
-            </rdf:Description>
-        </swrl:body>
-        <swrl:head>
-            <rdf:Description>
-                <rdf:type rdf:resource="&swrl;AtomList"/>
-                <rdf:rest rdf:resource="&rdf;nil"/>
-                <rdf:first>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
-                        <swrl:propertyPredicate rdf:resource="&bc;containsKeyword"/>
-                        <swrl:argument1 rdf:resource="&bc;d/waste"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
-                    </rdf:Description>
-                </rdf:first>
-            </rdf:Description>
-        </swrl:head>
-    </rdf:Description>
-    <rdf:Description>
-        <rdf:type rdf:resource="&swrl;Imp"/>
-        <swrl:body>
-            <rdf:Description>
-                <rdf:type rdf:resource="&swrl;AtomList"/>
-                <rdf:rest rdf:resource="&rdf;nil"/>
-                <rdf:first>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
-                        <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
-                        <swrl:argument1 rdf:resource="&bc;k/greenhouse_gas"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
-                    </rdf:Description>
-                </rdf:first>
-            </rdf:Description>
-        </swrl:body>
-        <swrl:head>
-            <rdf:Description>
-                <rdf:type rdf:resource="&swrl;AtomList"/>
-                <rdf:rest rdf:resource="&rdf;nil"/>
-                <rdf:first>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
-                        <swrl:propertyPredicate rdf:resource="&bc;containsKeyword"/>
-                        <swrl:argument1 rdf:resource="&bc;d/greenhouse_gas"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
-                    </rdf:Description>
-                </rdf:first>
-            </rdf:Description>
-        </swrl:head>
-    </rdf:Description>
-    <rdf:Description>
-        <rdf:type rdf:resource="&swrl;Imp"/>
         <swrl:body>
             <rdf:Description>
                 <rdf:type rdf:resource="&swrl;AtomList"/>
@@ -10956,6 +10921,23 @@
                 </rdf:first>
             </rdf:Description>
         </swrl:body>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&swrl;Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="&swrl;AtomList"/>
+                <rdf:rest rdf:resource="&rdf;nil"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
+                        <swrl:argument1 rdf:resource="&bc;k/type_of_meal"/>
+                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
+                    </rdf:Description>
+                </rdf:first>
+            </rdf:Description>
+        </swrl:body>
         <swrl:head>
             <rdf:Description>
                 <rdf:type rdf:resource="&swrl;AtomList"/>
@@ -10964,7 +10946,38 @@
                     <rdf:Description>
                         <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
                         <swrl:propertyPredicate rdf:resource="&bc;containsKeyword"/>
-                        <swrl:argument1 rdf:resource="&bc;d/agricultural_input"/>
+                        <swrl:argument1 rdf:resource="&bc;d/meal"/>
+                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
+                    </rdf:Description>
+                </rdf:first>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&swrl;Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="&swrl;AtomList"/>
+                <rdf:rest rdf:resource="&rdf;nil"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
+                        <swrl:argument1 rdf:resource="&bc;k/cattle"/>
+                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
+                    </rdf:Description>
+                </rdf:first>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="&swrl;AtomList"/>
+                <rdf:rest rdf:resource="&rdf;nil"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="&bc;containsKeyword"/>
+                        <swrl:argument1 rdf:resource="&bc;d/farmed_animal"/>
                         <swrl:argument2 rdf:resource="urn:swrl#kw"/>
                     </rdf:Description>
                 </rdf:first>
