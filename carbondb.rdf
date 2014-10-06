@@ -867,9 +867,9 @@
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;value"/>
+                <owl:onProperty rdf:resource="&bc;contributesToImpactType"/>
+                <owl:onClass rdf:resource="&bc;ImpactType"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onDataRange rdf:resource="&xsd;double"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -881,9 +881,9 @@
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;contributesToImpactType"/>
-                <owl:onClass rdf:resource="&bc;ImpactType"/>
+                <owl:onProperty rdf:resource="&bc;value"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;double"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <owl:disjointWith rdf:resource="&bc;ElementaryFlowType"/>
@@ -963,13 +963,6 @@
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;value"/>
-                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onDataRange rdf:resource="&xsd;double"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
                 <owl:onProperty rdf:resource="&bc;hasElementaryFlowType"/>
                 <owl:onClass rdf:resource="&bc;ElementaryFlowType"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
@@ -980,6 +973,13 @@
                 <owl:onProperty rdf:resource="&bc;isFlowOfSingleProcess"/>
                 <owl:onClass rdf:resource="&bc;SingleProcess"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&bc;value"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;double"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <owl:disjointWith rdf:resource="&bc;ElementaryFlowType"/>
@@ -1022,15 +1022,15 @@
     <owl:Class rdf:about="&bc;Group">
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;hasDimension"/>
-                <owl:someValuesFrom rdf:resource="&bc;Dimension"/>
+                <owl:onProperty rdf:resource="&bc;belongsToCategoryOfGroup"/>
+                <owl:onClass rdf:resource="&bc;Category"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;belongsToCategoryOfGroup"/>
-                <owl:onClass rdf:resource="&bc;Category"/>
-                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onProperty rdf:resource="&bc;hasDimension"/>
+                <owl:someValuesFrom rdf:resource="&bc;Dimension"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -1055,9 +1055,9 @@
     <owl:Class rdf:about="&bc;Impact">
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;hasImpactType"/>
-                <owl:onClass rdf:resource="&bc;ImpactType"/>
+                <owl:onProperty rdf:resource="&bc;uncertainty"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;double"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -1069,9 +1069,9 @@
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;uncertainty"/>
+                <owl:onProperty rdf:resource="&bc;hasImpactType"/>
+                <owl:onClass rdf:resource="&bc;ImpactType"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onDataRange rdf:resource="&xsd;double"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
@@ -1168,20 +1168,6 @@
     <owl:Class rdf:about="&bc;Relation">
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;exponent"/>
-                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onDataRange rdf:resource="&xsd;short"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;hasRelationType"/>
-                <owl:onClass rdf:resource="&bc;RelationType"/>
-                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
                 <owl:onProperty rdf:resource="&bc;hasDestinationProcess"/>
                 <owl:onClass rdf:resource="&bc;Process"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
@@ -1196,8 +1182,22 @@
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
+                <owl:onProperty rdf:resource="&bc;exponent"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;short"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
                 <owl:onProperty rdf:resource="&bc;hasWeightCoefficient"/>
                 <owl:onClass rdf:resource="&bc;Coefficient"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&bc;hasRelationType"/>
+                <owl:onClass rdf:resource="&bc;RelationType"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -1222,14 +1222,14 @@
         <rdfs:subClassOf rdf:resource="&bc;SingleElement"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;value"/>
+                <owl:onProperty rdf:resource="&bc;uncertainty"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
                 <owl:onDataRange rdf:resource="&xsd;double"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;uncertainty"/>
+                <owl:onProperty rdf:resource="&bc;value"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
                 <owl:onDataRange rdf:resource="&xsd;double"/>
             </owl:Restriction>
@@ -1245,13 +1245,13 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&bc;hasTag"/>
-                <owl:someValuesFrom rdf:resource="&bc;Keyword"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&bc;hasTag"/>
-                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
+                <owl:someValuesFrom rdf:resource="&bc;Keyword"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
@@ -1692,6 +1692,18 @@
     
 
 
+    <!-- http://www.myc-sense.com/ontologies/bc#cateft/final_energy_consumption -->
+
+    <owl:NamedIndividual rdf:about="&bc;cateft/final_energy_consumption">
+        <rdf:type rdf:resource="&bc;CategoryOfElementaryFlowType"/>
+        <rdfs:label xml:lang="en">Final energy consumption</rdfs:label>
+        <rdfs:label xml:lang="fr">Consommation d&apos;énergie finale</rdfs:label>
+        <header xml:lang="en">Energy vector</header>
+        <header xml:lang="fr">Vecteur énergétique</header>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.myc-sense.com/ontologies/bc#cateft/greenhouse_gas_emission -->
 
     <owl:NamedIndividual rdf:about="&bc;cateft/greenhouse_gas_emission">
@@ -1744,18 +1756,6 @@
     
 
 
-    <!-- http://www.myc-sense.com/ontologies/bc#compit/biomass_as_renewable_energy -->
-
-    <owl:NamedIndividual rdf:about="&bc;compit/biomass_as_renewable_energy">
-        <rdf:type rdf:resource="&bc;ComponentOfImpactType"/>
-        <uncertainty rdf:datatype="&xsd;double">0.0</uncertainty>
-        <value rdf:datatype="&xsd;double">1.0</value>
-        <isBasedOnElementaryFlowType rdf:resource="&bc;eft/pe/biomass"/>
-        <contributesToImpactType rdf:resource="&bc;it/renewable_energy_extraction"/>
-    </owl:NamedIndividual>
-    
-
-
     <!-- http://www.myc-sense.com/ontologies/bc#compit/coal_as_fossil_fuel -->
 
     <owl:NamedIndividual rdf:about="&bc;compit/coal_as_fossil_fuel">
@@ -1764,18 +1764,6 @@
         <value rdf:datatype="&xsd;double">1.0</value>
         <isBasedOnElementaryFlowType rdf:resource="&bc;eft/pe/coal"/>
         <contributesToImpactType rdf:resource="&bc;it/fossil_fuel_extraction"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.myc-sense.com/ontologies/bc#compit/geothermal_energy_as_renewable_energy -->
-
-    <owl:NamedIndividual rdf:about="&bc;compit/geothermal_energy_as_renewable_energy">
-        <rdf:type rdf:resource="&bc;ComponentOfImpactType"/>
-        <uncertainty rdf:datatype="&xsd;double">0.0</uncertainty>
-        <value rdf:datatype="&xsd;double">1.0</value>
-        <isBasedOnElementaryFlowType rdf:resource="&bc;eft/pe/geothermal_energy"/>
-        <contributesToImpactType rdf:resource="&bc;it/renewable_energy_extraction"/>
     </owl:NamedIndividual>
     
 
@@ -1924,18 +1912,6 @@
     
 
 
-    <!-- http://www.myc-sense.com/ontologies/bc#compit/hydropower_as_renewable_energy -->
-
-    <owl:NamedIndividual rdf:about="&bc;compit/hydropower_as_renewable_energy">
-        <rdf:type rdf:resource="&bc;ComponentOfImpactType"/>
-        <uncertainty rdf:datatype="&xsd;double">0.0</uncertainty>
-        <value rdf:datatype="&xsd;double">1.0</value>
-        <isBasedOnElementaryFlowType rdf:resource="&bc;eft/pe/hydropower"/>
-        <contributesToImpactType rdf:resource="&bc;it/renewable_energy_extraction"/>
-    </owl:NamedIndividual>
-    
-
-
     <!-- http://www.myc-sense.com/ontologies/bc#compit/natural_gas_as_fossil_fuel -->
 
     <owl:NamedIndividual rdf:about="&bc;compit/natural_gas_as_fossil_fuel">
@@ -1954,32 +1930,8 @@
         <rdf:type rdf:resource="&bc;ComponentOfImpactType"/>
         <uncertainty rdf:datatype="&xsd;double">0.0</uncertainty>
         <value rdf:datatype="&xsd;double">1.0</value>
-        <isBasedOnElementaryFlowType rdf:resource="&bc;eft/pe/petroleum"/>
+        <isBasedOnElementaryFlowType rdf:resource="&bc;eft/pe/crude_oil"/>
         <contributesToImpactType rdf:resource="&bc;it/fossil_fuel_extraction"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.myc-sense.com/ontologies/bc#compit/solar_energy_as_renewable_energy -->
-
-    <owl:NamedIndividual rdf:about="&bc;compit/solar_energy_as_renewable_energy">
-        <rdf:type rdf:resource="&bc;ComponentOfImpactType"/>
-        <uncertainty rdf:datatype="&xsd;double">0.0</uncertainty>
-        <value rdf:datatype="&xsd;double">1.0</value>
-        <isBasedOnElementaryFlowType rdf:resource="&bc;eft/pe/solar_energy"/>
-        <contributesToImpactType rdf:resource="&bc;it/renewable_energy_extraction"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.myc-sense.com/ontologies/bc#compit/wind_power_as_renewable_energy -->
-
-    <owl:NamedIndividual rdf:about="&bc;compit/wind_power_as_renewable_energy">
-        <rdf:type rdf:resource="&bc;ComponentOfImpactType"/>
-        <uncertainty rdf:datatype="&xsd;double">0.0</uncertainty>
-        <value rdf:datatype="&xsd;double">1.0</value>
-        <isBasedOnElementaryFlowType rdf:resource="&bc;eft/pe/wind_power"/>
-        <contributesToImpactType rdf:resource="&bc;it/renewable_energy_extraction"/>
     </owl:NamedIndividual>
     
 
@@ -2529,16 +2481,6 @@
     
 
 
-    <!-- http://www.myc-sense.com/ontologies/bc#eft/pe/biomass -->
-
-    <owl:NamedIndividual rdf:about="&bc;eft/pe/biomass">
-        <rdf:type rdf:resource="&bc;ElementaryFlowType"/>
-        <rdfs:label xml:lang="en">Biomass</rdfs:label>
-        <rdfs:label xml:lang="fr">Biomasse</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
     <!-- http://www.myc-sense.com/ontologies/bc#eft/pe/coal -->
 
     <owl:NamedIndividual rdf:about="&bc;eft/pe/coal">
@@ -2550,22 +2492,13 @@
     
 
 
-    <!-- http://www.myc-sense.com/ontologies/bc#eft/pe/geothermal_energy -->
+    <!-- http://www.myc-sense.com/ontologies/bc#eft/pe/crude_oil -->
 
-    <owl:NamedIndividual rdf:about="&bc;eft/pe/geothermal_energy">
+    <owl:NamedIndividual rdf:about="&bc;eft/pe/crude_oil">
         <rdf:type rdf:resource="&bc;ElementaryFlowType"/>
-        <rdfs:label xml:lang="en">Geothermal energy</rdfs:label>
-        <rdfs:label xml:lang="fr">Géothermie</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.myc-sense.com/ontologies/bc#eft/pe/hydropower -->
-
-    <owl:NamedIndividual rdf:about="&bc;eft/pe/hydropower">
-        <rdf:type rdf:resource="&bc;ElementaryFlowType"/>
-        <rdfs:label xml:lang="en">Hydropower</rdfs:label>
-        <rdfs:label xml:lang="fr">Énergie hydraulique</rdfs:label>
+        <rdfs:label xml:lang="en">Crude oil</rdfs:label>
+        <rdfs:label xml:lang="fr">Pétrole brut</rdfs:label>
+        <belongsToCategoryOfElementaryFlowType rdf:resource="&bc;cateft/primary_energy_extraction"/>
     </owl:NamedIndividual>
     
 
@@ -2577,47 +2510,6 @@
         <rdfs:label xml:lang="en">Natural gas</rdfs:label>
         <rdfs:label xml:lang="fr">Gaz naturel</rdfs:label>
         <belongsToCategoryOfElementaryFlowType rdf:resource="&bc;cateft/primary_energy_extraction"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.myc-sense.com/ontologies/bc#eft/pe/petroleum -->
-
-    <owl:NamedIndividual rdf:about="&bc;eft/pe/petroleum">
-        <rdf:type rdf:resource="&bc;ElementaryFlowType"/>
-        <rdfs:label xml:lang="en">Petroleum</rdfs:label>
-        <rdfs:label xml:lang="fr">Pétrole</rdfs:label>
-        <belongsToCategoryOfElementaryFlowType rdf:resource="&bc;cateft/primary_energy_extraction"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.myc-sense.com/ontologies/bc#eft/pe/solar_energy -->
-
-    <owl:NamedIndividual rdf:about="&bc;eft/pe/solar_energy">
-        <rdf:type rdf:resource="&bc;ElementaryFlowType"/>
-        <rdfs:label xml:lang="en">Solar energy</rdfs:label>
-        <rdfs:label xml:lang="fr">Énergie solaire</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.myc-sense.com/ontologies/bc#eft/pe/uranium -->
-
-    <owl:NamedIndividual rdf:about="&bc;eft/pe/uranium">
-        <rdf:type rdf:resource="&bc;ElementaryFlowType"/>
-        <rdfs:label xml:lang="en">Uranium</rdfs:label>
-        <rdfs:label xml:lang="fr">Uranium</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.myc-sense.com/ontologies/bc#eft/pe/wind_power -->
-
-    <owl:NamedIndividual rdf:about="&bc;eft/pe/wind_power">
-        <rdf:type rdf:resource="&bc;ElementaryFlowType"/>
-        <rdfs:label xml:lang="en">Wind power</rdfs:label>
-        <rdfs:label xml:lang="fr">Énergie éolienne</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -3696,20 +3588,20 @@
     
 
 
-    <!-- http://www.myc-sense.com/ontologies/bc#ief/00007 -->
+    <!-- http://www.myc-sense.com/ontologies/bc#ief/00001 -->
 
-    <owl:NamedIndividual rdf:about="&bc;ief/00007">
-        <rdfs:label xml:lang="fr">Elementary Flow</rdfs:label>
+    <owl:NamedIndividual rdf:about="&bc;ief/00001">
+        <rdfs:label xml:lang="fr">Elementary flow</rdfs:label>
         <uncertainty rdf:datatype="&xsd;double">0.0</uncertainty>
         <value rdf:datatype="&xsd;double">1.0</value>
-        <hasElementaryFlowType rdf:resource="&bc;eft/ghg/ch4"/>
+        <hasElementaryFlowType rdf:resource="&bc;eft/ghg/co2e"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.myc-sense.com/ontologies/bc#ief/00008 -->
+    <!-- http://www.myc-sense.com/ontologies/bc#ief/00002 -->
 
-    <owl:NamedIndividual rdf:about="&bc;ief/00008">
+    <owl:NamedIndividual rdf:about="&bc;ief/00002">
         <rdfs:label xml:lang="fr">Elementary flow</rdfs:label>
         <uncertainty rdf:datatype="&xsd;double">0.0</uncertainty>
         <value rdf:datatype="&xsd;double">1.0</value>
@@ -3718,9 +3610,20 @@
     
 
 
-    <!-- http://www.myc-sense.com/ontologies/bc#ief/00009 -->
+    <!-- http://www.myc-sense.com/ontologies/bc#ief/00003 -->
 
-    <owl:NamedIndividual rdf:about="&bc;ief/00009">
+    <owl:NamedIndividual rdf:about="&bc;ief/00003">
+        <rdfs:label xml:lang="fr">Elementary Flow</rdfs:label>
+        <uncertainty rdf:datatype="&xsd;double">0.0</uncertainty>
+        <value rdf:datatype="&xsd;double">1.0</value>
+        <hasElementaryFlowType rdf:resource="&bc;eft/ghg/ch4"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#ief/00004 -->
+
+    <owl:NamedIndividual rdf:about="&bc;ief/00004">
         <rdfs:label xml:lang="fr">Elementary flow</rdfs:label>
         <uncertainty rdf:datatype="&xsd;double">0.0</uncertainty>
         <value rdf:datatype="&xsd;double">1.0</value>
@@ -3729,13 +3632,32 @@
     
 
 
-    <!-- http://www.myc-sense.com/ontologies/bc#ief/00023 -->
+    <!-- http://www.myc-sense.com/ontologies/bc#ief/00005 -->
 
-    <owl:NamedIndividual rdf:about="&bc;ief/00023">
-        <rdfs:label xml:lang="fr">Elementary flow</rdfs:label>
+    <owl:NamedIndividual rdf:about="&bc;ief/00005">
         <uncertainty rdf:datatype="&xsd;double">0.0</uncertainty>
         <value rdf:datatype="&xsd;double">1.0</value>
-        <hasElementaryFlowType rdf:resource="&bc;eft/ghg/co2e"/>
+        <hasElementaryFlowType rdf:resource="&bc;eft/pe/coal"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#ief/00006 -->
+
+    <owl:NamedIndividual rdf:about="&bc;ief/00006">
+        <uncertainty rdf:datatype="&xsd;double">0.0</uncertainty>
+        <value rdf:datatype="&xsd;double">1.0</value>
+        <hasElementaryFlowType rdf:resource="&bc;eft/pe/crude_oil"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#ief/00007 -->
+
+    <owl:NamedIndividual rdf:about="&bc;ief/00007">
+        <uncertainty rdf:datatype="&xsd;double">0.0</uncertainty>
+        <value rdf:datatype="&xsd;double">1.0</value>
+        <hasElementaryFlowType rdf:resource="&bc;eft/pe/natural_gas"/>
     </owl:NamedIndividual>
     
 
@@ -3768,16 +3690,6 @@
         <rdfs:label xml:lang="en">500 years</rdfs:label>
         <rdfs:label xml:lang="fr">500 ans</rdfs:label>
         <belongsToCategoryOfImpactType rdf:resource="&bc;catit/greenhouse_gas_emission"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.myc-sense.com/ontologies/bc#it/renewable_energy_extraction -->
-
-    <owl:NamedIndividual rdf:about="&bc;it/renewable_energy_extraction">
-        <rdf:type rdf:resource="&bc;ImpactType"/>
-        <rdfs:label xml:lang="en">Extraction of renewable energy</rdfs:label>
-        <rdfs:label xml:lang="fr">Extraction d&apos;énergie renouvelable</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -4867,6 +4779,15 @@
     <!-- http://www.myc-sense.com/ontologies/bc#k/direct_emission -->
 
     <owl:NamedIndividual rdf:about="&bc;k/direct_emission"/>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#k/direct_extraction -->
+
+    <owl:NamedIndividual rdf:about="&bc;k/direct_extraction">
+        <rdfs:label xml:lang="en">Direct extraction</rdfs:label>
+        <rdfs:label xml:lang="fr">Extraction directe</rdfs:label>
+    </owl:NamedIndividual>
     
 
 
@@ -10396,7 +10317,7 @@
 
     <owl:NamedIndividual rdf:about="&bc;sp/direct_emission+ch4">
         <rdf:type rdf:resource="&bc;SingleProcess"/>
-        <hasInputFlow rdf:resource="&bc;ief/00007"/>
+        <hasInputFlow rdf:resource="&bc;ief/00003"/>
         <hasTag rdf:resource="&bc;k/ch4"/>
         <hasTag rdf:resource="&bc;k/direct_emission"/>
         <hasUnit rdf:resource="&bc;u/kilogram"/>
@@ -10408,7 +10329,7 @@
 
     <owl:NamedIndividual rdf:about="&bc;sp/direct_emission+co2">
         <rdf:type rdf:resource="&bc;SingleProcess"/>
-        <hasInputFlow rdf:resource="&bc;ief/00008"/>
+        <hasInputFlow rdf:resource="&bc;ief/00002"/>
         <hasTag rdf:resource="&bc;k/co2"/>
         <hasTag rdf:resource="&bc;k/direct_emission"/>
         <hasUnit rdf:resource="&bc;u/kilogram"/>
@@ -10420,7 +10341,7 @@
 
     <owl:NamedIndividual rdf:about="&bc;sp/direct_emission+co2e">
         <rdf:type rdf:resource="&bc;SingleProcess"/>
-        <hasInputFlow rdf:resource="&bc;ief/00023"/>
+        <hasInputFlow rdf:resource="&bc;ief/00001"/>
         <hasTag rdf:resource="&bc;k/co2e"/>
         <hasTag rdf:resource="&bc;k/direct_emission"/>
         <hasUnit rdf:resource="&bc;u/kilogram"/>
@@ -10432,10 +10353,46 @@
 
     <owl:NamedIndividual rdf:about="&bc;sp/direct_emission+n2o">
         <rdf:type rdf:resource="&bc;SingleProcess"/>
-        <hasInputFlow rdf:resource="&bc;ief/00009"/>
+        <hasInputFlow rdf:resource="&bc;ief/00004"/>
         <hasTag rdf:resource="&bc;k/direct_emission"/>
         <hasTag rdf:resource="&bc;k/n2o"/>
         <hasUnit rdf:resource="&bc;u/kilogram"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#sp/direct_extraction+coal -->
+
+    <owl:NamedIndividual rdf:about="&bc;sp/direct_extraction+coal">
+        <rdf:type rdf:resource="&bc;SingleProcess"/>
+        <hasInputFlow rdf:resource="&bc;ief/00005"/>
+        <hasTag rdf:resource="&bc;k/coal"/>
+        <hasTag rdf:resource="&bc;k/direct_extraction"/>
+        <hasUnit rdf:resource="&bc;u/kilowatt_hour"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#sp/direct_extraction+crude_oil -->
+
+    <owl:NamedIndividual rdf:about="&bc;sp/direct_extraction+crude_oil">
+        <rdf:type rdf:resource="&bc;SingleProcess"/>
+        <hasInputFlow rdf:resource="&bc;ief/00006"/>
+        <hasTag rdf:resource="&bc;k/crude_oil"/>
+        <hasTag rdf:resource="&bc;k/direct_extraction"/>
+        <hasUnit rdf:resource="&bc;u/kilowatt_hour"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#sp/direct_extraction+natural_gas -->
+
+    <owl:NamedIndividual rdf:about="&bc;sp/direct_extraction+natural_gas">
+        <rdf:type rdf:resource="&bc;SingleProcess"/>
+        <hasInputFlow rdf:resource="&bc;ief/00007"/>
+        <hasTag rdf:resource="&bc;k/direct_extraction"/>
+        <hasTag rdf:resource="&bc;k/natural_gas"/>
+        <hasUnit rdf:resource="&bc;u/kilowatt_hour"/>
     </owl:NamedIndividual>
     
 
@@ -10839,6 +10796,37 @@
                     <rdf:Description>
                         <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
                         <swrl:propertyPredicate rdf:resource="&bc;containsKeyword"/>
+                        <swrl:argument1 rdf:resource="&bc;d/agricultural_input"/>
+                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
+                    </rdf:Description>
+                </rdf:first>
+            </rdf:Description>
+        </swrl:head>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="&swrl;AtomList"/>
+                <rdf:rest rdf:resource="&rdf;nil"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
+                        <swrl:argument1 rdf:resource="&bc;k/agricultural_input"/>
+                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
+                    </rdf:Description>
+                </rdf:first>
+            </rdf:Description>
+        </swrl:body>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&swrl;Imp"/>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="&swrl;AtomList"/>
+                <rdf:rest rdf:resource="&rdf;nil"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="&bc;containsKeyword"/>
                         <swrl:argument1 rdf:resource="&bc;d/greenhouse_gas"/>
                         <swrl:argument2 rdf:resource="urn:swrl#kw"/>
                     </rdf:Description>
@@ -10854,6 +10842,68 @@
                         <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
                         <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
                         <swrl:argument1 rdf:resource="&bc;k/greenhouse_gas"/>
+                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
+                    </rdf:Description>
+                </rdf:first>
+            </rdf:Description>
+        </swrl:body>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&swrl;Imp"/>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="&swrl;AtomList"/>
+                <rdf:rest rdf:resource="&rdf;nil"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="&bc;containsKeyword"/>
+                        <swrl:argument1 rdf:resource="&bc;d/farmed_animal"/>
+                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
+                    </rdf:Description>
+                </rdf:first>
+            </rdf:Description>
+        </swrl:head>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="&swrl;AtomList"/>
+                <rdf:rest rdf:resource="&rdf;nil"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
+                        <swrl:argument1 rdf:resource="&bc;k/cattle"/>
+                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
+                    </rdf:Description>
+                </rdf:first>
+            </rdf:Description>
+        </swrl:body>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&swrl;Imp"/>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="&swrl;AtomList"/>
+                <rdf:rest rdf:resource="&rdf;nil"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="&bc;containsKeyword"/>
+                        <swrl:argument1 rdf:resource="&bc;d/transformed_dairy_product"/>
+                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
+                    </rdf:Description>
+                </rdf:first>
+            </rdf:Description>
+        </swrl:head>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="&swrl;AtomList"/>
+                <rdf:rest rdf:resource="&rdf;nil"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
+                        <swrl:argument1 rdf:resource="&bc;k/dairy_product"/>
                         <swrl:argument2 rdf:resource="urn:swrl#kw"/>
                     </rdf:Description>
                 </rdf:first>
@@ -10916,99 +10966,6 @@
                         <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
                         <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
                         <swrl:argument1 rdf:resource="&bc;k/type_of_meal"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
-                    </rdf:Description>
-                </rdf:first>
-            </rdf:Description>
-        </swrl:body>
-    </rdf:Description>
-    <rdf:Description>
-        <rdf:type rdf:resource="&swrl;Imp"/>
-        <swrl:head>
-            <rdf:Description>
-                <rdf:type rdf:resource="&swrl;AtomList"/>
-                <rdf:rest rdf:resource="&rdf;nil"/>
-                <rdf:first>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
-                        <swrl:propertyPredicate rdf:resource="&bc;containsKeyword"/>
-                        <swrl:argument1 rdf:resource="&bc;d/agricultural_input"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
-                    </rdf:Description>
-                </rdf:first>
-            </rdf:Description>
-        </swrl:head>
-        <swrl:body>
-            <rdf:Description>
-                <rdf:type rdf:resource="&swrl;AtomList"/>
-                <rdf:rest rdf:resource="&rdf;nil"/>
-                <rdf:first>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
-                        <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
-                        <swrl:argument1 rdf:resource="&bc;k/agricultural_input"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
-                    </rdf:Description>
-                </rdf:first>
-            </rdf:Description>
-        </swrl:body>
-    </rdf:Description>
-    <rdf:Description>
-        <rdf:type rdf:resource="&swrl;Imp"/>
-        <swrl:body>
-            <rdf:Description>
-                <rdf:type rdf:resource="&swrl;AtomList"/>
-                <rdf:rest rdf:resource="&rdf;nil"/>
-                <rdf:first>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
-                        <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
-                        <swrl:argument1 rdf:resource="&bc;k/cattle"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
-                    </rdf:Description>
-                </rdf:first>
-            </rdf:Description>
-        </swrl:body>
-        <swrl:head>
-            <rdf:Description>
-                <rdf:type rdf:resource="&swrl;AtomList"/>
-                <rdf:rest rdf:resource="&rdf;nil"/>
-                <rdf:first>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
-                        <swrl:propertyPredicate rdf:resource="&bc;containsKeyword"/>
-                        <swrl:argument1 rdf:resource="&bc;d/farmed_animal"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
-                    </rdf:Description>
-                </rdf:first>
-            </rdf:Description>
-        </swrl:head>
-    </rdf:Description>
-    <rdf:Description>
-        <rdf:type rdf:resource="&swrl;Imp"/>
-        <swrl:head>
-            <rdf:Description>
-                <rdf:type rdf:resource="&swrl;AtomList"/>
-                <rdf:rest rdf:resource="&rdf;nil"/>
-                <rdf:first>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
-                        <swrl:propertyPredicate rdf:resource="&bc;containsKeyword"/>
-                        <swrl:argument1 rdf:resource="&bc;d/transformed_dairy_product"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
-                    </rdf:Description>
-                </rdf:first>
-            </rdf:Description>
-        </swrl:head>
-        <swrl:body>
-            <rdf:Description>
-                <rdf:type rdf:resource="&swrl;AtomList"/>
-                <rdf:rest rdf:resource="&rdf;nil"/>
-                <rdf:first>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
-                        <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
-                        <swrl:argument1 rdf:resource="&bc;k/dairy_product"/>
                         <swrl:argument2 rdf:resource="urn:swrl#kw"/>
                     </rdf:Description>
                 </rdf:first>
