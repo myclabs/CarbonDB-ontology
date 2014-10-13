@@ -1259,6 +1259,7 @@
         <owl:disjointWith rdf:resource="&bc;SingleElement"/>
         <owl:disjointWith rdf:resource="&bc;ThingWithUnit"/>
         <owl:disjointWith rdf:resource="&bc;Unit"/>
+        <rdfs:comment xml:lang="en">Among the various annotation properties available for a reference, creator is mandatory (in case no creator is given display of reference will begin with a comma). </rdfs:comment>
     </owl:Class>
     
 
@@ -6007,7 +6008,7 @@
 
     <owl:NamedIndividual rdf:about="&bc;k/live_weight">
         <rdfs:label xml:lang="en">Live weight</rdfs:label>
-        <rdfs:label xml:lang="en">Poids vif</rdfs:label>
+        <rdfs:label xml:lang="fr">Poids vif</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -8034,7 +8035,7 @@
         <rdf:type rdf:resource="&bc;Reference"/>
         <date rdf:datatype="&xsd;dateTime">2007-07-18</date>
         <title rdf:datatype="&xsd;string">Decision establishing guidelines for the monitoring and reporting of greenhouse gas emissions pursuant to Directive 2003/87/EC of the European Parliament and of the Council</title>
-        <source rdf:datatype="&xsd;string">Official Journal of the European Union</source>
+        <creator rdf:datatype="&xsd;string">Official Journal of the European Union</creator>
         <URL rdf:datatype="&xsd;anyURI">http://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32007D0589</URL>
     </owl:NamedIndividual>
     
@@ -8046,7 +8047,7 @@
         <rdf:type rdf:resource="&bc;Reference"/>
         <date rdf:datatype="&xsd;dateTime">2009-04-16</date>
         <title rdf:datatype="&xsd;string">Decision amending Decision 2007/589/EC as regards the inclusion of monitoring and reporting guidelines for emissions and tonne-kilometre data from aviation activities</title>
-        <source rdf:datatype="&xsd;string">Official Journal of the European Union</source>
+        <creator rdf:datatype="&xsd;string">Official Journal of the European Union</creator>
         <URL rdf:datatype="&xsd;anyURI">http://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32009D0339</URL>
     </owl:NamedIndividual>
     
@@ -8070,7 +8071,7 @@
     <owl:NamedIndividual rdf:about="&bc;ref/jec_well_to_whells_report_version_4a">
         <rdf:type rdf:resource="&bc;Reference"/>
         <date rdf:datatype="&xsd;dateTime">04/2014</date>
-        <publisher rdf:datatype="&xsd;string">JEC - Joint Research Centre-EUCAR-CONCAWE collaboration</publisher>
+        <creator rdf:datatype="&xsd;string">JEC (Joint Research Centre-EUCAR-CONCAWE collaboration)</creator>
         <title rdf:datatype="&xsd;string">Well-to-Tank Report, version 4.a</title>
         <source rdf:datatype="&xsd;string">Well-to-wheels analysis of future automotive fuels and powertrains in the european context</source>
         <URL rdf:datatype="&xsd;anyURI">http://iet.jrc.ec.europa.eu/about-jec/downloads</URL>
@@ -11050,37 +11051,6 @@
     </rdf:Description>
     <rdf:Description>
         <rdf:type rdf:resource="&swrl;Imp"/>
-        <swrl:body>
-            <rdf:Description>
-                <rdf:type rdf:resource="&swrl;AtomList"/>
-                <rdf:rest rdf:resource="&rdf;nil"/>
-                <rdf:first>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
-                        <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
-                        <swrl:argument1 rdf:resource="&bc;k/dairy_product"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
-                    </rdf:Description>
-                </rdf:first>
-            </rdf:Description>
-        </swrl:body>
-        <swrl:head>
-            <rdf:Description>
-                <rdf:type rdf:resource="&swrl;AtomList"/>
-                <rdf:rest rdf:resource="&rdf;nil"/>
-                <rdf:first>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
-                        <swrl:propertyPredicate rdf:resource="&bc;containsKeyword"/>
-                        <swrl:argument1 rdf:resource="&bc;d/transformed_dairy_product"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
-                    </rdf:Description>
-                </rdf:first>
-            </rdf:Description>
-        </swrl:head>
-    </rdf:Description>
-    <rdf:Description>
-        <rdf:type rdf:resource="&swrl;Imp"/>
         <swrl:head>
             <rdf:Description>
                 <rdf:type rdf:resource="&swrl;AtomList"/>
@@ -11104,6 +11074,37 @@
                         <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
                         <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
                         <swrl:argument1 rdf:resource="&bc;k/agricultural_input"/>
+                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
+                    </rdf:Description>
+                </rdf:first>
+            </rdf:Description>
+        </swrl:body>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&swrl;Imp"/>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="&swrl;AtomList"/>
+                <rdf:rest rdf:resource="&rdf;nil"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="&bc;containsKeyword"/>
+                        <swrl:argument1 rdf:resource="&bc;d/transformed_dairy_product"/>
+                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
+                    </rdf:Description>
+                </rdf:first>
+            </rdf:Description>
+        </swrl:head>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="&swrl;AtomList"/>
+                <rdf:rest rdf:resource="&rdf;nil"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
+                        <swrl:argument1 rdf:resource="&bc;k/dairy_product"/>
                         <swrl:argument2 rdf:resource="urn:swrl#kw"/>
                     </rdf:Description>
                 </rdf:first>
@@ -11236,20 +11237,6 @@
     </rdf:Description>
     <rdf:Description>
         <rdf:type rdf:resource="&swrl;Imp"/>
-        <swrl:body>
-            <rdf:Description>
-                <rdf:type rdf:resource="&swrl;AtomList"/>
-                <rdf:rest rdf:resource="&rdf;nil"/>
-                <rdf:first>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
-                        <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
-                        <swrl:argument1 rdf:resource="&bc;k/type_of_waste"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
-                    </rdf:Description>
-                </rdf:first>
-            </rdf:Description>
-        </swrl:body>
         <swrl:head>
             <rdf:Description>
                 <rdf:type rdf:resource="&swrl;AtomList"/>
@@ -11264,6 +11251,20 @@
                 </rdf:first>
             </rdf:Description>
         </swrl:head>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="&swrl;AtomList"/>
+                <rdf:rest rdf:resource="&rdf;nil"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
+                        <swrl:argument1 rdf:resource="&bc;k/type_of_waste"/>
+                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
+                    </rdf:Description>
+                </rdf:first>
+            </rdf:Description>
+        </swrl:body>
     </rdf:Description>
 </rdf:RDF>
 
