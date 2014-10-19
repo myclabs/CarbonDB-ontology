@@ -857,15 +857,15 @@
     <owl:Class rdf:about="&bc;CategoryOfGroup">
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;belongsToParentCategoryOfGroup"/>
-                <owl:onClass rdf:resource="&bc;CategoryOfGroup"/>
-                <owl:maxQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onProperty rdf:resource="&bc;categorizesGroup"/>
+                <owl:someValuesFrom rdf:resource="&bc;Group"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;categorizesGroup"/>
-                <owl:someValuesFrom rdf:resource="&bc;Group"/>
+                <owl:onProperty rdf:resource="&bc;belongsToParentCategoryOfGroup"/>
+                <owl:onClass rdf:resource="&bc;CategoryOfGroup"/>
+                <owl:maxQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxQualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <owl:disjointWith rdf:resource="&bc;CategoryOfImpactType"/>
@@ -934,7 +934,7 @@
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;value"/>
+                <owl:onProperty rdf:resource="&bc;uncertainty"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
                 <owl:onDataRange rdf:resource="&xsd;double"/>
             </owl:Restriction>
@@ -948,7 +948,7 @@
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;uncertainty"/>
+                <owl:onProperty rdf:resource="&bc;value"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
                 <owl:onDataRange rdf:resource="&xsd;double"/>
             </owl:Restriction>
@@ -974,13 +974,13 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&bc;containsKeyword"/>
-                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
+                <owl:someValuesFrom rdf:resource="&bc;Keyword"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&bc;containsKeyword"/>
-                <owl:someValuesFrom rdf:resource="&bc;Keyword"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <owl:disjointWith rdf:resource="&bc;ElementaryFlow"/>
@@ -1025,16 +1025,16 @@
     <owl:Class rdf:about="&bc;ElementaryFlow">
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;value"/>
+                <owl:onProperty rdf:resource="&bc;isFlowOfSingleProcess"/>
+                <owl:onClass rdf:resource="&bc;SingleProcess"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onDataRange rdf:resource="&xsd;double"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;isFlowOfSingleProcess"/>
-                <owl:onClass rdf:resource="&bc;SingleProcess"/>
+                <owl:onProperty rdf:resource="&bc;value"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;double"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -1093,15 +1093,15 @@
     <owl:Class rdf:about="&bc;Group">
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;belongsToCategoryOfGroup"/>
-                <owl:onClass rdf:resource="&bc;CategoryOfGroup"/>
-                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onProperty rdf:resource="&bc;hasDimension"/>
+                <owl:someValuesFrom rdf:resource="&bc;Dimension"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;hasDimension"/>
-                <owl:someValuesFrom rdf:resource="&bc;Dimension"/>
+                <owl:onProperty rdf:resource="&bc;belongsToCategoryOfGroup"/>
+                <owl:onClass rdf:resource="&bc;CategoryOfGroup"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -1127,14 +1127,14 @@
     <owl:Class rdf:about="&bc;Impact">
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;uncertainty"/>
+                <owl:onProperty rdf:resource="&bc;value"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
                 <owl:onDataRange rdf:resource="&xsd;double"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;value"/>
+                <owl:onProperty rdf:resource="&bc;uncertainty"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
                 <owl:onDataRange rdf:resource="&xsd;double"/>
             </owl:Restriction>
@@ -1213,16 +1213,16 @@
     <owl:Class rdf:about="&bc;PositionOfKeywordInDimension">
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;position"/>
+                <owl:onProperty rdf:resource="&bc;providesPositionToKeyword"/>
+                <owl:onClass rdf:resource="&bc;Keyword"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onDataRange rdf:resource="&xsd;short"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;providesPositionToKeyword"/>
-                <owl:onClass rdf:resource="&bc;Keyword"/>
+                <owl:onProperty rdf:resource="&bc;position"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;short"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -1284,6 +1284,13 @@
     <owl:Class rdf:about="&bc;Relation">
         <rdfs:subClassOf>
             <owl:Restriction>
+                <owl:onProperty rdf:resource="&bc;hasWeightCoefficient"/>
+                <owl:onClass rdf:resource="&bc;Coefficient"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
                 <owl:onProperty rdf:resource="&bc;hasRelationType"/>
                 <owl:onClass rdf:resource="&bc;RelationType"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
@@ -1298,23 +1305,16 @@
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;exponent"/>
-                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onDataRange rdf:resource="&xsd;short"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;hasWeightCoefficient"/>
-                <owl:onClass rdf:resource="&bc;Coefficient"/>
-                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
                 <owl:onProperty rdf:resource="&bc;hasDestinationProcess"/>
                 <owl:onClass rdf:resource="&bc;Process"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&bc;exponent"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;short"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <owl:disjointWith rdf:resource="&bc;SingleElement"/>
@@ -1361,13 +1361,13 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&bc;hasTag"/>
-                <owl:someValuesFrom rdf:resource="&bc;Keyword"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&bc;hasTag"/>
-                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
+                <owl:someValuesFrom rdf:resource="&bc;Keyword"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
@@ -2157,9 +2157,9 @@
     <owl:NamedIndividual rdf:about="&bc;d/crude_fossil_fuel">
         <rdfs:label xml:lang="en">Crude fossil fuel</rdfs:label>
         <rdfs:label xml:lang="fr">Carburant fossile brut</rdfs:label>
-        <containsKeyword rdf:resource="&bc;k/crude_gaseous_fossil_fuel"/>
-        <containsKeyword rdf:resource="&bc;k/crude_liquid_fossil_fuel"/>
-        <containsKeyword rdf:resource="&bc;k/crude_solid_fossil_fuel"/>
+        <containsKeyword rdf:resource="&bc;k/coal"/>
+        <containsKeyword rdf:resource="&bc;k/crude_oil"/>
+        <containsKeyword rdf:resource="&bc;k/natural_gas"/>
     </owl:NamedIndividual>
     
 
@@ -2442,10 +2442,10 @@
     <owl:NamedIndividual rdf:about="&bc;d/primary_energy">
         <rdfs:label xml:lang="en">Primary energy</rdfs:label>
         <rdfs:label xml:lang="fr">Énergie primaire</rdfs:label>
-        <containsKeyword rdf:resource="&bc;k/coal"/>
-        <containsKeyword rdf:resource="&bc;k/crude_oil"/>
-        <containsKeyword rdf:resource="&bc;k/natural_gas"/>
-        <containsKeyword rdf:resource="&bc;k/undifferentiated"/>
+        <containsKeyword rdf:resource="&bc;k/coal_primary_energy"/>
+        <containsKeyword rdf:resource="&bc;k/crude_oil_primary_energy"/>
+        <containsKeyword rdf:resource="&bc;k/natural_gas_primary_energy"/>
+        <containsKeyword rdf:resource="&bc;k/undifferentiated_primary_energy"/>
     </owl:NamedIndividual>
     
 
@@ -2459,9 +2459,9 @@
     
 
 
-    <!-- http://www.myc-sense.com/ontologies/bc#d/process_for_crude_oil_production -->
+    <!-- http://www.myc-sense.com/ontologies/bc#d/process_for_crude_fossil_fuel_production -->
 
-    <owl:NamedIndividual rdf:about="&bc;d/process_for_crude_oil_production">
+    <owl:NamedIndividual rdf:about="&bc;d/process_for_crude_fossil_fuel_production">
         <rdfs:label xml:lang="en">Energy use in production</rdfs:label>
         <containsKeyword rdf:resource="&bc;k/energy_use_in_production"/>
         <containsKeyword rdf:resource="&bc;k/flaring"/>
@@ -3166,17 +3166,18 @@ In [JRC 2014] greenhouse gas emissions for production of crude oil are not split
     
 
 
-    <!-- http://www.myc-sense.com/ontologies/bc#gc/primary_energy_for_crude_oil_production_unit_of_energy_lhv -->
+    <!-- http://www.myc-sense.com/ontologies/bc#gc/primary_energy_for_crude_fossil_fuel_production_unit_of_energy_lhv -->
 
-    <owl:NamedIndividual rdf:about="&bc;gc/primary_energy_for_crude_oil_production_unit_of_energy_lhv">
+    <owl:NamedIndividual rdf:about="&bc;gc/primary_energy_for_crude_fossil_fuel_production_unit_of_energy_lhv">
         <rdf:type rdf:resource="&bc;CoefficientGroup"/>
-        <rdfs:label xml:lang="en">Primary energy for crude oil production, measured in unit of energy (LHV)</rdfs:label>
+        <rdfs:label xml:lang="en">Primary energy for crude fossil fuel production, measured in unit of energy (LHV)</rdfs:label>
         <rdfs:comment xml:lang="en">Crude oil from typical European Union supply. 
 
 For energy use in production, we slightly increased the data provided by [JRC 2014], which concerns final — not primary — energy consumed.</rdfs:comment>
         <belongsToCategoryOfGroup rdf:resource="&bc;c/fuel_source_data"/>
+        <hasVerticalDimension rdf:resource="&bc;d/crude_fossil_fuel"/>
         <hasHorizontalDimension rdf:resource="&bc;d/primary_energy"/>
-        <hasVerticalDimension rdf:resource="&bc;d/process_for_crude_oil_production"/>
+        <hasHorizontalDimension rdf:resource="&bc;d/process_for_crude_fossil_fuel_production"/>
         <hasCommonTag rdf:resource="&bc;k/primary_energy"/>
         <hasReference rdf:resource="&bc;ref/jrc_2014"/>
         <hasUnit rdf:resource="&bc;u/megajoule_per_megajoule"/>
@@ -3209,21 +3210,6 @@ For energy use in production, we slightly increased the data provided by [JRC 20
         <hasVerticalDimension rdf:resource="&bc;d/meat"/>
         <hasCommonTag rdf:resource="&bc;k/ratio_of_net_saleable_weight_to_live_weight"/>
         <hasUnit rdf:resource="&bc;u/percent"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.myc-sense.com/ontologies/bc#gc/quantity_of_primary_energy_for_upstream_of_fossil_fuel_unit_of_energy_lhv -->
-
-    <owl:NamedIndividual rdf:about="&bc;gc/quantity_of_primary_energy_for_upstream_of_fossil_fuel_unit_of_energy_lhv">
-        <rdf:type rdf:resource="&bc;CoefficientGroup"/>
-        <rdfs:label xml:lang="en">Quantity of primary energy for upstream of fossil fuel, measured in unit of energy (LHV)</rdfs:label>
-        <rdfs:label xml:lang="fr">Quantité d&apos;énergie primaire requise pour l&apos;amont d&apos;un combustible fossile, mesuré en unité d&apos;énergie (PCI)</rdfs:label>
-        <belongsToCategoryOfGroup rdf:resource="&bc;c/fuel_source_data"/>
-        <hasVerticalDimension rdf:resource="&bc;d/crude_fossil_fuel"/>
-        <hasVerticalDimension rdf:resource="&bc;d/fuel_unit_of_energy_lhv"/>
-        <hasHorizontalDimension rdf:resource="&bc;d/upstream_of_fuel"/>
-        <hasUnit rdf:resource="&bc;u/terajoule_per_terajoule"/>
     </owl:NamedIndividual>
     
 
@@ -3679,6 +3665,19 @@ For energy use in production, we slightly increased the data provided by [JRC 20
         <belongsToCategoryOfGroup rdf:resource="&bc;c/production_of_dairy_product"/>
         <hasVerticalDimension rdf:resource="&bc;d/transformed_dairy_product"/>
         <hasUnit rdf:resource="&bc;u/kilogram"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#gp/production_of_fossil_fuel_at_source_unit_of_energy_lhv -->
+
+    <owl:NamedIndividual rdf:about="&bc;gp/production_of_fossil_fuel_at_source_unit_of_energy_lhv">
+        <rdf:type rdf:resource="&bc;ProcessGroup"/>
+        <rdfs:label xml:lang="en">Production and conditioning of fossil fuel at source, measured in unit of energy (LHV)</rdfs:label>
+        <rdfs:comment xml:lang="en">Typical European Union supply. Before transportation to market, refining, distribution.</rdfs:comment>
+        <belongsToCategoryOfGroup rdf:resource="&bc;c/fuel"/>
+        <hasVerticalDimension rdf:resource="&bc;d/crude_fossil_fuel"/>
+        <hasUnit rdf:resource="&bc;u/megajoule"/>
     </owl:NamedIndividual>
     
 
@@ -4884,6 +4883,14 @@ For energy use in production, we slightly increased the data provided by [JRC 20
     
 
 
+    <!-- http://www.myc-sense.com/ontologies/bc#k/coal_primary_energy -->
+
+    <owl:NamedIndividual rdf:about="&bc;k/coal_primary_energy">
+        <rdfs:label xml:lang="en">Coal (primary energy)</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.myc-sense.com/ontologies/bc#k/coke_oven_gas -->
 
     <owl:NamedIndividual rdf:about="&bc;k/coke_oven_gas">
@@ -5039,6 +5046,14 @@ For energy use in production, we slightly increased the data provided by [JRC 20
         <rdfs:label xml:lang="fr">Pétrole brut</rdfs:label>
         <hasPrimarySource rdf:resource="&bc;k/fossil"/>
         <hasMatterState rdf:resource="&bc;k/liquid"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#k/crude_oil_primary_energy -->
+
+    <owl:NamedIndividual rdf:about="&bc;k/crude_oil_primary_energy">
+        <rdfs:label xml:lang="en">Crude oil (primary energy)</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -6545,6 +6560,14 @@ For energy use in production, we slightly increased the data provided by [JRC 20
     
 
 
+    <!-- http://www.myc-sense.com/ontologies/bc#k/natural_gas_primary_energy -->
+
+    <owl:NamedIndividual rdf:about="&bc;k/natural_gas_primary_energy">
+        <rdfs:label xml:lang="en">Natural gas (primary energy)</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.myc-sense.com/ontologies/bc#k/net_saleable_weight -->
 
     <owl:NamedIndividual rdf:about="&bc;k/net_saleable_weight">
@@ -7510,6 +7533,14 @@ For energy use in production, we slightly increased the data provided by [JRC 20
     
 
 
+    <!-- http://www.myc-sense.com/ontologies/bc#k/undifferentiated_primary_energy -->
+
+    <owl:NamedIndividual rdf:about="&bc;k/undifferentiated_primary_energy">
+        <rdfs:label xml:lang="en">Undifferentiated primary energy</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.myc-sense.com/ontologies/bc#k/undifferentiated_tax_horsepower -->
 
     <owl:NamedIndividual rdf:about="&bc;k/undifferentiated_tax_horsepower">
@@ -8013,6 +8044,18 @@ For energy use in production, we slightly increased the data provided by [JRC 20
     
 
 
+    <!-- http://www.myc-sense.com/ontologies/bc#r/identity_coefficient_group+combustion_energy_of_crude_fossil_fuel -->
+
+    <owl:NamedIndividual rdf:about="&bc;r/identity_coefficient_group+combustion_energy_of_crude_fossil_fuel">
+        <rdf:type rdf:resource="&bc;SourceRelation"/>
+        <hasWeightCoefficient rdf:resource="&bc;gc/identity_coefficient_group"/>
+        <hasOriginProcess rdf:resource="&bc;gp/direct_extraction_of_primary_energy"/>
+        <hasDestinationProcess rdf:resource="&bc;gp/production_of_fossil_fuel_at_source_unit_of_energy_lhv"/>
+        <hasRelationType rdf:resource="&bc;rt/synchronous_dependency"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.myc-sense.com/ontologies/bc#r/identity_coefficient_group+upstream_of_fuel -->
 
     <owl:NamedIndividual rdf:about="&bc;r/identity_coefficient_group+upstream_of_fuel">
@@ -8194,6 +8237,18 @@ For energy use in production, we slightly increased the data provided by [JRC 20
     
 
 
+    <!-- http://www.myc-sense.com/ontologies/bc#r/mass_of_greenhouse_gas_emitted_by_production_of_crude_oil_unit_of_energy_lhv -->
+
+    <owl:NamedIndividual rdf:about="&bc;r/mass_of_greenhouse_gas_emitted_by_production_of_crude_oil_unit_of_energy_lhv">
+        <rdf:type rdf:resource="&bc;SourceRelation"/>
+        <hasWeightCoefficient rdf:resource="&bc;gc/mass_of_greenhouse_gas_emitted_by_production_of_crude_oil_unit_of_energy_lhv"/>
+        <hasOriginProcess rdf:resource="&bc;gp/direct_emission_of_greenhouse_gas"/>
+        <hasDestinationProcess rdf:resource="&bc;gp/production_of_fossil_fuel_at_source_unit_of_energy_lhv"/>
+        <hasRelationType rdf:resource="&bc;rt/synchronous_dependency"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.myc-sense.com/ontologies/bc#r/mass_of_greenhouse_gas_emitted_by_upstream_of_fuel_unit_of_energy_lhv -->
 
     <owl:NamedIndividual rdf:about="&bc;r/mass_of_greenhouse_gas_emitted_by_upstream_of_fuel_unit_of_energy_lhv">
@@ -8241,6 +8296,19 @@ For energy use in production, we slightly increased the data provided by [JRC 20
         <hasOriginProcess rdf:resource="&bc;gp/animal_husbandry_unit_of_time"/>
         <hasDestinationProcess rdf:resource="&bc;gp/production_of_milk"/>
         <hasRelationType rdf:resource="&bc;rt/synchronous_dependency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#r/primary_energy_for_crude_oil_production_unit_of_energy_lhv -->
+
+    <owl:NamedIndividual rdf:about="&bc;r/primary_energy_for_crude_oil_production_unit_of_energy_lhv">
+        <rdf:type rdf:resource="&bc;SourceRelation"/>
+        <rdfs:comment xml:lang="en">Actually dependency is sychronous for flaring and venting, not for specific energy of extraction and conditioning. </rdfs:comment>
+        <hasWeightCoefficient rdf:resource="&bc;gc/primary_energy_for_crude_fossil_fuel_production_unit_of_energy_lhv"/>
+        <hasOriginProcess rdf:resource="&bc;gp/direct_extraction_of_primary_energy"/>
+        <hasDestinationProcess rdf:resource="&bc;gp/production_of_fossil_fuel_at_source_unit_of_energy_lhv"/>
+        <hasRelationType rdf:resource="&bc;rt/asynchronous_dependency"/>
     </owl:NamedIndividual>
     
 
@@ -9092,58 +9160,6 @@ For energy use in production, we slightly increased the data provided by [JRC 20
         <hasTag rdf:resource="&bc;k/empty_weight"/>
         <hasTag rdf:resource="&bc;k/gasoline_engine"/>
         <hasUnit rdf:resource="&bc;u/tonne_per_vehicle"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.myc-sense.com/ontologies/bc#sc/energy+crude_oil_production+diesel_fuel -->
-
-    <owl:NamedIndividual rdf:about="&bc;sc/energy+crude_oil_production+diesel_fuel">
-        <rdf:type rdf:resource="&bc;SingleCoefficient"/>
-        <value rdf:datatype="&xsd;double">0.0715</value>
-        <hasTag rdf:resource="&bc;k/crude_oil_production"/>
-        <hasTag rdf:resource="&bc;k/diesel_fuel"/>
-        <hasTag rdf:resource="&bc;k/energy"/>
-        <hasUnit rdf:resource="&bc;u/megajoule_per_megajoule"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.myc-sense.com/ontologies/bc#sc/energy+crude_oil_production+gasoline -->
-
-    <owl:NamedIndividual rdf:about="&bc;sc/energy+crude_oil_production+gasoline">
-        <rdf:type rdf:resource="&bc;SingleCoefficient"/>
-        <value rdf:datatype="&xsd;double">0.0703</value>
-        <hasTag rdf:resource="&bc;k/crude_oil_production"/>
-        <hasTag rdf:resource="&bc;k/energy"/>
-        <hasTag rdf:resource="&bc;k/gasoline"/>
-        <hasUnit rdf:resource="&bc;u/megajoule_per_megajoule"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.myc-sense.com/ontologies/bc#sc/energy+crude_oil_transport+diesel_fuel -->
-
-    <owl:NamedIndividual rdf:about="&bc;sc/energy+crude_oil_transport+diesel_fuel">
-        <rdf:type rdf:resource="&bc;SingleCoefficient"/>
-        <value rdf:datatype="&xsd;double">0.0121</value>
-        <hasTag rdf:resource="&bc;k/crude_oil_transport"/>
-        <hasTag rdf:resource="&bc;k/diesel_fuel"/>
-        <hasTag rdf:resource="&bc;k/energy"/>
-        <hasUnit rdf:resource="&bc;u/megajoule_per_megajoule"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.myc-sense.com/ontologies/bc#sc/energy+crude_oil_transport+gasoline -->
-
-    <owl:NamedIndividual rdf:about="&bc;sc/energy+crude_oil_transport+gasoline">
-        <rdf:type rdf:resource="&bc;SingleCoefficient"/>
-        <value rdf:datatype="&xsd;double">0.0119</value>
-        <hasTag rdf:resource="&bc;k/crude_oil_transport"/>
-        <hasTag rdf:resource="&bc;k/energy"/>
-        <hasTag rdf:resource="&bc;k/gasoline"/>
-        <hasUnit rdf:resource="&bc;u/megajoule_per_megajoule"/>
     </owl:NamedIndividual>
     
 
@@ -10209,48 +10225,6 @@ For energy use in production, we slightly increased the data provided by [JRC 20
     
 
 
-    <!-- http://www.myc-sense.com/ontologies/bc#sc/primary_energy+production+crude_oil+energy_use_in_production+undifferentiated -->
-
-    <owl:NamedIndividual rdf:about="&bc;sc/primary_energy+production+crude_oil+energy_use_in_production+undifferentiated">
-        <rdf:type rdf:resource="&bc;SingleCoefficient"/>
-        <value rdf:datatype="&xsd;double">0.03</value>
-        <hasTag rdf:resource="&bc;k/crude_oil"/>
-        <hasTag rdf:resource="&bc;k/primary_energy"/>
-        <hasTag rdf:resource="&bc;k/production"/>
-        <hasTag rdf:resource="&bc;k/undifferentiated"/>
-        <hasUnit rdf:resource="&bc;u/megajoule_per_megajoule"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.myc-sense.com/ontologies/bc#sc/primary_energy+production+crude_oil+flaring+natural_gas -->
-
-    <owl:NamedIndividual rdf:about="&bc;sc/primary_energy+production+crude_oil+flaring+natural_gas">
-        <rdf:type rdf:resource="&bc;SingleCoefficient"/>
-        <value rdf:datatype="&xsd;double">0.037</value>
-        <hasTag rdf:resource="&bc;k/crude_oil"/>
-        <hasTag rdf:resource="&bc;k/natural_gas"/>
-        <hasTag rdf:resource="&bc;k/primary_energy"/>
-        <hasTag rdf:resource="&bc;k/production"/>
-        <hasUnit rdf:resource="&bc;u/megajoule_per_megajoule"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.myc-sense.com/ontologies/bc#sc/primary_energy+production+crude_oil+venting_fugitive_loss+natural_gas -->
-
-    <owl:NamedIndividual rdf:about="&bc;sc/primary_energy+production+crude_oil+venting_fugitive_loss+natural_gas">
-        <rdf:type rdf:resource="&bc;SingleCoefficient"/>
-        <value rdf:datatype="&xsd;double">0.0010</value>
-        <hasTag rdf:resource="&bc;k/crude_oil"/>
-        <hasTag rdf:resource="&bc;k/natural_gas"/>
-        <hasTag rdf:resource="&bc;k/primary_energy"/>
-        <hasTag rdf:resource="&bc;k/production"/>
-        <hasUnit rdf:resource="&bc;u/megajoule_per_megajoule"/>
-    </owl:NamedIndividual>
-    
-
-
     <!-- http://www.myc-sense.com/ontologies/bc#sc/production+crude_oil+ch4 -->
 
     <owl:NamedIndividual rdf:about="&bc;sc/production+crude_oil+ch4">
@@ -10273,6 +10247,45 @@ For energy use in production, we slightly increased the data provided by [JRC 20
         <hasTag rdf:resource="&bc;k/crude_oil"/>
         <hasTag rdf:resource="&bc;k/production"/>
         <hasUnit rdf:resource="&bc;u/gram_per_megajoule"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/production+crude_oil+energy_use_in_production+undifferentiated_primary_energy -->
+
+    <owl:NamedIndividual rdf:about="&bc;sc/production+crude_oil+energy_use_in_production+undifferentiated_primary_energy">
+        <rdf:type rdf:resource="&bc;SingleCoefficient"/>
+        <value rdf:datatype="&xsd;double">0.03</value>
+        <hasTag rdf:resource="&bc;k/crude_oil"/>
+        <hasTag rdf:resource="&bc;k/production"/>
+        <hasTag rdf:resource="&bc;k/undifferentiated_primary_energy"/>
+        <hasUnit rdf:resource="&bc;u/megajoule_per_megajoule"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/production+crude_oil+flaring+natural_gas_primary_energy -->
+
+    <owl:NamedIndividual rdf:about="&bc;sc/production+crude_oil+flaring+natural_gas_primary_energy">
+        <rdf:type rdf:resource="&bc;SingleCoefficient"/>
+        <value rdf:datatype="&xsd;double">0.037</value>
+        <hasTag rdf:resource="&bc;k/crude_oil"/>
+        <hasTag rdf:resource="&bc;k/natural_gas_primary_energy"/>
+        <hasTag rdf:resource="&bc;k/production"/>
+        <hasUnit rdf:resource="&bc;u/megajoule_per_megajoule"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/production+crude_oil+venting_fugitive_loss+natural_gas_primary_energy -->
+
+    <owl:NamedIndividual rdf:about="&bc;sc/production+crude_oil+venting_fugitive_loss+natural_gas_primary_energy">
+        <rdf:type rdf:resource="&bc;SingleCoefficient"/>
+        <value rdf:datatype="&xsd;double">0.0010</value>
+        <hasTag rdf:resource="&bc;k/crude_oil"/>
+        <hasTag rdf:resource="&bc;k/natural_gas_primary_energy"/>
+        <hasTag rdf:resource="&bc;k/production"/>
+        <hasUnit rdf:resource="&bc;u/megajoule_per_megajoule"/>
     </owl:NamedIndividual>
     
 
@@ -10390,6 +10403,50 @@ For energy use in production, we slightly increased the data provided by [JRC 20
         <hasTag rdf:resource="&bc;k/n2o"/>
         <hasTag rdf:resource="&bc;k/production"/>
         <hasUnit rdf:resource="&bc;u/kilogram_per_kilogram"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/production+natural_gas+ch4 -->
+
+    <owl:NamedIndividual rdf:about="&bc;sc/production+natural_gas+ch4">
+        <rdf:type rdf:resource="&bc;SingleCoefficient"/>
+        <value rdf:datatype="&xsd;double">0.0798</value>
+        <rdfs:comment xml:lang="en">Hypothesis: around 0.4% of volume of methane lost. One megajoule of natural gas is about 1000/45.1 = 22.17 g/mJ, and 22.17*0.004 = 0.089 g/mJ, thus order of magnitude is correct.</rdfs:comment>
+        <hasTag rdf:resource="&bc;k/ch4"/>
+        <hasTag rdf:resource="&bc;k/natural_gas"/>
+        <hasTag rdf:resource="&bc;k/production"/>
+        <hasUnit rdf:resource="&bc;u/gram_per_megajoule"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/production+natural_gas+co2 -->
+
+    <owl:NamedIndividual rdf:about="&bc;sc/production+natural_gas+co2">
+        <rdf:type rdf:resource="&bc;SingleCoefficient"/>
+        <value rdf:datatype="&xsd;double">1.7</value>
+        <rdfs:comment xml:lang="en">Hypothesis: 1% of volume of natural gas vented as CO2. But this figure also includes natural gas combustion to provide energy for extraction and processing. 
+
+This value is to be checked.</rdfs:comment>
+        <hasTag rdf:resource="&bc;k/co2"/>
+        <hasTag rdf:resource="&bc;k/natural_gas"/>
+        <hasTag rdf:resource="&bc;k/production"/>
+        <hasUnit rdf:resource="&bc;u/gram_per_megajoule"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/production+natural_gas+energy_use_in_production+natural_gas_primary_energy -->
+
+    <owl:NamedIndividual rdf:about="&bc;sc/production+natural_gas+energy_use_in_production+natural_gas_primary_energy">
+        <rdf:type rdf:resource="&bc;SingleCoefficient"/>
+        <value rdf:datatype="&xsd;double">0.02</value>
+        <hasTag rdf:resource="&bc;k/energy_use_in_production"/>
+        <hasTag rdf:resource="&bc;k/natural_gas"/>
+        <hasTag rdf:resource="&bc;k/natural_gas_primary_energy"/>
+        <hasTag rdf:resource="&bc;k/production"/>
+        <hasUnit rdf:resource="&bc;u/megajoule_per_megajoule"/>
     </owl:NamedIndividual>
     
 
@@ -11270,49 +11327,49 @@ For energy use in production, we slightly increased the data provided by [JRC 20
     
 
 
-    <!-- http://www.myc-sense.com/ontologies/bc#sp/direct_extraction+coal -->
+    <!-- http://www.myc-sense.com/ontologies/bc#sp/direct_extraction+coal_primary_energy -->
 
-    <owl:NamedIndividual rdf:about="&bc;sp/direct_extraction+coal">
+    <owl:NamedIndividual rdf:about="&bc;sp/direct_extraction+coal_primary_energy">
         <rdf:type rdf:resource="&bc;SingleProcess"/>
         <hasInputFlow rdf:resource="&bc;ief/00005"/>
-        <hasTag rdf:resource="&bc;k/coal"/>
+        <hasTag rdf:resource="&bc;k/coal_primary_energy"/>
         <hasTag rdf:resource="&bc;k/direct_extraction"/>
         <hasUnit rdf:resource="&bc;u/kilowatt_hour"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.myc-sense.com/ontologies/bc#sp/direct_extraction+crude_oil -->
+    <!-- http://www.myc-sense.com/ontologies/bc#sp/direct_extraction+crude_oil_primary_energy -->
 
-    <owl:NamedIndividual rdf:about="&bc;sp/direct_extraction+crude_oil">
+    <owl:NamedIndividual rdf:about="&bc;sp/direct_extraction+crude_oil_primary_energy">
         <rdf:type rdf:resource="&bc;SingleProcess"/>
         <hasInputFlow rdf:resource="&bc;ief/00006"/>
-        <hasTag rdf:resource="&bc;k/crude_oil"/>
+        <hasTag rdf:resource="&bc;k/crude_oil_primary_energy"/>
         <hasTag rdf:resource="&bc;k/direct_extraction"/>
         <hasUnit rdf:resource="&bc;u/kilowatt_hour"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.myc-sense.com/ontologies/bc#sp/direct_extraction+natural_gas -->
+    <!-- http://www.myc-sense.com/ontologies/bc#sp/direct_extraction+natural_gas_primary_energy -->
 
-    <owl:NamedIndividual rdf:about="&bc;sp/direct_extraction+natural_gas">
+    <owl:NamedIndividual rdf:about="&bc;sp/direct_extraction+natural_gas_primary_energy">
         <rdf:type rdf:resource="&bc;SingleProcess"/>
         <hasInputFlow rdf:resource="&bc;ief/00007"/>
         <hasTag rdf:resource="&bc;k/direct_extraction"/>
-        <hasTag rdf:resource="&bc;k/natural_gas"/>
+        <hasTag rdf:resource="&bc;k/natural_gas_primary_energy"/>
         <hasUnit rdf:resource="&bc;u/kilowatt_hour"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.myc-sense.com/ontologies/bc#sp/direct_extraction+undifferentiated -->
+    <!-- http://www.myc-sense.com/ontologies/bc#sp/direct_extraction+undifferentiated_primary_energy -->
 
-    <owl:NamedIndividual rdf:about="&bc;sp/direct_extraction+undifferentiated">
+    <owl:NamedIndividual rdf:about="&bc;sp/direct_extraction+undifferentiated_primary_energy">
         <rdf:type rdf:resource="&bc;SingleProcess"/>
         <hasInputFlow rdf:resource="&bc;ief/00008"/>
         <hasTag rdf:resource="&bc;k/direct_extraction"/>
-        <hasTag rdf:resource="&bc;k/undifferentiated"/>
+        <hasTag rdf:resource="&bc;k/undifferentiated_primary_energy"/>
         <hasUnit rdf:resource="&bc;u/kilowatt_hour"/>
     </owl:NamedIndividual>
     
@@ -11574,6 +11631,14 @@ For energy use in production, we slightly increased the data provided by [JRC 20
     
 
 
+    <!-- http://www.myc-sense.com/ontologies/bc#u/megajoule -->
+
+    <owl:NamedIndividual rdf:about="&bc;u/megajoule">
+        <foreignUnitID rdf:datatype="&xsd;string">mj</foreignUnitID>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.myc-sense.com/ontologies/bc#u/megajoule_per_megajoule -->
 
     <owl:NamedIndividual rdf:about="&bc;u/megajoule_per_megajoule">
@@ -11699,7 +11764,7 @@ For energy use in production, we slightly increased the data provided by [JRC 20
                     <rdf:Description>
                         <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
                         <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
-                        <swrl:argument1 rdf:resource="&bc;k/type_of_waste"/>
+                        <swrl:argument1 rdf:resource="&bc;k/cattle_meat"/>
                         <swrl:argument2 rdf:resource="urn:swrl#kw"/>
                     </rdf:Description>
                 </rdf:first>
@@ -11713,38 +11778,7 @@ For energy use in production, we slightly increased the data provided by [JRC 20
                     <rdf:Description>
                         <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
                         <swrl:propertyPredicate rdf:resource="&bc;containsKeyword"/>
-                        <swrl:argument1 rdf:resource="&bc;d/waste"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
-                    </rdf:Description>
-                </rdf:first>
-            </rdf:Description>
-        </swrl:head>
-    </rdf:Description>
-    <rdf:Description>
-        <rdf:type rdf:resource="&swrl;Imp"/>
-        <swrl:body>
-            <rdf:Description>
-                <rdf:type rdf:resource="&swrl;AtomList"/>
-                <rdf:rest rdf:resource="&rdf;nil"/>
-                <rdf:first>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
-                        <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
-                        <swrl:argument1 rdf:resource="&bc;k/dairy_product"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
-                    </rdf:Description>
-                </rdf:first>
-            </rdf:Description>
-        </swrl:body>
-        <swrl:head>
-            <rdf:Description>
-                <rdf:type rdf:resource="&swrl;AtomList"/>
-                <rdf:rest rdf:resource="&rdf;nil"/>
-                <rdf:first>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
-                        <swrl:propertyPredicate rdf:resource="&bc;containsKeyword"/>
-                        <swrl:argument1 rdf:resource="&bc;d/transformed_dairy_product"/>
+                        <swrl:argument1 rdf:resource="&bc;d/meat"/>
                         <swrl:argument2 rdf:resource="urn:swrl#kw"/>
                     </rdf:Description>
                 </rdf:first>
@@ -11823,7 +11857,7 @@ For energy use in production, we slightly increased the data provided by [JRC 20
                     <rdf:Description>
                         <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
                         <swrl:propertyPredicate rdf:resource="&bc;containsKeyword"/>
-                        <swrl:argument1 rdf:resource="&bc;d/meat"/>
+                        <swrl:argument1 rdf:resource="&bc;d/waste"/>
                         <swrl:argument2 rdf:resource="urn:swrl#kw"/>
                     </rdf:Description>
                 </rdf:first>
@@ -11837,12 +11871,43 @@ For energy use in production, we slightly increased the data provided by [JRC 20
                     <rdf:Description>
                         <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
                         <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
-                        <swrl:argument1 rdf:resource="&bc;k/cattle_meat"/>
+                        <swrl:argument1 rdf:resource="&bc;k/type_of_waste"/>
                         <swrl:argument2 rdf:resource="urn:swrl#kw"/>
                     </rdf:Description>
                 </rdf:first>
             </rdf:Description>
         </swrl:body>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&swrl;Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="&swrl;AtomList"/>
+                <rdf:rest rdf:resource="&rdf;nil"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
+                        <swrl:argument1 rdf:resource="&bc;k/dairy_product"/>
+                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
+                    </rdf:Description>
+                </rdf:first>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="&swrl;AtomList"/>
+                <rdf:rest rdf:resource="&rdf;nil"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="&bc;containsKeyword"/>
+                        <swrl:argument1 rdf:resource="&bc;d/transformed_dairy_product"/>
+                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
+                    </rdf:Description>
+                </rdf:first>
+            </rdf:Description>
+        </swrl:head>
     </rdf:Description>
     <rdf:Description>
         <rdf:type rdf:resource="&swrl;Imp"/>
@@ -11877,20 +11942,6 @@ For energy use in production, we slightly increased the data provided by [JRC 20
     </rdf:Description>
     <rdf:Description>
         <rdf:type rdf:resource="&swrl;Imp"/>
-        <swrl:body>
-            <rdf:Description>
-                <rdf:type rdf:resource="&swrl;AtomList"/>
-                <rdf:rest rdf:resource="&rdf;nil"/>
-                <rdf:first>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
-                        <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
-                        <swrl:argument1 rdf:resource="&bc;k/agricultural_input"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
-                    </rdf:Description>
-                </rdf:first>
-            </rdf:Description>
-        </swrl:body>
         <swrl:head>
             <rdf:Description>
                 <rdf:type rdf:resource="&swrl;AtomList"/>
@@ -11905,6 +11956,20 @@ For energy use in production, we slightly increased the data provided by [JRC 20
                 </rdf:first>
             </rdf:Description>
         </swrl:head>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="&swrl;AtomList"/>
+                <rdf:rest rdf:resource="&rdf;nil"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
+                        <swrl:argument1 rdf:resource="&bc;k/agricultural_input"/>
+                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
+                    </rdf:Description>
+                </rdf:first>
+            </rdf:Description>
+        </swrl:body>
     </rdf:Description>
 </rdf:RDF>
 
