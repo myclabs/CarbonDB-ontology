@@ -2294,6 +2294,7 @@
 
     <owl:NamedIndividual rdf:about="&bc;d/fuel_unit_of_energy_lhv">
         <containsKeyword rdf:resource="&bc;k/coal"/>
+        <containsKeyword rdf:resource="&bc;k/coke_oven_gas"/>
         <containsKeyword rdf:resource="&bc;k/gas_diesel_oil"/>
         <containsKeyword rdf:resource="&bc;k/gasoline"/>
         <containsKeyword rdf:resource="&bc;k/jet_fuel"/>
@@ -2323,6 +2324,7 @@
     <owl:NamedIndividual rdf:about="&bc;d/fuel_unit_of_volume">
         <rdfs:label xml:lang="en">Fuel</rdfs:label>
         <rdfs:label xml:lang="fr">Combustible</rdfs:label>
+        <containsKeyword rdf:resource="&bc;k/crude_oil"/>
         <containsKeyword rdf:resource="&bc;k/gas_diesel_oil"/>
         <containsKeyword rdf:resource="&bc;k/gasoline"/>
         <containsKeyword rdf:resource="&bc;k/jet_fuel"/>
@@ -8955,6 +8957,19 @@ For energy use in production, we slightly increased the data provided by [JRC 20
     
 
 
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/combustion+crude_oil+co2 -->
+
+    <owl:NamedIndividual rdf:about="&bc;sc/combustion+crude_oil+co2">
+        <rdf:type rdf:resource="&bc;SingleCoefficient"/>
+        <value rdf:datatype="&xsd;double">73.3</value>
+        <hasTag rdf:resource="&bc;k/co2"/>
+        <hasTag rdf:resource="&bc;k/combustion"/>
+        <hasTag rdf:resource="&bc;k/crude_oil"/>
+        <hasUnit rdf:resource="&bc;u/tonne_per_tera_joule"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.myc-sense.com/ontologies/bc#sc/combustion+gas_diesel_oil+ch4 -->
 
     <owl:NamedIndividual rdf:about="&bc;sc/combustion+gas_diesel_oil+ch4">
@@ -10140,6 +10155,18 @@ For energy use in production, we slightly increased the data provided by [JRC 20
         <rdf:type rdf:resource="&bc;SingleCoefficient"/>
         <value rdf:datatype="&xsd;double">32.0</value>
         <hasTag rdf:resource="&bc;k/coal"/>
+        <hasTag rdf:resource="&bc;k/lower_heating_value"/>
+        <hasUnit rdf:resource="&bc;u/gigajoule_per_tonne"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/lower_heating_value+crude_oil -->
+
+    <owl:NamedIndividual rdf:about="&bc;sc/lower_heating_value+crude_oil">
+        <rdf:type rdf:resource="&bc;SingleCoefficient"/>
+        <value rdf:datatype="&xsd;double">42.3</value>
+        <hasTag rdf:resource="&bc;k/crude_oil"/>
         <hasTag rdf:resource="&bc;k/lower_heating_value"/>
         <hasUnit rdf:resource="&bc;u/gigajoule_per_tonne"/>
     </owl:NamedIndividual>
@@ -11434,6 +11461,18 @@ This value is to be checked.</rdfs:comment>
     
 
 
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/volumetric_mass_density+crude_oil -->
+
+    <owl:NamedIndividual rdf:about="&bc;sc/volumetric_mass_density+crude_oil">
+        <rdf:type rdf:resource="&bc;SingleCoefficient"/>
+        <value rdf:datatype="&xsd;double">900.0</value>
+        <hasTag rdf:resource="&bc;k/crude_oil"/>
+        <hasTag rdf:resource="&bc;k/volumetric_mass_density"/>
+        <hasUnit rdf:resource="&bc;u/kilogram_per_cube_meter"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.myc-sense.com/ontologies/bc#sc/volumetric_mass_density+gas_diesel_oil -->
 
     <owl:NamedIndividual rdf:about="&bc;sc/volumetric_mass_density+gas_diesel_oil">
@@ -12021,20 +12060,6 @@ This value is to be checked.</rdfs:comment>
     </rdf:Description>
     <rdf:Description>
         <rdf:type rdf:resource="&swrl;Imp"/>
-        <swrl:head>
-            <rdf:Description>
-                <rdf:type rdf:resource="&swrl;AtomList"/>
-                <rdf:rest rdf:resource="&rdf;nil"/>
-                <rdf:first>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
-                        <swrl:propertyPredicate rdf:resource="&bc;containsKeyword"/>
-                        <swrl:argument1 rdf:resource="&bc;d/greenhouse_gas"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
-                    </rdf:Description>
-                </rdf:first>
-            </rdf:Description>
-        </swrl:head>
         <swrl:body>
             <rdf:Description>
                 <rdf:type rdf:resource="&swrl;AtomList"/>
@@ -12049,9 +12074,6 @@ This value is to be checked.</rdfs:comment>
                 </rdf:first>
             </rdf:Description>
         </swrl:body>
-    </rdf:Description>
-    <rdf:Description>
-        <rdf:type rdf:resource="&swrl;Imp"/>
         <swrl:head>
             <rdf:Description>
                 <rdf:type rdf:resource="&swrl;AtomList"/>
@@ -12060,12 +12082,15 @@ This value is to be checked.</rdfs:comment>
                     <rdf:Description>
                         <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
                         <swrl:propertyPredicate rdf:resource="&bc;containsKeyword"/>
-                        <swrl:argument1 rdf:resource="&bc;d/meat"/>
+                        <swrl:argument1 rdf:resource="&bc;d/greenhouse_gas"/>
                         <swrl:argument2 rdf:resource="urn:swrl#kw"/>
                     </rdf:Description>
                 </rdf:first>
             </rdf:Description>
         </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&swrl;Imp"/>
         <swrl:body>
             <rdf:Description>
                 <rdf:type rdf:resource="&swrl;AtomList"/>
@@ -12080,9 +12105,6 @@ This value is to be checked.</rdfs:comment>
                 </rdf:first>
             </rdf:Description>
         </swrl:body>
-    </rdf:Description>
-    <rdf:Description>
-        <rdf:type rdf:resource="&swrl;Imp"/>
         <swrl:head>
             <rdf:Description>
                 <rdf:type rdf:resource="&swrl;AtomList"/>
@@ -12091,12 +12113,15 @@ This value is to be checked.</rdfs:comment>
                     <rdf:Description>
                         <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
                         <swrl:propertyPredicate rdf:resource="&bc;containsKeyword"/>
-                        <swrl:argument1 rdf:resource="&bc;d/transformed_dairy_product"/>
+                        <swrl:argument1 rdf:resource="&bc;d/meat"/>
                         <swrl:argument2 rdf:resource="urn:swrl#kw"/>
                     </rdf:Description>
                 </rdf:first>
             </rdf:Description>
         </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&swrl;Imp"/>
         <swrl:body>
             <rdf:Description>
                 <rdf:type rdf:resource="&swrl;AtomList"/>
@@ -12111,6 +12136,20 @@ This value is to be checked.</rdfs:comment>
                 </rdf:first>
             </rdf:Description>
         </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="&swrl;AtomList"/>
+                <rdf:rest rdf:resource="&rdf;nil"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="&bc;containsKeyword"/>
+                        <swrl:argument1 rdf:resource="&bc;d/transformed_dairy_product"/>
+                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
+                    </rdf:Description>
+                </rdf:first>
+            </rdf:Description>
+        </swrl:head>
     </rdf:Description>
     <rdf:Description>
         <rdf:type rdf:resource="&swrl;Imp"/>
