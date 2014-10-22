@@ -1582,10 +1582,19 @@
     
 
 
-    <!-- http://www.myc-sense.com/ontologies/bc#c/fuel_single_element_group -->
+    <!-- http://www.myc-sense.com/ontologies/bc#c/fuel_combustion_process -->
 
-    <owl:NamedIndividual rdf:about="&bc;c/fuel_single_element_group">
-        <rdfs:label xml:lang="en">Fuels, single element groups</rdfs:label>
+    <owl:NamedIndividual rdf:about="&bc;c/fuel_combustion_process">
+        <rdfs:label xml:lang="en">Combustion processes</rdfs:label>
+        <belongsToParentCategoryOfGroup rdf:resource="&bc;c/fuel"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#c/fuel_group_of_process_having_single_element -->
+
+    <owl:NamedIndividual rdf:about="&bc;c/fuel_group_of_process_having_single_element">
+        <rdfs:label xml:lang="en">Groups of processes having a single element</rdfs:label>
         <belongsToParentCategoryOfGroup rdf:resource="&bc;c/fuel"/>
     </owl:NamedIndividual>
     
@@ -1594,8 +1603,52 @@
     <!-- http://www.myc-sense.com/ontologies/bc#c/fuel_source_data -->
 
     <owl:NamedIndividual rdf:about="&bc;c/fuel_source_data">
-        <rdfs:label xml:lang="en">Fuels, source data</rdfs:label>
-        <rdfs:label xml:lang="fr">Combustibles, données source</rdfs:label>
+        <rdfs:label xml:lang="en">Source data</rdfs:label>
+        <belongsToParentCategoryOfGroup rdf:resource="&bc;c/fuel"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#c/fuel_source_data_physical_property -->
+
+    <owl:NamedIndividual rdf:about="&bc;c/fuel_source_data_physical_property">
+        <rdfs:label xml:lang="en">Physical properties</rdfs:label>
+        <belongsToParentCategoryOfGroup rdf:resource="&bc;c/fuel_source_data"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#c/fuel_source_data_production_and_conditioning_at_source -->
+
+    <owl:NamedIndividual rdf:about="&bc;c/fuel_source_data_production_and_conditioning_at_source">
+        <rdfs:label xml:lang="en">Production and conditioning at source</rdfs:label>
+        <belongsToParentCategoryOfGroup rdf:resource="&bc;c/fuel_source_data"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#c/fuel_source_data_refining -->
+
+    <owl:NamedIndividual rdf:about="&bc;c/fuel_source_data_refining">
+        <rdfs:label xml:lang="en">Refining</rdfs:label>
+        <belongsToParentCategoryOfGroup rdf:resource="&bc;c/fuel_source_data"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#c/fuel_source_data_transportation_to_market -->
+
+    <owl:NamedIndividual rdf:about="&bc;c/fuel_source_data_transportation_to_market">
+        <rdfs:label xml:lang="en">Transportation to market</rdfs:label>
+        <belongsToParentCategoryOfGroup rdf:resource="&bc;c/fuel_source_data"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#c/fuel_upstream_pathway_process -->
+
+    <owl:NamedIndividual rdf:about="&bc;c/fuel_upstream_pathway_process">
+        <rdfs:label xml:lang="en">Upstream pathways processes</rdfs:label>
         <belongsToParentCategoryOfGroup rdf:resource="&bc;c/fuel"/>
     </owl:NamedIndividual>
     
@@ -2620,24 +2673,6 @@
     
 
 
-    <!-- http://www.myc-sense.com/ontologies/bc#d/upstream_of_diesel_fuel_gasoline -->
-
-    <owl:NamedIndividual rdf:about="&bc;d/upstream_of_diesel_fuel_gasoline">
-        <rdfs:label xml:lang="en">Dispensing at retail site</rdfs:label>
-        <containsKeyword rdf:resource="&bc;k/crude_oil_production"/>
-        <containsKeyword rdf:resource="&bc;k/crude_oil_transport"/>
-        <containsKeyword rdf:resource="&bc;k/dispensing_at_retail_site"/>
-        <containsKeyword rdf:resource="&bc;k/distribution"/>
-        <containsKeyword rdf:resource="&bc;k/refining"/>
-        <hasPositionForSomeKeyword rdf:resource="&bc;pos/upstream_of_diesel_fuel_gasoline+crude_oil_production"/>
-        <hasPositionForSomeKeyword rdf:resource="&bc;pos/upstream_of_diesel_fuel_gasoline+crude_oil_transport"/>
-        <hasPositionForSomeKeyword rdf:resource="&bc;pos/upstream_of_diesel_fuel_gasoline+dispensing_at_retail_site"/>
-        <hasPositionForSomeKeyword rdf:resource="&bc;pos/upstream_of_diesel_fuel_gasoline+distribution"/>
-        <hasPositionForSomeKeyword rdf:resource="&bc;pos/upstream_of_diesel_fuel_gasoline+refining"/>
-    </owl:NamedIndividual>
-    
-
-
     <!-- http://www.myc-sense.com/ontologies/bc#d/upstream_of_fuel -->
 
     <owl:NamedIndividual rdf:about="&bc;d/upstream_of_fuel">
@@ -2829,7 +2864,7 @@
     <owl:NamedIndividual rdf:about="&bc;gc/correspondence_between_fossil_fuel_and_primary_energy">
         <rdf:type rdf:resource="&bc;CoefficientGroup"/>
         <rdfs:label xml:lang="en">Correspondence between fossil fuel and primary energy</rdfs:label>
-        <belongsToCategoryOfGroup rdf:resource="&bc;c/fuel_source_data"/>
+        <belongsToCategoryOfGroup rdf:resource="&bc;c/calculation_tool"/>
         <hasVerticalDimension rdf:resource="&bc;d/crude_fossil_fuel"/>
         <hasHorizontalDimension rdf:resource="&bc;d/primary_energy"/>
         <hasCommonTag rdf:resource="&bc;k/correspondence"/>
@@ -2858,7 +2893,7 @@
         <rdf:type rdf:resource="&bc;CoefficientGroup"/>
         <rdfs:label xml:lang="en">Density of fuel</rdfs:label>
         <rdfs:label xml:lang="fr">Masse volumique de combustible</rdfs:label>
-        <belongsToCategoryOfGroup rdf:resource="&bc;c/fuel_source_data"/>
+        <belongsToCategoryOfGroup rdf:resource="&bc;c/fuel_source_data_physical_property"/>
         <hasVerticalDimension rdf:resource="&bc;d/fuel_unit_of_volume"/>
         <hasCommonTag rdf:resource="&bc;k/volumetric_mass_density"/>
         <hasUnit rdf:resource="&bc;u/kilogram_per_cube_meter"/>
@@ -2908,29 +2943,13 @@
     
 
 
-    <!-- http://www.myc-sense.com/ontologies/bc#gc/energy_expended_by_upstream_of_diesel_fuel_gasoline -->
+    <!-- http://www.myc-sense.com/ontologies/bc#gc/energy_for_transportation_to_market_of_crude_oil -->
 
-    <owl:NamedIndividual rdf:about="&bc;gc/energy_expended_by_upstream_of_diesel_fuel_gasoline">
+    <owl:NamedIndividual rdf:about="&bc;gc/energy_for_transportation_to_market_of_crude_oil">
         <rdf:type rdf:resource="&bc;CoefficientGroup"/>
-        <rdfs:label xml:lang="en">Energy expended for upstream of Diesel fuel and gasoline, measured in unit of energy (LHV)</rdfs:label>
-        <belongsToCategoryOfGroup rdf:resource="&bc;c/fuel_source_data"/>
-        <hasHorizontalDimension rdf:resource="&bc;d/diesel_fuel_gasoline"/>
-        <hasVerticalDimension rdf:resource="&bc;d/upstream_of_diesel_fuel_gasoline"/>
-        <hasCommonTag rdf:resource="&bc;k/energy"/>
-        <hasReference rdf:resource="&bc;ref/jrc_2014"/>
-        <hasUnit rdf:resource="&bc;u/megajoule_per_megajoule"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.myc-sense.com/ontologies/bc#gc/energy_for_transportation_to_market_of_fossil_fuel -->
-
-    <owl:NamedIndividual rdf:about="&bc;gc/energy_for_transportation_to_market_of_fossil_fuel">
-        <rdf:type rdf:resource="&bc;CoefficientGroup"/>
-        <rdfs:label xml:lang="en">Energy for transportation to market of fossil fuel</rdfs:label>
-        <rdfs:comment xml:lang="en">This is incorrect at this stage, since upstream should involve only one fuel (for instance, for crude oil : residual fuel oil used by tankers). </rdfs:comment>
-        <belongsToCategoryOfGroup rdf:resource="&bc;c/fuel_source_data"/>
-        <hasVerticalDimension rdf:resource="&bc;d/crude_fossil_fuel"/>
+        <rdfs:label xml:lang="en">Energy for transportation to market of crude oil</rdfs:label>
+        <belongsToCategoryOfGroup rdf:resource="&bc;c/fuel_source_data_transportation_to_market"/>
+        <hasVerticalDimension rdf:resource="&bc;d/crude_oil"/>
         <hasCommonTag rdf:resource="&bc;k/energy"/>
         <hasCommonTag rdf:resource="&bc;k/transportation_to_market"/>
         <hasUnit rdf:resource="&bc;u/megajoule_per_megajoule"/>
@@ -3047,7 +3066,7 @@
         <rdf:type rdf:resource="&bc;CoefficientGroup"/>
         <rdfs:label xml:lang="en">Lower heating value (LHV) of a fuel</rdfs:label>
         <rdfs:label xml:lang="fr">Pouvoir calorifique inférieur (PCI) d&apos;un combustible</rdfs:label>
-        <belongsToCategoryOfGroup rdf:resource="&bc;c/fuel_source_data"/>
+        <belongsToCategoryOfGroup rdf:resource="&bc;c/fuel_source_data_physical_property"/>
         <hasVerticalDimension rdf:resource="&bc;d/fuel_unit_of_energy_lhv"/>
         <hasCommonTag rdf:resource="&bc;k/lower_heating_value"/>
         <hasReference rdf:resource="&bc;ref/european_commission_decision_2007_589_ec"/>
@@ -3119,7 +3138,7 @@
         <rdf:type rdf:resource="&bc;CoefficientGroup"/>
         <rdfs:label xml:lang="en">Mass of greenhouse gas emitted by combustion of a fuel, measured in unit of energy (LHV)</rdfs:label>
         <rdfs:label xml:lang="fr">Masse de gaz à effet de serre émise par la combustion d&apos;un combustible, mesuré en unité d&apos;énergie (PCI)</rdfs:label>
-        <belongsToCategoryOfGroup rdf:resource="&bc;c/fuel_source_data"/>
+        <belongsToCategoryOfGroup rdf:resource="&bc;c/fuel_source_data_physical_property"/>
         <hasHorizontalDimension rdf:resource="&bc;d/co2_ch4_n2o"/>
         <hasVerticalDimension rdf:resource="&bc;d/fuel_unit_of_energy_lhv"/>
         <hasCommonTag rdf:resource="&bc;k/combustion"/>
@@ -3190,21 +3209,6 @@
     
 
 
-    <!-- http://www.myc-sense.com/ontologies/bc#gc/mass_of_greenhouse_gas_emitted_by_upstream_of_diesel_fuel_gasoline_unit_of_energy_lhv -->
-
-    <owl:NamedIndividual rdf:about="&bc;gc/mass_of_greenhouse_gas_emitted_by_upstream_of_diesel_fuel_gasoline_unit_of_energy_lhv">
-        <rdf:type rdf:resource="&bc;CoefficientGroup"/>
-        <rdfs:label xml:lang="en">Mass of greenhouse gas emitted by upstream of Diesel fuel and gasoline, measured in unit of energy (LHV)</rdfs:label>
-        <belongsToCategoryOfGroup rdf:resource="&bc;c/fuel_source_data"/>
-        <hasHorizontalDimension rdf:resource="&bc;d/co2_ch4_n2o"/>
-        <hasHorizontalDimension rdf:resource="&bc;d/diesel_fuel_gasoline"/>
-        <hasVerticalDimension rdf:resource="&bc;d/upstream_of_diesel_fuel_gasoline"/>
-        <hasReference rdf:resource="&bc;ref/jrc_2014"/>
-        <hasUnit rdf:resource="&bc;u/gram_per_megajoule"/>
-    </owl:NamedIndividual>
-    
-
-
     <!-- http://www.myc-sense.com/ontologies/bc#gc/mass_of_greenhouse_gas_emitted_by_upstream_of_fuel_unit_of_energy_lhv -->
 
     <owl:NamedIndividual rdf:about="&bc;gc/mass_of_greenhouse_gas_emitted_by_upstream_of_fuel_unit_of_energy_lhv">
@@ -3258,7 +3262,7 @@
         <rdfs:comment xml:lang="en">Crude oil from typical European Union supply. 
 
 For energy use in production, we slightly increased the data provided by [JRC 2014], which concerns final — not primary — energy consumed.</rdfs:comment>
-        <belongsToCategoryOfGroup rdf:resource="&bc;c/fuel_source_data"/>
+        <belongsToCategoryOfGroup rdf:resource="&bc;c/fuel_source_data_production_and_conditioning_at_source"/>
         <hasVerticalDimension rdf:resource="&bc;d/crude_fossil_fuel"/>
         <hasHorizontalDimension rdf:resource="&bc;d/primary_energy"/>
         <hasVerticalDimension rdf:resource="&bc;d/process_for_crude_fossil_fuel_production"/>
@@ -3305,7 +3309,7 @@ For energy use in production, we slightly increased the data provided by [JRC 20
         <rdfs:label xml:lang="en">Ratio of HHV to LHV (higher heating value to lower heating value) of a fuel</rdfs:label>
         <rdfs:label xml:lang="fr">Rapport PCS/PCI (pouvoir calorifique supérieur / pouvoir calorifique inférieur) d&apos;un combustible</rdfs:label>
         <rdfs:comment xml:lang="en">1 kwh HHV of fuel represents a smaller quantity of fuel than 1 kwh LHV. Therfore, in order to obtain impact by kwh HHV, you have to divide by (and not multiply by) those ratios, that are slightly larger than 1. </rdfs:comment>
-        <belongsToCategoryOfGroup rdf:resource="&bc;c/fuel_source_data"/>
+        <belongsToCategoryOfGroup rdf:resource="&bc;c/fuel_source_data_physical_property"/>
         <hasVerticalDimension rdf:resource="&bc;d/fuel_unit_of_energy_hhv"/>
         <hasCommonTag rdf:resource="&bc;k/hhv_to_lhv"/>
         <hasCommonTag rdf:resource="&bc;k/ratio"/>
@@ -3320,7 +3324,7 @@ For energy use in production, we slightly increased the data provided by [JRC 20
         <rdf:type rdf:resource="&bc;CoefficientGroup"/>
         <rdfs:label xml:lang="en">Refining energy</rdfs:label>
         <rdfs:comment xml:lang="en">This is incorrect at this stage, since upstream should involve only one fuel (refining fuel).</rdfs:comment>
-        <belongsToCategoryOfGroup rdf:resource="&bc;c/fuel_source_data"/>
+        <belongsToCategoryOfGroup rdf:resource="&bc;c/fuel_source_data_refining"/>
         <hasVerticalDimension rdf:resource="&bc;d/gas_diesel_oil_gasoline"/>
         <hasCommonTag rdf:resource="&bc;k/energy"/>
         <hasCommonTag rdf:resource="&bc;k/refining"/>
@@ -3499,7 +3503,7 @@ For energy use in production, we slightly increased the data provided by [JRC 20
     <owl:NamedIndividual rdf:about="&bc;gp/combustion_of_crude_oil_unit_of_energy_lhv">
         <rdf:type rdf:resource="&bc;ProcessGroup"/>
         <rdfs:label xml:lang="en">Combustion of crude oil, measured in unit of energy (LHV)</rdfs:label>
-        <belongsToCategoryOfGroup rdf:resource="&bc;c/fuel_single_element_group"/>
+        <belongsToCategoryOfGroup rdf:resource="&bc;c/fuel_group_of_process_having_single_element"/>
         <hasVerticalDimension rdf:resource="&bc;d/crude_oil"/>
         <hasCommonTag rdf:resource="&bc;k/combustion"/>
         <hasCommonTag rdf:resource="&bc;k/lower_heating_value"/>
@@ -3541,7 +3545,7 @@ For energy use in production, we slightly increased the data provided by [JRC 20
     <owl:NamedIndividual rdf:about="&bc;gp/combustion_of_gas_diesel_oil_unit_of_energy_lhv">
         <rdf:type rdf:resource="&bc;ProcessGroup"/>
         <rdfs:label xml:lang="en">Combustion of gas/Diesel oil, measured in unit of energy (LHV)</rdfs:label>
-        <belongsToCategoryOfGroup rdf:resource="&bc;c/fuel_single_element_group"/>
+        <belongsToCategoryOfGroup rdf:resource="&bc;c/fuel_group_of_process_having_single_element"/>
         <hasVerticalDimension rdf:resource="&bc;d/gas_diesel_oil"/>
         <hasCommonTag rdf:resource="&bc;k/combustion"/>
         <hasCommonTag rdf:resource="&bc;k/lower_heating_value"/>
@@ -3555,7 +3559,7 @@ For energy use in production, we slightly increased the data provided by [JRC 20
     <owl:NamedIndividual rdf:about="&bc;gp/combustion_of_residual_fuel_oil_unit_of_energy_lhv">
         <rdf:type rdf:resource="&bc;ProcessGroup"/>
         <rdfs:label xml:lang="en">Combustion of residual fuel oil, measured in unit of energy (LHV)</rdfs:label>
-        <belongsToCategoryOfGroup rdf:resource="&bc;c/fuel_single_element_group"/>
+        <belongsToCategoryOfGroup rdf:resource="&bc;c/fuel_group_of_process_having_single_element"/>
         <hasVerticalDimension rdf:resource="&bc;d/residual_fuel_oil"/>
         <hasCommonTag rdf:resource="&bc;k/combustion"/>
         <hasCommonTag rdf:resource="&bc;k/lower_heating_value"/>
@@ -3570,7 +3574,7 @@ For energy use in production, we slightly increased the data provided by [JRC 20
         <rdf:type rdf:resource="&bc;ProcessGroup"/>
         <rdfs:label xml:lang="en">Combustion of fuel, measured in unit of energy (HHV)</rdfs:label>
         <rdfs:label xml:lang="fr">Combustion de combustible, mesuré en unité d&apos;énergie (PCS)</rdfs:label>
-        <belongsToCategoryOfGroup rdf:resource="&bc;c/fuel"/>
+        <belongsToCategoryOfGroup rdf:resource="&bc;c/fuel_combustion_process"/>
         <hasHorizontalDimension rdf:resource="&bc;d/combustion_process"/>
         <hasVerticalDimension rdf:resource="&bc;d/fuel_unit_of_energy_hhv"/>
         <hasCommonTag rdf:resource="&bc;k/higher_heating_value"/>
@@ -3585,7 +3589,7 @@ For energy use in production, we slightly increased the data provided by [JRC 20
         <rdf:type rdf:resource="&bc;ProcessGroup"/>
         <rdfs:label xml:lang="en">Combustion of fuel, measured in unit of energy (LHV)</rdfs:label>
         <rdfs:label xml:lang="fr">Combustion de combustible, mesuré en unité d&apos;énergie (PCI)</rdfs:label>
-        <belongsToCategoryOfGroup rdf:resource="&bc;c/fuel"/>
+        <belongsToCategoryOfGroup rdf:resource="&bc;c/fuel_combustion_process"/>
         <hasHorizontalDimension rdf:resource="&bc;d/combustion_process"/>
         <hasVerticalDimension rdf:resource="&bc;d/fuel_unit_of_energy_lhv"/>
         <hasCommonTag rdf:resource="&bc;k/lower_heating_value"/>
@@ -3600,7 +3604,7 @@ For energy use in production, we slightly increased the data provided by [JRC 20
         <rdf:type rdf:resource="&bc;ProcessGroup"/>
         <rdfs:label xml:lang="en">Combustion of fuel, measured in unit of mass</rdfs:label>
         <rdfs:label xml:lang="fr">Combution de combustible, mesuré en unité de masse</rdfs:label>
-        <belongsToCategoryOfGroup rdf:resource="&bc;c/fuel"/>
+        <belongsToCategoryOfGroup rdf:resource="&bc;c/fuel_combustion_process"/>
         <hasHorizontalDimension rdf:resource="&bc;d/combustion_process"/>
         <hasVerticalDimension rdf:resource="&bc;d/fuel_unit_of_mass"/>
         <hasCommonTag rdf:resource="&bc;k/mass"/>
@@ -3615,7 +3619,7 @@ For energy use in production, we slightly increased the data provided by [JRC 20
         <rdf:type rdf:resource="&bc;ProcessGroup"/>
         <rdfs:label xml:lang="en">Combustion of fuel, measured in unit of volume</rdfs:label>
         <rdfs:label xml:lang="fr">Combustion de combustible, mesuré en unité de volume</rdfs:label>
-        <belongsToCategoryOfGroup rdf:resource="&bc;c/fuel"/>
+        <belongsToCategoryOfGroup rdf:resource="&bc;c/fuel_combustion_process"/>
         <hasHorizontalDimension rdf:resource="&bc;d/combustion_process"/>
         <hasVerticalDimension rdf:resource="&bc;d/fuel_unit_of_volume"/>
         <hasCommonTag rdf:resource="&bc;k/volume"/>
@@ -3818,7 +3822,7 @@ For energy use in production, we slightly increased the data provided by [JRC 20
         <rdf:type rdf:resource="&bc;ProcessGroup"/>
         <rdfs:label xml:lang="en">Production and conditioning of fossil fuel at source, measured in unit of energy (LHV)</rdfs:label>
         <rdfs:comment xml:lang="en">Typical European Union supply. Before transportation to market, refining, distribution.</rdfs:comment>
-        <belongsToCategoryOfGroup rdf:resource="&bc;c/fuel"/>
+        <belongsToCategoryOfGroup rdf:resource="&bc;c/fuel_upstream_pathway_process"/>
         <hasVerticalDimension rdf:resource="&bc;d/crude_fossil_fuel"/>
         <hasUnit rdf:resource="&bc;u/megajoule"/>
     </owl:NamedIndividual>
@@ -3955,7 +3959,7 @@ For energy use in production, we slightly increased the data provided by [JRC 20
     <owl:NamedIndividual rdf:about="&bc;gp/supply_of_fossil_fuel_after_transportation_to_market_unit_of_energy_lhv">
         <rdf:type rdf:resource="&bc;ProcessGroup"/>
         <rdfs:label xml:lang="en">Supply of fossil fuel after transportation to market, measured in unit of energy (LHV)</rdfs:label>
-        <belongsToCategoryOfGroup rdf:resource="&bc;c/fuel"/>
+        <belongsToCategoryOfGroup rdf:resource="&bc;c/fuel_upstream_pathway_process"/>
         <hasDimension rdf:resource="&bc;d/crude_fossil_fuel"/>
         <hasUnit rdf:resource="&bc;u/megajoule"/>
     </owl:NamedIndividual>
@@ -3967,7 +3971,7 @@ For energy use in production, we slightly increased the data provided by [JRC 20
     <owl:NamedIndividual rdf:about="&bc;gp/supply_of_refined_fossil_fuel_unit_of_energy_lhv">
         <rdf:type rdf:resource="&bc;ProcessGroup"/>
         <rdfs:label xml:lang="en">Supply of refined fossil fuel, measured in unit of energy (LHV)</rdfs:label>
-        <belongsToCategoryOfGroup rdf:resource="&bc;c/fuel"/>
+        <belongsToCategoryOfGroup rdf:resource="&bc;c/fuel_upstream_pathway_process"/>
         <hasVerticalDimension rdf:resource="&bc;d/gas_diesel_oil_gasoline"/>
         <hasUnit rdf:resource="&bc;u/megajoule"/>
     </owl:NamedIndividual>
@@ -4009,7 +4013,7 @@ For energy use in production, we slightly increased the data provided by [JRC 20
         <rdf:type rdf:resource="&bc;ProcessGroup"/>
         <rdfs:label xml:lang="en">Upstream of fuel, measured in unit of energy (LHV)</rdfs:label>
         <rdfs:label xml:lang="fr">Amont de combustible, mesuré en unité d&apos;énergie (PCI)</rdfs:label>
-        <belongsToCategoryOfGroup rdf:resource="&bc;c/fuel"/>
+        <belongsToCategoryOfGroup rdf:resource="&bc;c/fuel_upstream_pathway_process"/>
         <hasVerticalDimension rdf:resource="&bc;d/fuel_unit_of_energy_lhv"/>
         <hasHorizontalDimension rdf:resource="&bc;d/upstream_of_fuel"/>
         <hasCommonTag rdf:resource="&bc;k/upstream_of_fuel"/>
@@ -7994,51 +7998,6 @@ For energy use in production, we slightly increased the data provided by [JRC 20
     
 
 
-    <!-- http://www.myc-sense.com/ontologies/bc#pos/upstream_of_diesel_fuel_gasoline+crude_oil_production -->
-
-    <owl:NamedIndividual rdf:about="&bc;pos/upstream_of_diesel_fuel_gasoline+crude_oil_production">
-        <position rdf:datatype="&xsd;short">1</position>
-        <providesPositionToKeyword rdf:resource="&bc;k/crude_oil_production"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.myc-sense.com/ontologies/bc#pos/upstream_of_diesel_fuel_gasoline+crude_oil_transport -->
-
-    <owl:NamedIndividual rdf:about="&bc;pos/upstream_of_diesel_fuel_gasoline+crude_oil_transport">
-        <position rdf:datatype="&xsd;short">2</position>
-        <providesPositionToKeyword rdf:resource="&bc;k/crude_oil_transport"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.myc-sense.com/ontologies/bc#pos/upstream_of_diesel_fuel_gasoline+dispensing_at_retail_site -->
-
-    <owl:NamedIndividual rdf:about="&bc;pos/upstream_of_diesel_fuel_gasoline+dispensing_at_retail_site">
-        <position rdf:datatype="&xsd;short">5</position>
-        <providesPositionToKeyword rdf:resource="&bc;k/dispensing_at_retail_site"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.myc-sense.com/ontologies/bc#pos/upstream_of_diesel_fuel_gasoline+distribution -->
-
-    <owl:NamedIndividual rdf:about="&bc;pos/upstream_of_diesel_fuel_gasoline+distribution">
-        <position rdf:datatype="&xsd;short">4</position>
-        <providesPositionToKeyword rdf:resource="&bc;k/distribution"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.myc-sense.com/ontologies/bc#pos/upstream_of_diesel_fuel_gasoline+refining -->
-
-    <owl:NamedIndividual rdf:about="&bc;pos/upstream_of_diesel_fuel_gasoline+refining">
-        <position rdf:datatype="&xsd;short">3</position>
-        <providesPositionToKeyword rdf:resource="&bc;k/refining"/>
-    </owl:NamedIndividual>
-    
-
-
     <!-- http://www.myc-sense.com/ontologies/bc#pos/upstream_of_fuel_standard_step+conditioning_and_distribution -->
 
     <owl:NamedIndividual rdf:about="&bc;pos/upstream_of_fuel_standard_step+conditioning_and_distribution">
@@ -8192,7 +8151,7 @@ For energy use in production, we slightly increased the data provided by [JRC 20
     <owl:NamedIndividual rdf:about="&bc;r/energy_for_transportation_to_market_of_fossil_fuel">
         <rdf:type rdf:resource="&bc;SourceRelation"/>
         <exponent rdf:datatype="&xsd;short">1</exponent>
-        <hasWeightCoefficient rdf:resource="&bc;gc/energy_for_transportation_to_market_of_fossil_fuel"/>
+        <hasWeightCoefficient rdf:resource="&bc;gc/energy_for_transportation_to_market_of_crude_oil"/>
         <hasOriginProcess rdf:resource="&bc;gp/combustion_of_residual_fuel_oil_unit_of_energy_lhv"/>
         <hasDestinationProcess rdf:resource="&bc;gp/supply_of_fossil_fuel_after_transportation_to_market_unit_of_energy_lhv"/>
         <hasRelationType rdf:resource="&bc;rt/asynchronous_dependency"/>
@@ -9444,65 +9403,13 @@ For energy use in production, we slightly increased the data provided by [JRC 20
     
 
 
-    <!-- http://www.myc-sense.com/ontologies/bc#sc/energy+dispensing_at_retail_site+diesel_fuel -->
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/energy+refining+gas_diesel_oil -->
 
-    <owl:NamedIndividual rdf:about="&bc;sc/energy+dispensing_at_retail_site+diesel_fuel">
-        <rdf:type rdf:resource="&bc;SingleCoefficient"/>
-        <value rdf:datatype="&xsd;double">0.0111</value>
-        <hasTag rdf:resource="&bc;k/diesel_fuel"/>
-        <hasTag rdf:resource="&bc;k/dispensing_at_retail_site"/>
-        <hasTag rdf:resource="&bc;k/energy"/>
-        <hasUnit rdf:resource="&bc;u/megajoule_per_megajoule"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.myc-sense.com/ontologies/bc#sc/energy+dispensing_at_retail_site+gasoline -->
-
-    <owl:NamedIndividual rdf:about="&bc;sc/energy+dispensing_at_retail_site+gasoline">
-        <rdf:type rdf:resource="&bc;SingleCoefficient"/>
-        <value rdf:datatype="&xsd;double">0.0119</value>
-        <hasTag rdf:resource="&bc;k/dispensing_at_retail_site"/>
-        <hasTag rdf:resource="&bc;k/energy"/>
-        <hasTag rdf:resource="&bc;k/gasoline"/>
-        <hasUnit rdf:resource="&bc;u/megajoule_per_megajoule"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.myc-sense.com/ontologies/bc#sc/energy+distribution+diesel_fuel -->
-
-    <owl:NamedIndividual rdf:about="&bc;sc/energy+distribution+diesel_fuel">
-        <rdf:type rdf:resource="&bc;SingleCoefficient"/>
-        <value rdf:datatype="&xsd;double">0.095</value>
-        <hasTag rdf:resource="&bc;k/diesel_fuel"/>
-        <hasTag rdf:resource="&bc;k/distribution"/>
-        <hasTag rdf:resource="&bc;k/energy"/>
-        <hasUnit rdf:resource="&bc;u/megajoule_per_megajoule"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.myc-sense.com/ontologies/bc#sc/energy+distribution+gasoline -->
-
-    <owl:NamedIndividual rdf:about="&bc;sc/energy+distribution+gasoline">
-        <rdf:type rdf:resource="&bc;SingleCoefficient"/>
-        <value rdf:datatype="&xsd;double">0.01</value>
-        <hasTag rdf:resource="&bc;k/distribution"/>
-        <hasTag rdf:resource="&bc;k/energy"/>
-        <hasTag rdf:resource="&bc;k/gasoline"/>
-        <hasUnit rdf:resource="&bc;u/megajoule_per_megajoule"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.myc-sense.com/ontologies/bc#sc/energy+refining+diesel_fuel -->
-
-    <owl:NamedIndividual rdf:about="&bc;sc/energy+refining+diesel_fuel">
+    <owl:NamedIndividual rdf:about="&bc;sc/energy+refining+gas_diesel_oil">
         <rdf:type rdf:resource="&bc;SingleCoefficient"/>
         <value rdf:datatype="&xsd;double">0.1</value>
-        <hasTag rdf:resource="&bc;k/diesel_fuel"/>
         <hasTag rdf:resource="&bc;k/energy"/>
+        <hasTag rdf:resource="&bc;k/gas_diesel_oil"/>
         <hasTag rdf:resource="&bc;k/refining"/>
         <hasUnit rdf:resource="&bc;u/megajoule_per_megajoule"/>
     </owl:NamedIndividual>
@@ -9513,7 +9420,7 @@ For energy use in production, we slightly increased the data provided by [JRC 20
 
     <owl:NamedIndividual rdf:about="&bc;sc/energy+refining+gasoline">
         <rdf:type rdf:resource="&bc;SingleCoefficient"/>
-        <value rdf:datatype="&xsd;double">0.0801</value>
+        <value rdf:datatype="&xsd;double">0.08</value>
         <hasTag rdf:resource="&bc;k/energy"/>
         <hasTag rdf:resource="&bc;k/gasoline"/>
         <hasTag rdf:resource="&bc;k/refining"/>
@@ -10957,32 +10864,6 @@ This value is to be checked.</rdfs:comment>
     
 
 
-    <!-- http://www.myc-sense.com/ontologies/bc#sc/refining+energy+gas_diesel_oil -->
-
-    <owl:NamedIndividual rdf:about="&bc;sc/refining+energy+gas_diesel_oil">
-        <rdf:type rdf:resource="&bc;SingleCoefficient"/>
-        <value rdf:datatype="&xsd;double">0.1</value>
-        <hasTag rdf:resource="&bc;k/energy"/>
-        <hasTag rdf:resource="&bc;k/gas_diesel_oil"/>
-        <hasTag rdf:resource="&bc;k/refining"/>
-        <hasUnit rdf:resource="&bc;u/one"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.myc-sense.com/ontologies/bc#sc/refining+energy+gasoline -->
-
-    <owl:NamedIndividual rdf:about="&bc;sc/refining+energy+gasoline">
-        <rdf:type rdf:resource="&bc;SingleCoefficient"/>
-        <value rdf:datatype="&xsd;double">0.08</value>
-        <hasTag rdf:resource="&bc;k/energy"/>
-        <hasTag rdf:resource="&bc;k/gasoline"/>
-        <hasTag rdf:resource="&bc;k/refining"/>
-        <hasUnit rdf:resource="&bc;u/one"/>
-    </owl:NamedIndividual>
-    
-
-
     <!-- http://www.myc-sense.com/ontologies/bc#sc/upstream_of_fuel+coal+extraction_processing+ch4 -->
 
     <owl:NamedIndividual rdf:about="&bc;sc/upstream_of_fuel+coal+extraction_processing+ch4">
@@ -12115,20 +11996,6 @@ This value is to be checked.</rdfs:comment>
     </rdf:Description>
     <rdf:Description>
         <rdf:type rdf:resource="&swrl;Imp"/>
-        <swrl:head>
-            <rdf:Description>
-                <rdf:type rdf:resource="&swrl;AtomList"/>
-                <rdf:rest rdf:resource="&rdf;nil"/>
-                <rdf:first>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
-                        <swrl:propertyPredicate rdf:resource="&bc;containsKeyword"/>
-                        <swrl:argument1 rdf:resource="&bc;d/meat"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
-                    </rdf:Description>
-                </rdf:first>
-            </rdf:Description>
-        </swrl:head>
         <swrl:body>
             <rdf:Description>
                 <rdf:type rdf:resource="&swrl;AtomList"/>
@@ -12143,23 +12010,23 @@ This value is to be checked.</rdfs:comment>
                 </rdf:first>
             </rdf:Description>
         </swrl:body>
-    </rdf:Description>
-    <rdf:Description>
-        <rdf:type rdf:resource="&swrl;Imp"/>
-        <swrl:body>
+        <swrl:head>
             <rdf:Description>
                 <rdf:type rdf:resource="&swrl;AtomList"/>
                 <rdf:rest rdf:resource="&rdf;nil"/>
                 <rdf:first>
                     <rdf:Description>
                         <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
-                        <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
-                        <swrl:argument1 rdf:resource="&bc;k/agricultural_input"/>
+                        <swrl:propertyPredicate rdf:resource="&bc;containsKeyword"/>
+                        <swrl:argument1 rdf:resource="&bc;d/meat"/>
                         <swrl:argument2 rdf:resource="urn:swrl#kw"/>
                     </rdf:Description>
                 </rdf:first>
             </rdf:Description>
-        </swrl:body>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&swrl;Imp"/>
         <swrl:head>
             <rdf:Description>
                 <rdf:type rdf:resource="&swrl;AtomList"/>
@@ -12174,6 +12041,20 @@ This value is to be checked.</rdfs:comment>
                 </rdf:first>
             </rdf:Description>
         </swrl:head>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="&swrl;AtomList"/>
+                <rdf:rest rdf:resource="&rdf;nil"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
+                        <swrl:argument1 rdf:resource="&bc;k/agricultural_input"/>
+                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
+                    </rdf:Description>
+                </rdf:first>
+            </rdf:Description>
+        </swrl:body>
     </rdf:Description>
     <rdf:Description>
         <rdf:type rdf:resource="&swrl;Imp"/>
@@ -12270,20 +12151,6 @@ This value is to be checked.</rdfs:comment>
     </rdf:Description>
     <rdf:Description>
         <rdf:type rdf:resource="&swrl;Imp"/>
-        <swrl:body>
-            <rdf:Description>
-                <rdf:type rdf:resource="&swrl;AtomList"/>
-                <rdf:rest rdf:resource="&rdf;nil"/>
-                <rdf:first>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
-                        <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
-                        <swrl:argument1 rdf:resource="&bc;k/cattle"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
-                    </rdf:Description>
-                </rdf:first>
-            </rdf:Description>
-        </swrl:body>
         <swrl:head>
             <rdf:Description>
                 <rdf:type rdf:resource="&swrl;AtomList"/>
@@ -12298,6 +12165,20 @@ This value is to be checked.</rdfs:comment>
                 </rdf:first>
             </rdf:Description>
         </swrl:head>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="&swrl;AtomList"/>
+                <rdf:rest rdf:resource="&rdf;nil"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
+                        <swrl:argument1 rdf:resource="&bc;k/cattle"/>
+                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
+                    </rdf:Description>
+                </rdf:first>
+            </rdf:Description>
+        </swrl:body>
     </rdf:Description>
     <rdf:Description>
         <rdf:type rdf:resource="&swrl;Imp"/>
