@@ -2262,15 +2262,6 @@
     
 
 
-    <!-- http://www.myc-sense.com/ontologies/bc#d/diesel_fuel_gasoline -->
-
-    <owl:NamedIndividual rdf:about="&bc;d/diesel_fuel_gasoline">
-        <containsKeyword rdf:resource="&bc;k/diesel_fuel"/>
-        <containsKeyword rdf:resource="&bc;k/gasoline"/>
-    </owl:NamedIndividual>
-    
-
-
     <!-- http://www.myc-sense.com/ontologies/bc#d/end_of_life_of_waste -->
 
     <owl:NamedIndividual rdf:about="&bc;d/end_of_life_of_waste">
@@ -2350,8 +2341,8 @@
     <owl:NamedIndividual rdf:about="&bc;d/fuel_unit_of_energy_hhv">
         <containsKeyword rdf:resource="&bc;k/coal"/>
         <containsKeyword rdf:resource="&bc;k/gas_diesel_oil"/>
-        <containsKeyword rdf:resource="&bc;k/gasoline"/>
         <containsKeyword rdf:resource="&bc;k/lignite"/>
+        <containsKeyword rdf:resource="&bc;k/motor_gasoline"/>
         <containsKeyword rdf:resource="&bc;k/natural_gas"/>
         <containsKeyword rdf:resource="&bc;k/residual_fuel_oil"/>
     </owl:NamedIndividual>
@@ -2361,12 +2352,11 @@
     <!-- http://www.myc-sense.com/ontologies/bc#d/fuel_unit_of_energy_lhv -->
 
     <owl:NamedIndividual rdf:about="&bc;d/fuel_unit_of_energy_lhv">
-        <containsKeyword rdf:resource="&bc;k/coal"/>
         <containsKeyword rdf:resource="&bc;k/crude_oil"/>
         <containsKeyword rdf:resource="&bc;k/gas_diesel_oil"/>
-        <containsKeyword rdf:resource="&bc;k/gasoline"/>
-        <containsKeyword rdf:resource="&bc;k/jet_fuel"/>
+        <containsKeyword rdf:resource="&bc;k/jet_kerosene"/>
         <containsKeyword rdf:resource="&bc;k/lignite"/>
+        <containsKeyword rdf:resource="&bc;k/motor_gasoline"/>
         <containsKeyword rdf:resource="&bc;k/natural_gas"/>
         <containsKeyword rdf:resource="&bc;k/residual_fuel_oil"/>
     </owl:NamedIndividual>
@@ -2378,9 +2368,9 @@
     <owl:NamedIndividual rdf:about="&bc;d/fuel_unit_of_mass">
         <containsKeyword rdf:resource="&bc;k/coal"/>
         <containsKeyword rdf:resource="&bc;k/gas_diesel_oil"/>
-        <containsKeyword rdf:resource="&bc;k/gasoline"/>
-        <containsKeyword rdf:resource="&bc;k/jet_fuel"/>
+        <containsKeyword rdf:resource="&bc;k/jet_kerosene"/>
         <containsKeyword rdf:resource="&bc;k/lignite"/>
+        <containsKeyword rdf:resource="&bc;k/motor_gasoline"/>
         <containsKeyword rdf:resource="&bc;k/natural_gas"/>
         <containsKeyword rdf:resource="&bc;k/residual_fuel_oil"/>
     </owl:NamedIndividual>
@@ -2394,18 +2384,18 @@
         <rdfs:label xml:lang="fr">Combustible</rdfs:label>
         <containsKeyword rdf:resource="&bc;k/crude_oil"/>
         <containsKeyword rdf:resource="&bc;k/gas_diesel_oil"/>
-        <containsKeyword rdf:resource="&bc;k/gasoline"/>
-        <containsKeyword rdf:resource="&bc;k/jet_fuel"/>
+        <containsKeyword rdf:resource="&bc;k/jet_kerosene"/>
+        <containsKeyword rdf:resource="&bc;k/motor_gasoline"/>
         <containsKeyword rdf:resource="&bc;k/residual_fuel_oil"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.myc-sense.com/ontologies/bc#d/gas_diesel_oil_gasoline -->
+    <!-- http://www.myc-sense.com/ontologies/bc#d/gas_diesel_oil_motor_gasoline -->
 
-    <owl:NamedIndividual rdf:about="&bc;d/gas_diesel_oil_gasoline">
+    <owl:NamedIndividual rdf:about="&bc;d/gas_diesel_oil_motor_gasoline">
         <containsKeyword rdf:resource="&bc;k/gas_diesel_oil"/>
-        <containsKeyword rdf:resource="&bc;k/gasoline"/>
+        <containsKeyword rdf:resource="&bc;k/motor_gasoline"/>
     </owl:NamedIndividual>
     
 
@@ -2872,20 +2862,6 @@
     
 
 
-    <!-- http://www.myc-sense.com/ontologies/bc#gc/density_of_fuel -->
-
-    <owl:NamedIndividual rdf:about="&bc;gc/density_of_fuel">
-        <rdf:type rdf:resource="&bc;CoefficientGroup"/>
-        <rdfs:label xml:lang="en">Density of fuel</rdfs:label>
-        <rdfs:label xml:lang="fr">Masse volumique de combustible</rdfs:label>
-        <belongsToCategoryOfGroup rdf:resource="&bc;c/fuel_source_data_physical_property"/>
-        <hasVerticalDimension rdf:resource="&bc;d/fuel_unit_of_volume"/>
-        <hasCommonTag rdf:resource="&bc;k/volumetric_mass_density"/>
-        <hasUnit rdf:resource="&bc;u/kilogram_per_cube_meter"/>
-    </owl:NamedIndividual>
-    
-
-
     <!-- http://www.myc-sense.com/ontologies/bc#gc/electricity_line_loss_rate -->
 
     <owl:NamedIndividual rdf:about="&bc;gc/electricity_line_loss_rate">
@@ -2979,6 +2955,7 @@
     <owl:NamedIndividual rdf:about="&bc;gc/identity_coefficient_group">
         <rdf:type rdf:resource="&bc;CoefficientGroup"/>
         <rdfs:label xml:lang="en">Identity coefficient group</rdfs:label>
+        <rdfs:label xml:lang="en">This group is used to include upstream process(es) into the perimeter of downstream process(es), when those processes share the same unit and no multiplication coefficient has to be applied to upstream process(es) before inclusion. </rdfs:label>
         <rdfs:label xml:lang="fr">Groupe de coefficients identité</rdfs:label>
         <belongsToCategoryOfGroup rdf:resource="&bc;c/calculation_tool"/>
         <hasVerticalDimension rdf:resource="&bc;d/identity_dimension"/>
@@ -3050,10 +3027,14 @@
     <owl:NamedIndividual rdf:about="&bc;gc/lower_heating_value_of_fuel">
         <rdf:type rdf:resource="&bc;CoefficientGroup"/>
         <rdfs:label xml:lang="en">Lower heating value (LHV) of a fuel</rdfs:label>
+        <rdfs:label xml:lang="en">The values were taken from [EU 2007], p. 33/34, Table 4 (for all fuels exept jet kerosene) and from [EU 2009], p. 18 (for jet kerosene). They are based on [IPCC 2006]. </rdfs:label>
         <rdfs:label xml:lang="fr">Pouvoir calorifique inférieur (PCI) d&apos;un combustible</rdfs:label>
         <belongsToCategoryOfGroup rdf:resource="&bc;c/fuel_source_data_physical_property"/>
         <hasVerticalDimension rdf:resource="&bc;d/fuel_unit_of_energy_lhv"/>
         <hasCommonTag rdf:resource="&bc;k/lower_heating_value"/>
+        <hasReference rdf:resource="&bc;ref/eu_2007"/>
+        <hasReference rdf:resource="&bc;ref/eu_2009"/>
+        <hasReference rdf:resource="&bc;ref/ipcc_2006"/>
         <hasUnit rdf:resource="&bc;u/gigajoule_per_tonne"/>
     </owl:NamedIndividual>
     
@@ -3121,10 +3102,16 @@
         <rdf:type rdf:resource="&bc;CoefficientGroup"/>
         <rdfs:label xml:lang="en">Mass of greenhouse gas emitted by combustion of a fuel, measured in unit of energy (LHV)</rdfs:label>
         <rdfs:label xml:lang="fr">Masse de gaz à effet de serre émise par la combustion d&apos;un combustible, mesuré en unité d&apos;énergie (PCI)</rdfs:label>
+        <rdfs:comment xml:lang="en">Emissions factors for CO2 were taken from [EU 2007], p. 33, Table 4 (for all fuels exept jet kerosene) and from [EU 2009], p. 18 (for jet kerosene). 
+
+They represent non-activity-specific emission factors for tho combustion of a fuel (tier 1 level, see [IPCC 2006]). </rdfs:comment>
         <belongsToCategoryOfGroup rdf:resource="&bc;c/fuel_source_data_physical_property"/>
         <hasHorizontalDimension rdf:resource="&bc;d/co2_ch4_n2o"/>
         <hasVerticalDimension rdf:resource="&bc;d/fuel_unit_of_energy_lhv"/>
         <hasCommonTag rdf:resource="&bc;k/combustion"/>
+        <hasReference rdf:resource="&bc;ref/eu_2007"/>
+        <hasReference rdf:resource="&bc;ref/eu_2009"/>
+        <hasReference rdf:resource="&bc;ref/ipcc_2006"/>
         <hasUnit rdf:resource="&bc;u/tonne_per_tera_joule"/>
     </owl:NamedIndividual>
     
@@ -3273,11 +3260,14 @@ For energy use in production, we slightly increased the data provided by [JRC 20
         <rdf:type rdf:resource="&bc;CoefficientGroup"/>
         <rdfs:label xml:lang="en">Ratio of HHV to LHV (higher heating value to lower heating value) of a fuel</rdfs:label>
         <rdfs:label xml:lang="fr">Rapport PCS/PCI (pouvoir calorifique supérieur / pouvoir calorifique inférieur) d&apos;un combustible</rdfs:label>
-        <rdfs:comment xml:lang="en">1 kwh HHV of fuel represents a smaller quantity of fuel than 1 kwh LHV. Therfore, in order to obtain impact by kwh HHV, you have to divide by (and not multiply by) those ratios, that are slightly larger than 1. </rdfs:comment>
+        <rdfs:comment xml:lang="en">1 kwh HHV of fuel represents a smaller quantity of fuel than 1 kwh LHV. Therfore, in order to obtain impact by kwh HHV, you have to divide by (and not multiply by) those ratios, that are slightly larger than 1. 
+
+Values were taken from [STAFFEL 2011].</rdfs:comment>
         <belongsToCategoryOfGroup rdf:resource="&bc;c/fuel_source_data_physical_property"/>
         <hasVerticalDimension rdf:resource="&bc;d/fuel_unit_of_energy_hhv"/>
         <hasCommonTag rdf:resource="&bc;k/hhv_to_lhv"/>
         <hasCommonTag rdf:resource="&bc;k/ratio"/>
+        <hasReference rdf:resource="&bc;ref/staffel_2011"/>
         <hasUnit rdf:resource="&bc;u/one"/>
     </owl:NamedIndividual>
     
@@ -3290,7 +3280,7 @@ For energy use in production, we slightly increased the data provided by [JRC 20
         <rdfs:label xml:lang="en">Refining energy</rdfs:label>
         <rdfs:comment xml:lang="en">This is incorrect at this stage, since upstream should involve only one fuel (refining fuel).</rdfs:comment>
         <belongsToCategoryOfGroup rdf:resource="&bc;c/fuel_source_data_refining"/>
-        <hasVerticalDimension rdf:resource="&bc;d/gas_diesel_oil_gasoline"/>
+        <hasVerticalDimension rdf:resource="&bc;d/gas_diesel_oil_motor_gasoline"/>
         <hasCommonTag rdf:resource="&bc;k/energy"/>
         <hasCommonTag rdf:resource="&bc;k/refining"/>
         <hasReference rdf:resource="&bc;ref/jrc_2014"/>
@@ -3384,7 +3374,7 @@ For energy use in production, we slightly increased the data provided by [JRC 20
         <hasVerticalDimension rdf:resource="&bc;d/flight_distance"/>
         <hasHorizontalDimension rdf:resource="&bc;d/maximum_takeoff_weight"/>
         <hasCommonTag rdf:resource="&bc;k/fuel_consumption"/>
-        <hasCommonTag rdf:resource="&bc;k/jet_fuel"/>
+        <hasCommonTag rdf:resource="&bc;k/jet_kerosene"/>
         <hasUnit rdf:resource="&bc;u/liter_per_tonne_100_kilometer"/>
     </owl:NamedIndividual>
     
@@ -3431,6 +3421,21 @@ For energy use in production, we slightly increased the data provided by [JRC 20
         <hasVerticalDimension rdf:resource="&bc;d/transformed_dairy_product"/>
         <hasCommonTag rdf:resource="&bc;k/volume_of_milk_for_dairy_product"/>
         <hasUnit rdf:resource="&bc;u/liter_per_kilogram"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#gc/volumetric_mass_density_of_fuel -->
+
+    <owl:NamedIndividual rdf:about="&bc;gc/volumetric_mass_density_of_fuel">
+        <rdf:type rdf:resource="&bc;CoefficientGroup"/>
+        <rdfs:label xml:lang="en">Density of fuel</rdfs:label>
+        <rdfs:label xml:lang="fr">Masse volumique de combustible</rdfs:label>
+        <belongsToCategoryOfGroup rdf:resource="&bc;c/fuel_source_data_physical_property"/>
+        <hasVerticalDimension rdf:resource="&bc;d/fuel_unit_of_volume"/>
+        <hasCommonTag rdf:resource="&bc;k/volumetric_mass_density"/>
+        <hasReference rdf:resource="&bc;ref/staffel_2011"/>
+        <hasUnit rdf:resource="&bc;u/kilogram_per_cube_meter"/>
     </owl:NamedIndividual>
     
 
@@ -3913,7 +3918,7 @@ Global warming potentials at horizon 500 years are taken from [IPCC AR4 WG1 2007
         <rdf:type rdf:resource="&bc;ProcessGroup"/>
         <rdfs:label xml:lang="en">Supply of refined fossil fuel, measured in unit of energy (LHV)</rdfs:label>
         <belongsToCategoryOfGroup rdf:resource="&bc;c/fuel_upstream_pathway_process"/>
-        <hasVerticalDimension rdf:resource="&bc;d/gas_diesel_oil_gasoline"/>
+        <hasVerticalDimension rdf:resource="&bc;d/gas_diesel_oil_motor_gasoline"/>
         <hasUnit rdf:resource="&bc;u/megajoule"/>
     </owl:NamedIndividual>
     
@@ -5301,14 +5306,6 @@ Global warming potentials at horizon 500 years are taken from [IPCC AR4 WG1 2007
     
 
 
-    <!-- http://www.myc-sense.com/ontologies/bc#k/diesel_fuel -->
-
-    <owl:NamedIndividual rdf:about="&bc;k/diesel_fuel">
-        <rdfs:label xml:lang="en">Diesel fuel</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
     <!-- http://www.myc-sense.com/ontologies/bc#k/direct_emission -->
 
     <owl:NamedIndividual rdf:about="&bc;k/direct_emission">
@@ -5708,14 +5705,14 @@ Global warming potentials at horizon 500 years are taken from [IPCC AR4 WG1 2007
         <hasAttribute rdf:resource="&bc;k/fuel_primary_source"/>
         <isBroaderThan rdf:resource="&bc;k/gas_diesel_oil"/>
         <isBroaderThan rdf:resource="&bc;k/gas_works_gas"/>
-        <isBroaderThan rdf:resource="&bc;k/gasoline"/>
         <isBroaderThan rdf:resource="&bc;k/heavy_fuel_oil"/>
-        <isBroaderThan rdf:resource="&bc;k/jet_fuel"/>
+        <isBroaderThan rdf:resource="&bc;k/jet_kerosene"/>
         <isBroaderThan rdf:resource="&bc;k/lignite"/>
         <isBroaderThan rdf:resource="&bc;k/lignite_coke"/>
         <isBroaderThan rdf:resource="&bc;k/liquefied_natural_gas"/>
         <isBroaderThan rdf:resource="&bc;k/liquefied_petroleum_gas"/>
         <isBroaderThan rdf:resource="&bc;k/lubricant"/>
+        <isBroaderThan rdf:resource="&bc;k/motor_gasoline"/>
         <isBroaderThan rdf:resource="&bc;k/naphtha"/>
         <isBroaderThan rdf:resource="&bc;k/natural_gas"/>
         <isBroaderThan rdf:resource="&bc;k/oil_shale"/>
@@ -5814,17 +5811,6 @@ Global warming potentials at horizon 500 years are taken from [IPCC AR4 WG1 2007
         <rdfs:label xml:lang="fr">Gaz d&apos;usine à gaz</rdfs:label>
         <hasPrimarySource rdf:resource="&bc;k/fossil"/>
         <hasMatterState rdf:resource="&bc;k/gas"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.myc-sense.com/ontologies/bc#k/gasoline -->
-
-    <owl:NamedIndividual rdf:about="&bc;k/gasoline">
-        <rdfs:label xml:lang="en">Gasoline</rdfs:label>
-        <rdfs:label xml:lang="fr">Essence</rdfs:label>
-        <hasPrimarySource rdf:resource="&bc;k/fossil"/>
-        <hasMatterState rdf:resource="&bc;k/liquid"/>
     </owl:NamedIndividual>
     
 
@@ -6192,11 +6178,10 @@ Global warming potentials at horizon 500 years are taken from [IPCC AR4 WG1 2007
     
 
 
-    <!-- http://www.myc-sense.com/ontologies/bc#k/jet_fuel -->
+    <!-- http://www.myc-sense.com/ontologies/bc#k/jet_kerosene -->
 
-    <owl:NamedIndividual rdf:about="&bc;k/jet_fuel">
-        <rdfs:label xml:lang="en">Jet fuel</rdfs:label>
-        <rdfs:label xml:lang="fr">Kérosène aviation (Jet A ou A1)</rdfs:label>
+    <owl:NamedIndividual rdf:about="&bc;k/jet_kerosene">
+        <rdfs:label xml:lang="en">Jet kerosene (jet A1 or jet A)</rdfs:label>
         <hasPrimarySource rdf:resource="&bc;k/fossil"/>
         <hasMatterState rdf:resource="&bc;k/liquid"/>
     </owl:NamedIndividual>
@@ -6308,7 +6293,7 @@ Global warming potentials at horizon 500 years are taken from [IPCC AR4 WG1 2007
     <!-- http://www.myc-sense.com/ontologies/bc#k/lignite -->
 
     <owl:NamedIndividual rdf:about="&bc;k/lignite">
-        <rdfs:label xml:lang="en">Lignite, brown coal</rdfs:label>
+        <rdfs:label xml:lang="en">Lignite</rdfs:label>
         <rdfs:label xml:lang="fr">Lignite</rdfs:label>
         <hasPrimarySource rdf:resource="&bc;k/fossil"/>
         <hasMatterState rdf:resource="&bc;k/solid"/>
@@ -6629,6 +6614,16 @@ Global warming potentials at horizon 500 years are taken from [IPCC AR4 WG1 2007
     <owl:NamedIndividual rdf:about="&bc;k/more_than_750_cm3">
         <rdfs:label xml:lang="en">More than 750 cm3</rdfs:label>
         <rdfs:label xml:lang="fr">Plus de 750 cm3</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#k/motor_gasoline -->
+
+    <owl:NamedIndividual rdf:about="&bc;k/motor_gasoline">
+        <rdfs:label xml:lang="en">Motor gasoline</rdfs:label>
+        <hasPrimarySource rdf:resource="&bc;k/fossil"/>
+        <hasMatterState rdf:resource="&bc;k/liquid"/>
     </owl:NamedIndividual>
     
 
@@ -8019,7 +8014,7 @@ Global warming potentials at horizon 500 years are taken from [IPCC AR4 WG1 2007
     <owl:NamedIndividual rdf:about="&bc;r/density_of_fuel">
         <rdf:type rdf:resource="&bc;SourceRelation"/>
         <exponent rdf:datatype="&xsd;short">1</exponent>
-        <hasWeightCoefficient rdf:resource="&bc;gc/density_of_fuel"/>
+        <hasWeightCoefficient rdf:resource="&bc;gc/volumetric_mass_density_of_fuel"/>
         <hasOriginProcess rdf:resource="&bc;gp/combustion_unit_of_mass"/>
         <hasDestinationProcess rdf:resource="&bc;gp/combustion_unit_of_volume"/>
         <hasRelationType rdf:resource="&bc;rt/conversion"/>
@@ -8557,16 +8552,41 @@ Global warming potentials at horizon 500 years are taken from [IPCC AR4 WG1 2007
     
 
 
+    <!-- http://www.myc-sense.com/ontologies/bc#ref/eu_2007 -->
+
+    <owl:NamedIndividual rdf:about="&bc;ref/eu_2007">
+        <rdf:type rdf:resource="&bc;Reference"/>
+        <title rdf:datatype="&xsd;dateTime">2007-07-18</title>
+        <title rdf:datatype="&xsd;string">Decision 2007/589/EC establishing guidelines for the monitoring and reporting of greenhouse gas emissions pursuant to Directive 2003/87/EC of the European Parliament and of the Council</title>
+        <shortName rdf:datatype="&xsd;string">EU 2077</shortName>
+        <creator rdf:datatype="&xsd;string">Official Journal of the European Union</creator>
+        <URL rdf:datatype="&xsd;anyURI">http://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32007D0589</URL>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#ref/eu_2009 -->
+
+    <owl:NamedIndividual rdf:about="&bc;ref/eu_2009">
+        <rdf:type rdf:resource="&bc;Reference"/>
+        <date rdf:datatype="&xsd;dateTime">2009-04-16</date>
+        <date rdf:datatype="&xsd;string">Decision 2009/339/EC amending Decision 2007/589/EC as regards the inclusion of monitoring and reporting guidelines for emissions and tonne-kilometre data from aviation activities</date>
+        <shortName rdf:datatype="&xsd;string">EU 2009</shortName>
+        <creator rdf:datatype="&xsd;string">Official Journal of the European Union</creator>
+        <URL rdf:datatype="&xsd;anyURI">http://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32009D0339</URL>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.myc-sense.com/ontologies/bc#ref/ipcc_2006 -->
 
     <owl:NamedIndividual rdf:about="&bc;ref/ipcc_2006">
         <rdf:type rdf:resource="&bc;Reference"/>
         <date rdf:datatype="&xsd;dateTime">2006</date>
-        <source rdf:datatype="&xsd;string">2006 IPCC Guidelines for National Greenhouse Gas Inventories </source>
+        <title rdf:datatype="&xsd;string">2006 IPCC Guidelines for National Greenhouse Gas Inventories </title>
         <shortName rdf:datatype="&xsd;string">IPCC 2006</shortName>
         <creator rdf:datatype="&xsd;string">Integovernemental Panel on Climate Change</creator>
-        <title rdf:datatype="&xsd;string">Volume 2 : Energy</title>
-        <URL rdf:datatype="&xsd;anyURI">http://www.ipcc-nggip.iges.or.jp/public/2006gl/vol2.html</URL>
+        <URL rdf:datatype="&xsd;anyURI">http://www.ipcc-nggip.iges.or.jp/public/2006gl/index.html</URL>
     </owl:NamedIndividual>
     
 
@@ -8607,6 +8627,20 @@ Global warming potentials at horizon 500 years are taken from [IPCC AR4 WG1 2007
         <title rdf:datatype="&xsd;string">Well-to-Tank Report, version 4.a</title>
         <source rdf:datatype="&xsd;string">Well-to-wheels analysis of future automotive fuels and powertrains in the european context</source>
         <URL rdf:datatype="&xsd;anyURI">http://iet.jrc.ec.europa.eu/about-jec/downloads</URL>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#ref/staffel_2011 -->
+
+    <owl:NamedIndividual rdf:about="&bc;ref/staffel_2011">
+        <rdf:type rdf:resource="&bc;Reference"/>
+        <date rdf:datatype="&xsd;dateTime">2011-03</date>
+        <creator rdf:datatype="&xsd;string">Iain Staffell (University of Birmingham)</creator>
+        <shortName rdf:datatype="&xsd;string">STAFFEL 2011</shortName>
+        <title rdf:datatype="&xsd;string">The Energy and Fuel Data Sheet</title>
+        <publisher rdf:datatype="&xsd;string">academia.edu</publisher>
+        <URL rdf:datatype="&xsd;anyURI">http://www.academia.edu/1073990/The_Energy_and_Fuel_Data_Sheet</URL>
     </owl:NamedIndividual>
     
 
@@ -8879,45 +8913,6 @@ Global warming potentials at horizon 500 years are taken from [IPCC AR4 WG1 2007
     
 
 
-    <!-- http://www.myc-sense.com/ontologies/bc#sc/combustion+coal+ch4 -->
-
-    <owl:NamedIndividual rdf:about="&bc;sc/combustion+coal+ch4">
-        <rdf:type rdf:resource="&bc;SingleCoefficient"/>
-        <value rdf:datatype="&xsd;double">0.01</value>
-        <hasTag rdf:resource="&bc;k/ch4"/>
-        <hasTag rdf:resource="&bc;k/coal"/>
-        <hasTag rdf:resource="&bc;k/combustion"/>
-        <hasUnit rdf:resource="&bc;u/tonne_per_tera_joule"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.myc-sense.com/ontologies/bc#sc/combustion+coal+co2 -->
-
-    <owl:NamedIndividual rdf:about="&bc;sc/combustion+coal+co2">
-        <rdf:type rdf:resource="&bc;SingleCoefficient"/>
-        <value rdf:datatype="&xsd;double">95.0</value>
-        <hasTag rdf:resource="&bc;k/co2"/>
-        <hasTag rdf:resource="&bc;k/coal"/>
-        <hasTag rdf:resource="&bc;k/combustion"/>
-        <hasUnit rdf:resource="&bc;u/tonne_per_tera_joule"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.myc-sense.com/ontologies/bc#sc/combustion+coal+n2o -->
-
-    <owl:NamedIndividual rdf:about="&bc;sc/combustion+coal+n2o">
-        <rdf:type rdf:resource="&bc;SingleCoefficient"/>
-        <value rdf:datatype="&xsd;double">0.0030</value>
-        <hasTag rdf:resource="&bc;k/coal"/>
-        <hasTag rdf:resource="&bc;k/combustion"/>
-        <hasTag rdf:resource="&bc;k/n2o"/>
-        <hasUnit rdf:resource="&bc;u/tonne_per_tera_joule"/>
-    </owl:NamedIndividual>
-    
-
-
     <!-- http://www.myc-sense.com/ontologies/bc#sc/combustion+crude_oil+co2 -->
 
     <owl:NamedIndividual rdf:about="&bc;sc/combustion+crude_oil+co2">
@@ -8931,24 +8926,11 @@ Global warming potentials at horizon 500 years are taken from [IPCC AR4 WG1 2007
     
 
 
-    <!-- http://www.myc-sense.com/ontologies/bc#sc/combustion+gas_diesel_oil+ch4 -->
-
-    <owl:NamedIndividual rdf:about="&bc;sc/combustion+gas_diesel_oil+ch4">
-        <rdf:type rdf:resource="&bc;SingleCoefficient"/>
-        <value rdf:datatype="&xsd;double">0.0011</value>
-        <hasTag rdf:resource="&bc;k/ch4"/>
-        <hasTag rdf:resource="&bc;k/combustion"/>
-        <hasTag rdf:resource="&bc;k/gas_diesel_oil"/>
-        <hasUnit rdf:resource="&bc;u/tonne_per_tera_joule"/>
-    </owl:NamedIndividual>
-    
-
-
     <!-- http://www.myc-sense.com/ontologies/bc#sc/combustion+gas_diesel_oil+co2 -->
 
     <owl:NamedIndividual rdf:about="&bc;sc/combustion+gas_diesel_oil+co2">
         <rdf:type rdf:resource="&bc;SingleCoefficient"/>
-        <value rdf:datatype="&xsd;double">73.3</value>
+        <value rdf:datatype="&xsd;double">74.0</value>
         <hasTag rdf:resource="&bc;k/co2"/>
         <hasTag rdf:resource="&bc;k/combustion"/>
         <hasTag rdf:resource="&bc;k/gas_diesel_oil"/>
@@ -8957,79 +8939,14 @@ Global warming potentials at horizon 500 years are taken from [IPCC AR4 WG1 2007
     
 
 
-    <!-- http://www.myc-sense.com/ontologies/bc#sc/combustion+gas_diesel_oil+n2o -->
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/combustion+jet_kerosene+co2 -->
 
-    <owl:NamedIndividual rdf:about="&bc;sc/combustion+gas_diesel_oil+n2o">
+    <owl:NamedIndividual rdf:about="&bc;sc/combustion+jet_kerosene+co2">
         <rdf:type rdf:resource="&bc;SingleCoefficient"/>
-        <value rdf:datatype="&xsd;double">0.0023</value>
-        <hasTag rdf:resource="&bc;k/combustion"/>
-        <hasTag rdf:resource="&bc;k/gas_diesel_oil"/>
-        <hasTag rdf:resource="&bc;k/n2o"/>
-        <hasUnit rdf:resource="&bc;u/tonne_per_tera_joule"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.myc-sense.com/ontologies/bc#sc/combustion+gasoline+ch4 -->
-
-    <owl:NamedIndividual rdf:about="&bc;sc/combustion+gasoline+ch4">
-        <rdf:type rdf:resource="&bc;SingleCoefficient"/>
-        <value rdf:datatype="&xsd;double">0.0199</value>
-        <hasTag rdf:resource="&bc;k/ch4"/>
-        <hasTag rdf:resource="&bc;k/combustion"/>
-        <hasTag rdf:resource="&bc;k/gasoline"/>
-        <hasUnit rdf:resource="&bc;u/tonne_per_tera_joule"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.myc-sense.com/ontologies/bc#sc/combustion+gasoline+co2 -->
-
-    <owl:NamedIndividual rdf:about="&bc;sc/combustion+gasoline+co2">
-        <rdf:type rdf:resource="&bc;SingleCoefficient"/>
-        <value rdf:datatype="&xsd;double">73.4</value>
+        <value rdf:datatype="&xsd;double">71.8</value>
         <hasTag rdf:resource="&bc;k/co2"/>
         <hasTag rdf:resource="&bc;k/combustion"/>
-        <hasTag rdf:resource="&bc;k/gasoline"/>
-        <hasUnit rdf:resource="&bc;u/tonne_per_tera_joule"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.myc-sense.com/ontologies/bc#sc/combustion+gasoline+n2o -->
-
-    <owl:NamedIndividual rdf:about="&bc;sc/combustion+gasoline+n2o">
-        <rdf:type rdf:resource="&bc;SingleCoefficient"/>
-        <value rdf:datatype="&xsd;double">0.0023</value>
-        <hasTag rdf:resource="&bc;k/combustion"/>
-        <hasTag rdf:resource="&bc;k/gasoline"/>
-        <hasTag rdf:resource="&bc;k/n2o"/>
-        <hasUnit rdf:resource="&bc;u/tonne_per_tera_joule"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.myc-sense.com/ontologies/bc#sc/combustion+jet_fuel+co2 -->
-
-    <owl:NamedIndividual rdf:about="&bc;sc/combustion+jet_fuel+co2">
-        <rdf:type rdf:resource="&bc;SingleCoefficient"/>
-        <value rdf:datatype="&xsd;double">71.5</value>
-        <hasTag rdf:resource="&bc;k/co2"/>
-        <hasTag rdf:resource="&bc;k/combustion"/>
-        <hasTag rdf:resource="&bc;k/jet_fuel"/>
-        <hasUnit rdf:resource="&bc;u/tonne_per_tera_joule"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.myc-sense.com/ontologies/bc#sc/combustion+lignite+ch4 -->
-
-    <owl:NamedIndividual rdf:about="&bc;sc/combustion+lignite+ch4">
-        <rdf:type rdf:resource="&bc;SingleCoefficient"/>
-        <value rdf:datatype="&xsd;double">0.01</value>
-        <hasTag rdf:resource="&bc;k/ch4"/>
-        <hasTag rdf:resource="&bc;k/combustion"/>
-        <hasTag rdf:resource="&bc;k/lignite"/>
+        <hasTag rdf:resource="&bc;k/jet_kerosene"/>
         <hasUnit rdf:resource="&bc;u/tonne_per_tera_joule"/>
     </owl:NamedIndividual>
     
@@ -9039,7 +8956,7 @@ Global warming potentials at horizon 500 years are taken from [IPCC AR4 WG1 2007
 
     <owl:NamedIndividual rdf:about="&bc;sc/combustion+lignite+co2">
         <rdf:type rdf:resource="&bc;SingleCoefficient"/>
-        <value rdf:datatype="&xsd;double">100.0</value>
+        <value rdf:datatype="&xsd;double">101.1</value>
         <hasTag rdf:resource="&bc;k/co2"/>
         <hasTag rdf:resource="&bc;k/combustion"/>
         <hasTag rdf:resource="&bc;k/lignite"/>
@@ -9048,27 +8965,14 @@ Global warming potentials at horizon 500 years are taken from [IPCC AR4 WG1 2007
     
 
 
-    <!-- http://www.myc-sense.com/ontologies/bc#sc/combustion+lignite+n2o -->
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/combustion+motor_gasoline+co2 -->
 
-    <owl:NamedIndividual rdf:about="&bc;sc/combustion+lignite+n2o">
+    <owl:NamedIndividual rdf:about="&bc;sc/combustion+motor_gasoline+co2">
         <rdf:type rdf:resource="&bc;SingleCoefficient"/>
-        <value rdf:datatype="&xsd;double">0.0030</value>
+        <value rdf:datatype="&xsd;double">69.2</value>
+        <hasTag rdf:resource="&bc;k/co2"/>
         <hasTag rdf:resource="&bc;k/combustion"/>
-        <hasTag rdf:resource="&bc;k/lignite"/>
-        <hasTag rdf:resource="&bc;k/n2o"/>
-        <hasUnit rdf:resource="&bc;u/tonne_per_tera_joule"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.myc-sense.com/ontologies/bc#sc/combustion+natural_gas+ch4 -->
-
-    <owl:NamedIndividual rdf:about="&bc;sc/combustion+natural_gas+ch4">
-        <rdf:type rdf:resource="&bc;SingleCoefficient"/>
-        <value rdf:datatype="&xsd;double">0.0050</value>
-        <hasTag rdf:resource="&bc;k/ch4"/>
-        <hasTag rdf:resource="&bc;k/combustion"/>
-        <hasTag rdf:resource="&bc;k/natural_gas"/>
+        <hasTag rdf:resource="&bc;k/motor_gasoline"/>
         <hasUnit rdf:resource="&bc;u/tonne_per_tera_joule"/>
     </owl:NamedIndividual>
     
@@ -9078,36 +8982,10 @@ Global warming potentials at horizon 500 years are taken from [IPCC AR4 WG1 2007
 
     <owl:NamedIndividual rdf:about="&bc;sc/combustion+natural_gas+co2">
         <rdf:type rdf:resource="&bc;SingleCoefficient"/>
-        <value rdf:datatype="&xsd;double">55.8</value>
+        <value rdf:datatype="&xsd;double">56.1</value>
         <hasTag rdf:resource="&bc;k/co2"/>
         <hasTag rdf:resource="&bc;k/combustion"/>
         <hasTag rdf:resource="&bc;k/natural_gas"/>
-        <hasUnit rdf:resource="&bc;u/tonne_per_tera_joule"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.myc-sense.com/ontologies/bc#sc/combustion+natural_gas+n2o -->
-
-    <owl:NamedIndividual rdf:about="&bc;sc/combustion+natural_gas+n2o">
-        <rdf:type rdf:resource="&bc;SingleCoefficient"/>
-        <value rdf:datatype="&xsd;double">0.0025</value>
-        <hasTag rdf:resource="&bc;k/combustion"/>
-        <hasTag rdf:resource="&bc;k/n2o"/>
-        <hasTag rdf:resource="&bc;k/natural_gas"/>
-        <hasUnit rdf:resource="&bc;u/tonne_per_tera_joule"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.myc-sense.com/ontologies/bc#sc/combustion+residual_fuel_oil+ch4 -->
-
-    <owl:NamedIndividual rdf:about="&bc;sc/combustion+residual_fuel_oil+ch4">
-        <rdf:type rdf:resource="&bc;SingleCoefficient"/>
-        <value rdf:datatype="&xsd;double">0.0013</value>
-        <hasTag rdf:resource="&bc;k/ch4"/>
-        <hasTag rdf:resource="&bc;k/combustion"/>
-        <hasTag rdf:resource="&bc;k/residual_fuel_oil"/>
         <hasUnit rdf:resource="&bc;u/tonne_per_tera_joule"/>
     </owl:NamedIndividual>
     
@@ -9120,19 +8998,6 @@ Global warming potentials at horizon 500 years are taken from [IPCC AR4 WG1 2007
         <value rdf:datatype="&xsd;double">77.3</value>
         <hasTag rdf:resource="&bc;k/co2"/>
         <hasTag rdf:resource="&bc;k/combustion"/>
-        <hasTag rdf:resource="&bc;k/residual_fuel_oil"/>
-        <hasUnit rdf:resource="&bc;u/tonne_per_tera_joule"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.myc-sense.com/ontologies/bc#sc/combustion+residual_fuel_oil+n2o -->
-
-    <owl:NamedIndividual rdf:about="&bc;sc/combustion+residual_fuel_oil+n2o">
-        <rdf:type rdf:resource="&bc;SingleCoefficient"/>
-        <value rdf:datatype="&xsd;double">0.0018</value>
-        <hasTag rdf:resource="&bc;k/combustion"/>
-        <hasTag rdf:resource="&bc;k/n2o"/>
         <hasTag rdf:resource="&bc;k/residual_fuel_oil"/>
         <hasUnit rdf:resource="&bc;u/tonne_per_tera_joule"/>
     </owl:NamedIndividual>
@@ -9154,16 +9019,16 @@ Global warming potentials at horizon 500 years are taken from [IPCC AR4 WG1 2007
     
 
 
-    <!-- http://www.myc-sense.com/ontologies/bc#sc/correspondence+car+gasoline_engine+gasoline -->
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/correspondence+car+gasoline_engine+motor_gasoline -->
 
-    <owl:NamedIndividual rdf:about="&bc;sc/correspondence+car+gasoline_engine+gasoline">
+    <owl:NamedIndividual rdf:about="&bc;sc/correspondence+car+gasoline_engine+motor_gasoline">
         <rdf:type rdf:resource="&bc;SingleCoefficient"/>
         <uncertainty rdf:datatype="&xsd;double">0.0</uncertainty>
         <value rdf:datatype="&xsd;double">100.0</value>
         <hasTag rdf:resource="&bc;k/car"/>
         <hasTag rdf:resource="&bc;k/correspondence"/>
-        <hasTag rdf:resource="&bc;k/gasoline"/>
         <hasTag rdf:resource="&bc;k/gasoline_engine"/>
+        <hasTag rdf:resource="&bc;k/motor_gasoline"/>
         <hasUnit rdf:resource="&bc;u/percent"/>
     </owl:NamedIndividual>
     
@@ -9314,13 +9179,13 @@ Global warming potentials at horizon 500 years are taken from [IPCC AR4 WG1 2007
     
 
 
-    <!-- http://www.myc-sense.com/ontologies/bc#sc/energy+refining+gasoline -->
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/energy+refining+motor_gasoline -->
 
-    <owl:NamedIndividual rdf:about="&bc;sc/energy+refining+gasoline">
+    <owl:NamedIndividual rdf:about="&bc;sc/energy+refining+motor_gasoline">
         <rdf:type rdf:resource="&bc;SingleCoefficient"/>
         <value rdf:datatype="&xsd;double">0.08</value>
         <hasTag rdf:resource="&bc;k/energy"/>
-        <hasTag rdf:resource="&bc;k/gasoline"/>
+        <hasTag rdf:resource="&bc;k/motor_gasoline"/>
         <hasTag rdf:resource="&bc;k/refining"/>
         <hasUnit rdf:resource="&bc;u/megajoule_per_megajoule"/>
     </owl:NamedIndividual>
@@ -9587,69 +9452,69 @@ Global warming potentials at horizon 500 years are taken from [IPCC AR4 WG1 2007
     
 
 
-    <!-- http://www.myc-sense.com/ontologies/bc#sc/fuel_consumption+jet_fuel+between_1000_and_4000_km+between_100_and_250_t -->
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/fuel_consumption+jet_kerosene+between_1000_and_4000_km+between_100_and_250_t -->
 
-    <owl:NamedIndividual rdf:about="&bc;sc/fuel_consumption+jet_fuel+between_1000_and_4000_km+between_100_and_250_t">
+    <owl:NamedIndividual rdf:about="&bc;sc/fuel_consumption+jet_kerosene+between_1000_and_4000_km+between_100_and_250_t">
         <rdf:type rdf:resource="&bc;SingleCoefficient"/>
         <value rdf:datatype="&xsd;double">57.5</value>
         <hasTag rdf:resource="&bc;k/between_1000_and_4000_km"/>
         <hasTag rdf:resource="&bc;k/between_100_and_250_t"/>
         <hasTag rdf:resource="&bc;k/fuel_consumption"/>
-        <hasTag rdf:resource="&bc;k/jet_fuel"/>
+        <hasTag rdf:resource="&bc;k/jet_kerosene"/>
         <hasUnit rdf:resource="&bc;u/liter_per_tonne_100_kilometer"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.myc-sense.com/ontologies/bc#sc/fuel_consumption+jet_fuel+between_1000_and_4000_km+less_than_100_t -->
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/fuel_consumption+jet_kerosene+between_1000_and_4000_km+less_than_100_t -->
 
-    <owl:NamedIndividual rdf:about="&bc;sc/fuel_consumption+jet_fuel+between_1000_and_4000_km+less_than_100_t">
+    <owl:NamedIndividual rdf:about="&bc;sc/fuel_consumption+jet_kerosene+between_1000_and_4000_km+less_than_100_t">
         <rdf:type rdf:resource="&bc;SingleCoefficient"/>
         <value rdf:datatype="&xsd;double">89.9</value>
         <hasTag rdf:resource="&bc;k/between_1000_and_4000_km"/>
         <hasTag rdf:resource="&bc;k/fuel_consumption"/>
-        <hasTag rdf:resource="&bc;k/jet_fuel"/>
+        <hasTag rdf:resource="&bc;k/jet_kerosene"/>
         <hasTag rdf:resource="&bc;k/less_than_100_t"/>
         <hasUnit rdf:resource="&bc;u/liter_per_tonne_100_kilometer"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.myc-sense.com/ontologies/bc#sc/fuel_consumption+jet_fuel+between_4000_and_7000_km+more_than_250_t -->
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/fuel_consumption+jet_kerosene+between_4000_and_7000_km+more_than_250_t -->
 
-    <owl:NamedIndividual rdf:about="&bc;sc/fuel_consumption+jet_fuel+between_4000_and_7000_km+more_than_250_t">
+    <owl:NamedIndividual rdf:about="&bc;sc/fuel_consumption+jet_kerosene+between_4000_and_7000_km+more_than_250_t">
         <rdf:type rdf:resource="&bc;SingleCoefficient"/>
         <value rdf:datatype="&xsd;double">22.4</value>
         <hasTag rdf:resource="&bc;k/between_4000_and_7000_km"/>
         <hasTag rdf:resource="&bc;k/fuel_consumption"/>
-        <hasTag rdf:resource="&bc;k/jet_fuel"/>
+        <hasTag rdf:resource="&bc;k/jet_kerosene"/>
         <hasTag rdf:resource="&bc;k/more_than_250_t"/>
         <hasUnit rdf:resource="&bc;u/liter_per_tonne_100_kilometer"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.myc-sense.com/ontologies/bc#sc/fuel_consumption+jet_fuel+less_than_1000_km+between_100_and_250_t -->
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/fuel_consumption+jet_kerosene+less_than_1000_km+between_100_and_250_t -->
 
-    <owl:NamedIndividual rdf:about="&bc;sc/fuel_consumption+jet_fuel+less_than_1000_km+between_100_and_250_t">
+    <owl:NamedIndividual rdf:about="&bc;sc/fuel_consumption+jet_kerosene+less_than_1000_km+between_100_and_250_t">
         <rdf:type rdf:resource="&bc;SingleCoefficient"/>
         <value rdf:datatype="&xsd;double">71.9</value>
         <hasTag rdf:resource="&bc;k/between_100_and_250_t"/>
         <hasTag rdf:resource="&bc;k/fuel_consumption"/>
-        <hasTag rdf:resource="&bc;k/jet_fuel"/>
+        <hasTag rdf:resource="&bc;k/jet_kerosene"/>
         <hasTag rdf:resource="&bc;k/less_than_1000_km"/>
         <hasUnit rdf:resource="&bc;u/liter_per_tonne_100_kilometer"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.myc-sense.com/ontologies/bc#sc/fuel_consumption+jet_fuel+less_than_1000_km+less_than_100_t -->
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/fuel_consumption+jet_kerosene+less_than_1000_km+less_than_100_t -->
 
-    <owl:NamedIndividual rdf:about="&bc;sc/fuel_consumption+jet_fuel+less_than_1000_km+less_than_100_t">
+    <owl:NamedIndividual rdf:about="&bc;sc/fuel_consumption+jet_kerosene+less_than_1000_km+less_than_100_t">
         <rdf:type rdf:resource="&bc;SingleCoefficient"/>
         <value rdf:datatype="&xsd;double">105.7</value>
         <hasTag rdf:resource="&bc;k/fuel_consumption"/>
-        <hasTag rdf:resource="&bc;k/jet_fuel"/>
+        <hasTag rdf:resource="&bc;k/jet_kerosene"/>
         <hasTag rdf:resource="&bc;k/less_than_1000_km"/>
         <hasTag rdf:resource="&bc;k/less_than_100_t"/>
         <hasUnit rdf:resource="&bc;u/liter_per_tonne_100_kilometer"/>
@@ -9657,13 +9522,13 @@ Global warming potentials at horizon 500 years are taken from [IPCC AR4 WG1 2007
     
 
 
-    <!-- http://www.myc-sense.com/ontologies/bc#sc/fuel_consumption+jet_fuel+more_than_7000_km+more_than_250_t -->
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/fuel_consumption+jet_kerosene+more_than_7000_km+more_than_250_t -->
 
-    <owl:NamedIndividual rdf:about="&bc;sc/fuel_consumption+jet_fuel+more_than_7000_km+more_than_250_t">
+    <owl:NamedIndividual rdf:about="&bc;sc/fuel_consumption+jet_kerosene+more_than_7000_km+more_than_250_t">
         <rdf:type rdf:resource="&bc;SingleCoefficient"/>
         <value rdf:datatype="&xsd;double">22.3</value>
         <hasTag rdf:resource="&bc;k/fuel_consumption"/>
-        <hasTag rdf:resource="&bc;k/jet_fuel"/>
+        <hasTag rdf:resource="&bc;k/jet_kerosene"/>
         <hasTag rdf:resource="&bc;k/more_than_250_t"/>
         <hasTag rdf:resource="&bc;k/more_than_7000_km"/>
         <hasUnit rdf:resource="&bc;u/liter_per_tonne_100_kilometer"/>
@@ -10058,18 +9923,6 @@ Global warming potentials at horizon 500 years are taken from [IPCC AR4 WG1 2007
     
 
 
-    <!-- http://www.myc-sense.com/ontologies/bc#sc/lower_heating_value+coal -->
-
-    <owl:NamedIndividual rdf:about="&bc;sc/lower_heating_value+coal">
-        <rdf:type rdf:resource="&bc;SingleCoefficient"/>
-        <value rdf:datatype="&xsd;double">32.0</value>
-        <hasTag rdf:resource="&bc;k/coal"/>
-        <hasTag rdf:resource="&bc;k/lower_heating_value"/>
-        <hasUnit rdf:resource="&bc;u/gigajoule_per_tonne"/>
-    </owl:NamedIndividual>
-    
-
-
     <!-- http://www.myc-sense.com/ontologies/bc#sc/lower_heating_value+crude_oil -->
 
     <owl:NamedIndividual rdf:about="&bc;sc/lower_heating_value+crude_oil">
@@ -10094,24 +9947,12 @@ Global warming potentials at horizon 500 years are taken from [IPCC AR4 WG1 2007
     
 
 
-    <!-- http://www.myc-sense.com/ontologies/bc#sc/lower_heating_value+gasoline -->
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/lower_heating_value+jet_kerosene -->
 
-    <owl:NamedIndividual rdf:about="&bc;sc/lower_heating_value+gasoline">
-        <rdf:type rdf:resource="&bc;SingleCoefficient"/>
-        <value rdf:datatype="&xsd;double">43.0</value>
-        <hasTag rdf:resource="&bc;k/gasoline"/>
-        <hasTag rdf:resource="&bc;k/lower_heating_value"/>
-        <hasUnit rdf:resource="&bc;u/gigajoule_per_tonne"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.myc-sense.com/ontologies/bc#sc/lower_heating_value+jet_fuel -->
-
-    <owl:NamedIndividual rdf:about="&bc;sc/lower_heating_value+jet_fuel">
+    <owl:NamedIndividual rdf:about="&bc;sc/lower_heating_value+jet_kerosene">
         <rdf:type rdf:resource="&bc;SingleCoefficient"/>
         <value rdf:datatype="&xsd;double">44.1</value>
-        <hasTag rdf:resource="&bc;k/jet_fuel"/>
+        <hasTag rdf:resource="&bc;k/jet_kerosene"/>
         <hasTag rdf:resource="&bc;k/lower_heating_value"/>
         <hasUnit rdf:resource="&bc;u/gigajoule_per_tonne"/>
     </owl:NamedIndividual>
@@ -10122,9 +9963,21 @@ Global warming potentials at horizon 500 years are taken from [IPCC AR4 WG1 2007
 
     <owl:NamedIndividual rdf:about="&bc;sc/lower_heating_value+lignite">
         <rdf:type rdf:resource="&bc;SingleCoefficient"/>
-        <value rdf:datatype="&xsd;double">17.0</value>
+        <value rdf:datatype="&xsd;double">11.9</value>
         <hasTag rdf:resource="&bc;k/lignite"/>
         <hasTag rdf:resource="&bc;k/lower_heating_value"/>
+        <hasUnit rdf:resource="&bc;u/gigajoule_per_tonne"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/lower_heating_value+motor_gasoline -->
+
+    <owl:NamedIndividual rdf:about="&bc;sc/lower_heating_value+motor_gasoline">
+        <rdf:type rdf:resource="&bc;SingleCoefficient"/>
+        <value rdf:datatype="&xsd;double">44.3</value>
+        <hasTag rdf:resource="&bc;k/lower_heating_value"/>
+        <hasTag rdf:resource="&bc;k/motor_gasoline"/>
         <hasUnit rdf:resource="&bc;u/gigajoule_per_tonne"/>
     </owl:NamedIndividual>
     
@@ -10134,7 +9987,7 @@ Global warming potentials at horizon 500 years are taken from [IPCC AR4 WG1 2007
 
     <owl:NamedIndividual rdf:about="&bc;sc/lower_heating_value+natural_gas">
         <rdf:type rdf:resource="&bc;SingleCoefficient"/>
-        <value rdf:datatype="&xsd;double">49.6</value>
+        <value rdf:datatype="&xsd;double">48.0</value>
         <hasTag rdf:resource="&bc;k/lower_heating_value"/>
         <hasTag rdf:resource="&bc;k/natural_gas"/>
         <hasUnit rdf:resource="&bc;u/gigajoule_per_tonne"/>
@@ -10146,7 +9999,7 @@ Global warming potentials at horizon 500 years are taken from [IPCC AR4 WG1 2007
 
     <owl:NamedIndividual rdf:about="&bc;sc/lower_heating_value+residual_fuel_oil">
         <rdf:type rdf:resource="&bc;SingleCoefficient"/>
-        <value rdf:datatype="&xsd;double">40.0</value>
+        <value rdf:datatype="&xsd;double">40.4</value>
         <hasTag rdf:resource="&bc;k/lower_heating_value"/>
         <hasTag rdf:resource="&bc;k/residual_fuel_oil"/>
         <hasUnit rdf:resource="&bc;u/gigajoule_per_tonne"/>
@@ -10622,38 +10475,12 @@ This value is to be checked.</rdfs:comment>
     
 
 
-    <!-- http://www.myc-sense.com/ontologies/bc#sc/ratio+hhv_to_lhv+coal -->
-
-    <owl:NamedIndividual rdf:about="&bc;sc/ratio+hhv_to_lhv+coal">
-        <rdf:type rdf:resource="&bc;SingleCoefficient"/>
-        <value rdf:datatype="&xsd;double">1.05</value>
-        <hasTag rdf:resource="&bc;k/coal"/>
-        <hasTag rdf:resource="&bc;k/hhv_to_lhv"/>
-        <hasTag rdf:resource="&bc;k/ratio"/>
-        <hasUnit rdf:resource="&bc;u/one"/>
-    </owl:NamedIndividual>
-    
-
-
     <!-- http://www.myc-sense.com/ontologies/bc#sc/ratio+hhv_to_lhv+gas_diesel_oil -->
 
     <owl:NamedIndividual rdf:about="&bc;sc/ratio+hhv_to_lhv+gas_diesel_oil">
         <rdf:type rdf:resource="&bc;SingleCoefficient"/>
-        <value rdf:datatype="&xsd;double">1.07</value>
+        <value rdf:datatype="&xsd;double">1.063</value>
         <hasTag rdf:resource="&bc;k/gas_diesel_oil"/>
-        <hasTag rdf:resource="&bc;k/hhv_to_lhv"/>
-        <hasTag rdf:resource="&bc;k/ratio"/>
-        <hasUnit rdf:resource="&bc;u/one"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.myc-sense.com/ontologies/bc#sc/ratio+hhv_to_lhv+gasoline -->
-
-    <owl:NamedIndividual rdf:about="&bc;sc/ratio+hhv_to_lhv+gasoline">
-        <rdf:type rdf:resource="&bc;SingleCoefficient"/>
-        <value rdf:datatype="&xsd;double">1.08</value>
-        <hasTag rdf:resource="&bc;k/gasoline"/>
         <hasTag rdf:resource="&bc;k/hhv_to_lhv"/>
         <hasTag rdf:resource="&bc;k/ratio"/>
         <hasUnit rdf:resource="&bc;u/one"/>
@@ -10674,11 +10501,24 @@ This value is to be checked.</rdfs:comment>
     
 
 
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/ratio+hhv_to_lhv+motor_gasoline -->
+
+    <owl:NamedIndividual rdf:about="&bc;sc/ratio+hhv_to_lhv+motor_gasoline">
+        <rdf:type rdf:resource="&bc;SingleCoefficient"/>
+        <value rdf:datatype="&xsd;double">1.063</value>
+        <hasTag rdf:resource="&bc;k/hhv_to_lhv"/>
+        <hasTag rdf:resource="&bc;k/motor_gasoline"/>
+        <hasTag rdf:resource="&bc;k/ratio"/>
+        <hasUnit rdf:resource="&bc;u/one"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.myc-sense.com/ontologies/bc#sc/ratio+hhv_to_lhv+natural_gas -->
 
     <owl:NamedIndividual rdf:about="&bc;sc/ratio+hhv_to_lhv+natural_gas">
         <rdf:type rdf:resource="&bc;SingleCoefficient"/>
-        <value rdf:datatype="&xsd;double">1.11</value>
+        <value rdf:datatype="&xsd;double">1.109</value>
         <hasTag rdf:resource="&bc;k/hhv_to_lhv"/>
         <hasTag rdf:resource="&bc;k/natural_gas"/>
         <hasTag rdf:resource="&bc;k/ratio"/>
@@ -10691,7 +10531,7 @@ This value is to be checked.</rdfs:comment>
 
     <owl:NamedIndividual rdf:about="&bc;sc/ratio+hhv_to_lhv+residual_fuel_oil">
         <rdf:type rdf:resource="&bc;SingleCoefficient"/>
-        <value rdf:datatype="&xsd;double">1.06</value>
+        <value rdf:datatype="&xsd;double">1.058</value>
         <hasTag rdf:resource="&bc;k/hhv_to_lhv"/>
         <hasTag rdf:resource="&bc;k/ratio"/>
         <hasTag rdf:resource="&bc;k/residual_fuel_oil"/>
@@ -10856,7 +10696,7 @@ This value is to be checked.</rdfs:comment>
 
     <owl:NamedIndividual rdf:about="&bc;sc/volumetric_mass_density+crude_oil">
         <rdf:type rdf:resource="&bc;SingleCoefficient"/>
-        <value rdf:datatype="&xsd;double">900.0</value>
+        <value rdf:datatype="&xsd;double">856.0</value>
         <hasTag rdf:resource="&bc;k/crude_oil"/>
         <hasTag rdf:resource="&bc;k/volumetric_mass_density"/>
         <hasUnit rdf:resource="&bc;u/kilogram_per_cube_meter"/>
@@ -10868,7 +10708,7 @@ This value is to be checked.</rdfs:comment>
 
     <owl:NamedIndividual rdf:about="&bc;sc/volumetric_mass_density+gas_diesel_oil">
         <rdf:type rdf:resource="&bc;SingleCoefficient"/>
-        <value rdf:datatype="&xsd;double">845.0</value>
+        <value rdf:datatype="&xsd;double">837.0</value>
         <hasTag rdf:resource="&bc;k/gas_diesel_oil"/>
         <hasTag rdf:resource="&bc;k/volumetric_mass_density"/>
         <hasUnit rdf:resource="&bc;u/kilogram_per_cube_meter"/>
@@ -10876,24 +10716,24 @@ This value is to be checked.</rdfs:comment>
     
 
 
-    <!-- http://www.myc-sense.com/ontologies/bc#sc/volumetric_mass_density+gasoline -->
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/volumetric_mass_density+jet_kerosene -->
 
-    <owl:NamedIndividual rdf:about="&bc;sc/volumetric_mass_density+gasoline">
+    <owl:NamedIndividual rdf:about="&bc;sc/volumetric_mass_density+jet_kerosene">
         <rdf:type rdf:resource="&bc;SingleCoefficient"/>
-        <value rdf:datatype="&xsd;double">755.0</value>
-        <hasTag rdf:resource="&bc;k/gasoline"/>
+        <value rdf:datatype="&xsd;double">807.0</value>
+        <hasTag rdf:resource="&bc;k/jet_kerosene"/>
         <hasTag rdf:resource="&bc;k/volumetric_mass_density"/>
         <hasUnit rdf:resource="&bc;u/kilogram_per_cube_meter"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.myc-sense.com/ontologies/bc#sc/volumetric_mass_density+jet_fuel -->
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/volumetric_mass_density+motor_gasoline -->
 
-    <owl:NamedIndividual rdf:about="&bc;sc/volumetric_mass_density+jet_fuel">
+    <owl:NamedIndividual rdf:about="&bc;sc/volumetric_mass_density+motor_gasoline">
         <rdf:type rdf:resource="&bc;SingleCoefficient"/>
-        <value rdf:datatype="&xsd;double">800.0</value>
-        <hasTag rdf:resource="&bc;k/jet_fuel"/>
+        <value rdf:datatype="&xsd;double">741.0</value>
+        <hasTag rdf:resource="&bc;k/motor_gasoline"/>
         <hasTag rdf:resource="&bc;k/volumetric_mass_density"/>
         <hasUnit rdf:resource="&bc;u/kilogram_per_cube_meter"/>
     </owl:NamedIndividual>
@@ -10904,7 +10744,7 @@ This value is to be checked.</rdfs:comment>
 
     <owl:NamedIndividual rdf:about="&bc;sc/volumetric_mass_density+residual_fuel_oil">
         <rdf:type rdf:resource="&bc;SingleCoefficient"/>
-        <value rdf:datatype="&xsd;double">900.0</value>
+        <value rdf:datatype="&xsd;double">959.0</value>
         <hasTag rdf:resource="&bc;k/residual_fuel_oil"/>
         <hasTag rdf:resource="&bc;k/volumetric_mass_density"/>
         <hasUnit rdf:resource="&bc;u/kilogram_per_cube_meter"/>
@@ -11389,20 +11229,6 @@ This value is to be checked.</rdfs:comment>
     </rdf:Description>
     <rdf:Description>
         <rdf:type rdf:resource="&swrl;Imp"/>
-        <swrl:body>
-            <rdf:Description>
-                <rdf:type rdf:resource="&swrl;AtomList"/>
-                <rdf:rest rdf:resource="&rdf;nil"/>
-                <rdf:first>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
-                        <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
-                        <swrl:argument1 rdf:resource="&bc;k/cattle"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
-                    </rdf:Description>
-                </rdf:first>
-            </rdf:Description>
-        </swrl:body>
         <swrl:head>
             <rdf:Description>
                 <rdf:type rdf:resource="&swrl;AtomList"/>
@@ -11417,23 +11243,23 @@ This value is to be checked.</rdfs:comment>
                 </rdf:first>
             </rdf:Description>
         </swrl:head>
-    </rdf:Description>
-    <rdf:Description>
-        <rdf:type rdf:resource="&swrl;Imp"/>
-        <swrl:head>
+        <swrl:body>
             <rdf:Description>
                 <rdf:type rdf:resource="&swrl;AtomList"/>
                 <rdf:rest rdf:resource="&rdf;nil"/>
                 <rdf:first>
                     <rdf:Description>
                         <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
-                        <swrl:propertyPredicate rdf:resource="&bc;containsKeyword"/>
-                        <swrl:argument1 rdf:resource="&bc;d/waste"/>
+                        <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
+                        <swrl:argument1 rdf:resource="&bc;k/cattle"/>
                         <swrl:argument2 rdf:resource="urn:swrl#kw"/>
                     </rdf:Description>
                 </rdf:first>
             </rdf:Description>
-        </swrl:head>
+        </swrl:body>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&swrl;Imp"/>
         <swrl:body>
             <rdf:Description>
                 <rdf:type rdf:resource="&swrl;AtomList"/>
@@ -11448,23 +11274,23 @@ This value is to be checked.</rdfs:comment>
                 </rdf:first>
             </rdf:Description>
         </swrl:body>
-    </rdf:Description>
-    <rdf:Description>
-        <rdf:type rdf:resource="&swrl;Imp"/>
-        <swrl:body>
+        <swrl:head>
             <rdf:Description>
                 <rdf:type rdf:resource="&swrl;AtomList"/>
                 <rdf:rest rdf:resource="&rdf;nil"/>
                 <rdf:first>
                     <rdf:Description>
                         <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
-                        <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
-                        <swrl:argument1 rdf:resource="&bc;k/cattle_meat"/>
+                        <swrl:propertyPredicate rdf:resource="&bc;containsKeyword"/>
+                        <swrl:argument1 rdf:resource="&bc;d/waste"/>
                         <swrl:argument2 rdf:resource="urn:swrl#kw"/>
                     </rdf:Description>
                 </rdf:first>
             </rdf:Description>
-        </swrl:body>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&swrl;Imp"/>
         <swrl:head>
             <rdf:Description>
                 <rdf:type rdf:resource="&swrl;AtomList"/>
@@ -11479,6 +11305,20 @@ This value is to be checked.</rdfs:comment>
                 </rdf:first>
             </rdf:Description>
         </swrl:head>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="&swrl;AtomList"/>
+                <rdf:rest rdf:resource="&rdf;nil"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
+                        <swrl:argument1 rdf:resource="&bc;k/cattle_meat"/>
+                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
+                    </rdf:Description>
+                </rdf:first>
+            </rdf:Description>
+        </swrl:body>
     </rdf:Description>
     <rdf:Description>
         <rdf:type rdf:resource="&swrl;Imp"/>
@@ -11513,20 +11353,6 @@ This value is to be checked.</rdfs:comment>
     </rdf:Description>
     <rdf:Description>
         <rdf:type rdf:resource="&swrl;Imp"/>
-        <swrl:body>
-            <rdf:Description>
-                <rdf:type rdf:resource="&swrl;AtomList"/>
-                <rdf:rest rdf:resource="&rdf;nil"/>
-                <rdf:first>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
-                        <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
-                        <swrl:argument1 rdf:resource="&bc;k/agricultural_input"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
-                    </rdf:Description>
-                </rdf:first>
-            </rdf:Description>
-        </swrl:body>
         <swrl:head>
             <rdf:Description>
                 <rdf:type rdf:resource="&swrl;AtomList"/>
@@ -11541,6 +11367,20 @@ This value is to be checked.</rdfs:comment>
                 </rdf:first>
             </rdf:Description>
         </swrl:head>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="&swrl;AtomList"/>
+                <rdf:rest rdf:resource="&rdf;nil"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
+                        <swrl:argument1 rdf:resource="&bc;k/agricultural_input"/>
+                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
+                    </rdf:Description>
+                </rdf:first>
+            </rdf:Description>
+        </swrl:body>
     </rdf:Description>
     <rdf:Description>
         <rdf:type rdf:resource="&swrl;Imp"/>
@@ -11575,20 +11415,6 @@ This value is to be checked.</rdfs:comment>
     </rdf:Description>
     <rdf:Description>
         <rdf:type rdf:resource="&swrl;Imp"/>
-        <swrl:head>
-            <rdf:Description>
-                <rdf:type rdf:resource="&swrl;AtomList"/>
-                <rdf:rest rdf:resource="&rdf;nil"/>
-                <rdf:first>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
-                        <swrl:propertyPredicate rdf:resource="&bc;containsKeyword"/>
-                        <swrl:argument1 rdf:resource="&bc;d/greenhouse_gas"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
-                    </rdf:Description>
-                </rdf:first>
-            </rdf:Description>
-        </swrl:head>
         <swrl:body>
             <rdf:Description>
                 <rdf:type rdf:resource="&swrl;AtomList"/>
@@ -11603,6 +11429,20 @@ This value is to be checked.</rdfs:comment>
                 </rdf:first>
             </rdf:Description>
         </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="&swrl;AtomList"/>
+                <rdf:rest rdf:resource="&rdf;nil"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="&bc;containsKeyword"/>
+                        <swrl:argument1 rdf:resource="&bc;d/greenhouse_gas"/>
+                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
+                    </rdf:Description>
+                </rdf:first>
+            </rdf:Description>
+        </swrl:head>
     </rdf:Description>
 </rdf:RDF>
 
