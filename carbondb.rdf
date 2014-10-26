@@ -927,16 +927,9 @@
     <owl:Class rdf:about="&bc;ComponentOfImpactType">
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;uncertainty"/>
+                <owl:onProperty rdf:resource="&bc;contributesToImpactType"/>
+                <owl:onClass rdf:resource="&bc;ImpactType"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onDataRange rdf:resource="&xsd;double"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;value"/>
-                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onDataRange rdf:resource="&xsd;double"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -948,9 +941,16 @@
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;contributesToImpactType"/>
-                <owl:onClass rdf:resource="&bc;ImpactType"/>
+                <owl:onProperty rdf:resource="&bc;value"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;double"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&bc;uncertainty"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;double"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <owl:disjointWith rdf:resource="&bc;ElementaryFlowType"/>
@@ -1005,15 +1005,15 @@
         <rdfs:subClassOf rdf:resource="&bc;ThingWithUnit"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;hasReference"/>
-                <owl:someValuesFrom rdf:resource="&bc;Reference"/>
+                <owl:onProperty rdf:resource="&bc;hasUnit"/>
+                <owl:onClass rdf:resource="&bc;Unit"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;hasUnit"/>
-                <owl:onClass rdf:resource="&bc;Unit"/>
-                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onProperty rdf:resource="&bc;hasReference"/>
+                <owl:someValuesFrom rdf:resource="&bc;Reference"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
@@ -1023,6 +1023,13 @@
     <!-- http://www.myc-sense.com/ontologies/bc#ElementaryFlow -->
 
     <owl:Class rdf:about="&bc;ElementaryFlow">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&bc;isFlowOfSingleProcess"/>
+                <owl:onClass rdf:resource="&bc;SingleProcess"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&bc;value"/>
@@ -1042,13 +1049,6 @@
                 <owl:onProperty rdf:resource="&bc;uncertainty"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
                 <owl:onDataRange rdf:resource="&xsd;double"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;isFlowOfSingleProcess"/>
-                <owl:onClass rdf:resource="&bc;SingleProcess"/>
-                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <owl:disjointWith rdf:resource="&bc;ElementaryFlowType"/>
@@ -1094,7 +1094,7 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&bc;hasDimension"/>
-                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
+                <owl:someValuesFrom rdf:resource="&bc;Dimension"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -1107,7 +1107,7 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&bc;hasDimension"/>
-                <owl:someValuesFrom rdf:resource="&bc;Dimension"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <owl:disjointWith rdf:resource="&bc;ImpactType"/>
@@ -1127,13 +1127,6 @@
     <owl:Class rdf:about="&bc;Impact">
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;uncertainty"/>
-                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onDataRange rdf:resource="&xsd;double"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
                 <owl:onProperty rdf:resource="&bc;hasImpactType"/>
                 <owl:onClass rdf:resource="&bc;ImpactType"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
@@ -1142,6 +1135,13 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&bc;value"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;double"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&bc;uncertainty"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
                 <owl:onDataRange rdf:resource="&xsd;double"/>
             </owl:Restriction>
@@ -1156,15 +1156,15 @@
     <owl:Class rdf:about="&bc;ImpactType">
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;isImpactType"/>
-                <owl:someValuesFrom rdf:resource="&bc;Impact"/>
+                <owl:onProperty rdf:resource="&bc;belongsToCategoryOfImpactType"/>
+                <owl:onClass rdf:resource="&bc;CategoryOfImpactType"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;belongsToCategoryOfImpactType"/>
-                <owl:onClass rdf:resource="&bc;CategoryOfImpactType"/>
-                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onProperty rdf:resource="&bc;isImpactType"/>
+                <owl:someValuesFrom rdf:resource="&bc;Impact"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <owl:disjointWith rdf:resource="&bc;Keyword"/>
@@ -1213,6 +1213,13 @@
     <owl:Class rdf:about="&bc;PositionOfKeywordInDimension">
         <rdfs:subClassOf>
             <owl:Restriction>
+                <owl:onProperty rdf:resource="&bc;providesPositionToKeyword"/>
+                <owl:onClass rdf:resource="&bc;Keyword"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
                 <owl:onProperty rdf:resource="&bc;providesPositionInDimension"/>
                 <owl:onClass rdf:resource="&bc;Dimension"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
@@ -1223,13 +1230,6 @@
                 <owl:onProperty rdf:resource="&bc;position"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
                 <owl:onDataRange rdf:resource="&xsd;short"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;providesPositionToKeyword"/>
-                <owl:onClass rdf:resource="&bc;Keyword"/>
-                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <owl:disjointWith rdf:resource="&bc;Reference"/>
@@ -1291,8 +1291,8 @@
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;hasWeightCoefficient"/>
-                <owl:onClass rdf:resource="&bc;Coefficient"/>
+                <owl:onProperty rdf:resource="&bc;hasOriginProcess"/>
+                <owl:onClass rdf:resource="&bc;Process"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -1305,8 +1305,8 @@
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;hasOriginProcess"/>
-                <owl:onClass rdf:resource="&bc;Process"/>
+                <owl:onProperty rdf:resource="&bc;hasWeightCoefficient"/>
+                <owl:onClass rdf:resource="&bc;Coefficient"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -1338,14 +1338,14 @@
         <rdfs:subClassOf rdf:resource="&bc;SingleElement"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;value"/>
+                <owl:onProperty rdf:resource="&bc;uncertainty"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
                 <owl:onDataRange rdf:resource="&xsd;double"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;uncertainty"/>
+                <owl:onProperty rdf:resource="&bc;value"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
                 <owl:onDataRange rdf:resource="&xsd;double"/>
             </owl:Restriction>
@@ -2339,7 +2339,6 @@
     <!-- http://www.myc-sense.com/ontologies/bc#d/fuel_unit_of_energy_hhv -->
 
     <owl:NamedIndividual rdf:about="&bc;d/fuel_unit_of_energy_hhv">
-        <containsKeyword rdf:resource="&bc;k/coal"/>
         <containsKeyword rdf:resource="&bc;k/gas_diesel_oil"/>
         <containsKeyword rdf:resource="&bc;k/lignite"/>
         <containsKeyword rdf:resource="&bc;k/motor_gasoline"/>
@@ -2429,15 +2428,6 @@
 
     <owl:NamedIndividual rdf:about="&bc;d/greenhouse_gas_emitted_by_spreading_of_nitrogen_based_fertilizer">
         <containsKeyword rdf:resource="&bc;k/n2o"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.myc-sense.com/ontologies/bc#d/greenhouse_gas_emitted_by_upstream_of_fuel -->
-
-    <owl:NamedIndividual rdf:about="&bc;d/greenhouse_gas_emitted_by_upstream_of_fuel">
-        <containsKeyword rdf:resource="&bc;k/ch4"/>
-        <containsKeyword rdf:resource="&bc;k/co2"/>
     </owl:NamedIndividual>
     
 
@@ -2540,12 +2530,23 @@
     
 
 
-    <!-- http://www.myc-sense.com/ontologies/bc#d/process_for_crude_fossil_fuel_production -->
+    <!-- http://www.myc-sense.com/ontologies/bc#d/process_for_crude_fossil_fuel_production_ghg -->
 
-    <owl:NamedIndividual rdf:about="&bc;d/process_for_crude_fossil_fuel_production">
+    <owl:NamedIndividual rdf:about="&bc;d/process_for_crude_fossil_fuel_production_ghg">
         <rdfs:label xml:lang="en">Energy use in production</rdfs:label>
         <containsKeyword rdf:resource="&bc;k/energy_use_in_production"/>
         <containsKeyword rdf:resource="&bc;k/flaring"/>
+        <containsKeyword rdf:resource="&bc;k/venting_and_fugitive_loss"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#d/process_for_crude_fossil_fuel_production_primary_energy -->
+
+    <owl:NamedIndividual rdf:about="&bc;d/process_for_crude_fossil_fuel_production_primary_energy">
+        <containsKeyword rdf:resource="&bc;k/energy_use_in_production"/>
+        <containsKeyword rdf:resource="&bc;k/flaring"/>
+        <containsKeyword rdf:resource="&bc;k/produced_fuel"/>
         <containsKeyword rdf:resource="&bc;k/venting_and_fugitive_loss"/>
     </owl:NamedIndividual>
     
@@ -2649,31 +2650,6 @@
     <owl:NamedIndividual rdf:about="&bc;d/transport_process">
         <containsKeyword rdf:resource="&bc;k/combustion"/>
         <containsKeyword rdf:resource="&bc;k/manufacture"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.myc-sense.com/ontologies/bc#d/upstream_of_fuel -->
-
-    <owl:NamedIndividual rdf:about="&bc;d/upstream_of_fuel">
-        <containsKeyword rdf:resource="&bc;k/refining"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.myc-sense.com/ontologies/bc#d/upstream_of_fuel_standard_step -->
-
-    <owl:NamedIndividual rdf:about="&bc;d/upstream_of_fuel_standard_step">
-        <containsKeyword rdf:resource="&bc;k/conditioning_and_distribution"/>
-        <containsKeyword rdf:resource="&bc;k/production_and_conditioning_at_source"/>
-        <containsKeyword rdf:resource="&bc;k/transformation_at_source"/>
-        <containsKeyword rdf:resource="&bc;k/transformation_near_market"/>
-        <containsKeyword rdf:resource="&bc;k/transportation_to_market"/>
-        <hasPositionForSomeKeyword rdf:resource="&bc;pos/upstream_of_fuel_standard_step+conditioning_and_distribution"/>
-        <hasPositionForSomeKeyword rdf:resource="&bc;pos/upstream_of_fuel_standard_step+production_and_conditioning_at_source"/>
-        <hasPositionForSomeKeyword rdf:resource="&bc;pos/upstream_of_fuel_standard_step+transformation_at_source"/>
-        <hasPositionForSomeKeyword rdf:resource="&bc;pos/upstream_of_fuel_standard_step+transformation_near_market"/>
-        <hasPositionForSomeKeyword rdf:resource="&bc;pos/upstream_of_fuel_standard_step+transportation_to_market"/>
     </owl:NamedIndividual>
     
 
@@ -2834,20 +2810,6 @@
     
 
 
-    <!-- http://www.myc-sense.com/ontologies/bc#gc/correspondence_between_fossil_fuel_and_primary_energy -->
-
-    <owl:NamedIndividual rdf:about="&bc;gc/correspondence_between_fossil_fuel_and_primary_energy">
-        <rdf:type rdf:resource="&bc;CoefficientGroup"/>
-        <rdfs:label xml:lang="en">Correspondence between fossil fuel and primary energy</rdfs:label>
-        <belongsToCategoryOfGroup rdf:resource="&bc;c/calculation_tool"/>
-        <hasVerticalDimension rdf:resource="&bc;d/crude_fossil_fuel"/>
-        <hasHorizontalDimension rdf:resource="&bc;d/primary_energy"/>
-        <hasCommonTag rdf:resource="&bc;k/correspondence"/>
-        <hasUnit rdf:resource="&bc;u/one"/>
-    </owl:NamedIndividual>
-    
-
-
     <!-- http://www.myc-sense.com/ontologies/bc#gc/crop_yield -->
 
     <owl:NamedIndividual rdf:about="&bc;gc/crop_yield">
@@ -2912,7 +2874,6 @@
         <belongsToCategoryOfGroup rdf:resource="&bc;c/fuel_source_data_transportation_to_market"/>
         <hasVerticalDimension rdf:resource="&bc;d/crude_oil"/>
         <hasCommonTag rdf:resource="&bc;k/energy"/>
-        <hasCommonTag rdf:resource="&bc;k/transportation_to_market"/>
         <hasUnit rdf:resource="&bc;u/megajoule_per_megajoule"/>
     </owl:NamedIndividual>
     
@@ -2955,8 +2916,7 @@
     <owl:NamedIndividual rdf:about="&bc;gc/identity_coefficient_group">
         <rdf:type rdf:resource="&bc;CoefficientGroup"/>
         <rdfs:label xml:lang="en">Identity coefficient group</rdfs:label>
-        <rdfs:label xml:lang="en">This group is used to include upstream process(es) into the perimeter of downstream process(es), when those processes share the same unit and no multiplication coefficient has to be applied to upstream process(es) before inclusion. </rdfs:label>
-        <rdfs:label xml:lang="fr">Groupe de coefficients identité</rdfs:label>
+        <rdfs:comment xml:lang="en">This group is used to include upstream process(es) into the perimeter of downstream process(es), when those processes share the same unit and no multiplication coefficient has to be applied to upstream process(es) before inclusion. </rdfs:comment>
         <belongsToCategoryOfGroup rdf:resource="&bc;c/calculation_tool"/>
         <hasVerticalDimension rdf:resource="&bc;d/identity_dimension"/>
         <hasUnit rdf:resource="&bc;u/one"/>
@@ -3027,8 +2987,7 @@
     <owl:NamedIndividual rdf:about="&bc;gc/lower_heating_value_of_fuel">
         <rdf:type rdf:resource="&bc;CoefficientGroup"/>
         <rdfs:label xml:lang="en">Lower heating value (LHV) of a fuel</rdfs:label>
-        <rdfs:label xml:lang="en">The values were taken from [EU 2007], p. 33/34, Table 4 (for all fuels exept jet kerosene) and from [EU 2009], p. 18 (for jet kerosene). They are based on [IPCC 2006]. </rdfs:label>
-        <rdfs:label xml:lang="fr">Pouvoir calorifique inférieur (PCI) d&apos;un combustible</rdfs:label>
+        <rdfs:comment xml:lang="en">The values were taken from [EU 2007], p. 33/34, table 4 (for all fuels except jet kerosene) and from [EU 2009], p. 18 (for jet kerosene). They are based on [IPCC 2006]. </rdfs:comment>
         <belongsToCategoryOfGroup rdf:resource="&bc;c/fuel_source_data_physical_property"/>
         <hasVerticalDimension rdf:resource="&bc;d/fuel_unit_of_energy_lhv"/>
         <hasCommonTag rdf:resource="&bc;k/lower_heating_value"/>
@@ -3101,10 +3060,9 @@
     <owl:NamedIndividual rdf:about="&bc;gc/mass_of_greenhouse_gas_emitted_by_combustion_of_fuel_unit_of_energy_lhv">
         <rdf:type rdf:resource="&bc;CoefficientGroup"/>
         <rdfs:label xml:lang="en">Mass of greenhouse gas emitted by combustion of a fuel, measured in unit of energy (LHV)</rdfs:label>
-        <rdfs:label xml:lang="fr">Masse de gaz à effet de serre émise par la combustion d&apos;un combustible, mesuré en unité d&apos;énergie (PCI)</rdfs:label>
-        <rdfs:comment xml:lang="en">Emissions factors for CO2 were taken from [EU 2007], p. 33, Table 4 (for all fuels exept jet kerosene) and from [EU 2009], p. 18 (for jet kerosene). 
+        <rdfs:comment xml:lang="en">Emission factors for CO2 were taken from [EU 2007], p. 33/34, table 4 (for all fuels except jet kerosene) and from [EU 2009], p. 18 (for jet kerosene). 
 
-They represent non-activity-specific emission factors for tho combustion of a fuel (tier 1 level, see [IPCC 2006]). </rdfs:comment>
+They represent non-activity-specific emission factors for the combustion of a fuel (tier 1 level, see [IPCC 2006]). </rdfs:comment>
         <belongsToCategoryOfGroup rdf:resource="&bc;c/fuel_source_data_physical_property"/>
         <hasHorizontalDimension rdf:resource="&bc;d/co2_ch4_n2o"/>
         <hasVerticalDimension rdf:resource="&bc;d/fuel_unit_of_energy_lhv"/>
@@ -3170,9 +3128,9 @@ They represent non-activity-specific emission factors for tho combustion of a fu
         <belongsToCategoryOfGroup rdf:resource="&bc;c/fuel_source_data_production_and_conditioning_at_source"/>
         <hasHorizontalDimension rdf:resource="&bc;d/co2_ch4"/>
         <hasVerticalDimension rdf:resource="&bc;d/crude_fossil_fuel"/>
-        <hasVerticalDimension rdf:resource="&bc;d/process_for_crude_fossil_fuel_production"/>
+        <hasVerticalDimension rdf:resource="&bc;d/process_for_crude_fossil_fuel_production_ghg"/>
         <hasCommonTag rdf:resource="&bc;k/production_and_conditioning_at_source"/>
-        <hasReference rdf:resource="&bc;ref/jrc_2014"/>
+        <hasReference rdf:resource="&bc;ref/jec_2014"/>
         <hasUnit rdf:resource="&bc;u/gram_per_megajoule"/>
     </owl:NamedIndividual>
     
@@ -3211,15 +3169,19 @@ They represent non-activity-specific emission factors for tho combustion of a fu
     <owl:NamedIndividual rdf:about="&bc;gc/primary_energy_for_production_of_fossil_fuel_at_source_unit_of_energy_lhv">
         <rdf:type rdf:resource="&bc;CoefficientGroup"/>
         <rdfs:label xml:lang="en">Primary energy for production and conditioning of fossil fuel at source, measured in unit of energy (LHV)</rdfs:label>
-        <rdfs:comment xml:lang="en">Crude oil from typical European Union supply. 
+        <rdfs:comment xml:lang="en">Typical European Union supply, without transportation.
 
-For energy use in production, we slightly increased the data provided by [JRC 2014], which concerns final — not primary — energy consumed.</rdfs:comment>
+Data for crude oil are taken from [JEC 2014], paragraph 3.1.1, p.26. We slightly increased the energy use in production figure, since apparently the data from [JEC 2014] deal with final energy consumed, not primary energy extracted.
+
+Data for natural gas are taken from [JEC 2014], paragraph 3.2.3, p.31 and data in appendix 4 of the same reference. 
+
+Entry &quot;Produced fuel&quot;  takes into account the energy of the produced fuel itself (therefore the obvious &quot;1&quot; values for the corresponding coefficients).</rdfs:comment>
         <belongsToCategoryOfGroup rdf:resource="&bc;c/fuel_source_data_production_and_conditioning_at_source"/>
         <hasVerticalDimension rdf:resource="&bc;d/crude_fossil_fuel"/>
         <hasHorizontalDimension rdf:resource="&bc;d/primary_energy"/>
-        <hasVerticalDimension rdf:resource="&bc;d/process_for_crude_fossil_fuel_production"/>
+        <hasVerticalDimension rdf:resource="&bc;d/process_for_crude_fossil_fuel_production_primary_energy"/>
         <hasCommonTag rdf:resource="&bc;k/production_and_conditioning_at_source"/>
-        <hasReference rdf:resource="&bc;ref/jrc_2014"/>
+        <hasReference rdf:resource="&bc;ref/jec_2014"/>
         <hasUnit rdf:resource="&bc;u/megajoule_per_megajoule"/>
     </owl:NamedIndividual>
     
@@ -3283,7 +3245,7 @@ Values were taken from [STAFFEL 2011].</rdfs:comment>
         <hasVerticalDimension rdf:resource="&bc;d/gas_diesel_oil_motor_gasoline"/>
         <hasCommonTag rdf:resource="&bc;k/energy"/>
         <hasCommonTag rdf:resource="&bc;k/refining"/>
-        <hasReference rdf:resource="&bc;ref/jrc_2014"/>
+        <hasReference rdf:resource="&bc;ref/jec_2014"/>
         <hasUnit rdf:resource="&bc;u/megajoule_per_megajoule"/>
     </owl:NamedIndividual>
     
@@ -3468,6 +3430,20 @@ Values were taken from [STAFFEL 2011].</rdfs:comment>
     
 
 
+    <!-- http://www.myc-sense.com/ontologies/bc#gp/combustion_of_crude_oil_unit_of_energy_lhv -->
+
+    <owl:NamedIndividual rdf:about="&bc;gp/combustion_of_crude_oil_unit_of_energy_lhv">
+        <rdf:type rdf:resource="&bc;ProcessGroup"/>
+        <rdfs:label xml:lang="en">Combustion of crude oil, measured in unit of energy (LHV)</rdfs:label>
+        <belongsToCategoryOfGroup rdf:resource="&bc;c/fuel_redundant_process_group"/>
+        <hasHorizontalDimension rdf:resource="&bc;d/combustion_process"/>
+        <hasCommonTag rdf:resource="&bc;k/crude_oil"/>
+        <hasCommonTag rdf:resource="&bc;k/lower_heating_value"/>
+        <hasUnit rdf:resource="&bc;u/kilowatt_hour"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.myc-sense.com/ontologies/bc#gp/combustion_of_fuel_for_car -->
 
     <owl:NamedIndividual rdf:about="&bc;gp/combustion_of_fuel_for_car">
@@ -3492,6 +3468,20 @@ Values were taken from [STAFFEL 2011].</rdfs:comment>
         <hasHorizontalDimension rdf:resource="&bc;d/combustion_process"/>
         <hasVerticalDimension rdf:resource="&bc;d/fuel_for_ship_specialized"/>
         <hasUnit rdf:resource="&bc;u/tonne"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#gp/combustion_of_gas_diesel_oil_unit_of_energy_lhv -->
+
+    <owl:NamedIndividual rdf:about="&bc;gp/combustion_of_gas_diesel_oil_unit_of_energy_lhv">
+        <rdf:type rdf:resource="&bc;ProcessGroup"/>
+        <rdfs:label xml:lang="en">Combustion of gas/Diesel oil, measured in unit of energy (LHV)</rdfs:label>
+        <belongsToCategoryOfGroup rdf:resource="&bc;c/fuel_redundant_process_group"/>
+        <hasHorizontalDimension rdf:resource="&bc;d/combustion_process"/>
+        <hasCommonTag rdf:resource="&bc;k/gas_diesel_oil"/>
+        <hasCommonTag rdf:resource="&bc;k/lower_heating_value"/>
+        <hasUnit rdf:resource="&bc;u/kilowatt_hour"/>
     </owl:NamedIndividual>
     
 
@@ -3621,8 +3611,11 @@ Values were taken from [STAFFEL 2011].</rdfs:comment>
     <owl:NamedIndividual rdf:about="&bc;gp/direct_emission_of_greenhouse_gas">
         <rdf:type rdf:resource="&bc;ProcessGroup"/>
         <rdfs:label xml:lang="en">Direct emission of greenhouse gas</rdfs:label>
-        <rdfs:label xml:lang="fr">Émission directe de gaz à effet de serre</rdfs:label>
-        <rdfs:comment xml:lang="en">Global warming potentials at horizons 20 and 100 years are taken from [IPCC AR5 WG1 2013], chapter 8 (Anthropogenic and Natural Radiative Forcing) table 8.7, p. 714. They include climate-cabon feedbacks in response to emissions of both CO2 and non-CO2 gases.
+        <rdfs:comment xml:lang="en">Those are abstract processes, they represent only greenhouse gas emissions, and nothing else. In other words, each process has exactly one elementary flow : the emission of the corresponding greenhouse gas (one unit of mass of gas emitted, per one unit of mass of process). Those &quot;abstract&quot; processes are used as upstream processes of &quot;real&quot; processes, in order to add greenhouse gas emissions among the elementary flows of the latters. 
+
+By looking at greenhouse gas emission impacts, you can view the values of global warming potentials that are used in all the computations. 
+
+Global warming potentials at horizons 20 and 100 years are taken from [IPCC AR5 WG1 2013], chapter 8 (Anthropogenic and Natural Radiative Forcing) table 8.7, p. 714. They include climate-cabon feedbacks in response to emissions of both CO2 and non-CO2 gases.
 
 Global warming potentials at horizon 500 years are taken from [IPCC AR4 WG1 2007], chapter 2 (Changes in Atmospheric Constituents and in Radiative Forcing), table 2.14, p. 212. </rdfs:comment>
         <belongsToCategoryOfGroup rdf:resource="&bc;c/direct_generic_elementary_flow"/>
@@ -3640,7 +3633,11 @@ Global warming potentials at horizon 500 years are taken from [IPCC AR4 WG1 2007
     <owl:NamedIndividual rdf:about="&bc;gp/direct_extraction_of_primary_energy">
         <rdf:type rdf:resource="&bc;ProcessGroup"/>
         <rdfs:label xml:lang="en">Direct extraction of primary energy</rdfs:label>
-        <rdfs:label xml:lang="fr">Extraction directe d&apos;énergie primaire</rdfs:label>
+        <rdfs:comment xml:lang="en">Those are abstract processes, they represent only primary energy elementary flows, and nothing else. 
+
+In other words, each process has exactly one elementary flow : extraction of primary energy (one unit of energy extracted, per one unit of energy of process). This is why all values of elementary flows (and of total primary energy impact) equal 1.
+
+Those &quot;abstract&quot; processes are used as upstream processes of &quot;real&quot; processes, in order to add primary energy extractions among the elementary flows of the latters. </rdfs:comment>
         <belongsToCategoryOfGroup rdf:resource="&bc;c/direct_generic_elementary_flow"/>
         <hasVerticalDimension rdf:resource="&bc;d/primary_energy"/>
         <hasCommonTag rdf:resource="&bc;k/direct_extraction"/>
@@ -3949,48 +3946,6 @@ Global warming potentials at horizon 500 years are taken from [IPCC AR4 WG1 2007
         <hasVerticalDimension rdf:resource="&bc;d/motorcycle_engine_displacement"/>
         <hasHorizontalDimension rdf:resource="&bc;d/transport_process"/>
         <hasUnit rdf:resource="&bc;u/vehicle_kilometer"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.myc-sense.com/ontologies/bc#gp/upstream_and_combustion_of_crude_oil_unit_of_energy_lhv -->
-
-    <owl:NamedIndividual rdf:about="&bc;gp/upstream_and_combustion_of_crude_oil_unit_of_energy_lhv">
-        <rdf:type rdf:resource="&bc;ProcessGroup"/>
-        <rdfs:label xml:lang="en">Upstream and combustion of crude oil, measured in unit of energy (LHV)</rdfs:label>
-        <belongsToCategoryOfGroup rdf:resource="&bc;c/fuel_redundant_process_group"/>
-        <hasHorizontalDimension rdf:resource="&bc;d/combustion_process"/>
-        <hasCommonTag rdf:resource="&bc;k/crude_oil"/>
-        <hasCommonTag rdf:resource="&bc;k/lower_heating_value"/>
-        <hasUnit rdf:resource="&bc;u/kilowatt_hour"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.myc-sense.com/ontologies/bc#gp/upstream_and_combustion_of_gas_diesel_oil_unit_of_energy_lhv -->
-
-    <owl:NamedIndividual rdf:about="&bc;gp/upstream_and_combustion_of_gas_diesel_oil_unit_of_energy_lhv">
-        <rdf:type rdf:resource="&bc;ProcessGroup"/>
-        <rdfs:label xml:lang="en">Combustion of gas/Diesel oil, measured in unit of energy (LHV)</rdfs:label>
-        <belongsToCategoryOfGroup rdf:resource="&bc;c/fuel_redundant_process_group"/>
-        <hasHorizontalDimension rdf:resource="&bc;d/combustion_process"/>
-        <hasCommonTag rdf:resource="&bc;k/gas_diesel_oil"/>
-        <hasCommonTag rdf:resource="&bc;k/lower_heating_value"/>
-        <hasUnit rdf:resource="&bc;u/kilowatt_hour"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.myc-sense.com/ontologies/bc#gp/upstream_of_fuel_unit_of_energy_lhv -->
-
-    <owl:NamedIndividual rdf:about="&bc;gp/upstream_of_fuel_unit_of_energy_lhv">
-        <rdf:type rdf:resource="&bc;ProcessGroup"/>
-        <rdfs:label xml:lang="en">Upstream of fuel, measured in unit of energy (LHV)</rdfs:label>
-        <rdfs:label xml:lang="fr">Amont de combustible, mesuré en unité d&apos;énergie (PCI)</rdfs:label>
-        <belongsToCategoryOfGroup rdf:resource="&bc;c/fuel_upstream_pathway_process"/>
-        <hasVerticalDimension rdf:resource="&bc;d/fuel_unit_of_energy_lhv"/>
-        <hasHorizontalDimension rdf:resource="&bc;d/upstream_of_fuel"/>
-        <hasUnit rdf:resource="&bc;u/kilowatt_hour"/>
     </owl:NamedIndividual>
     
 
@@ -6996,6 +6951,14 @@ Global warming potentials at horizon 500 years are taken from [IPCC AR4 WG1 2007
     
 
 
+    <!-- http://www.myc-sense.com/ontologies/bc#k/produced_fuel -->
+
+    <owl:NamedIndividual rdf:about="&bc;k/produced_fuel">
+        <rdfs:label xml:lang="en">Produced fuel</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.myc-sense.com/ontologies/bc#k/production -->
 
     <owl:NamedIndividual rdf:about="&bc;k/production">
@@ -7508,30 +7471,6 @@ Global warming potentials at horizon 500 years are taken from [IPCC AR4 WG1 2007
     
 
 
-    <!-- http://www.myc-sense.com/ontologies/bc#k/transformation_at_source -->
-
-    <owl:NamedIndividual rdf:about="&bc;k/transformation_at_source">
-        <rdfs:label xml:lang="en">Transformation at source</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.myc-sense.com/ontologies/bc#k/transformation_near_market -->
-
-    <owl:NamedIndividual rdf:about="&bc;k/transformation_near_market">
-        <rdfs:label xml:lang="en">Transformation near market</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.myc-sense.com/ontologies/bc#k/transportation_to_market -->
-
-    <owl:NamedIndividual rdf:about="&bc;k/transportation_to_market">
-        <rdfs:label xml:lang="en">Transportation to market</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
     <!-- http://www.myc-sense.com/ontologies/bc#k/turkey -->
 
     <owl:NamedIndividual rdf:about="&bc;k/turkey">
@@ -7900,51 +7839,6 @@ Global warming potentials at horizon 500 years are taken from [IPCC AR4 WG1 2007
     
 
 
-    <!-- http://www.myc-sense.com/ontologies/bc#pos/upstream_of_fuel_standard_step+conditioning_and_distribution -->
-
-    <owl:NamedIndividual rdf:about="&bc;pos/upstream_of_fuel_standard_step+conditioning_and_distribution">
-        <position rdf:datatype="&xsd;short">5</position>
-        <providesPositionToKeyword rdf:resource="&bc;k/conditioning_and_distribution"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.myc-sense.com/ontologies/bc#pos/upstream_of_fuel_standard_step+production_and_conditioning_at_source -->
-
-    <owl:NamedIndividual rdf:about="&bc;pos/upstream_of_fuel_standard_step+production_and_conditioning_at_source">
-        <position rdf:datatype="&xsd;short">1</position>
-        <providesPositionToKeyword rdf:resource="&bc;k/production_and_conditioning_at_source"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.myc-sense.com/ontologies/bc#pos/upstream_of_fuel_standard_step+transformation_at_source -->
-
-    <owl:NamedIndividual rdf:about="&bc;pos/upstream_of_fuel_standard_step+transformation_at_source">
-        <position rdf:datatype="&xsd;short">2</position>
-        <providesPositionToKeyword rdf:resource="&bc;k/transformation_at_source"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.myc-sense.com/ontologies/bc#pos/upstream_of_fuel_standard_step+transformation_near_market -->
-
-    <owl:NamedIndividual rdf:about="&bc;pos/upstream_of_fuel_standard_step+transformation_near_market">
-        <position rdf:datatype="&xsd;short">4</position>
-        <providesPositionToKeyword rdf:resource="&bc;k/transformation_near_market"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.myc-sense.com/ontologies/bc#pos/upstream_of_fuel_standard_step+transportation_to_market -->
-
-    <owl:NamedIndividual rdf:about="&bc;pos/upstream_of_fuel_standard_step+transportation_to_market">
-        <position rdf:datatype="&xsd;short">3</position>
-        <providesPositionToKeyword rdf:resource="&bc;k/transportation_to_market"/>
-    </owl:NamedIndividual>
-    
-
-
     <!-- http://www.myc-sense.com/ontologies/bc#r/average_loaded_mass_of_freight_transport_ship -->
 
     <owl:NamedIndividual rdf:about="&bc;r/average_loaded_mass_of_freight_transport_ship">
@@ -7980,18 +7874,6 @@ Global warming potentials at horizon 500 years are taken from [IPCC AR4 WG1 2007
         <hasOriginProcess rdf:resource="&bc;gp/road_freight_transport_unit_of_vehicle_times_distance"/>
         <hasDestinationProcess rdf:resource="&bc;gp/road_freight_transport_unit_of_volume_times_distance"/>
         <hasRelationType rdf:resource="&bc;rt/conversion"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.myc-sense.com/ontologies/bc#r/correspondance_between_fossil_fuel_and_primary_energy -->
-
-    <owl:NamedIndividual rdf:about="&bc;r/correspondance_between_fossil_fuel_and_primary_energy">
-        <rdf:type rdf:resource="&bc;SourceRelation"/>
-        <hasWeightCoefficient rdf:resource="&bc;gc/correspondence_between_fossil_fuel_and_primary_energy"/>
-        <hasOriginProcess rdf:resource="&bc;gp/direct_extraction_of_primary_energy"/>
-        <hasDestinationProcess rdf:resource="&bc;gp/production_of_fossil_fuel_at_source_unit_of_energy_lhv"/>
-        <hasRelationType rdf:resource="&bc;rt/synchronous_dependency"/>
     </owl:NamedIndividual>
     
 
@@ -8121,19 +8003,6 @@ Global warming potentials at horizon 500 years are taken from [IPCC AR4 WG1 2007
         <hasWeightCoefficient rdf:resource="&bc;gc/identity_coefficient_group"/>
         <hasOriginProcess rdf:resource="&bc;gp/production_of_fossil_fuel_at_source_unit_of_energy_lhv"/>
         <hasDestinationProcess rdf:resource="&bc;gp/supply_of_fossil_fuel_after_transportation_to_market_unit_of_energy_lhv"/>
-        <hasRelationType rdf:resource="&bc;rt/asynchronous_dependency"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.myc-sense.com/ontologies/bc#r/identity_coefficient_group+upstream_of_fuel -->
-
-    <owl:NamedIndividual rdf:about="&bc;r/identity_coefficient_group+upstream_of_fuel">
-        <rdf:type rdf:resource="&bc;SourceRelation"/>
-        <exponent rdf:datatype="&xsd;short">1</exponent>
-        <hasWeightCoefficient rdf:resource="&bc;gc/identity_coefficient_group"/>
-        <hasDestinationProcess rdf:resource="&bc;gp/combustion_unit_of_energy_lhv"/>
-        <hasOriginProcess rdf:resource="&bc;gp/upstream_of_fuel_unit_of_energy_lhv"/>
         <hasRelationType rdf:resource="&bc;rt/asynchronous_dependency"/>
     </owl:NamedIndividual>
     
@@ -8431,8 +8300,8 @@ Global warming potentials at horizon 500 years are taken from [IPCC AR4 WG1 2007
         <exponent rdf:datatype="&xsd;short">1</exponent>
         <rdfs:comment xml:lang="en"></rdfs:comment>
         <hasWeightCoefficient rdf:resource="&bc;gc/refining_energy"/>
+        <hasOriginProcess rdf:resource="&bc;gp/combustion_of_crude_oil_unit_of_energy_lhv"/>
         <hasDestinationProcess rdf:resource="&bc;gp/supply_of_refined_fossil_fuel_unit_of_energy_lhv"/>
-        <hasOriginProcess rdf:resource="&bc;gp/upstream_and_combustion_of_crude_oil_unit_of_energy_lhv"/>
         <hasRelationType rdf:resource="&bc;rt/asynchronous_dependency"/>
     </owl:NamedIndividual>
     
@@ -8617,13 +8486,13 @@ Global warming potentials at horizon 500 years are taken from [IPCC AR4 WG1 2007
     
 
 
-    <!-- http://www.myc-sense.com/ontologies/bc#ref/jrc_2014 -->
+    <!-- http://www.myc-sense.com/ontologies/bc#ref/jec_2014 -->
 
-    <owl:NamedIndividual rdf:about="&bc;ref/jrc_2014">
+    <owl:NamedIndividual rdf:about="&bc;ref/jec_2014">
         <rdf:type rdf:resource="&bc;Reference"/>
         <date rdf:datatype="&xsd;dateTime">04/2014</date>
         <creator rdf:datatype="&xsd;string">JEC (Joint Research Centre-EUCAR-CONCAWE collaboration)</creator>
-        <shortName rdf:datatype="&xsd;string">JRC 2014</shortName>
+        <shortName rdf:datatype="&xsd;string">JEC 2014</shortName>
         <title rdf:datatype="&xsd;string">Well-to-Tank Report, version 4.a</title>
         <source rdf:datatype="&xsd;string">Well-to-wheels analysis of future automotive fuels and powertrains in the european context</source>
         <URL rdf:datatype="&xsd;anyURI">http://iet.jrc.ec.europa.eu/about-jec/downloads</URL>
@@ -9034,48 +8903,6 @@ Global warming potentials at horizon 500 years are taken from [IPCC AR4 WG1 2007
     
 
 
-    <!-- http://www.myc-sense.com/ontologies/bc#sc/correspondence+coal+coal_primary_energy -->
-
-    <owl:NamedIndividual rdf:about="&bc;sc/correspondence+coal+coal_primary_energy">
-        <rdf:type rdf:resource="&bc;SingleCoefficient"/>
-        <uncertainty rdf:datatype="&xsd;double">0.0</uncertainty>
-        <value rdf:datatype="&xsd;double">1.0</value>
-        <hasTag rdf:resource="&bc;k/coal"/>
-        <hasTag rdf:resource="&bc;k/coal_primary_energy"/>
-        <hasTag rdf:resource="&bc;k/correspondence"/>
-        <hasUnit rdf:resource="&bc;u/one"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.myc-sense.com/ontologies/bc#sc/correspondence+crude_oil+crude_oil_primary_energy -->
-
-    <owl:NamedIndividual rdf:about="&bc;sc/correspondence+crude_oil+crude_oil_primary_energy">
-        <rdf:type rdf:resource="&bc;SingleCoefficient"/>
-        <uncertainty rdf:datatype="&xsd;double">0.0</uncertainty>
-        <value rdf:datatype="&xsd;double">1.0</value>
-        <hasTag rdf:resource="&bc;k/correspondence"/>
-        <hasTag rdf:resource="&bc;k/crude_oil"/>
-        <hasTag rdf:resource="&bc;k/crude_oil_primary_energy"/>
-        <hasUnit rdf:resource="&bc;u/one"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.myc-sense.com/ontologies/bc#sc/correspondence+natural_gas+natural_gas_primary_energy -->
-
-    <owl:NamedIndividual rdf:about="&bc;sc/correspondence+natural_gas+natural_gas_primary_energy">
-        <rdf:type rdf:resource="&bc;SingleCoefficient"/>
-        <uncertainty rdf:datatype="&xsd;double">0.0</uncertainty>
-        <value rdf:datatype="&xsd;double">1.0</value>
-        <hasTag rdf:resource="&bc;k/correspondence"/>
-        <hasTag rdf:resource="&bc;k/natural_gas"/>
-        <hasTag rdf:resource="&bc;k/natural_gas_primary_energy"/>
-        <hasUnit rdf:resource="&bc;u/one"/>
-    </owl:NamedIndividual>
-    
-
-
     <!-- http://www.myc-sense.com/ontologies/bc#sc/correspondence+ship+heavy_fuel_oil+residual_fuel_oil -->
 
     <owl:NamedIndividual rdf:about="&bc;sc/correspondence+ship+heavy_fuel_oil+residual_fuel_oil">
@@ -9199,7 +9026,6 @@ Global warming potentials at horizon 500 years are taken from [IPCC AR4 WG1 2007
         <value rdf:datatype="&xsd;double">0.01</value>
         <hasTag rdf:resource="&bc;k/crude_oil"/>
         <hasTag rdf:resource="&bc;k/energy"/>
-        <hasTag rdf:resource="&bc;k/transportation_to_market"/>
         <hasUnit rdf:resource="&bc;u/megajoule_per_megajoule"/>
     </owl:NamedIndividual>
     
@@ -10419,6 +10245,20 @@ This value is to be checked.</rdfs:comment>
     
 
 
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/production_and_conditioning_at_source+crude_oil+produced_fuel+crude_oil_primary_energy -->
+
+    <owl:NamedIndividual rdf:about="&bc;sc/production_and_conditioning_at_source+crude_oil+produced_fuel+crude_oil_primary_energy">
+        <rdf:type rdf:resource="&bc;SingleCoefficient"/>
+        <value rdf:datatype="&xsd;double">1.0</value>
+        <hasTag rdf:resource="&bc;k/crude_oil"/>
+        <hasTag rdf:resource="&bc;k/crude_oil_primary_energy"/>
+        <hasTag rdf:resource="&bc;k/produced_fuel"/>
+        <hasTag rdf:resource="&bc;k/production_and_conditioning_at_source"/>
+        <hasUnit rdf:resource="&bc;u/megajoule_per_megajoule"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.myc-sense.com/ontologies/bc#sc/production_and_conditioning_at_source+crude_oil+venting_and_fugitive_loss+ch4 -->
 
     <owl:NamedIndividual rdf:about="&bc;sc/production_and_conditioning_at_source+crude_oil+venting_and_fugitive_loss+ch4">
@@ -10461,6 +10301,20 @@ This value is to be checked.</rdfs:comment>
     
 
 
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/production_and_conditioning_at_source+natural_gas+produced_fuel+natural_gas_primary_energy -->
+
+    <owl:NamedIndividual rdf:about="&bc;sc/production_and_conditioning_at_source+natural_gas+produced_fuel+natural_gas_primary_energy">
+        <rdf:type rdf:resource="&bc;SingleCoefficient"/>
+        <value rdf:datatype="&xsd;double">1.0</value>
+        <hasTag rdf:resource="&bc;k/natural_gas"/>
+        <hasTag rdf:resource="&bc;k/natural_gas_primary_energy"/>
+        <hasTag rdf:resource="&bc;k/produced_fuel"/>
+        <hasTag rdf:resource="&bc;k/production_and_conditioning_at_source"/>
+        <hasUnit rdf:resource="&bc;u/megajoule_per_megajoule"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.myc-sense.com/ontologies/bc#sc/production_and_conditioning_at_source+natural_gas+venting_and_fugitive_loss+ch4 -->
 
     <owl:NamedIndividual rdf:about="&bc;sc/production_and_conditioning_at_source+natural_gas+venting_and_fugitive_loss+ch4">
@@ -10471,6 +10325,20 @@ This value is to be checked.</rdfs:comment>
         <hasTag rdf:resource="&bc;k/production_and_conditioning_at_source"/>
         <hasTag rdf:resource="&bc;k/venting_and_fugitive_loss"/>
         <hasUnit rdf:resource="&bc;u/gram_per_megajoule"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/production_and_conditioning_at_source+natural_gas+venting_and_fugitive_loss+natural_gas_primary_energy -->
+
+    <owl:NamedIndividual rdf:about="&bc;sc/production_and_conditioning_at_source+natural_gas+venting_and_fugitive_loss+natural_gas_primary_energy">
+        <rdf:type rdf:resource="&bc;SingleCoefficient"/>
+        <value rdf:datatype="&xsd;double">0.037</value>
+        <hasTag rdf:resource="&bc;k/natural_gas"/>
+        <hasTag rdf:resource="&bc;k/natural_gas_primary_energy"/>
+        <hasTag rdf:resource="&bc;k/production_and_conditioning_at_source"/>
+        <hasTag rdf:resource="&bc;k/venting_and_fugitive_loss"/>
+        <hasUnit rdf:resource="&bc;u/megajoule_per_megajoule"/>
     </owl:NamedIndividual>
     
 
@@ -11229,6 +11097,20 @@ This value is to be checked.</rdfs:comment>
     </rdf:Description>
     <rdf:Description>
         <rdf:type rdf:resource="&swrl;Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="&swrl;AtomList"/>
+                <rdf:rest rdf:resource="&rdf;nil"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
+                        <swrl:argument1 rdf:resource="&bc;k/agricultural_input"/>
+                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
+                    </rdf:Description>
+                </rdf:first>
+            </rdf:Description>
+        </swrl:body>
         <swrl:head>
             <rdf:Description>
                 <rdf:type rdf:resource="&swrl;AtomList"/>
@@ -11237,7 +11119,24 @@ This value is to be checked.</rdfs:comment>
                     <rdf:Description>
                         <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
                         <swrl:propertyPredicate rdf:resource="&bc;containsKeyword"/>
-                        <swrl:argument1 rdf:resource="&bc;d/farmed_animal"/>
+                        <swrl:argument1 rdf:resource="&bc;d/agricultural_input"/>
+                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
+                    </rdf:Description>
+                </rdf:first>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&swrl;Imp"/>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="&swrl;AtomList"/>
+                <rdf:rest rdf:resource="&rdf;nil"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="&bc;containsKeyword"/>
+                        <swrl:argument1 rdf:resource="&bc;d/transformed_dairy_product"/>
                         <swrl:argument2 rdf:resource="urn:swrl#kw"/>
                     </rdf:Description>
                 </rdf:first>
@@ -11251,7 +11150,38 @@ This value is to be checked.</rdfs:comment>
                     <rdf:Description>
                         <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
                         <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
-                        <swrl:argument1 rdf:resource="&bc;k/cattle"/>
+                        <swrl:argument1 rdf:resource="&bc;k/dairy_product"/>
+                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
+                    </rdf:Description>
+                </rdf:first>
+            </rdf:Description>
+        </swrl:body>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&swrl;Imp"/>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="&swrl;AtomList"/>
+                <rdf:rest rdf:resource="&rdf;nil"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="&bc;containsKeyword"/>
+                        <swrl:argument1 rdf:resource="&bc;d/waste"/>
+                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
+                    </rdf:Description>
+                </rdf:first>
+            </rdf:Description>
+        </swrl:head>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="&swrl;AtomList"/>
+                <rdf:rest rdf:resource="&rdf;nil"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
+                        <swrl:argument1 rdf:resource="&bc;k/type_of_waste"/>
                         <swrl:argument2 rdf:resource="urn:swrl#kw"/>
                     </rdf:Description>
                 </rdf:first>
@@ -11268,7 +11198,7 @@ This value is to be checked.</rdfs:comment>
                     <rdf:Description>
                         <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
                         <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
-                        <swrl:argument1 rdf:resource="&bc;k/type_of_waste"/>
+                        <swrl:argument1 rdf:resource="&bc;k/cattle"/>
                         <swrl:argument2 rdf:resource="urn:swrl#kw"/>
                     </rdf:Description>
                 </rdf:first>
@@ -11282,12 +11212,43 @@ This value is to be checked.</rdfs:comment>
                     <rdf:Description>
                         <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
                         <swrl:propertyPredicate rdf:resource="&bc;containsKeyword"/>
-                        <swrl:argument1 rdf:resource="&bc;d/waste"/>
+                        <swrl:argument1 rdf:resource="&bc;d/farmed_animal"/>
                         <swrl:argument2 rdf:resource="urn:swrl#kw"/>
                     </rdf:Description>
                 </rdf:first>
             </rdf:Description>
         </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&swrl;Imp"/>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="&swrl;AtomList"/>
+                <rdf:rest rdf:resource="&rdf;nil"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="&bc;containsKeyword"/>
+                        <swrl:argument1 rdf:resource="&bc;d/greenhouse_gas"/>
+                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
+                    </rdf:Description>
+                </rdf:first>
+            </rdf:Description>
+        </swrl:head>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="&swrl;AtomList"/>
+                <rdf:rest rdf:resource="&rdf;nil"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
+                        <swrl:argument1 rdf:resource="&bc;k/greenhouse_gas"/>
+                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
+                    </rdf:Description>
+                </rdf:first>
+            </rdf:Description>
+        </swrl:body>
     </rdf:Description>
     <rdf:Description>
         <rdf:type rdf:resource="&swrl;Imp"/>
@@ -11322,20 +11283,6 @@ This value is to be checked.</rdfs:comment>
     </rdf:Description>
     <rdf:Description>
         <rdf:type rdf:resource="&swrl;Imp"/>
-        <swrl:body>
-            <rdf:Description>
-                <rdf:type rdf:resource="&swrl;AtomList"/>
-                <rdf:rest rdf:resource="&rdf;nil"/>
-                <rdf:first>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
-                        <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
-                        <swrl:argument1 rdf:resource="&bc;k/type_of_meal"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
-                    </rdf:Description>
-                </rdf:first>
-            </rdf:Description>
-        </swrl:body>
         <swrl:head>
             <rdf:Description>
                 <rdf:type rdf:resource="&swrl;AtomList"/>
@@ -11350,23 +11297,6 @@ This value is to be checked.</rdfs:comment>
                 </rdf:first>
             </rdf:Description>
         </swrl:head>
-    </rdf:Description>
-    <rdf:Description>
-        <rdf:type rdf:resource="&swrl;Imp"/>
-        <swrl:head>
-            <rdf:Description>
-                <rdf:type rdf:resource="&swrl;AtomList"/>
-                <rdf:rest rdf:resource="&rdf;nil"/>
-                <rdf:first>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
-                        <swrl:propertyPredicate rdf:resource="&bc;containsKeyword"/>
-                        <swrl:argument1 rdf:resource="&bc;d/agricultural_input"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
-                    </rdf:Description>
-                </rdf:first>
-            </rdf:Description>
-        </swrl:head>
         <swrl:body>
             <rdf:Description>
                 <rdf:type rdf:resource="&swrl;AtomList"/>
@@ -11375,74 +11305,12 @@ This value is to be checked.</rdfs:comment>
                     <rdf:Description>
                         <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
                         <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
-                        <swrl:argument1 rdf:resource="&bc;k/agricultural_input"/>
+                        <swrl:argument1 rdf:resource="&bc;k/type_of_meal"/>
                         <swrl:argument2 rdf:resource="urn:swrl#kw"/>
                     </rdf:Description>
                 </rdf:first>
             </rdf:Description>
         </swrl:body>
-    </rdf:Description>
-    <rdf:Description>
-        <rdf:type rdf:resource="&swrl;Imp"/>
-        <swrl:body>
-            <rdf:Description>
-                <rdf:type rdf:resource="&swrl;AtomList"/>
-                <rdf:rest rdf:resource="&rdf;nil"/>
-                <rdf:first>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
-                        <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
-                        <swrl:argument1 rdf:resource="&bc;k/dairy_product"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
-                    </rdf:Description>
-                </rdf:first>
-            </rdf:Description>
-        </swrl:body>
-        <swrl:head>
-            <rdf:Description>
-                <rdf:type rdf:resource="&swrl;AtomList"/>
-                <rdf:rest rdf:resource="&rdf;nil"/>
-                <rdf:first>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
-                        <swrl:propertyPredicate rdf:resource="&bc;containsKeyword"/>
-                        <swrl:argument1 rdf:resource="&bc;d/transformed_dairy_product"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
-                    </rdf:Description>
-                </rdf:first>
-            </rdf:Description>
-        </swrl:head>
-    </rdf:Description>
-    <rdf:Description>
-        <rdf:type rdf:resource="&swrl;Imp"/>
-        <swrl:body>
-            <rdf:Description>
-                <rdf:type rdf:resource="&swrl;AtomList"/>
-                <rdf:rest rdf:resource="&rdf;nil"/>
-                <rdf:first>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
-                        <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
-                        <swrl:argument1 rdf:resource="&bc;k/greenhouse_gas"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
-                    </rdf:Description>
-                </rdf:first>
-            </rdf:Description>
-        </swrl:body>
-        <swrl:head>
-            <rdf:Description>
-                <rdf:type rdf:resource="&swrl;AtomList"/>
-                <rdf:rest rdf:resource="&rdf;nil"/>
-                <rdf:first>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
-                        <swrl:propertyPredicate rdf:resource="&bc;containsKeyword"/>
-                        <swrl:argument1 rdf:resource="&bc;d/greenhouse_gas"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
-                    </rdf:Description>
-                </rdf:first>
-            </rdf:Description>
-        </swrl:head>
     </rdf:Description>
 </rdf:RDF>
 
