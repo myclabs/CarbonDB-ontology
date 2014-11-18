@@ -38,73 +38,49 @@
 
     <!-- http://www.myc-sense.com/ontologies/bc#URL -->
 
-    <owl:AnnotationProperty rdf:about="&bc;URL">
-        <rdfs:domain rdf:resource="&bc;Reference"/>
-        <rdfs:range rdf:resource="&xsd;anyURI"/>
-    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="&bc;URL"/>
     
 
 
     <!-- http://www.myc-sense.com/ontologies/bc#creator -->
 
-    <owl:AnnotationProperty rdf:about="&bc;creator">
-        <rdfs:domain rdf:resource="&bc;Reference"/>
-        <rdfs:range rdf:resource="&xsd;string"/>
-    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="&bc;creator"/>
     
 
 
     <!-- http://www.myc-sense.com/ontologies/bc#date -->
 
-    <owl:AnnotationProperty rdf:about="&bc;date">
-        <rdfs:domain rdf:resource="&bc;Reference"/>
-        <rdfs:range rdf:resource="&xsd;dateTime"/>
-    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="&bc;date"/>
     
 
 
     <!-- http://www.myc-sense.com/ontologies/bc#header -->
 
-    <owl:AnnotationProperty rdf:about="&bc;header">
-        <rdfs:domain rdf:resource="&bc;CategoryOfElementaryFlowTypeOrImpactType"/>
-        <rdfs:range rdf:resource="&xsd;string"/>
-    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="&bc;header"/>
     
 
 
     <!-- http://www.myc-sense.com/ontologies/bc#publisher -->
 
-    <owl:AnnotationProperty rdf:about="&bc;publisher">
-        <rdfs:domain rdf:resource="&bc;Reference"/>
-        <rdfs:range rdf:resource="&xsd;string"/>
-    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="&bc;publisher"/>
     
 
 
     <!-- http://www.myc-sense.com/ontologies/bc#shortName -->
 
-    <owl:AnnotationProperty rdf:about="&bc;shortName">
-        <rdfs:domain rdf:resource="&bc;Reference"/>
-        <rdfs:range rdf:resource="&xsd;string"/>
-    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="&bc;shortName"/>
     
 
 
     <!-- http://www.myc-sense.com/ontologies/bc#source -->
 
-    <owl:AnnotationProperty rdf:about="&bc;source">
-        <rdfs:domain rdf:resource="&bc;Reference"/>
-        <rdfs:range rdf:resource="&xsd;string"/>
-    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="&bc;source"/>
     
 
 
     <!-- http://www.myc-sense.com/ontologies/bc#title -->
 
-    <owl:AnnotationProperty rdf:about="&bc;title">
-        <rdfs:domain rdf:resource="&bc;Reference"/>
-        <rdfs:range rdf:resource="&xsd;string"/>
-    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="&bc;title"/>
     
 
 
@@ -975,15 +951,15 @@
     <owl:Class rdf:about="&bc;CategoryOfGroup">
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;categorizesGroup"/>
-                <owl:someValuesFrom rdf:resource="&bc;Group"/>
+                <owl:onProperty rdf:resource="&bc;belongsToParentCategoryOfGroup"/>
+                <owl:onClass rdf:resource="&bc;CategoryOfGroup"/>
+                <owl:maxQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxQualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;belongsToParentCategoryOfGroup"/>
-                <owl:onClass rdf:resource="&bc;CategoryOfGroup"/>
-                <owl:maxQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onProperty rdf:resource="&bc;categorizesGroup"/>
+                <owl:someValuesFrom rdf:resource="&bc;Group"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <owl:disjointWith rdf:resource="&bc;CategoryOfImpactType"/>
@@ -1045,6 +1021,13 @@
     <owl:Class rdf:about="&bc;ComponentOfImpactType">
         <rdfs:subClassOf>
             <owl:Restriction>
+                <owl:onProperty rdf:resource="&bc;isBasedOnElementaryFlowType"/>
+                <owl:onClass rdf:resource="&bc;ElementaryFlowType"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
                 <owl:onProperty rdf:resource="&bc;contributesToImpactType"/>
                 <owl:onClass rdf:resource="&bc;ImpactType"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
@@ -1055,13 +1038,6 @@
                 <owl:onProperty rdf:resource="&bc;uncertainty"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
                 <owl:onDataRange rdf:resource="&xsd;double"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;isBasedOnElementaryFlowType"/>
-                <owl:onClass rdf:resource="&bc;ElementaryFlowType"/>
-                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -1092,13 +1068,13 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&bc;containsKeyword"/>
-                <owl:someValuesFrom rdf:resource="&bc;Keyword"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&bc;containsKeyword"/>
-                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
+                <owl:someValuesFrom rdf:resource="&bc;Keyword"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <owl:disjointWith rdf:resource="&bc;ElementaryFlow"/>
@@ -1123,15 +1099,15 @@
         <rdfs:subClassOf rdf:resource="&bc;ThingWithUnit"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;hasUnit"/>
-                <owl:onClass rdf:resource="&bc;Unit"/>
-                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onProperty rdf:resource="&bc;hasReference"/>
+                <owl:someValuesFrom rdf:resource="&bc;Reference"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;hasReference"/>
-                <owl:someValuesFrom rdf:resource="&bc;Reference"/>
+                <owl:onProperty rdf:resource="&bc;hasUnit"/>
+                <owl:onClass rdf:resource="&bc;Unit"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
@@ -1141,6 +1117,20 @@
     <!-- http://www.myc-sense.com/ontologies/bc#ElementaryFlow -->
 
     <owl:Class rdf:about="&bc;ElementaryFlow">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&bc;hasElementaryFlowType"/>
+                <owl:onClass rdf:resource="&bc;ElementaryFlowType"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&bc;isFlowOfSingleProcess"/>
+                <owl:onClass rdf:resource="&bc;SingleProcess"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&bc;uncertainty"/>
@@ -1153,20 +1143,6 @@
                 <owl:onProperty rdf:resource="&bc;value"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
                 <owl:onDataRange rdf:resource="&xsd;double"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;isFlowOfSingleProcess"/>
-                <owl:onClass rdf:resource="&bc;SingleProcess"/>
-                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;hasElementaryFlowType"/>
-                <owl:onClass rdf:resource="&bc;ElementaryFlowType"/>
-                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <owl:disjointWith rdf:resource="&bc;ElementaryFlowType"/>
@@ -1211,8 +1187,9 @@
     <owl:Class rdf:about="&bc;Group">
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;hasDimension"/>
-                <owl:someValuesFrom rdf:resource="&bc;Dimension"/>
+                <owl:onProperty rdf:resource="&bc;belongsToCategoryOfGroup"/>
+                <owl:onClass rdf:resource="&bc;CategoryOfGroup"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -1223,9 +1200,8 @@
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;belongsToCategoryOfGroup"/>
-                <owl:onClass rdf:resource="&bc;CategoryOfGroup"/>
-                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onProperty rdf:resource="&bc;hasDimension"/>
+                <owl:someValuesFrom rdf:resource="&bc;Dimension"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <owl:disjointWith rdf:resource="&bc;ImpactType"/>
@@ -1245,6 +1221,13 @@
     <owl:Class rdf:about="&bc;Impact">
         <rdfs:subClassOf>
             <owl:Restriction>
+                <owl:onProperty rdf:resource="&bc;uncertainty"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;double"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
                 <owl:onProperty rdf:resource="&bc;value"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
                 <owl:onDataRange rdf:resource="&xsd;double"/>
@@ -1255,13 +1238,6 @@
                 <owl:onProperty rdf:resource="&bc;hasImpactType"/>
                 <owl:onClass rdf:resource="&bc;ImpactType"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;uncertainty"/>
-                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onDataRange rdf:resource="&xsd;double"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <owl:disjointWith rdf:resource="&bc;PositionOfKeywordInDimension"/>
@@ -1426,15 +1402,15 @@
     <owl:Class rdf:about="&bc;Relation">
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;hasDestinationProcess"/>
-                <owl:onClass rdf:resource="&bc;Process"/>
+                <owl:onProperty rdf:resource="&bc;hasWeightCoefficient"/>
+                <owl:onClass rdf:resource="&bc;Coefficient"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;hasOriginProcess"/>
-                <owl:onClass rdf:resource="&bc;Process"/>
+                <owl:onProperty rdf:resource="&bc;hasRelationType"/>
+                <owl:onClass rdf:resource="&bc;RelationType"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -1447,15 +1423,15 @@
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;hasRelationType"/>
-                <owl:onClass rdf:resource="&bc;RelationType"/>
+                <owl:onProperty rdf:resource="&bc;hasDestinationProcess"/>
+                <owl:onClass rdf:resource="&bc;Process"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;hasWeightCoefficient"/>
-                <owl:onClass rdf:resource="&bc;Coefficient"/>
+                <owl:onProperty rdf:resource="&bc;hasOriginProcess"/>
+                <owl:onClass rdf:resource="&bc;Process"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -1480,14 +1456,14 @@
         <rdfs:subClassOf rdf:resource="&bc;SingleElement"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;uncertainty"/>
+                <owl:onProperty rdf:resource="&bc;value"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
                 <owl:onDataRange rdf:resource="&xsd;double"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;value"/>
+                <owl:onProperty rdf:resource="&bc;uncertainty"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
                 <owl:onDataRange rdf:resource="&xsd;double"/>
             </owl:Restriction>
@@ -1503,13 +1479,13 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&bc;hasTag"/>
-                <owl:someValuesFrom rdf:resource="&bc;Keyword"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&bc;hasTag"/>
-                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
+                <owl:someValuesFrom rdf:resource="&bc;Keyword"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
@@ -9266,7 +9242,7 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
 
     <owl:NamedIndividual rdf:about="&bc;ref/citepa_2014">
         <rdf:type rdf:resource="&bc;Reference"/>
-        <date rdf:datatype="&xsd;dateTime">2014-02</date>
+        <date rdf:datatype="&xsd;string">2014-02</date>
         <creator rdf:datatype="&xsd;string">Centre Interprofessionnel Technique d&apos;Études de la Pollution Atmosphérique (CITÉPA)</creator>
         <shortName rdf:datatype="&xsd;string">Citepa 2014</shortName>
         <title rdf:datatype="&xsd;string">OMINEA, Organisation et Méthodes des Inventaires Nationaux des Émissions Atmosphériques en France (OMINEA) (National inventories on air emissions in France : organisation and methodology), 11ème édition</title>
@@ -9292,8 +9268,8 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
 
     <owl:NamedIndividual rdf:about="&bc;ref/eu_2009">
         <rdf:type rdf:resource="&bc;Reference"/>
-        <date rdf:datatype="&xsd;dateTime">2009-04-16</date>
-        <date rdf:datatype="&xsd;string">Decision 2009/339/EC amending Decision 2007/589/EC as regards the inclusion of monitoring and reporting guidelines for emissions and tonne-kilometre data from aviation activities</date>
+        <date rdf:datatype="&xsd;string">2009-04-16</date>
+        <title rdf:datatype="&xsd;string">Decision 2009/339/EC amending Decision 2007/589/EC as regards the inclusion of monitoring and reporting guidelines for emissions and tonne-kilometre data from aviation activities</title>
         <shortName rdf:datatype="&xsd;string">EU 2009</shortName>
         <creator rdf:datatype="&xsd;string">Official Journal of the European Union</creator>
         <URL rdf:datatype="&xsd;anyURI">http://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32009D0339</URL>
@@ -9305,7 +9281,7 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
 
     <owl:NamedIndividual rdf:about="&bc;ref/ipcc_2006">
         <rdf:type rdf:resource="&bc;Reference"/>
-        <date rdf:datatype="&xsd;dateTime">2006</date>
+        <date rdf:datatype="&xsd;string">2006</date>
         <title rdf:datatype="&xsd;string">2006 IPCC Guidelines for National Greenhouse Gas Inventories </title>
         <shortName rdf:datatype="&xsd;string">IPCC 2006</shortName>
         <creator rdf:datatype="&xsd;string">Integovernemental Panel on Climate Change</creator>
@@ -9318,7 +9294,7 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
 
     <owl:NamedIndividual rdf:about="&bc;ref/ipcc_ar4_wg1_2007">
         <rdf:type rdf:resource="&bc;Reference"/>
-        <date rdf:datatype="&xsd;dateTime">2007</date>
+        <date rdf:datatype="&xsd;string">2007</date>
         <title rdf:datatype="&xsd;string">Fourth Assessment Report (AR4), Climate Change 2007, The Physical Science Basis</title>
         <shortName rdf:datatype="&xsd;string">IPCC AR4 WG1 2007</shortName>
         <creator rdf:datatype="&xsd;string">Integovernemental Panel on Climate Change, Working Group 1</creator>
@@ -9331,7 +9307,7 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
 
     <owl:NamedIndividual rdf:about="&bc;ref/ipcc_ar5_wg1_2013">
         <rdf:type rdf:resource="&bc;Reference"/>
-        <date rdf:datatype="&xsd;dateTime">2013-09</date>
+        <date rdf:datatype="&xsd;string">2013-09</date>
         <title rdf:datatype="&xsd;string">Fifth Assessment Report (AR5), Climate Change 2013, The Physical Science Basis</title>
         <shortName rdf:datatype="&xsd;string">IPCC AR5 WG1 2013</shortName>
         <creator rdf:datatype="&xsd;string">Integovernemental Panel on Climate Change, Working Group 1</creator>
@@ -9344,7 +9320,7 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
 
     <owl:NamedIndividual rdf:about="&bc;ref/jec_2014">
         <rdf:type rdf:resource="&bc;Reference"/>
-        <date rdf:datatype="&xsd;dateTime">04/2014</date>
+        <date rdf:datatype="&xsd;string">2014-04</date>
         <creator rdf:datatype="&xsd;string">JEC (Joint Research Centre-EUCAR-CONCAWE collaboration)</creator>
         <shortName rdf:datatype="&xsd;string">JEC 2014</shortName>
         <title rdf:datatype="&xsd;string">Well-to-Tank Report, version 4.a</title>
@@ -9358,7 +9334,7 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
 
     <owl:NamedIndividual rdf:about="&bc;ref/staffel_2011">
         <rdf:type rdf:resource="&bc;Reference"/>
-        <date rdf:datatype="&xsd;dateTime">2011-03</date>
+        <date rdf:datatype="&xsd;string">2011-03</date>
         <creator rdf:datatype="&xsd;string">Iain Staffell (University of Birmingham)</creator>
         <shortName rdf:datatype="&xsd;string">STAFFEL 2011</shortName>
         <title rdf:datatype="&xsd;string">The Energy and Fuel Data Sheet</title>
@@ -12172,6 +12148,37 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
                     <rdf:Description>
                         <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
                         <swrl:propertyPredicate rdf:resource="&bc;containsKeyword"/>
+                        <swrl:argument1 rdf:resource="&bc;d/farmed_animal"/>
+                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
+                    </rdf:Description>
+                </rdf:first>
+            </rdf:Description>
+        </swrl:head>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="&swrl;AtomList"/>
+                <rdf:rest rdf:resource="&rdf;nil"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
+                        <swrl:argument1 rdf:resource="&bc;k/cattle"/>
+                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
+                    </rdf:Description>
+                </rdf:first>
+            </rdf:Description>
+        </swrl:body>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&swrl;Imp"/>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="&swrl;AtomList"/>
+                <rdf:rest rdf:resource="&rdf;nil"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="&bc;containsKeyword"/>
                         <swrl:argument1 rdf:resource="&bc;d/meal"/>
                         <swrl:argument2 rdf:resource="urn:swrl#kw"/>
                     </rdf:Description>
@@ -12192,68 +12199,6 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
                 </rdf:first>
             </rdf:Description>
         </swrl:body>
-    </rdf:Description>
-    <rdf:Description>
-        <rdf:type rdf:resource="&swrl;Imp"/>
-        <swrl:body>
-            <rdf:Description>
-                <rdf:type rdf:resource="&swrl;AtomList"/>
-                <rdf:rest rdf:resource="&rdf;nil"/>
-                <rdf:first>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
-                        <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
-                        <swrl:argument1 rdf:resource="&bc;k/agricultural_input"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
-                    </rdf:Description>
-                </rdf:first>
-            </rdf:Description>
-        </swrl:body>
-        <swrl:head>
-            <rdf:Description>
-                <rdf:type rdf:resource="&swrl;AtomList"/>
-                <rdf:rest rdf:resource="&rdf;nil"/>
-                <rdf:first>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
-                        <swrl:propertyPredicate rdf:resource="&bc;containsKeyword"/>
-                        <swrl:argument1 rdf:resource="&bc;d/agricultural_input"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
-                    </rdf:Description>
-                </rdf:first>
-            </rdf:Description>
-        </swrl:head>
-    </rdf:Description>
-    <rdf:Description>
-        <rdf:type rdf:resource="&swrl;Imp"/>
-        <swrl:body>
-            <rdf:Description>
-                <rdf:type rdf:resource="&swrl;AtomList"/>
-                <rdf:rest rdf:resource="&rdf;nil"/>
-                <rdf:first>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
-                        <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
-                        <swrl:argument1 rdf:resource="&bc;k/dairy_product"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
-                    </rdf:Description>
-                </rdf:first>
-            </rdf:Description>
-        </swrl:body>
-        <swrl:head>
-            <rdf:Description>
-                <rdf:type rdf:resource="&swrl;AtomList"/>
-                <rdf:rest rdf:resource="&rdf;nil"/>
-                <rdf:first>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
-                        <swrl:propertyPredicate rdf:resource="&bc;containsKeyword"/>
-                        <swrl:argument1 rdf:resource="&bc;d/transformed_dairy_product"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
-                    </rdf:Description>
-                </rdf:first>
-            </rdf:Description>
-        </swrl:head>
     </rdf:Description>
     <rdf:Description>
         <rdf:type rdf:resource="&swrl;Imp"/>
@@ -12288,20 +12233,6 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     </rdf:Description>
     <rdf:Description>
         <rdf:type rdf:resource="&swrl;Imp"/>
-        <swrl:head>
-            <rdf:Description>
-                <rdf:type rdf:resource="&swrl;AtomList"/>
-                <rdf:rest rdf:resource="&rdf;nil"/>
-                <rdf:first>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
-                        <swrl:propertyPredicate rdf:resource="&bc;containsKeyword"/>
-                        <swrl:argument1 rdf:resource="&bc;d/meat"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
-                    </rdf:Description>
-                </rdf:first>
-            </rdf:Description>
-        </swrl:head>
         <swrl:body>
             <rdf:Description>
                 <rdf:type rdf:resource="&swrl;AtomList"/>
@@ -12316,23 +12247,6 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
                 </rdf:first>
             </rdf:Description>
         </swrl:body>
-    </rdf:Description>
-    <rdf:Description>
-        <rdf:type rdf:resource="&swrl;Imp"/>
-        <swrl:body>
-            <rdf:Description>
-                <rdf:type rdf:resource="&swrl;AtomList"/>
-                <rdf:rest rdf:resource="&rdf;nil"/>
-                <rdf:first>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
-                        <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
-                        <swrl:argument1 rdf:resource="&bc;k/cattle"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
-                    </rdf:Description>
-                </rdf:first>
-            </rdf:Description>
-        </swrl:body>
         <swrl:head>
             <rdf:Description>
                 <rdf:type rdf:resource="&swrl;AtomList"/>
@@ -12341,12 +12255,74 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
                     <rdf:Description>
                         <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
                         <swrl:propertyPredicate rdf:resource="&bc;containsKeyword"/>
-                        <swrl:argument1 rdf:resource="&bc;d/farmed_animal"/>
+                        <swrl:argument1 rdf:resource="&bc;d/meat"/>
                         <swrl:argument2 rdf:resource="urn:swrl#kw"/>
                     </rdf:Description>
                 </rdf:first>
             </rdf:Description>
         </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&swrl;Imp"/>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="&swrl;AtomList"/>
+                <rdf:rest rdf:resource="&rdf;nil"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="&bc;containsKeyword"/>
+                        <swrl:argument1 rdf:resource="&bc;d/transformed_dairy_product"/>
+                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
+                    </rdf:Description>
+                </rdf:first>
+            </rdf:Description>
+        </swrl:head>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="&swrl;AtomList"/>
+                <rdf:rest rdf:resource="&rdf;nil"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
+                        <swrl:argument1 rdf:resource="&bc;k/dairy_product"/>
+                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
+                    </rdf:Description>
+                </rdf:first>
+            </rdf:Description>
+        </swrl:body>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&swrl;Imp"/>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="&swrl;AtomList"/>
+                <rdf:rest rdf:resource="&rdf;nil"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="&bc;containsKeyword"/>
+                        <swrl:argument1 rdf:resource="&bc;d/agricultural_input"/>
+                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
+                    </rdf:Description>
+                </rdf:first>
+            </rdf:Description>
+        </swrl:head>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="&swrl;AtomList"/>
+                <rdf:rest rdf:resource="&rdf;nil"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
+                        <swrl:argument1 rdf:resource="&bc;k/agricultural_input"/>
+                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
+                    </rdf:Description>
+                </rdf:first>
+            </rdf:Description>
+        </swrl:body>
     </rdf:Description>
 </rdf:RDF>
 
