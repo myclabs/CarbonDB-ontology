@@ -470,6 +470,7 @@
     <owl:ObjectProperty rdf:about="&bc;hasTag">
         <rdfs:range rdf:resource="&bc;Keyword"/>
         <rdfs:domain rdf:resource="&bc;SingleElement"/>
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
     </owl:ObjectProperty>
     
 
@@ -951,15 +952,15 @@
     <owl:Class rdf:about="&bc;CategoryOfGroup">
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;belongsToParentCategoryOfGroup"/>
-                <owl:onClass rdf:resource="&bc;CategoryOfGroup"/>
-                <owl:maxQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onProperty rdf:resource="&bc;categorizesGroup"/>
+                <owl:someValuesFrom rdf:resource="&bc;Group"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;categorizesGroup"/>
-                <owl:someValuesFrom rdf:resource="&bc;Group"/>
+                <owl:onProperty rdf:resource="&bc;belongsToParentCategoryOfGroup"/>
+                <owl:onClass rdf:resource="&bc;CategoryOfGroup"/>
+                <owl:maxQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxQualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <owl:disjointWith rdf:resource="&bc;CategoryOfImpactType"/>
@@ -1021,13 +1022,6 @@
     <owl:Class rdf:about="&bc;ComponentOfImpactType">
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;contributesToImpactType"/>
-                <owl:onClass rdf:resource="&bc;ImpactType"/>
-                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
                 <owl:onProperty rdf:resource="&bc;isBasedOnElementaryFlowType"/>
                 <owl:onClass rdf:resource="&bc;ElementaryFlowType"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
@@ -1035,14 +1029,21 @@
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;value"/>
+                <owl:onProperty rdf:resource="&bc;contributesToImpactType"/>
+                <owl:onClass rdf:resource="&bc;ImpactType"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&bc;uncertainty"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
                 <owl:onDataRange rdf:resource="&xsd;double"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;uncertainty"/>
+                <owl:onProperty rdf:resource="&bc;value"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
                 <owl:onDataRange rdf:resource="&xsd;double"/>
             </owl:Restriction>
@@ -1099,15 +1100,15 @@
         <rdfs:subClassOf rdf:resource="&bc;ThingWithUnit"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;hasReference"/>
-                <owl:someValuesFrom rdf:resource="&bc;Reference"/>
+                <owl:onProperty rdf:resource="&bc;hasUnit"/>
+                <owl:onClass rdf:resource="&bc;Unit"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;hasUnit"/>
-                <owl:onClass rdf:resource="&bc;Unit"/>
-                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onProperty rdf:resource="&bc;hasReference"/>
+                <owl:someValuesFrom rdf:resource="&bc;Reference"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
@@ -1119,16 +1120,16 @@
     <owl:Class rdf:about="&bc;ElementaryFlow">
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;isFlowOfSingleProcess"/>
-                <owl:onClass rdf:resource="&bc;SingleProcess"/>
+                <owl:onProperty rdf:resource="&bc;value"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;double"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;value"/>
+                <owl:onProperty rdf:resource="&bc;isFlowOfSingleProcess"/>
+                <owl:onClass rdf:resource="&bc;SingleProcess"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onDataRange rdf:resource="&xsd;double"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -1187,15 +1188,15 @@
     <owl:Class rdf:about="&bc;Group">
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;belongsToCategoryOfGroup"/>
-                <owl:onClass rdf:resource="&bc;CategoryOfGroup"/>
-                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onProperty rdf:resource="&bc;hasDimension"/>
+                <owl:someValuesFrom rdf:resource="&bc;Dimension"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;hasDimension"/>
-                <owl:someValuesFrom rdf:resource="&bc;Dimension"/>
+                <owl:onProperty rdf:resource="&bc;belongsToCategoryOfGroup"/>
+                <owl:onClass rdf:resource="&bc;CategoryOfGroup"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -1221,13 +1222,6 @@
     <owl:Class rdf:about="&bc;Impact">
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;hasImpactType"/>
-                <owl:onClass rdf:resource="&bc;ImpactType"/>
-                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
                 <owl:onProperty rdf:resource="&bc;uncertainty"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
                 <owl:onDataRange rdf:resource="&xsd;double"/>
@@ -1238,6 +1232,13 @@
                 <owl:onProperty rdf:resource="&bc;value"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
                 <owl:onDataRange rdf:resource="&xsd;double"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&bc;hasImpactType"/>
+                <owl:onClass rdf:resource="&bc;ImpactType"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <owl:disjointWith rdf:resource="&bc;PositionOfKeywordInDimension"/>
@@ -1338,15 +1339,15 @@
         <rdfs:subClassOf rdf:resource="&bc;Position"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;providesPositionInDimensionToSomeKeyword"/>
-                <owl:onClass rdf:resource="&bc;Dimension"/>
+                <owl:onProperty rdf:resource="&bc;providesPositionToKeywordInSomeDimension"/>
+                <owl:onClass rdf:resource="&bc;Keyword"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;providesPositionToKeywordInSomeDimension"/>
-                <owl:onClass rdf:resource="&bc;Keyword"/>
+                <owl:onProperty rdf:resource="&bc;providesPositionInDimensionToSomeKeyword"/>
+                <owl:onClass rdf:resource="&bc;Dimension"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -1409,9 +1410,16 @@
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;exponent"/>
+                <owl:onProperty rdf:resource="&bc;hasDestinationProcess"/>
+                <owl:onClass rdf:resource="&bc;Process"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onDataRange rdf:resource="&xsd;short"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&bc;hasWeightCoefficient"/>
+                <owl:onClass rdf:resource="&bc;Coefficient"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -1423,16 +1431,9 @@
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;hasDestinationProcess"/>
-                <owl:onClass rdf:resource="&bc;Process"/>
+                <owl:onProperty rdf:resource="&bc;exponent"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;hasWeightCoefficient"/>
-                <owl:onClass rdf:resource="&bc;Coefficient"/>
-                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;short"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <owl:disjointWith rdf:resource="&bc;SingleElement"/>
@@ -1456,14 +1457,14 @@
         <rdfs:subClassOf rdf:resource="&bc;SingleElement"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;value"/>
+                <owl:onProperty rdf:resource="&bc;uncertainty"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
                 <owl:onDataRange rdf:resource="&xsd;double"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;uncertainty"/>
+                <owl:onProperty rdf:resource="&bc;value"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
                 <owl:onDataRange rdf:resource="&xsd;double"/>
             </owl:Restriction>
@@ -1691,6 +1692,33 @@
     
 
 
+    <!-- http://www.myc-sense.com/ontologies/bc#c/electricity_generation_processes -->
+
+    <owl:NamedIndividual rdf:about="&bc;c/electricity_generation_processes">
+        <rdfs:label xml:lang="en">Electricity generation processes</rdfs:label>
+        <belongsToParentCategoryOfGroup rdf:resource="&bc;c/electricity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#c/electricity_source_data -->
+
+    <owl:NamedIndividual rdf:about="&bc;c/electricity_source_data">
+        <rdfs:label xml:lang="en">Source data</rdfs:label>
+        <belongsToParentCategoryOfGroup rdf:resource="&bc;c/electricity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#c/electricity_supply_processes -->
+
+    <owl:NamedIndividual rdf:about="&bc;c/electricity_supply_processes">
+        <rdfs:label xml:lang="en">Electricity supply processes</rdfs:label>
+        <belongsToParentCategoryOfGroup rdf:resource="&bc;c/electricity"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.myc-sense.com/ontologies/bc#c/fuel -->
 
     <owl:NamedIndividual rdf:about="&bc;c/fuel">
@@ -1840,22 +1868,21 @@
     
 
 
-    <!-- http://www.myc-sense.com/ontologies/bc#c/rail_passenger_transport -->
-
-    <owl:NamedIndividual rdf:about="&bc;c/rail_passenger_transport">
-        <rdfs:label xml:lang="en">Rail passenger transport</rdfs:label>
-        <rdfs:label xml:lang="fr">Transport ferroviaire de personnes</rdfs:label>
-        <belongsToParentCategoryOfGroup rdf:resource="&bc;c/rail_transport"/>
-    </owl:NamedIndividual>
-    
-
-
     <!-- http://www.myc-sense.com/ontologies/bc#c/rail_transport -->
 
     <owl:NamedIndividual rdf:about="&bc;c/rail_transport">
         <rdfs:label xml:lang="en">Rail transport</rdfs:label>
         <rdfs:label xml:lang="fr">Transport ferroviaire</rdfs:label>
         <belongsToParentCategoryOfGroup rdf:resource="&bc;c/transport"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#c/rail_transport_source_data -->
+
+    <owl:NamedIndividual rdf:about="&bc;c/rail_transport_source_data">
+        <rdfs:label xml:lang="en">Source data</rdfs:label>
+        <belongsToParentCategoryOfGroup rdf:resource="&bc;c/rail_transport"/>
     </owl:NamedIndividual>
     
 
@@ -1993,9 +2020,6 @@
     <owl:NamedIndividual rdf:about="&bc;cateft/final_energy_consumption">
         <rdf:type rdf:resource="&bc;CategoryOfElementaryFlowType"/>
         <rdfs:label xml:lang="en">Final energy consumption</rdfs:label>
-        <rdfs:label xml:lang="fr">Consommation d&apos;énergie finale</rdfs:label>
-        <header xml:lang="en">Energy vector</header>
-        <header xml:lang="fr">Vecteur énergétique</header>
     </owl:NamedIndividual>
     
 
@@ -2005,9 +2029,6 @@
     <owl:NamedIndividual rdf:about="&bc;cateft/greenhouse_gas_emission">
         <rdf:type rdf:resource="&bc;CategoryOfElementaryFlowType"/>
         <rdfs:label xml:lang="en">Greenhouse gas emission</rdfs:label>
-        <rdfs:label xml:lang="fr">Émission de gaz à effet de serre</rdfs:label>
-        <header xml:lang="en">Gas</header>
-        <header xml:lang="fr">Gaz</header>
         <hasUnit rdf:resource="&bc;u/kilogram"/>
     </owl:NamedIndividual>
     
@@ -2018,9 +2039,6 @@
     <owl:NamedIndividual rdf:about="&bc;cateft/primary_energy_extraction">
         <rdf:type rdf:resource="&bc;CategoryOfElementaryFlowType"/>
         <rdfs:label xml:lang="en">Primary energy extraction</rdfs:label>
-        <rdfs:label xml:lang="fr">Extraction d&apos;énergie primaire</rdfs:label>
-        <header xml:lang="en">Source</header>
-        <header xml:lang="fr">Forme</header>
         <hasUnit rdf:resource="&bc;u/kilowatt_hour"/>
     </owl:NamedIndividual>
     
@@ -2052,13 +2070,25 @@
     
 
 
-    <!-- http://www.myc-sense.com/ontologies/bc#compit/coal_as_primary_energy -->
+    <!-- http://www.myc-sense.com/ontologies/bc#compit/anthracite_as_primary_energy -->
 
-    <owl:NamedIndividual rdf:about="&bc;compit/coal_as_primary_energy">
+    <owl:NamedIndividual rdf:about="&bc;compit/anthracite_as_primary_energy">
         <rdf:type rdf:resource="&bc;ComponentOfImpactType"/>
         <uncertainty rdf:datatype="&xsd;double">0.0</uncertainty>
         <value rdf:datatype="&xsd;double">1.0</value>
-        <isBasedOnElementaryFlowType rdf:resource="&bc;eft/pe/coal"/>
+        <isBasedOnElementaryFlowType rdf:resource="&bc;eft/pe/anthracite"/>
+        <contributesToImpactType rdf:resource="&bc;it/total_primary_energy"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#compit/crude_oil_as_primary_energy -->
+
+    <owl:NamedIndividual rdf:about="&bc;compit/crude_oil_as_primary_energy">
+        <rdf:type rdf:resource="&bc;ComponentOfImpactType"/>
+        <uncertainty rdf:datatype="&xsd;double">0.0</uncertainty>
+        <value rdf:datatype="&xsd;double">1.0</value>
+        <isBasedOnElementaryFlowType rdf:resource="&bc;eft/pe/crude_oil"/>
         <contributesToImpactType rdf:resource="&bc;it/total_primary_energy"/>
     </owl:NamedIndividual>
     
@@ -2208,6 +2238,30 @@
     
 
 
+    <!-- http://www.myc-sense.com/ontologies/bc#compit/hydro_power_as_primary_energy -->
+
+    <owl:NamedIndividual rdf:about="&bc;compit/hydro_power_as_primary_energy">
+        <rdf:type rdf:resource="&bc;ComponentOfImpactType"/>
+        <uncertainty rdf:datatype="&xsd;double">0.0</uncertainty>
+        <value rdf:datatype="&xsd;double">1.0</value>
+        <isBasedOnElementaryFlowType rdf:resource="&bc;eft/pe/hydro_power"/>
+        <contributesToImpactType rdf:resource="&bc;it/total_primary_energy"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#compit/lignite_as_primary_energy -->
+
+    <owl:NamedIndividual rdf:about="&bc;compit/lignite_as_primary_energy">
+        <rdf:type rdf:resource="&bc;ComponentOfImpactType"/>
+        <uncertainty rdf:datatype="&xsd;double">0.0</uncertainty>
+        <value rdf:datatype="&xsd;double">1.0</value>
+        <isBasedOnElementaryFlowType rdf:resource="&bc;eft/pe/lignite"/>
+        <contributesToImpactType rdf:resource="&bc;it/total_primary_energy"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.myc-sense.com/ontologies/bc#compit/natural_gas_as_primary_energy -->
 
     <owl:NamedIndividual rdf:about="&bc;compit/natural_gas_as_primary_energy">
@@ -2220,13 +2274,13 @@
     
 
 
-    <!-- http://www.myc-sense.com/ontologies/bc#compit/petroleum_as_primary_energy -->
+    <!-- http://www.myc-sense.com/ontologies/bc#compit/nuclear_as_primary_energy -->
 
-    <owl:NamedIndividual rdf:about="&bc;compit/petroleum_as_primary_energy">
+    <owl:NamedIndividual rdf:about="&bc;compit/nuclear_as_primary_energy">
         <rdf:type rdf:resource="&bc;ComponentOfImpactType"/>
         <uncertainty rdf:datatype="&xsd;double">0.0</uncertainty>
         <value rdf:datatype="&xsd;double">1.0</value>
-        <isBasedOnElementaryFlowType rdf:resource="&bc;eft/pe/crude_oil"/>
+        <isBasedOnElementaryFlowType rdf:resource="&bc;eft/pe/nuclear"/>
         <contributesToImpactType rdf:resource="&bc;it/total_primary_energy"/>
     </owl:NamedIndividual>
     
@@ -2432,9 +2486,21 @@
     <!-- http://www.myc-sense.com/ontologies/bc#d/freight_density -->
 
     <owl:NamedIndividual rdf:about="&bc;d/freight_density">
-        <containsKeyword rdf:resource="&bc;k/dense_good"/>
-        <containsKeyword rdf:resource="&bc;k/light_good"/>
-        <containsKeyword rdf:resource="&bc;k/moderately_dense_good"/>
+        <containsKeyword rdf:resource="&bc;k/average_freight"/>
+        <containsKeyword rdf:resource="&bc;k/bulk_freight"/>
+        <containsKeyword rdf:resource="&bc;k/volume_freight"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#d/freight_train_type -->
+
+    <owl:NamedIndividual rdf:about="&bc;d/freight_train_type">
+        <containsKeyword rdf:resource="&bc;k/average_train_1000_t"/>
+        <containsKeyword rdf:resource="&bc;k/extra_large_train_2000_t"/>
+        <containsKeyword rdf:resource="&bc;k/heavy_train_more_than_2000_t"/>
+        <containsKeyword rdf:resource="&bc;k/large_train_1500_t"/>
+        <containsKeyword rdf:resource="&bc;k/light_train_500_t"/>
     </owl:NamedIndividual>
     
 
@@ -2632,14 +2698,38 @@
     
 
 
+    <!-- http://www.myc-sense.com/ontologies/bc#d/power_plant_fuel -->
+
+    <owl:NamedIndividual rdf:about="&bc;d/power_plant_fuel">
+        <containsKeyword rdf:resource="&bc;k/anthracite"/>
+        <containsKeyword rdf:resource="&bc;k/natural_gas"/>
+        <containsKeyword rdf:resource="&bc;k/residual_fuel_oil"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#d/power_plant_type -->
+
+    <owl:NamedIndividual rdf:about="&bc;d/power_plant_type">
+        <containsKeyword rdf:resource="&bc;k/combined_cycle_gas_turbine"/>
+        <containsKeyword rdf:resource="&bc;k/conventional_anthracite_power_plant"/>
+        <containsKeyword rdf:resource="&bc;k/conventional_heavy_fuel_oil_power_plant"/>
+        <containsKeyword rdf:resource="&bc;k/integrated_gasification_combined_cycle_anthracite_power_plant"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.myc-sense.com/ontologies/bc#d/primary_energy -->
 
     <owl:NamedIndividual rdf:about="&bc;d/primary_energy">
         <rdfs:label xml:lang="en">Primary energy</rdfs:label>
         <rdfs:label xml:lang="fr">Énergie primaire</rdfs:label>
-        <containsKeyword rdf:resource="&bc;k/coal_primary_energy"/>
+        <containsKeyword rdf:resource="&bc;k/anthracite_primary_energy"/>
         <containsKeyword rdf:resource="&bc;k/crude_oil_primary_energy"/>
+        <containsKeyword rdf:resource="&bc;k/hydro_power_primary_energy"/>
+        <containsKeyword rdf:resource="&bc;k/lignite_primary_energy"/>
         <containsKeyword rdf:resource="&bc;k/natural_gas_primary_energy"/>
+        <containsKeyword rdf:resource="&bc;k/nuclear_primary_energy"/>
         <containsKeyword rdf:resource="&bc;k/undifferentiated_primary_energy"/>
     </owl:NamedIndividual>
     
@@ -2679,16 +2769,6 @@
         <hasPositionAsDimensionForSomeKeyword rdf:resource="&bc;pos/kd/process_for_crude_fossil_fuel_production_primary_energy+2"/>
         <hasPositionAsDimensionForSomeKeyword rdf:resource="&bc;pos/kd/process_for_crude_fossil_fuel_production_primary_energy+3"/>
         <hasPositionAsDimensionForSomeKeyword rdf:resource="&bc;pos/kd/process_for_crude_fossil_fuel_production_primary_energy+4"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.myc-sense.com/ontologies/bc#d/rail_transport_in_europe_area -->
-
-    <owl:NamedIndividual rdf:about="&bc;d/rail_transport_in_europe_area">
-        <containsKeyword rdf:resource="&bc;k/germany"/>
-        <containsKeyword rdf:resource="&bc;k/greece"/>
-        <containsKeyword rdf:resource="&bc;k/ireland"/>
     </owl:NamedIndividual>
     
 
@@ -2762,16 +2842,6 @@
     
 
 
-    <!-- http://www.myc-sense.com/ontologies/bc#d/train_propulsion -->
-
-    <owl:NamedIndividual rdf:about="&bc;d/train_propulsion">
-        <containsKeyword rdf:resource="&bc;k/electricity"/>
-        <containsKeyword rdf:resource="&bc;k/gas_diesel_oil"/>
-        <containsKeyword rdf:resource="&bc;k/undifferentiated"/>
-    </owl:NamedIndividual>
-    
-
-
     <!-- http://www.myc-sense.com/ontologies/bc#d/transformed_dairy_product -->
 
     <owl:NamedIndividual rdf:about="&bc;d/transformed_dairy_product"/>
@@ -2783,6 +2853,14 @@
     <owl:NamedIndividual rdf:about="&bc;d/transport_process">
         <containsKeyword rdf:resource="&bc;k/combustion"/>
         <containsKeyword rdf:resource="&bc;k/manufacture"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#d/type_of_electricity_consumption -->
+
+    <owl:NamedIndividual rdf:about="&bc;d/type_of_electricity_consumption">
+        <containsKeyword rdf:resource="&bc;k/european_union_electricity_mix"/>
     </owl:NamedIndividual>
     
 
@@ -2865,12 +2943,11 @@
     
 
 
-    <!-- http://www.myc-sense.com/ontologies/bc#eft/pe/coal -->
+    <!-- http://www.myc-sense.com/ontologies/bc#eft/pe/anthracite -->
 
-    <owl:NamedIndividual rdf:about="&bc;eft/pe/coal">
+    <owl:NamedIndividual rdf:about="&bc;eft/pe/anthracite">
         <rdf:type rdf:resource="&bc;ElementaryFlowType"/>
-        <rdfs:label xml:lang="en">Coal</rdfs:label>
-        <rdfs:label xml:lang="fr">Charbon / lignite</rdfs:label>
+        <rdfs:label xml:lang="en">Anthracite (hard coal)</rdfs:label>
         <belongsToCategoryOfElementaryFlowType rdf:resource="&bc;cateft/primary_energy_extraction"/>
     </owl:NamedIndividual>
     
@@ -2887,12 +2964,41 @@
     
 
 
+    <!-- http://www.myc-sense.com/ontologies/bc#eft/pe/hydro_power -->
+
+    <owl:NamedIndividual rdf:about="&bc;eft/pe/hydro_power">
+        <rdf:type rdf:resource="&bc;ElementaryFlowType"/>
+        <rdfs:label xml:lang="en">Hydro power</rdfs:label>
+        <belongsToCategoryOfElementaryFlowType rdf:resource="&bc;cateft/primary_energy_extraction"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#eft/pe/lignite -->
+
+    <owl:NamedIndividual rdf:about="&bc;eft/pe/lignite">
+        <rdf:type rdf:resource="&bc;ElementaryFlowType"/>
+        <rdfs:label xml:lang="en">Lignite (brown coal)</rdfs:label>
+        <belongsToCategoryOfElementaryFlowType rdf:resource="&bc;cateft/primary_energy_extraction"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.myc-sense.com/ontologies/bc#eft/pe/natural_gas -->
 
     <owl:NamedIndividual rdf:about="&bc;eft/pe/natural_gas">
         <rdf:type rdf:resource="&bc;ElementaryFlowType"/>
         <rdfs:label xml:lang="en">Natural gas</rdfs:label>
-        <rdfs:label xml:lang="fr">Gaz naturel</rdfs:label>
+        <belongsToCategoryOfElementaryFlowType rdf:resource="&bc;cateft/primary_energy_extraction"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#eft/pe/nuclear -->
+
+    <owl:NamedIndividual rdf:about="&bc;eft/pe/nuclear">
+        <rdf:type rdf:resource="&bc;ElementaryFlowType"/>
+        <rdfs:label xml:lang="en">Nuclear</rdfs:label>
         <belongsToCategoryOfElementaryFlowType rdf:resource="&bc;cateft/primary_energy_extraction"/>
     </owl:NamedIndividual>
     
@@ -2967,6 +3073,22 @@
     
 
 
+    <!-- http://www.myc-sense.com/ontologies/bc#gc/composition_of_electricity_mix -->
+
+    <owl:NamedIndividual rdf:about="&bc;gc/composition_of_electricity_mix">
+        <rdf:type rdf:resource="&bc;CoefficientGroup"/>
+        <rdfs:label xml:lang="en">Composition of electricity mix</rdfs:label>
+        <rdfs:comment xml:lang="en">WARNING ! Work under construction. The values were roughly derived from [JEC WTT v4a 2014], but they are neither precise nor complete. </rdfs:comment>
+        <belongsToCategoryOfGroup rdf:resource="&bc;c/electricity_source_data"/>
+        <hasHorizontalDimension rdf:resource="&bc;d/power_plant_type"/>
+        <hasVerticalDimension rdf:resource="&bc;d/type_of_electricity_consumption"/>
+        <hasCommonTag rdf:resource="&bc;k/component_of_electricity_mix"/>
+        <hasReference rdf:resource="&bc;ref/jec_wtt_v4a_2014"/>
+        <hasUnit rdf:resource="&bc;u/percent"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.myc-sense.com/ontologies/bc#gc/crop_yield -->
 
     <owl:NamedIndividual rdf:about="&bc;gc/crop_yield">
@@ -3012,13 +3134,29 @@
     
 
 
+    <!-- http://www.myc-sense.com/ontologies/bc#gc/efficiency_of_power_plant -->
+
+    <owl:NamedIndividual rdf:about="&bc;gc/efficiency_of_power_plant">
+        <rdf:type rdf:resource="&bc;CoefficientGroup"/>
+        <rdfs:label xml:lang="en">Efficiency of power plant</rdfs:label>
+        <rdfs:comment xml:lang="en">Values are taken from [JEC WTT v4a 2014], appendix 4, electricity spreadsheet, &quot;KE2.1&quot;, &quot;KE2.2&quot;, and &quot;FO1&quot; process codes.</rdfs:comment>
+        <belongsToCategoryOfGroup rdf:resource="&bc;c/electricity_source_data"/>
+        <hasHorizontalDimension rdf:resource="&bc;d/power_plant_fuel"/>
+        <hasVerticalDimension rdf:resource="&bc;d/power_plant_type"/>
+        <hasCommonTag rdf:resource="&bc;k/efficiency"/>
+        <hasReference rdf:resource="&bc;ref/jec_wtt_v4a_2014"/>
+        <hasUnit rdf:resource="&bc;u/percent"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.myc-sense.com/ontologies/bc#gc/electricity_line_loss_rate -->
 
     <owl:NamedIndividual rdf:about="&bc;gc/electricity_line_loss_rate">
         <rdf:type rdf:resource="&bc;CoefficientGroup"/>
         <rdfs:label xml:lang="en">Electricity line loss rate</rdfs:label>
         <rdfs:label xml:lang="fr">Taux de perte en ligne de l&apos;électricité</rdfs:label>
-        <belongsToCategoryOfGroup rdf:resource="&bc;c/electricity"/>
+        <belongsToCategoryOfGroup rdf:resource="&bc;c/electricity_source_data"/>
         <hasVerticalDimension rdf:resource="&bc;d/voltage_range"/>
         <hasUnit rdf:resource="&bc;u/percent"/>
     </owl:NamedIndividual>
@@ -3049,6 +3187,23 @@
         <hasVerticalDimension rdf:resource="&bc;d/road_freight_transport_vehicle"/>
         <hasCommonTag rdf:resource="&bc;k/empty_weight"/>
         <hasUnit rdf:resource="&bc;u/tonne_per_vehicle"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#gc/energy_consumption_per_unit_of_mass_transported_times_distance_travelled_for_electric_train -->
+
+    <owl:NamedIndividual rdf:about="&bc;gc/energy_consumption_per_unit_of_mass_transported_times_distance_travelled_for_electric_train">
+        <rdf:type rdf:resource="&bc;CoefficientGroup"/>
+        <rdfs:label xml:lang="en">Energy consumption per unit of mass transported and distance travelled for an electric train</rdfs:label>
+        <rdfs:comment xml:lang="en">Data are taken from [Ecotransit 2011], p. 46.</rdfs:comment>
+        <belongsToCategoryOfGroup rdf:resource="&bc;c/rail_transport_source_data"/>
+        <hasHorizontalDimension rdf:resource="&bc;d/freight_density"/>
+        <hasVerticalDimension rdf:resource="&bc;d/freight_train_type"/>
+        <hasCommonTag rdf:resource="&bc;k/electricity"/>
+        <hasCommonTag rdf:resource="&bc;k/energy_consumption_per_unit_of_mass_transported_times_distance_travelled"/>
+        <hasReference rdf:resource="&bc;ref/ecotransit_2011"/>
+        <hasUnit rdf:resource="&bc;u/watt_hour_per_tonne_kilometre"/>
     </owl:NamedIndividual>
     
 
@@ -3357,12 +3512,15 @@ They represent non-activity-specific emission factors for the combustion of a fu
         <rdfs:label xml:lang="en">Mass of greenhouse gas emitted by production and conditioning of fossil fuel at source, measured in unit of energy (LHV)</rdfs:label>
         <rdfs:comment xml:lang="en">Typical European Union supply, without transportation. 
 
+Data for anthracite are taken from [JEC WTT v4a 2014], appendix 4 (electricity, KOEL code). 
+
 Data for crude oil are taken from [JEC WTT v4a 2014], paragraph 3.1.1, p. 26. 
 
 Data for natural gas are taken from [JEC WTT v4a 2014], paragraph 3.2.3, p. 31. Source hypotheses are: 
 - 2% of processed gas energy is burned (energy used in production), this represents approximatively 1g/MJ of CO2.
 - 1% of volume is vented as CO2, this represents approximatively 0.5 g/MJ of CO2.
 - 0.4% of volume is vented as CH4, this represents approximatively 0.08 g/MJ of CH4.
+
 </rdfs:comment>
         <belongsToCategoryOfGroup rdf:resource="&bc;c/fuel_source_data_production_and_conditioning_at_source"/>
         <hasHorizontalDimension rdf:resource="&bc;d/co2_ch4"/>
@@ -3412,6 +3570,8 @@ Data for natural gas are taken from [JEC WTT v4a 2014], paragraph 3.2.3, p. 31. 
         <rdfs:label xml:lang="en">Primary energy for production and conditioning of fossil fuel at source, measured in unit of energy (LHV)</rdfs:label>
         <rdfs:comment xml:lang="en">Typical European Union supply, without transportation.
 
+Data for anthracite are taken from [JEC WTT v4a 2014], appendix 4, electricity file, &quot;KO1&quot; process.
+
 Data for crude oil are taken from [JEC WTT v4a 2014], paragraph 3.1.1, p.26. We slightly increased the energy use in production figure, since apparently the data from [JEC 2014] deal with final energy consumed, not primary energy extracted.
 
 Data for natural gas are taken from [JEC WTT v4a 2014], paragraph 3.2.3, p.31 and data in appendix 4 of the same reference. 
@@ -3440,6 +3600,76 @@ Entry &quot;Produced fuel&quot;  takes into account the energy of the produced f
         <hasVerticalDimension rdf:resource="&bc;d/crop"/>
         <hasCommonTag rdf:resource="&bc;k/proportion_of_dry_matter"/>
         <hasUnit rdf:resource="&bc;u/percent"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#gc/ratio_before_over_after_high_voltage_system_transmission_losses -->
+
+    <owl:NamedIndividual rdf:about="&bc;gc/ratio_before_over_after_high_voltage_system_transmission_losses">
+        <rdf:type rdf:resource="&bc;CoefficientGroup"/>
+        <rdfs:label xml:lang="en">Ratio &quot;before over after&quot; high voltage system transmission losses</rdfs:label>
+        <rdfs:comment xml:lang="en">Value is taken from [JEC WTT v4a 2014], p. 69.</rdfs:comment>
+        <belongsToCategoryOfGroup rdf:resource="&bc;c/electricity_source_data"/>
+        <hasCommonTag rdf:resource="&bc;k/ratio_before_over_after_high_voltage_system_transmission_losses"/>
+        <hasReference rdf:resource="&bc;ref/jec_wtt_v4a_2014"/>
+        <hasUnit rdf:resource="&bc;u/one"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#gc/ratio_before_over_after_low_voltage_system_transmission_losses -->
+
+    <owl:NamedIndividual rdf:about="&bc;gc/ratio_before_over_after_low_voltage_system_transmission_losses">
+        <rdf:type rdf:resource="&bc;CoefficientGroup"/>
+        <rdfs:label xml:lang="en">Ratio &quot;before over after&quot; low voltage system transmission losses</rdfs:label>
+        <rdfs:comment xml:lang="en">Value is taken from [JEC WTT v4a 2014], p. 69.</rdfs:comment>
+        <belongsToCategoryOfGroup rdf:resource="&bc;c/electricity_source_data"/>
+        <hasCommonTag rdf:resource="&bc;k/ratio_before_over_after_low_voltage_system_transmission_losses"/>
+        <hasReference rdf:resource="&bc;ref/jec_wtt_v4a_2014"/>
+        <hasUnit rdf:resource="&bc;u/one"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#gc/ratio_before_over_after_medium_voltage_system_transmission_losses -->
+
+    <owl:NamedIndividual rdf:about="&bc;gc/ratio_before_over_after_medium_voltage_system_transmission_losses">
+        <rdf:type rdf:resource="&bc;CoefficientGroup"/>
+        <rdfs:label xml:lang="en">Ratio &quot;before over after&quot; medium voltage system transmission losses</rdfs:label>
+        <rdfs:comment xml:lang="en">Value is taken from [JEC WTT v4a 2014], p. 69.</rdfs:comment>
+        <belongsToCategoryOfGroup rdf:resource="&bc;c/electricity_source_data"/>
+        <hasCommonTag rdf:resource="&bc;k/ratio_before_over_after_medium_voltage_system_transmission_losses"/>
+        <hasReference rdf:resource="&bc;ref/jec_wtt_v4a_2014"/>
+        <hasUnit rdf:resource="&bc;u/one"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#gc/ratio_before_over_after_pumping_in_hydro_electric_schemes -->
+
+    <owl:NamedIndividual rdf:about="&bc;gc/ratio_before_over_after_pumping_in_hydro_electric_schemes">
+        <rdf:type rdf:resource="&bc;CoefficientGroup"/>
+        <rdfs:label xml:lang="en">Ratio &quot;before over after&quot; pumping in hydro-electric schemes</rdfs:label>
+        <rdfs:comment xml:lang="en">Value is taken from [JEC WTT v4a 2014], p. 69.</rdfs:comment>
+        <belongsToCategoryOfGroup rdf:resource="&bc;c/electricity_source_data"/>
+        <hasCommonTag rdf:resource="&bc;k/ratio_before_over_after_pumping_in_hydro_electric_schemes"/>
+        <hasReference rdf:resource="&bc;ref/jec_wtt_v4a_2014"/>
+        <hasUnit rdf:resource="&bc;u/one"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#gc/ratio_gross_over_net_electricity_production -->
+
+    <owl:NamedIndividual rdf:about="&bc;gc/ratio_gross_over_net_electricity_production">
+        <rdf:type rdf:resource="&bc;CoefficientGroup"/>
+        <rdfs:label xml:lang="en">Ratio &quot;gross over net&quot; electricity production</rdfs:label>
+        <rdfs:comment xml:lang="en">Value is taken from [JEC WTT v4a 2014], p. 69.</rdfs:comment>
+        <belongsToCategoryOfGroup rdf:resource="&bc;c/electricity_source_data"/>
+        <hasCommonTag rdf:resource="&bc;k/ratio_gross_over_net_electricity_production"/>
+        <hasReference rdf:resource="&bc;ref/jec_wtt_v4a_2014"/>
+        <hasUnit rdf:resource="&bc;u/one"/>
     </owl:NamedIndividual>
     
 
@@ -3570,8 +3800,8 @@ In the relation below, refining fuel is assumed to be crude oil. </rdfs:comment>
         <hasCommonTag rdf:resource="&bc;k/fuel_consumption"/>
         <hasCommonTag rdf:resource="&bc;k/road_freight_transport"/>
         <hasPositionAsGroupForSomeCommonTag rdf:resource="&bc;pos/ctg/volume_of_fuel_consumed_per_unit_of_distance_travelled_road_freight_transport+1"/>
+        <hasPositionAsGroupForSomeCommonTag rdf:resource="&bc;pos/volume_of_fuel_consumed_per_unit_of_distance_travelled_road_freight_transport+2"/>
         <hasUnit rdf:resource="&bc;u/litre_per_vehicle_100_kilometre"/>
-        <hasPositionAsGroupForSomeCommonTag rdf:resource="&bc;volume_of_fuel_consumed_per_unit_of_distance_travelled_road_freight_transport+2"/>
     </owl:NamedIndividual>
     
 
@@ -3926,6 +4156,58 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     
 
 
+    <!-- http://www.myc-sense.com/ontologies/bc#gp/electricity_supply_after_high_voltage_system_transmission_losses -->
+
+    <owl:NamedIndividual rdf:about="&bc;gp/electricity_supply_after_high_voltage_system_transmission_losses">
+        <rdf:type rdf:resource="&bc;ProcessGroup"/>
+        <rdfs:label xml:lang="en">Electricity supply, after high voltage system transmission losses, before medium voltage system transmission losses</rdfs:label>
+        <belongsToCategoryOfGroup rdf:resource="&bc;c/electricity_supply_processes"/>
+        <hasCommonTag rdf:resource="&bc;k/after_high_voltage_system_transmission_losses"/>
+        <hasCommonTag rdf:resource="&bc;k/electricity_supply"/>
+        <hasUnit rdf:resource="&bc;u/kilowatt_hour"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#gp/electricity_supply_after_low_voltage_system_transmission_losses -->
+
+    <owl:NamedIndividual rdf:about="&bc;gp/electricity_supply_after_low_voltage_system_transmission_losses">
+        <rdf:type rdf:resource="&bc;ProcessGroup"/>
+        <rdfs:label xml:lang="en">Electricity supply, after low voltage system transmission losses</rdfs:label>
+        <belongsToCategoryOfGroup rdf:resource="&bc;c/electricity_supply_processes"/>
+        <hasCommonTag rdf:resource="&bc;k/after_low_voltage_system_transmission_losses"/>
+        <hasCommonTag rdf:resource="&bc;k/electricity_supply"/>
+        <hasUnit rdf:resource="&bc;u/kilowatt_hour"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#gp/electricity_supply_after_medium_voltage_system_transmission_losses -->
+
+    <owl:NamedIndividual rdf:about="&bc;gp/electricity_supply_after_medium_voltage_system_transmission_losses">
+        <rdf:type rdf:resource="&bc;ProcessGroup"/>
+        <rdfs:label xml:lang="en">Electricity supply, after medium voltage system transmission losses, before low voltage system transmission losses</rdfs:label>
+        <belongsToCategoryOfGroup rdf:resource="&bc;c/electricity_supply_processes"/>
+        <hasCommonTag rdf:resource="&bc;k/after_medium_voltage_system_transmission_losses"/>
+        <hasCommonTag rdf:resource="&bc;k/electricity_supply"/>
+        <hasUnit rdf:resource="&bc;u/kilowatt_hour"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#gp/electricity_supply_after_pumping_losses -->
+
+    <owl:NamedIndividual rdf:about="&bc;gp/electricity_supply_after_pumping_losses">
+        <rdf:type rdf:resource="&bc;ProcessGroup"/>
+        <rdfs:label xml:lang="en">Electricity supply, after pumping losses, before high voltage system transmission losses</rdfs:label>
+        <belongsToCategoryOfGroup rdf:resource="&bc;c/electricity_supply_processes"/>
+        <hasCommonTag rdf:resource="&bc;k/after_pumping_losses"/>
+        <hasCommonTag rdf:resource="&bc;k/electricity_supply"/>
+        <hasUnit rdf:resource="&bc;u/kilowatt_hour"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.myc-sense.com/ontologies/bc#gp/emanation_of_nitrous_oxide_from_nitrogen_fertilizer -->
 
     <owl:NamedIndividual rdf:about="&bc;gp/emanation_of_nitrous_oxide_from_nitrogen_fertilizer">
@@ -3936,6 +4218,32 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
         <hasVerticalDimension rdf:resource="&bc;d/agricultural_process_giving_off_greenhouse_gas"/>
         <hasCommonTag rdf:resource="&bc;k/nitrogen_fertilizer"/>
         <hasUnit rdf:resource="&bc;u/kilogram"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#gp/gross_electricity_generation_by_mode_of_generation -->
+
+    <owl:NamedIndividual rdf:about="&bc;gp/gross_electricity_generation_by_mode_of_generation">
+        <rdf:type rdf:resource="&bc;ProcessGroup"/>
+        <rdfs:label xml:lang="en">Gross electricity generation, by mode of generation</rdfs:label>
+        <belongsToCategoryOfGroup rdf:resource="&bc;c/electricity_generation_processes"/>
+        <hasVerticalDimension rdf:resource="&bc;d/power_plant_type"/>
+        <hasCommonTag rdf:resource="&bc;k/gross_electricity_generation"/>
+        <hasUnit rdf:resource="&bc;u/kilowatt_hour"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#gp/gross_electricity_generation_by_type_of_consumption -->
+
+    <owl:NamedIndividual rdf:about="&bc;gp/gross_electricity_generation_by_type_of_consumption">
+        <rdf:type rdf:resource="&bc;ProcessGroup"/>
+        <rdfs:label xml:lang="en">Gross electricity generation, by type of consumption</rdfs:label>
+        <belongsToCategoryOfGroup rdf:resource="&bc;c/electricity_generation_processes"/>
+        <hasVerticalDimension rdf:resource="&bc;d/type_of_electricity_consumption"/>
+        <hasCommonTag rdf:resource="&bc;k/gross_electricity_generation"/>
+        <hasUnit rdf:resource="&bc;u/kilowatt_hour"/>
     </owl:NamedIndividual>
     
 
@@ -3979,6 +4287,19 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
         <hasVerticalDimension rdf:resource="&bc;d/road_vehicle"/>
         <hasCommonTag rdf:resource="&bc;k/manufacture"/>
         <hasUnit rdf:resource="&bc;u/tonne"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#gp/net_electricity_generation_before_pumping_losses -->
+
+    <owl:NamedIndividual rdf:about="&bc;gp/net_electricity_generation_before_pumping_losses">
+        <rdf:type rdf:resource="&bc;ProcessGroup"/>
+        <rdfs:label xml:lang="en">Net electricity generation, before pumping losses</rdfs:label>
+        <belongsToCategoryOfGroup rdf:resource="&bc;c/electricity_generation_processes"/>
+        <hasCommonTag rdf:resource="&bc;k/before_pumping_losses"/>
+        <hasCommonTag rdf:resource="&bc;k/net_electricity_generation"/>
+        <hasUnit rdf:resource="&bc;u/kilowatt_hour"/>
     </owl:NamedIndividual>
     
 
@@ -4104,19 +4425,6 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
         <belongsToCategoryOfGroup rdf:resource="&bc;c/animal_husbandry"/>
         <hasVerticalDimension rdf:resource="&bc;d/dairy_animal"/>
         <hasUnit rdf:resource="&bc;u/litre"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.myc-sense.com/ontologies/bc#gp/rail_freight_transport_in_europe -->
-
-    <owl:NamedIndividual rdf:about="&bc;gp/rail_freight_transport_in_europe">
-        <rdf:type rdf:resource="&bc;ProcessGroup"/>
-        <rdfs:label xml:lang="en">Rail freight transport in Europe</rdfs:label>
-        <rdfs:label xml:lang="fr">Transport ferroviaire de marchandise en Europe</rdfs:label>
-        <belongsToCategoryOfGroup rdf:resource="&bc;c/rail_freight_transport"/>
-        <hasVerticalDimension rdf:resource="&bc;d/rail_transport_in_europe_area"/>
-        <hasUnit rdf:resource="&bc;u/tonne_kilometre"/>
     </owl:NamedIndividual>
     
 
@@ -4327,7 +4635,7 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     <owl:NamedIndividual rdf:about="&bc;ief/00005">
         <uncertainty rdf:datatype="&xsd;double">0.0</uncertainty>
         <value rdf:datatype="&xsd;double">1.0</value>
-        <hasElementaryFlowType rdf:resource="&bc;eft/pe/coal"/>
+        <hasElementaryFlowType rdf:resource="&bc;eft/pe/anthracite"/>
     </owl:NamedIndividual>
     
 
@@ -4358,6 +4666,36 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
         <uncertainty rdf:datatype="&xsd;double">1.0</uncertainty>
         <value rdf:datatype="&xsd;double">1.0</value>
         <hasElementaryFlowType rdf:resource="&bc;eft/pe/undifferentiated"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#ief/00009 -->
+
+    <owl:NamedIndividual rdf:about="&bc;ief/00009">
+        <uncertainty rdf:datatype="&xsd;double">0.0</uncertainty>
+        <value rdf:datatype="&xsd;double">1.0</value>
+        <hasElementaryFlowType rdf:resource="&bc;eft/pe/lignite"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#ief/00010 -->
+
+    <owl:NamedIndividual rdf:about="&bc;ief/00010">
+        <uncertainty rdf:datatype="&xsd;double">0.0</uncertainty>
+        <value rdf:datatype="&xsd;double">1.0</value>
+        <hasElementaryFlowType rdf:resource="&bc;eft/pe/nuclear"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#ief/00011 -->
+
+    <owl:NamedIndividual rdf:about="&bc;ief/00011">
+        <uncertainty rdf:datatype="&xsd;double">0.0</uncertainty>
+        <value rdf:datatype="&xsd;double">1.0</value>
+        <hasElementaryFlowType rdf:resource="&bc;eft/pe/hydro_power"/>
     </owl:NamedIndividual>
     
 
@@ -4556,6 +4894,38 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     
 
 
+    <!-- http://www.myc-sense.com/ontologies/bc#k/after_high_voltage_system_transmission_losses -->
+
+    <owl:NamedIndividual rdf:about="&bc;k/after_high_voltage_system_transmission_losses">
+        <rdfs:label xml:lang="en">After high voltage system transmission losses</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#k/after_low_voltage_system_transmission_losses -->
+
+    <owl:NamedIndividual rdf:about="&bc;k/after_low_voltage_system_transmission_losses">
+        <rdfs:label xml:lang="en">After low voltage system transmission losses</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#k/after_medium_voltage_system_transmission_losses -->
+
+    <owl:NamedIndividual rdf:about="&bc;k/after_medium_voltage_system_transmission_losses">
+        <rdfs:label xml:lang="en">After medium voltage system transmission losses</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#k/after_pumping_losses -->
+
+    <owl:NamedIndividual rdf:about="&bc;k/after_pumping_losses">
+        <rdfs:label xml:lang="en">After pumping losses</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.myc-sense.com/ontologies/bc#k/agricultural_automotive -->
 
     <owl:NamedIndividual rdf:about="&bc;k/agricultural_automotive">
@@ -4711,6 +5081,14 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     
 
 
+    <!-- http://www.myc-sense.com/ontologies/bc#k/anthracite_primary_energy -->
+
+    <owl:NamedIndividual rdf:about="&bc;k/anthracite_primary_energy">
+        <rdfs:label xml:lang="en">Anthracite / hard coal (primary energy)</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.myc-sense.com/ontologies/bc#k/arboriculture_viticulture -->
 
     <owl:NamedIndividual rdf:about="&bc;k/arboriculture_viticulture">
@@ -4775,6 +5153,14 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     
 
 
+    <!-- http://www.myc-sense.com/ontologies/bc#k/average_freight -->
+
+    <owl:NamedIndividual rdf:about="&bc;k/average_freight">
+        <rdfs:label xml:lang="en">Average freight</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.myc-sense.com/ontologies/bc#k/average_loaded_mass -->
 
     <owl:NamedIndividual rdf:about="&bc;k/average_loaded_mass">
@@ -4788,6 +5174,14 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     <owl:NamedIndividual rdf:about="&bc;k/average_loaded_volume">
         <rdfs:label xml:lang="en">Average loaded volume</rdfs:label>
         <rdfs:label xml:lang="fr">Volume transporté moyen</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#k/average_train_1000_t -->
+
+    <owl:NamedIndividual rdf:about="&bc;k/average_train_1000_t">
+        <rdfs:label xml:lang="en">Average train (1000 t)</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -4853,6 +5247,14 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     <owl:NamedIndividual rdf:about="&bc;k/beef_meat">
         <rdfs:label xml:lang="en">Beef (meat)</rdfs:label>
         <rdfs:label xml:lang="fr">Bœuf (viande)</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#k/before_pumping_losses -->
+
+    <owl:NamedIndividual rdf:about="&bc;k/before_pumping_losses">
+        <rdfs:label xml:lang="en">Before pumping losses</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -5089,6 +5491,14 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     
 
 
+    <!-- http://www.myc-sense.com/ontologies/bc#k/bulk_freight -->
+
+    <owl:NamedIndividual rdf:about="&bc;k/bulk_freight">
+        <rdfs:label xml:lang="en">Bulk freight</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.myc-sense.com/ontologies/bc#k/bull -->
 
     <owl:NamedIndividual rdf:about="&bc;k/bull">
@@ -5300,14 +5710,6 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     
 
 
-    <!-- http://www.myc-sense.com/ontologies/bc#k/coal_primary_energy -->
-
-    <owl:NamedIndividual rdf:about="&bc;k/coal_primary_energy">
-        <rdfs:label xml:lang="en">Coal (primary energy)</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
     <!-- http://www.myc-sense.com/ontologies/bc#k/coke_oven_gas -->
 
     <owl:NamedIndividual rdf:about="&bc;k/coke_oven_gas">
@@ -5339,6 +5741,14 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     
 
 
+    <!-- http://www.myc-sense.com/ontologies/bc#k/combined_cycle_gas_turbine -->
+
+    <owl:NamedIndividual rdf:about="&bc;k/combined_cycle_gas_turbine">
+        <rdfs:label xml:lang="en">Combined cycle gas turbine</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.myc-sense.com/ontologies/bc#k/combustion -->
 
     <owl:NamedIndividual rdf:about="&bc;k/combustion">
@@ -5353,6 +5763,14 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     <owl:NamedIndividual rdf:about="&bc;k/common_wheat">
         <rdfs:label xml:lang="fr">Blé tendre</rdfs:label>
         <rdfs:label xml:lang="fr">Common wheat</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#k/component_of_electricity_mix -->
+
+    <owl:NamedIndividual rdf:about="&bc;k/component_of_electricity_mix">
+        <rdfs:label xml:lang="en">Component of electricity mix</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -5389,6 +5807,22 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
         <isBroaderThan rdf:resource="&bc;k/asia"/>
         <isBroaderThan rdf:resource="&bc;k/europe"/>
         <isBroaderThan rdf:resource="&bc;k/oceania"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#k/conventional_anthracite_power_plant -->
+
+    <owl:NamedIndividual rdf:about="&bc;k/conventional_anthracite_power_plant">
+        <rdfs:label xml:lang="en">Conventional anthracite power plant</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#k/conventional_heavy_fuel_oil_power_plant -->
+
+    <owl:NamedIndividual rdf:about="&bc;k/conventional_heavy_fuel_oil_power_plant">
+        <rdfs:label xml:lang="en">Conventional heavy fuel oil power plant</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -5559,15 +5993,6 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     
 
 
-    <!-- http://www.myc-sense.com/ontologies/bc#k/dense_good -->
-
-    <owl:NamedIndividual rdf:about="&bc;k/dense_good">
-        <rdfs:label xml:lang="en">Dense goods</rdfs:label>
-        <rdfs:label xml:lang="fr">Marchandises denses</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
     <!-- http://www.myc-sense.com/ontologies/bc#k/diesel_engine -->
 
     <owl:NamedIndividual rdf:about="&bc;k/diesel_engine">
@@ -5638,6 +6063,14 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     
 
 
+    <!-- http://www.myc-sense.com/ontologies/bc#k/efficiency -->
+
+    <owl:NamedIndividual rdf:about="&bc;k/efficiency">
+        <rdfs:label xml:lang="en">Efficiency</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.myc-sense.com/ontologies/bc#k/egg_laying_hen -->
 
     <owl:NamedIndividual rdf:about="&bc;k/egg_laying_hen">
@@ -5652,6 +6085,14 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     <owl:NamedIndividual rdf:about="&bc;k/electricity">
         <rdfs:label xml:lang="en">Electricity</rdfs:label>
         <rdfs:label xml:lang="fr">Électricité</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#k/electricity_supply -->
+
+    <owl:NamedIndividual rdf:about="&bc;k/electricity_supply">
+        <rdfs:label xml:lang="en">Electricity supply</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -5677,6 +6118,14 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
 
     <owl:NamedIndividual rdf:about="&bc;k/energy">
         <rdfs:label xml:lang="en">Energy</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#k/energy_consumption_per_unit_of_mass_transported_times_distance_travelled -->
+
+    <owl:NamedIndividual rdf:about="&bc;k/energy_consumption_per_unit_of_mass_transported_times_distance_travelled">
+        <rdfs:label xml:lang="en">Energy consumption per unit of mass transported times distance travelled</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -5786,6 +6235,14 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     
 
 
+    <!-- http://www.myc-sense.com/ontologies/bc#k/european_union_electricity_mix -->
+
+    <owl:NamedIndividual rdf:about="&bc;k/european_union_electricity_mix">
+        <rdfs:label xml:lang="en">European Union electricity mix</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.myc-sense.com/ontologies/bc#k/ewe -->
 
     <owl:NamedIndividual rdf:about="&bc;k/ewe">
@@ -5809,6 +6266,14 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     <owl:NamedIndividual rdf:about="&bc;k/ewe_meat">
         <rdfs:label xml:lang="en">Ewe</rdfs:label>
         <rdfs:label xml:lang="fr">Brebis</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#k/extra_large_train_2000_t -->
+
+    <owl:NamedIndividual rdf:about="&bc;k/extra_large_train_2000_t">
+        <rdfs:label xml:lang="en">Extra large train (2000 t)</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -5944,18 +6409,6 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     <owl:NamedIndividual rdf:about="&bc;k/free_range_guinea_fowl">
         <rdfs:label xml:lang="en">Free range guinea fowl</rdfs:label>
         <rdfs:label xml:lang="fr">Pintade fermière</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.myc-sense.com/ontologies/bc#k/freight_density -->
-
-    <owl:NamedIndividual rdf:about="&bc;k/freight_density">
-        <rdfs:label xml:lang="en">Freight density</rdfs:label>
-        <rdfs:label xml:lang="es">Densité du fret</rdfs:label>
-        <isBroaderThan rdf:resource="&bc;k/dense_good"/>
-        <isBroaderThan rdf:resource="&bc;k/light_good"/>
-        <isBroaderThan rdf:resource="&bc;k/moderately_dense_good"/>
     </owl:NamedIndividual>
     
 
@@ -6242,6 +6695,14 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     
 
 
+    <!-- http://www.myc-sense.com/ontologies/bc#k/gross_electricity_generation -->
+
+    <owl:NamedIndividual rdf:about="&bc;k/gross_electricity_generation">
+        <rdfs:label xml:lang="en">Gross electricity generation</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.myc-sense.com/ontologies/bc#k/gvwr_12_t_carrier -->
 
     <owl:NamedIndividual rdf:about="&bc;k/gvwr_12_t_carrier">
@@ -6351,6 +6812,14 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     
 
 
+    <!-- http://www.myc-sense.com/ontologies/bc#k/heavy_train_more_than_2000_t -->
+
+    <owl:NamedIndividual rdf:about="&bc;k/heavy_train_more_than_2000_t">
+        <rdfs:label xml:lang="en">Heavy train (more than 2000 t)</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.myc-sense.com/ontologies/bc#k/heifer_young_bull -->
 
     <owl:NamedIndividual rdf:about="&bc;k/heifer_young_bull">
@@ -6409,6 +6878,14 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     
 
 
+    <!-- http://www.myc-sense.com/ontologies/bc#k/hydro_power_primary_energy -->
+
+    <owl:NamedIndividual rdf:about="&bc;k/hydro_power_primary_energy">
+        <rdfs:label xml:lang="en">Hydro power (primary energy)</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.myc-sense.com/ontologies/bc#k/identity_coefficient -->
 
     <owl:NamedIndividual rdf:about="&bc;k/identity_coefficient">
@@ -6432,6 +6909,14 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     <owl:NamedIndividual rdf:about="&bc;k/insecticide">
         <rdfs:label xml:lang="en">Insecticide</rdfs:label>
         <rdfs:label xml:lang="fr">Insecticide</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#k/integrated_gasification_combined_cycle_anthracite_power_plant -->
+
+    <owl:NamedIndividual rdf:about="&bc;k/integrated_gasification_combined_cycle_anthracite_power_plant">
+        <rdfs:label xml:lang="en">IGCC (Integrated Gasification Combined Cycle) anthracite power plant</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -6478,6 +6963,14 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     <owl:NamedIndividual rdf:about="&bc;k/landfill">
         <rdfs:label xml:lang="en">Landfill</rdfs:label>
         <rdfs:label xml:lang="fr">Centre d&apos;enfouissement</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#k/large_train_1500_t -->
+
+    <owl:NamedIndividual rdf:about="&bc;k/large_train_1500_t">
+        <rdfs:label xml:lang="en">Large train (1500 t)</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -6565,11 +7058,10 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     
 
 
-    <!-- http://www.myc-sense.com/ontologies/bc#k/light_good -->
+    <!-- http://www.myc-sense.com/ontologies/bc#k/light_train_500_t -->
 
-    <owl:NamedIndividual rdf:about="&bc;k/light_good">
-        <rdfs:label xml:lang="en">Light goods</rdfs:label>
-        <rdfs:label xml:lang="fr">Marchandises légères</rdfs:label>
+    <owl:NamedIndividual rdf:about="&bc;k/light_train_500_t">
+        <rdfs:label xml:lang="en">Light train (500 t)</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -6591,6 +7083,14 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
         <rdfs:label xml:lang="fr">Coke de lignite</rdfs:label>
         <hasPrimarySource rdf:resource="&bc;k/fossil"/>
         <hasMatterState rdf:resource="&bc;k/solid"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#k/lignite_primary_energy -->
+
+    <owl:NamedIndividual rdf:about="&bc;k/lignite_primary_energy">
+        <rdfs:label xml:lang="en">Lignite / brown coal (primary energy)</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -6889,15 +7389,6 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     
 
 
-    <!-- http://www.myc-sense.com/ontologies/bc#k/moderately_dense_good -->
-
-    <owl:NamedIndividual rdf:about="&bc;k/moderately_dense_good">
-        <rdfs:label xml:lang="en">Moderately dense goods</rdfs:label>
-        <rdfs:label xml:lang="fr">Marchandises moyennement denses</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
     <!-- http://www.myc-sense.com/ontologies/bc#k/more_than_250_t -->
 
     <owl:NamedIndividual rdf:about="&bc;k/more_than_250_t">
@@ -6985,6 +7476,14 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     
 
 
+    <!-- http://www.myc-sense.com/ontologies/bc#k/net_electricity_generation -->
+
+    <owl:NamedIndividual rdf:about="&bc;k/net_electricity_generation">
+        <rdfs:label xml:lang="en">Net electricity generation</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.myc-sense.com/ontologies/bc#k/net_saleable_weight -->
 
     <owl:NamedIndividual rdf:about="&bc;k/net_saleable_weight">
@@ -7026,6 +7525,14 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     <owl:NamedIndividual rdf:about="&bc;k/norway">
         <rdfs:label xml:lang="en">Norway</rdfs:label>
         <rdfs:label xml:lang="fr">Norvège</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#k/nuclear_primary_energy -->
+
+    <owl:NamedIndividual rdf:about="&bc;k/nuclear_primary_energy">
+        <rdfs:label xml:lang="en">Nuclear primary energy</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -7393,6 +7900,46 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     <owl:NamedIndividual rdf:about="&bc;k/ratio">
         <rdfs:label xml:lang="en">Ratio</rdfs:label>
         <rdfs:label xml:lang="fr">Ratio</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#k/ratio_before_over_after_high_voltage_system_transmission_losses -->
+
+    <owl:NamedIndividual rdf:about="&bc;k/ratio_before_over_after_high_voltage_system_transmission_losses">
+        <rdfs:label xml:lang="en">Ratio &quot;before over after&quot; high voltage system transmission losses</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#k/ratio_before_over_after_low_voltage_system_transmission_losses -->
+
+    <owl:NamedIndividual rdf:about="&bc;k/ratio_before_over_after_low_voltage_system_transmission_losses">
+        <rdfs:label xml:lang="en">Ratio &quot;before over after&quot; low voltage system transmission losses</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#k/ratio_before_over_after_medium_voltage_system_transmission_losses -->
+
+    <owl:NamedIndividual rdf:about="&bc;k/ratio_before_over_after_medium_voltage_system_transmission_losses">
+        <rdfs:label xml:lang="en">Ratio &quot;before over after&quot; medium voltage system transmission losses</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#k/ratio_before_over_after_pumping_in_hydro_electric_schemes -->
+
+    <owl:NamedIndividual rdf:about="&bc;k/ratio_before_over_after_pumping_in_hydro_electric_schemes">
+        <rdfs:label xml:lang="en">Ratio &quot;before over after&quot; pumping in hydro-electric schemes</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#k/ratio_gross_over_net_electricity_production -->
+
+    <owl:NamedIndividual rdf:about="&bc;k/ratio_gross_over_net_electricity_production">
+        <rdfs:label xml:lang="en">Ratio &quot;gross over net&quot; electricity production</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -8086,6 +8633,14 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     
 
 
+    <!-- http://www.myc-sense.com/ontologies/bc#k/volume_freight -->
+
+    <owl:NamedIndividual rdf:about="&bc;k/volume_freight">
+        <rdfs:label xml:lang="en">Volume freight</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.myc-sense.com/ontologies/bc#k/volume_of_milk_for_dairy_product -->
 
     <owl:NamedIndividual rdf:about="&bc;k/volume_of_milk_for_dairy_product">
@@ -8577,6 +9132,15 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     
 
 
+    <!-- http://www.myc-sense.com/ontologies/bc#pos/volume_of_fuel_consumed_per_unit_of_distance_travelled_road_freight_transport+2 -->
+
+    <owl:NamedIndividual rdf:about="&bc;pos/volume_of_fuel_consumed_per_unit_of_distance_travelled_road_freight_transport+2">
+        <position rdf:datatype="&xsd;short">2</position>
+        <providesPositionToCommonTagInSomeGroup rdf:resource="&bc;k/road_freight_transport"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.myc-sense.com/ontologies/bc#r/allocation_of_upstream_of_fuel+crude_oil+natural_gas -->
 
     <owl:NamedIndividual rdf:about="&bc;r/allocation_of_upstream_of_fuel+crude_oil+natural_gas">
@@ -8642,6 +9206,19 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     
 
 
+    <!-- http://www.myc-sense.com/ontologies/bc#r/composition_of_electricity_mix -->
+
+    <owl:NamedIndividual rdf:about="&bc;r/composition_of_electricity_mix">
+        <rdf:type rdf:resource="&bc;SourceRelation"/>
+        <exponent rdf:datatype="&xsd;short">1</exponent>
+        <hasWeightCoefficient rdf:resource="&bc;gc/composition_of_electricity_mix"/>
+        <hasOriginProcess rdf:resource="&bc;gp/gross_electricity_generation_by_mode_of_generation"/>
+        <hasDestinationProcess rdf:resource="&bc;gp/gross_electricity_generation_by_type_of_consumption"/>
+        <hasRelationType rdf:resource="&bc;rt/synchronous_dependency"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.myc-sense.com/ontologies/bc#r/crop_yield -->
 
     <owl:NamedIndividual rdf:about="&bc;r/crop_yield">
@@ -8690,6 +9267,19 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
         <hasOriginProcess rdf:resource="&bc;gp/pipeline_transport"/>
         <hasDestinationProcess rdf:resource="&bc;gp/supply_of_fossil_fuel_after_transportation_to_market_unit_of_energy_lhv"/>
         <hasRelationType rdf:resource="&bc;rt/asynchronous_dependency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#r/efficiency_of_power_plant -->
+
+    <owl:NamedIndividual rdf:about="&bc;r/efficiency_of_power_plant">
+        <rdf:type rdf:resource="&bc;SourceRelation"/>
+        <exponent rdf:datatype="&xsd;short">-1</exponent>
+        <hasWeightCoefficient rdf:resource="&bc;gc/efficiency_of_power_plant"/>
+        <hasOriginProcess rdf:resource="&bc;gp/combustion_unit_of_energy_lhv"/>
+        <hasDestinationProcess rdf:resource="&bc;gp/gross_electricity_generation_by_mode_of_generation"/>
+        <hasRelationType rdf:resource="&bc;rt/synchronous_dependency"/>
     </owl:NamedIndividual>
     
 
@@ -9084,6 +9674,71 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     
 
 
+    <!-- http://www.myc-sense.com/ontologies/bc#r/ratio_before_over_after_high_voltage_system_transmission_losses -->
+
+    <owl:NamedIndividual rdf:about="&bc;r/ratio_before_over_after_high_voltage_system_transmission_losses">
+        <rdf:type rdf:resource="&bc;SourceRelation"/>
+        <exponent rdf:datatype="&xsd;short">1</exponent>
+        <hasWeightCoefficient rdf:resource="&bc;gc/ratio_before_over_after_high_voltage_system_transmission_losses"/>
+        <hasDestinationProcess rdf:resource="&bc;gp/electricity_supply_after_high_voltage_system_transmission_losses"/>
+        <hasOriginProcess rdf:resource="&bc;gp/electricity_supply_after_pumping_losses"/>
+        <hasRelationType rdf:resource="&bc;rt/asynchronous_dependency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#r/ratio_before_over_after_low_voltage_system_transmission_losses -->
+
+    <owl:NamedIndividual rdf:about="&bc;r/ratio_before_over_after_low_voltage_system_transmission_losses">
+        <rdf:type rdf:resource="&bc;SourceRelation"/>
+        <exponent rdf:datatype="&xsd;short">1</exponent>
+        <hasWeightCoefficient rdf:resource="&bc;gc/ratio_before_over_after_low_voltage_system_transmission_losses"/>
+        <hasDestinationProcess rdf:resource="&bc;gp/electricity_supply_after_low_voltage_system_transmission_losses"/>
+        <hasOriginProcess rdf:resource="&bc;gp/electricity_supply_after_medium_voltage_system_transmission_losses"/>
+        <hasRelationType rdf:resource="&bc;rt/asynchronous_dependency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#r/ratio_before_over_after_medium_voltage_system_transmission_losses -->
+
+    <owl:NamedIndividual rdf:about="&bc;r/ratio_before_over_after_medium_voltage_system_transmission_losses">
+        <rdf:type rdf:resource="&bc;SourceRelation"/>
+        <exponent rdf:datatype="&xsd;short">1</exponent>
+        <hasWeightCoefficient rdf:resource="&bc;gc/ratio_before_over_after_medium_voltage_system_transmission_losses"/>
+        <hasOriginProcess rdf:resource="&bc;gp/electricity_supply_after_high_voltage_system_transmission_losses"/>
+        <hasDestinationProcess rdf:resource="&bc;gp/electricity_supply_after_medium_voltage_system_transmission_losses"/>
+        <hasRelationType rdf:resource="&bc;rt/asynchronous_dependency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#r/ratio_before_over_after_pumping_in_hydro_electric_schemes -->
+
+    <owl:NamedIndividual rdf:about="&bc;r/ratio_before_over_after_pumping_in_hydro_electric_schemes">
+        <rdf:type rdf:resource="&bc;SourceRelation"/>
+        <exponent rdf:datatype="&xsd;short">1</exponent>
+        <hasWeightCoefficient rdf:resource="&bc;gc/ratio_before_over_after_pumping_in_hydro_electric_schemes"/>
+        <hasDestinationProcess rdf:resource="&bc;gp/electricity_supply_after_pumping_losses"/>
+        <hasOriginProcess rdf:resource="&bc;gp/net_electricity_generation_before_pumping_losses"/>
+        <hasRelationType rdf:resource="&bc;rt/asynchronous_dependency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#r/ratio_gross_over_net_electricity_production -->
+
+    <owl:NamedIndividual rdf:about="&bc;r/ratio_gross_over_net_electricity_production">
+        <rdf:type rdf:resource="&bc;SourceRelation"/>
+        <exponent rdf:datatype="&xsd;short">1</exponent>
+        <hasWeightCoefficient rdf:resource="&bc;gc/ratio_gross_over_net_electricity_production"/>
+        <hasOriginProcess rdf:resource="&bc;gp/gross_electricity_generation_by_type_of_consumption"/>
+        <hasDestinationProcess rdf:resource="&bc;gp/net_electricity_generation_before_pumping_losses"/>
+        <hasRelationType rdf:resource="&bc;rt/synchronous_dependency"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.myc-sense.com/ontologies/bc#r/ratio_of_ratio_of_hhv_to_lhv_of_fuel -->
 
     <owl:NamedIndividual rdf:about="&bc;r/ratio_of_ratio_of_hhv_to_lhv_of_fuel">
@@ -9209,6 +9864,19 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
         <hasDestinationProcess rdf:resource="&bc;gp/production_of_dairy_product"/>
         <hasOriginProcess rdf:resource="&bc;gp/production_of_milk"/>
         <hasRelationType rdf:resource="&bc;rt/asynchronous_dependency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#ref/ecotransit_2011 -->
+
+    <owl:NamedIndividual rdf:about="&bc;ref/ecotransit_2011">
+        <rdf:type rdf:resource="&bc;Reference"/>
+        <date rdf:datatype="&xsd;string">2011-07-31</date>
+        <title rdf:datatype="&xsd;string">Ecological Transport Information Tool for Worldwide Transports, Methodology and Data Update</title>
+        <source rdf:datatype="&xsd;string">Ecotransit</source>
+        <shortName rdf:datatype="&xsd;string">Ecotransit 2011</shortName>
+        <URL rdf:datatype="&xsd;anyURI">http://www.ecotransit.org/download/ecotransit_background_report.pdf</URL>
     </owl:NamedIndividual>
     
 
@@ -9746,6 +10414,58 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     
 
 
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/component_of_electricity_mix+european_union_electricity_mix+combined_cycle_gas_turbine -->
+
+    <owl:NamedIndividual rdf:about="&bc;sc/component_of_electricity_mix+european_union_electricity_mix+combined_cycle_gas_turbine">
+        <rdf:type rdf:resource="&bc;SingleCoefficient"/>
+        <value rdf:datatype="&xsd;double">20.0</value>
+        <hasTag rdf:resource="&bc;k/combined_cycle_gas_turbine"/>
+        <hasTag rdf:resource="&bc;k/component_of_electricity_mix"/>
+        <hasTag rdf:resource="&bc;k/european_union_electricity_mix"/>
+        <hasUnit rdf:resource="&bc;u/percent"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/component_of_electricity_mix+european_union_electricity_mix+conventional_anthracite_power_plant -->
+
+    <owl:NamedIndividual rdf:about="&bc;sc/component_of_electricity_mix+european_union_electricity_mix+conventional_anthracite_power_plant">
+        <rdf:type rdf:resource="&bc;SingleCoefficient"/>
+        <value rdf:datatype="&xsd;double">15.0</value>
+        <hasTag rdf:resource="&bc;k/component_of_electricity_mix"/>
+        <hasTag rdf:resource="&bc;k/conventional_anthracite_power_plant"/>
+        <hasTag rdf:resource="&bc;k/european_union_electricity_mix"/>
+        <hasUnit rdf:resource="&bc;u/percent"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/component_of_electricity_mix+european_union_electricity_mix+conventional_heavy_fuel_oil_power_plant -->
+
+    <owl:NamedIndividual rdf:about="&bc;sc/component_of_electricity_mix+european_union_electricity_mix+conventional_heavy_fuel_oil_power_plant">
+        <rdf:type rdf:resource="&bc;SingleCoefficient"/>
+        <value rdf:datatype="&xsd;double">5.0</value>
+        <hasTag rdf:resource="&bc;k/component_of_electricity_mix"/>
+        <hasTag rdf:resource="&bc;k/conventional_heavy_fuel_oil_power_plant"/>
+        <hasTag rdf:resource="&bc;k/european_union_electricity_mix"/>
+        <hasUnit rdf:resource="&bc;u/percent"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/component_of_electricity_mix+european_union_electricity_mix+integrated_gasification_combined_cycle_anthracite_power_plant -->
+
+    <owl:NamedIndividual rdf:about="&bc;sc/component_of_electricity_mix+european_union_electricity_mix+integrated_gasification_combined_cycle_anthracite_power_plant">
+        <rdf:type rdf:resource="&bc;SingleCoefficient"/>
+        <value rdf:datatype="&xsd;double">15.0</value>
+        <hasTag rdf:resource="&bc;k/component_of_electricity_mix"/>
+        <hasTag rdf:resource="&bc;k/european_union_electricity_mix"/>
+        <hasTag rdf:resource="&bc;k/integrated_gasification_combined_cycle_anthracite_power_plant"/>
+        <hasUnit rdf:resource="&bc;u/percent"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.myc-sense.com/ontologies/bc#sc/correspondence+diesel_engine+gas_diesel_oil -->
 
     <owl:NamedIndividual rdf:about="&bc;sc/correspondence+diesel_engine+gas_diesel_oil">
@@ -9824,6 +10544,58 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     
 
 
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/efficiency+combined_cycle_gas_turbine+natural_gas -->
+
+    <owl:NamedIndividual rdf:about="&bc;sc/efficiency+combined_cycle_gas_turbine+natural_gas">
+        <rdf:type rdf:resource="&bc;SingleCoefficient"/>
+        <value rdf:datatype="&xsd;double">58.0</value>
+        <hasTag rdf:resource="&bc;k/combined_cycle_gas_turbine"/>
+        <hasTag rdf:resource="&bc;k/efficiency"/>
+        <hasTag rdf:resource="&bc;k/natural_gas"/>
+        <hasUnit rdf:resource="&bc;u/percent"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/efficiency+conventional_anthracite_power_plant+anthracite -->
+
+    <owl:NamedIndividual rdf:about="&bc;sc/efficiency+conventional_anthracite_power_plant+anthracite">
+        <rdf:type rdf:resource="&bc;SingleCoefficient"/>
+        <value rdf:datatype="&xsd;double">43.5</value>
+        <hasTag rdf:resource="&bc;k/anthracite"/>
+        <hasTag rdf:resource="&bc;k/conventional_anthracite_power_plant"/>
+        <hasTag rdf:resource="&bc;k/efficiency"/>
+        <hasUnit rdf:resource="&bc;u/percent"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/efficiency+conventional_heavy_fuel_oil_power_plant+residual_fuel_oil -->
+
+    <owl:NamedIndividual rdf:about="&bc;sc/efficiency+conventional_heavy_fuel_oil_power_plant+residual_fuel_oil">
+        <rdf:type rdf:resource="&bc;SingleCoefficient"/>
+        <value rdf:datatype="&xsd;double">41.5</value>
+        <hasTag rdf:resource="&bc;k/conventional_heavy_fuel_oil_power_plant"/>
+        <hasTag rdf:resource="&bc;k/efficiency"/>
+        <hasTag rdf:resource="&bc;k/residual_fuel_oil"/>
+        <hasUnit rdf:resource="&bc;u/percent"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/efficiency+integrated_gasification_combined_cycle_anthracite_power_plant+anthracite -->
+
+    <owl:NamedIndividual rdf:about="&bc;sc/efficiency+integrated_gasification_combined_cycle_anthracite_power_plant+anthracite">
+        <rdf:type rdf:resource="&bc;SingleCoefficient"/>
+        <value rdf:datatype="&xsd;double">48.0</value>
+        <hasTag rdf:resource="&bc;k/anthracite"/>
+        <hasTag rdf:resource="&bc;k/efficiency"/>
+        <hasTag rdf:resource="&bc;k/integrated_gasification_combined_cycle_anthracite_power_plant"/>
+        <hasUnit rdf:resource="&bc;u/percent"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.myc-sense.com/ontologies/bc#sc/empty_weight+40_t_semi_trailer_truck -->
 
     <owl:NamedIndividual rdf:about="&bc;sc/empty_weight+40_t_semi_trailer_truck">
@@ -9894,6 +10666,215 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
         <hasTag rdf:resource="&bc;k/energy"/>
         <hasTag rdf:resource="&bc;k/transportation_to_market"/>
         <hasUnit rdf:resource="&bc;u/megajoule_per_megajoule"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/energy_consumption_per_unit_of_mass_transported_times_distance_travelled+electricity+average_train_1000_t+average_freight -->
+
+    <owl:NamedIndividual rdf:about="&bc;sc/energy_consumption_per_unit_of_mass_transported_times_distance_travelled+electricity+average_train_1000_t+average_freight">
+        <rdf:type rdf:resource="&bc;SingleCoefficient"/>
+        <value rdf:datatype="&xsd;double">32.2</value>
+        <hasTag rdf:resource="&bc;k/average_freight"/>
+        <hasTag rdf:resource="&bc;k/average_train_1000_t"/>
+        <hasTag rdf:resource="&bc;k/electricity"/>
+        <hasTag rdf:resource="&bc;k/energy_consumption_per_unit_of_mass_transported_times_distance_travelled"/>
+        <hasUnit rdf:resource="&bc;u/watt_hour_per_tonne_kilometre"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/energy_consumption_per_unit_of_mass_transported_times_distance_travelled+electricity+average_train_1000_t+bulk_freight -->
+
+    <owl:NamedIndividual rdf:about="&bc;sc/energy_consumption_per_unit_of_mass_transported_times_distance_travelled+electricity+average_train_1000_t+bulk_freight">
+        <rdf:type rdf:resource="&bc;SingleCoefficient"/>
+        <value rdf:datatype="&xsd;double">27.8</value>
+        <hasTag rdf:resource="&bc;k/average_train_1000_t"/>
+        <hasTag rdf:resource="&bc;k/bulk_freight"/>
+        <hasTag rdf:resource="&bc;k/electricity"/>
+        <hasTag rdf:resource="&bc;k/energy_consumption_per_unit_of_mass_transported_times_distance_travelled"/>
+        <hasUnit rdf:resource="&bc;u/watt_hour_per_tonne_kilometre"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/energy_consumption_per_unit_of_mass_transported_times_distance_travelled+electricity+average_train_1000_t+volume_freight -->
+
+    <owl:NamedIndividual rdf:about="&bc;sc/energy_consumption_per_unit_of_mass_transported_times_distance_travelled+electricity+average_train_1000_t+volume_freight">
+        <rdf:type rdf:resource="&bc;SingleCoefficient"/>
+        <value rdf:datatype="&xsd;double">41.5</value>
+        <hasTag rdf:resource="&bc;k/average_train_1000_t"/>
+        <hasTag rdf:resource="&bc;k/electricity"/>
+        <hasTag rdf:resource="&bc;k/energy_consumption_per_unit_of_mass_transported_times_distance_travelled"/>
+        <hasTag rdf:resource="&bc;k/volume_freight"/>
+        <hasUnit rdf:resource="&bc;u/watt_hour_per_tonne_kilometre"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/energy_consumption_per_unit_of_mass_transported_times_distance_travelled+electricity+extra_large_train_2000_t+average_freight -->
+
+    <owl:NamedIndividual rdf:about="&bc;sc/energy_consumption_per_unit_of_mass_transported_times_distance_travelled+electricity+extra_large_train_2000_t+average_freight">
+        <rdf:type rdf:resource="&bc;SingleCoefficient"/>
+        <value rdf:datatype="&xsd;double">20.9</value>
+        <hasTag rdf:resource="&bc;k/average_freight"/>
+        <hasTag rdf:resource="&bc;k/electricity"/>
+        <hasTag rdf:resource="&bc;k/energy_consumption_per_unit_of_mass_transported_times_distance_travelled"/>
+        <hasTag rdf:resource="&bc;k/extra_large_train_2000_t"/>
+        <hasUnit rdf:resource="&bc;u/watt_hour_per_tonne_kilometre"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/energy_consumption_per_unit_of_mass_transported_times_distance_travelled+electricity+extra_large_train_2000_t+bulk_freight -->
+
+    <owl:NamedIndividual rdf:about="&bc;sc/energy_consumption_per_unit_of_mass_transported_times_distance_travelled+electricity+extra_large_train_2000_t+bulk_freight">
+        <rdf:type rdf:resource="&bc;SingleCoefficient"/>
+        <value rdf:datatype="&xsd;double">18.1</value>
+        <hasTag rdf:resource="&bc;k/bulk_freight"/>
+        <hasTag rdf:resource="&bc;k/electricity"/>
+        <hasTag rdf:resource="&bc;k/energy_consumption_per_unit_of_mass_transported_times_distance_travelled"/>
+        <hasTag rdf:resource="&bc;k/extra_large_train_2000_t"/>
+        <hasUnit rdf:resource="&bc;u/watt_hour_per_tonne_kilometre"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/energy_consumption_per_unit_of_mass_transported_times_distance_travelled+electricity+extra_large_train_2000_t+volume_freight -->
+
+    <owl:NamedIndividual rdf:about="&bc;sc/energy_consumption_per_unit_of_mass_transported_times_distance_travelled+electricity+extra_large_train_2000_t+volume_freight">
+        <rdf:type rdf:resource="&bc;SingleCoefficient"/>
+        <value rdf:datatype="&xsd;double">27.0</value>
+        <hasTag rdf:resource="&bc;k/electricity"/>
+        <hasTag rdf:resource="&bc;k/energy_consumption_per_unit_of_mass_transported_times_distance_travelled"/>
+        <hasTag rdf:resource="&bc;k/extra_large_train_2000_t"/>
+        <hasTag rdf:resource="&bc;k/volume_freight"/>
+        <hasUnit rdf:resource="&bc;u/watt_hour_per_tonne_kilometre"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/energy_consumption_per_unit_of_mass_transported_times_distance_travelled+electricity+heavy_train_more_than_2000_t+average_freight -->
+
+    <owl:NamedIndividual rdf:about="&bc;sc/energy_consumption_per_unit_of_mass_transported_times_distance_travelled+electricity+heavy_train_more_than_2000_t+average_freight">
+        <rdf:type rdf:resource="&bc;SingleCoefficient"/>
+        <value rdf:datatype="&xsd;double">19.4</value>
+        <hasTag rdf:resource="&bc;k/average_freight"/>
+        <hasTag rdf:resource="&bc;k/electricity"/>
+        <hasTag rdf:resource="&bc;k/energy_consumption_per_unit_of_mass_transported_times_distance_travelled"/>
+        <hasTag rdf:resource="&bc;k/heavy_train_more_than_2000_t"/>
+        <hasUnit rdf:resource="&bc;u/watt_hour_per_tonne_kilometre"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/energy_consumption_per_unit_of_mass_transported_times_distance_travelled+electricity+heavy_train_more_than_2000_t+bulk_freight -->
+
+    <owl:NamedIndividual rdf:about="&bc;sc/energy_consumption_per_unit_of_mass_transported_times_distance_travelled+electricity+heavy_train_more_than_2000_t+bulk_freight">
+        <rdf:type rdf:resource="&bc;SingleCoefficient"/>
+        <hasTag rdf:resource="&bc;k/bulk_freight"/>
+        <hasTag rdf:resource="&bc;k/electricity"/>
+        <hasTag rdf:resource="&bc;k/energy_consumption_per_unit_of_mass_transported_times_distance_travelled"/>
+        <hasTag rdf:resource="&bc;k/heavy_train_more_than_2000_t"/>
+        <hasUnit rdf:resource="&bc;u/watt_hour_per_tonne_kilometre"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/energy_consumption_per_unit_of_mass_transported_times_distance_travelled+electricity+heavy_train_more_than_2000_t+volume_freight -->
+
+    <owl:NamedIndividual rdf:about="&bc;sc/energy_consumption_per_unit_of_mass_transported_times_distance_travelled+electricity+heavy_train_more_than_2000_t+volume_freight">
+        <rdf:type rdf:resource="&bc;SingleCoefficient"/>
+        <value rdf:datatype="&xsd;double">25.1</value>
+        <hasTag rdf:resource="&bc;k/electricity"/>
+        <hasTag rdf:resource="&bc;k/energy_consumption_per_unit_of_mass_transported_times_distance_travelled"/>
+        <hasTag rdf:resource="&bc;k/heavy_train_more_than_2000_t"/>
+        <hasTag rdf:resource="&bc;k/volume_freight"/>
+        <hasUnit rdf:resource="&bc;u/watt_hour_per_tonne_kilometre"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/energy_consumption_per_unit_of_mass_transported_times_distance_travelled+electricity+large_train_1500_t+average_freight -->
+
+    <owl:NamedIndividual rdf:about="&bc;sc/energy_consumption_per_unit_of_mass_transported_times_distance_travelled+electricity+large_train_1500_t+average_freight">
+        <rdf:type rdf:resource="&bc;SingleCoefficient"/>
+        <value rdf:datatype="&xsd;double">25.0</value>
+        <hasTag rdf:resource="&bc;k/average_freight"/>
+        <hasTag rdf:resource="&bc;k/electricity"/>
+        <hasTag rdf:resource="&bc;k/energy_consumption_per_unit_of_mass_transported_times_distance_travelled"/>
+        <hasTag rdf:resource="&bc;k/large_train_1500_t"/>
+        <hasUnit rdf:resource="&bc;u/watt_hour_per_tonne_kilometre"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/energy_consumption_per_unit_of_mass_transported_times_distance_travelled+electricity+large_train_1500_t+bulk_freight -->
+
+    <owl:NamedIndividual rdf:about="&bc;sc/energy_consumption_per_unit_of_mass_transported_times_distance_travelled+electricity+large_train_1500_t+bulk_freight">
+        <rdf:type rdf:resource="&bc;SingleCoefficient"/>
+        <value rdf:datatype="&xsd;double">21.6</value>
+        <hasTag rdf:resource="&bc;k/bulk_freight"/>
+        <hasTag rdf:resource="&bc;k/electricity"/>
+        <hasTag rdf:resource="&bc;k/energy_consumption_per_unit_of_mass_transported_times_distance_travelled"/>
+        <hasTag rdf:resource="&bc;k/large_train_1500_t"/>
+        <hasUnit rdf:resource="&bc;u/watt_hour_per_tonne_kilometre"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/energy_consumption_per_unit_of_mass_transported_times_distance_travelled+electricity+large_train_1500_t+volume_freight -->
+
+    <owl:NamedIndividual rdf:about="&bc;sc/energy_consumption_per_unit_of_mass_transported_times_distance_travelled+electricity+large_train_1500_t+volume_freight">
+        <rdf:type rdf:resource="&bc;SingleCoefficient"/>
+        <value rdf:datatype="&xsd;double">32.3</value>
+        <hasTag rdf:resource="&bc;k/electricity"/>
+        <hasTag rdf:resource="&bc;k/energy_consumption_per_unit_of_mass_transported_times_distance_travelled"/>
+        <hasTag rdf:resource="&bc;k/large_train_1500_t"/>
+        <hasTag rdf:resource="&bc;k/volume_freight"/>
+        <hasUnit rdf:resource="&bc;u/watt_hour_per_tonne_kilometre"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/energy_consumption_per_unit_of_mass_transported_times_distance_travelled+electricity+light_train_500_t+average_freight -->
+
+    <owl:NamedIndividual rdf:about="&bc;sc/energy_consumption_per_unit_of_mass_transported_times_distance_travelled+electricity+light_train_500_t+average_freight">
+        <rdf:type rdf:resource="&bc;SingleCoefficient"/>
+        <value rdf:datatype="&xsd;double">49.5</value>
+        <hasTag rdf:resource="&bc;k/average_freight"/>
+        <hasTag rdf:resource="&bc;k/electricity"/>
+        <hasTag rdf:resource="&bc;k/energy_consumption_per_unit_of_mass_transported_times_distance_travelled"/>
+        <hasTag rdf:resource="&bc;k/light_train_500_t"/>
+        <hasUnit rdf:resource="&bc;u/watt_hour_per_tonne_kilometre"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/energy_consumption_per_unit_of_mass_transported_times_distance_travelled+electricity+light_train_500_t+bulk_freight -->
+
+    <owl:NamedIndividual rdf:about="&bc;sc/energy_consumption_per_unit_of_mass_transported_times_distance_travelled+electricity+light_train_500_t+bulk_freight">
+        <rdf:type rdf:resource="&bc;SingleCoefficient"/>
+        <value rdf:datatype="&xsd;double">42.7</value>
+        <hasTag rdf:resource="&bc;k/bulk_freight"/>
+        <hasTag rdf:resource="&bc;k/electricity"/>
+        <hasTag rdf:resource="&bc;k/energy_consumption_per_unit_of_mass_transported_times_distance_travelled"/>
+        <hasTag rdf:resource="&bc;k/light_train_500_t"/>
+        <hasUnit rdf:resource="&bc;u/watt_hour_per_tonne_kilometre"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/energy_consumption_per_unit_of_mass_transported_times_distance_travelled+electricity+light_train_500_t+volume_freight -->
+
+    <owl:NamedIndividual rdf:about="&bc;sc/energy_consumption_per_unit_of_mass_transported_times_distance_travelled+electricity+light_train_500_t+volume_freight">
+        <rdf:type rdf:resource="&bc;SingleCoefficient"/>
+        <value rdf:datatype="&xsd;double">63.9</value>
+        <hasTag rdf:resource="&bc;k/electricity"/>
+        <hasTag rdf:resource="&bc;k/energy_consumption_per_unit_of_mass_transported_times_distance_travelled"/>
+        <hasTag rdf:resource="&bc;k/light_train_500_t"/>
+        <hasTag rdf:resource="&bc;k/volume_freight"/>
+        <hasUnit rdf:resource="&bc;u/watt_hour_per_tonne_kilometre"/>
     </owl:NamedIndividual>
     
 
@@ -10912,6 +11893,34 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     
 
 
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/mass_of_ghg_for_production_and_conditioning_at_source+anthracite+energy_use_in_production+co2 -->
+
+    <owl:NamedIndividual rdf:about="&bc;sc/mass_of_ghg_for_production_and_conditioning_at_source+anthracite+energy_use_in_production+co2">
+        <rdf:type rdf:resource="&bc;SingleCoefficient"/>
+        <value rdf:datatype="&xsd;double">6.27</value>
+        <hasTag rdf:resource="&bc;k/anthracite"/>
+        <hasTag rdf:resource="&bc;k/co2"/>
+        <hasTag rdf:resource="&bc;k/energy_use_in_production"/>
+        <hasTag rdf:resource="&bc;k/mass_of_ghg_for_production_and_conditioning_at_source"/>
+        <hasUnit rdf:resource="&bc;u/gram_per_megajoule"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/mass_of_ghg_for_production_and_conditioning_at_source+anthracite+venting_and_fugitive_loss+ch4 -->
+
+    <owl:NamedIndividual rdf:about="&bc;sc/mass_of_ghg_for_production_and_conditioning_at_source+anthracite+venting_and_fugitive_loss+ch4">
+        <rdf:type rdf:resource="&bc;SingleCoefficient"/>
+        <value rdf:datatype="&xsd;double">0.3852</value>
+        <hasTag rdf:resource="&bc;k/anthracite"/>
+        <hasTag rdf:resource="&bc;k/ch4"/>
+        <hasTag rdf:resource="&bc;k/mass_of_ghg_for_production_and_conditioning_at_source"/>
+        <hasTag rdf:resource="&bc;k/venting_and_fugitive_loss"/>
+        <hasUnit rdf:resource="&bc;u/gram_per_megajoule"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.myc-sense.com/ontologies/bc#sc/mass_of_ghg_for_production_and_conditioning_at_source+crude_oil+energy_use_in_production+co2 -->
 
     <owl:NamedIndividual rdf:about="&bc;sc/mass_of_ghg_for_production_and_conditioning_at_source+crude_oil+energy_use_in_production+co2">
@@ -11010,6 +12019,76 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
         <hasTag rdf:resource="&bc;k/dairy_cow"/>
         <hasTag rdf:resource="&bc;k/milk_yield"/>
         <hasUnit rdf:resource="&bc;u/litre_per_animal_year"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/primary_energy_for_production_and_conditioning_at_source+anthracite+energy_use_in_production+anthracite_primary_energy -->
+
+    <owl:NamedIndividual rdf:about="&bc;sc/primary_energy_for_production_and_conditioning_at_source+anthracite+energy_use_in_production+anthracite_primary_energy">
+        <rdf:type rdf:resource="&bc;SingleCoefficient"/>
+        <value rdf:datatype="&xsd;double">0.0266</value>
+        <hasTag rdf:resource="&bc;k/anthracite"/>
+        <hasTag rdf:resource="&bc;k/anthracite_primary_energy"/>
+        <hasTag rdf:resource="&bc;k/energy_use_in_production"/>
+        <hasTag rdf:resource="&bc;k/primary_energy_for_production_and_conditioning_at_source"/>
+        <hasUnit rdf:resource="&bc;u/megajoule_per_megajoule"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/primary_energy_for_production_and_conditioning_at_source+anthracite+energy_use_in_production+crude_oil_primary_energy -->
+
+    <owl:NamedIndividual rdf:about="&bc;sc/primary_energy_for_production_and_conditioning_at_source+anthracite+energy_use_in_production+crude_oil_primary_energy">
+        <rdf:type rdf:resource="&bc;SingleCoefficient"/>
+        <value rdf:datatype="&xsd;double">0.0375</value>
+        <hasTag rdf:resource="&bc;k/anthracite"/>
+        <hasTag rdf:resource="&bc;k/crude_oil_primary_energy"/>
+        <hasTag rdf:resource="&bc;k/energy_use_in_production"/>
+        <hasTag rdf:resource="&bc;k/primary_energy_for_production_and_conditioning_at_source"/>
+        <hasUnit rdf:resource="&bc;u/megajoule_per_megajoule"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/primary_energy_for_production_and_conditioning_at_source+anthracite+energy_use_in_production+lignite_primary_energy -->
+
+    <owl:NamedIndividual rdf:about="&bc;sc/primary_energy_for_production_and_conditioning_at_source+anthracite+energy_use_in_production+lignite_primary_energy">
+        <rdf:type rdf:resource="&bc;SingleCoefficient"/>
+        <value rdf:datatype="&xsd;double">0.0016</value>
+        <hasTag rdf:resource="&bc;k/anthracite"/>
+        <hasTag rdf:resource="&bc;k/energy_use_in_production"/>
+        <hasTag rdf:resource="&bc;k/lignite_primary_energy"/>
+        <hasTag rdf:resource="&bc;k/primary_energy_for_production_and_conditioning_at_source"/>
+        <hasUnit rdf:resource="&bc;u/megajoule_per_megajoule"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/primary_energy_for_production_and_conditioning_at_source+anthracite+energy_use_in_production+natural_gas_primary_energy -->
+
+    <owl:NamedIndividual rdf:about="&bc;sc/primary_energy_for_production_and_conditioning_at_source+anthracite+energy_use_in_production+natural_gas_primary_energy">
+        <rdf:type rdf:resource="&bc;SingleCoefficient"/>
+        <value rdf:datatype="&xsd;double">0.01</value>
+        <hasTag rdf:resource="&bc;k/anthracite"/>
+        <hasTag rdf:resource="&bc;k/energy_use_in_production"/>
+        <hasTag rdf:resource="&bc;k/natural_gas_primary_energy"/>
+        <hasTag rdf:resource="&bc;k/primary_energy_for_production_and_conditioning_at_source"/>
+        <hasUnit rdf:resource="&bc;u/megajoule_per_megajoule"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/primary_energy_for_production_and_conditioning_at_source+anthracite+produced_fuel+anthracite_primary_energy -->
+
+    <owl:NamedIndividual rdf:about="&bc;sc/primary_energy_for_production_and_conditioning_at_source+anthracite+produced_fuel+anthracite_primary_energy">
+        <rdf:type rdf:resource="&bc;SingleCoefficient"/>
+        <value rdf:datatype="&xsd;double">1.0</value>
+        <hasTag rdf:resource="&bc;k/anthracite"/>
+        <hasTag rdf:resource="&bc;k/anthracite_primary_energy"/>
+        <hasTag rdf:resource="&bc;k/primary_energy_for_production_and_conditioning_at_source"/>
+        <hasTag rdf:resource="&bc;k/produced_fuel"/>
+        <hasUnit rdf:resource="&bc;u/megajoule_per_megajoule"/>
     </owl:NamedIndividual>
     
 
@@ -11279,6 +12358,61 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
         <hasTag rdf:resource="&bc;k/fodder_corn"/>
         <hasTag rdf:resource="&bc;k/proportion_of_dry_matter"/>
         <hasUnit rdf:resource="&bc;u/percent"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/ratio_before_over_after_high_voltage_system_transmission_losses -->
+
+    <owl:NamedIndividual rdf:about="&bc;sc/ratio_before_over_after_high_voltage_system_transmission_losses">
+        <rdf:type rdf:resource="&bc;SingleCoefficient"/>
+        <value rdf:datatype="&xsd;double">1.015</value>
+        <hasTag rdf:resource="&bc;k/ratio_before_over_after_high_voltage_system_transmission_losses"/>
+        <hasUnit rdf:resource="&bc;u/one"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/ratio_before_over_after_low_voltage_system_transmission_losses -->
+
+    <owl:NamedIndividual rdf:about="&bc;sc/ratio_before_over_after_low_voltage_system_transmission_losses">
+        <rdf:type rdf:resource="&bc;SingleCoefficient"/>
+        <value rdf:datatype="&xsd;double">1.06</value>
+        <hasTag rdf:resource="&bc;k/ratio_before_over_after_low_voltage_system_transmission_losses"/>
+        <hasUnit rdf:resource="&bc;u/one"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/ratio_before_over_after_medium_voltage_system_transmission_losses -->
+
+    <owl:NamedIndividual rdf:about="&bc;sc/ratio_before_over_after_medium_voltage_system_transmission_losses">
+        <rdf:type rdf:resource="&bc;SingleCoefficient"/>
+        <value rdf:datatype="&xsd;double">1.04</value>
+        <hasTag rdf:resource="&bc;k/ratio_before_over_after_medium_voltage_system_transmission_losses"/>
+        <hasUnit rdf:resource="&bc;u/one"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/ratio_before_over_after_pumping_in_hydro_electric_schemes -->
+
+    <owl:NamedIndividual rdf:about="&bc;sc/ratio_before_over_after_pumping_in_hydro_electric_schemes">
+        <rdf:type rdf:resource="&bc;SingleCoefficient"/>
+        <value rdf:datatype="&xsd;double">1.014</value>
+        <hasTag rdf:resource="&bc;k/ratio_before_over_after_pumping_in_hydro_electric_schemes"/>
+        <hasUnit rdf:resource="&bc;u/one"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/ratio_gross_over_net_electricity_production -->
+
+    <owl:NamedIndividual rdf:about="&bc;sc/ratio_gross_over_net_electricity_production">
+        <rdf:type rdf:resource="&bc;SingleCoefficient"/>
+        <value rdf:datatype="&xsd;double">1.04</value>
+        <hasTag rdf:resource="&bc;k/ratio_gross_over_net_electricity_production"/>
+        <hasUnit rdf:resource="&bc;u/one"/>
     </owl:NamedIndividual>
     
 
@@ -11670,12 +12804,12 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     
 
 
-    <!-- http://www.myc-sense.com/ontologies/bc#sp/direct_extraction+coal_primary_energy -->
+    <!-- http://www.myc-sense.com/ontologies/bc#sp/direct_extraction+anthracite_primary_energy -->
 
-    <owl:NamedIndividual rdf:about="&bc;sp/direct_extraction+coal_primary_energy">
+    <owl:NamedIndividual rdf:about="&bc;sp/direct_extraction+anthracite_primary_energy">
         <rdf:type rdf:resource="&bc;SingleProcess"/>
         <hasInputFlow rdf:resource="&bc;ief/00005"/>
-        <hasTag rdf:resource="&bc;k/coal_primary_energy"/>
+        <hasTag rdf:resource="&bc;k/anthracite_primary_energy"/>
         <hasTag rdf:resource="&bc;k/direct_extraction"/>
         <hasUnit rdf:resource="&bc;u/kilowatt_hour"/>
     </owl:NamedIndividual>
@@ -11694,6 +12828,30 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     
 
 
+    <!-- http://www.myc-sense.com/ontologies/bc#sp/direct_extraction+hydro_power_primary_energy -->
+
+    <owl:NamedIndividual rdf:about="&bc;sp/direct_extraction+hydro_power_primary_energy">
+        <rdf:type rdf:resource="&bc;SingleProcess"/>
+        <hasInputFlow rdf:resource="&bc;ief/00011"/>
+        <hasTag rdf:resource="&bc;k/direct_extraction"/>
+        <hasTag rdf:resource="&bc;k/hydro_power_primary_energy"/>
+        <hasUnit rdf:resource="&bc;u/kilowatt_hour"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#sp/direct_extraction+lignite_primary_energy -->
+
+    <owl:NamedIndividual rdf:about="&bc;sp/direct_extraction+lignite_primary_energy">
+        <rdf:type rdf:resource="&bc;SingleProcess"/>
+        <hasInputFlow rdf:resource="&bc;ief/00009"/>
+        <hasTag rdf:resource="&bc;k/direct_extraction"/>
+        <hasTag rdf:resource="&bc;k/lignite_primary_energy"/>
+        <hasUnit rdf:resource="&bc;u/kilowatt_hour"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.myc-sense.com/ontologies/bc#sp/direct_extraction+natural_gas_primary_energy -->
 
     <owl:NamedIndividual rdf:about="&bc;sp/direct_extraction+natural_gas_primary_energy">
@@ -11701,6 +12859,18 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
         <hasInputFlow rdf:resource="&bc;ief/00007"/>
         <hasTag rdf:resource="&bc;k/direct_extraction"/>
         <hasTag rdf:resource="&bc;k/natural_gas_primary_energy"/>
+        <hasUnit rdf:resource="&bc;u/kilowatt_hour"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#sp/direct_extraction+nuclear_primary_energy -->
+
+    <owl:NamedIndividual rdf:about="&bc;sp/direct_extraction+nuclear_primary_energy">
+        <rdf:type rdf:resource="&bc;SingleProcess"/>
+        <hasInputFlow rdf:resource="&bc;ief/00010"/>
+        <hasTag rdf:resource="&bc;k/direct_extraction"/>
+        <hasTag rdf:resource="&bc;k/nuclear_primary_energy"/>
         <hasUnit rdf:resource="&bc;u/kilowatt_hour"/>
     </owl:NamedIndividual>
     
@@ -12102,19 +13272,18 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     
 
 
-    <!-- http://www.myc-sense.com/ontologies/bc#u/year -->
+    <!-- http://www.myc-sense.com/ontologies/bc#u/watt_hour_per_tonne_kilometre -->
 
-    <owl:NamedIndividual rdf:about="&bc;u/year">
-        <foreignUnitID rdf:datatype="&xsd;string">an</foreignUnitID>
+    <owl:NamedIndividual rdf:about="&bc;u/watt_hour_per_tonne_kilometre">
+        <foreignUnitID rdf:datatype="&xsd;string">wh.t^-1.km^-1</foreignUnitID>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.myc-sense.com/ontologies/bc#volume_of_fuel_consumed_per_unit_of_distance_travelled_road_freight_transport+2 -->
+    <!-- http://www.myc-sense.com/ontologies/bc#u/year -->
 
-    <owl:NamedIndividual rdf:about="&bc;volume_of_fuel_consumed_per_unit_of_distance_travelled_road_freight_transport+2">
-        <position rdf:datatype="&xsd;short">2</position>
-        <providesPositionToCommonTagInSomeGroup rdf:resource="&bc;k/road_freight_transport"/>
+    <owl:NamedIndividual rdf:about="&bc;u/year">
+        <foreignUnitID rdf:datatype="&xsd;string">an</foreignUnitID>
     </owl:NamedIndividual>
     
 
@@ -12129,130 +13298,6 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
 
     <rdf:Description rdf:about="urn:swrl#kw">
         <rdf:type rdf:resource="&swrl;Variable"/>
-    </rdf:Description>
-    <rdf:Description>
-        <rdf:type rdf:resource="&swrl;Imp"/>
-        <swrl:body>
-            <rdf:Description>
-                <rdf:type rdf:resource="&swrl;AtomList"/>
-                <rdf:rest rdf:resource="&rdf;nil"/>
-                <rdf:first>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
-                        <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
-                        <swrl:argument1 rdf:resource="&bc;k/type_of_meal"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
-                    </rdf:Description>
-                </rdf:first>
-            </rdf:Description>
-        </swrl:body>
-        <swrl:head>
-            <rdf:Description>
-                <rdf:type rdf:resource="&swrl;AtomList"/>
-                <rdf:rest rdf:resource="&rdf;nil"/>
-                <rdf:first>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
-                        <swrl:propertyPredicate rdf:resource="&bc;containsKeyword"/>
-                        <swrl:argument1 rdf:resource="&bc;d/meal"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
-                    </rdf:Description>
-                </rdf:first>
-            </rdf:Description>
-        </swrl:head>
-    </rdf:Description>
-    <rdf:Description>
-        <rdf:type rdf:resource="&swrl;Imp"/>
-        <swrl:body>
-            <rdf:Description>
-                <rdf:type rdf:resource="&swrl;AtomList"/>
-                <rdf:rest rdf:resource="&rdf;nil"/>
-                <rdf:first>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
-                        <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
-                        <swrl:argument1 rdf:resource="&bc;k/greenhouse_gas"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
-                    </rdf:Description>
-                </rdf:first>
-            </rdf:Description>
-        </swrl:body>
-        <swrl:head>
-            <rdf:Description>
-                <rdf:type rdf:resource="&swrl;AtomList"/>
-                <rdf:rest rdf:resource="&rdf;nil"/>
-                <rdf:first>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
-                        <swrl:propertyPredicate rdf:resource="&bc;containsKeyword"/>
-                        <swrl:argument1 rdf:resource="&bc;d/greenhouse_gas"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
-                    </rdf:Description>
-                </rdf:first>
-            </rdf:Description>
-        </swrl:head>
-    </rdf:Description>
-    <rdf:Description>
-        <rdf:type rdf:resource="&swrl;Imp"/>
-        <swrl:head>
-            <rdf:Description>
-                <rdf:type rdf:resource="&swrl;AtomList"/>
-                <rdf:rest rdf:resource="&rdf;nil"/>
-                <rdf:first>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
-                        <swrl:propertyPredicate rdf:resource="&bc;containsKeyword"/>
-                        <swrl:argument1 rdf:resource="&bc;d/farmed_animal"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
-                    </rdf:Description>
-                </rdf:first>
-            </rdf:Description>
-        </swrl:head>
-        <swrl:body>
-            <rdf:Description>
-                <rdf:type rdf:resource="&swrl;AtomList"/>
-                <rdf:rest rdf:resource="&rdf;nil"/>
-                <rdf:first>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
-                        <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
-                        <swrl:argument1 rdf:resource="&bc;k/cattle"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
-                    </rdf:Description>
-                </rdf:first>
-            </rdf:Description>
-        </swrl:body>
-    </rdf:Description>
-    <rdf:Description>
-        <rdf:type rdf:resource="&swrl;Imp"/>
-        <swrl:body>
-            <rdf:Description>
-                <rdf:type rdf:resource="&swrl;AtomList"/>
-                <rdf:rest rdf:resource="&rdf;nil"/>
-                <rdf:first>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
-                        <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
-                        <swrl:argument1 rdf:resource="&bc;k/dairy_product"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
-                    </rdf:Description>
-                </rdf:first>
-            </rdf:Description>
-        </swrl:body>
-        <swrl:head>
-            <rdf:Description>
-                <rdf:type rdf:resource="&swrl;AtomList"/>
-                <rdf:rest rdf:resource="&rdf;nil"/>
-                <rdf:first>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
-                        <swrl:propertyPredicate rdf:resource="&bc;containsKeyword"/>
-                        <swrl:argument1 rdf:resource="&bc;d/transformed_dairy_product"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
-                    </rdf:Description>
-                </rdf:first>
-            </rdf:Description>
-        </swrl:head>
     </rdf:Description>
     <rdf:Description>
         <rdf:type rdf:resource="&swrl;Imp"/>
@@ -12295,6 +13340,68 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
                     <rdf:Description>
                         <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
                         <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
+                        <swrl:argument1 rdf:resource="&bc;k/cattle"/>
+                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
+                    </rdf:Description>
+                </rdf:first>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="&swrl;AtomList"/>
+                <rdf:rest rdf:resource="&rdf;nil"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="&bc;containsKeyword"/>
+                        <swrl:argument1 rdf:resource="&bc;d/farmed_animal"/>
+                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
+                    </rdf:Description>
+                </rdf:first>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&swrl;Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="&swrl;AtomList"/>
+                <rdf:rest rdf:resource="&rdf;nil"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
+                        <swrl:argument1 rdf:resource="&bc;k/dairy_product"/>
+                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
+                    </rdf:Description>
+                </rdf:first>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="&swrl;AtomList"/>
+                <rdf:rest rdf:resource="&rdf;nil"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="&bc;containsKeyword"/>
+                        <swrl:argument1 rdf:resource="&bc;d/transformed_dairy_product"/>
+                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
+                    </rdf:Description>
+                </rdf:first>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&swrl;Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="&swrl;AtomList"/>
+                <rdf:rest rdf:resource="&rdf;nil"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
                         <swrl:argument1 rdf:resource="&bc;k/type_of_waste"/>
                         <swrl:argument2 rdf:resource="urn:swrl#kw"/>
                     </rdf:Description>
@@ -12318,6 +13425,20 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     </rdf:Description>
     <rdf:Description>
         <rdf:type rdf:resource="&swrl;Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="&swrl;AtomList"/>
+                <rdf:rest rdf:resource="&rdf;nil"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
+                        <swrl:argument1 rdf:resource="&bc;k/type_of_meal"/>
+                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
+                    </rdf:Description>
+                </rdf:first>
+            </rdf:Description>
+        </swrl:body>
         <swrl:head>
             <rdf:Description>
                 <rdf:type rdf:resource="&swrl;AtomList"/>
@@ -12326,12 +13447,46 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
                     <rdf:Description>
                         <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
                         <swrl:propertyPredicate rdf:resource="&bc;containsKeyword"/>
-                        <swrl:argument1 rdf:resource="&bc;d/agricultural_input"/>
+                        <swrl:argument1 rdf:resource="&bc;d/meal"/>
                         <swrl:argument2 rdf:resource="urn:swrl#kw"/>
                     </rdf:Description>
                 </rdf:first>
             </rdf:Description>
         </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&swrl;Imp"/>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="&swrl;AtomList"/>
+                <rdf:rest rdf:resource="&rdf;nil"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="&bc;containsKeyword"/>
+                        <swrl:argument1 rdf:resource="&bc;d/greenhouse_gas"/>
+                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
+                    </rdf:Description>
+                </rdf:first>
+            </rdf:Description>
+        </swrl:head>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="&swrl;AtomList"/>
+                <rdf:rest rdf:resource="&rdf;nil"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
+                        <swrl:argument1 rdf:resource="&bc;k/greenhouse_gas"/>
+                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
+                    </rdf:Description>
+                </rdf:first>
+            </rdf:Description>
+        </swrl:body>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&swrl;Imp"/>
         <swrl:body>
             <rdf:Description>
                 <rdf:type rdf:resource="&swrl;AtomList"/>
@@ -12346,6 +13501,20 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
                 </rdf:first>
             </rdf:Description>
         </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="&swrl;AtomList"/>
+                <rdf:rest rdf:resource="&rdf;nil"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="&bc;containsKeyword"/>
+                        <swrl:argument1 rdf:resource="&bc;d/agricultural_input"/>
+                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
+                    </rdf:Description>
+                </rdf:first>
+            </rdf:Description>
+        </swrl:head>
     </rdf:Description>
 </rdf:RDF>
 
