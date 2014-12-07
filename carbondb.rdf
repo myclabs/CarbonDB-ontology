@@ -952,15 +952,15 @@
     <owl:Class rdf:about="&bc;CategoryOfGroup">
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;categorizesGroup"/>
-                <owl:someValuesFrom rdf:resource="&bc;Group"/>
+                <owl:onProperty rdf:resource="&bc;belongsToParentCategoryOfGroup"/>
+                <owl:onClass rdf:resource="&bc;CategoryOfGroup"/>
+                <owl:maxQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxQualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;belongsToParentCategoryOfGroup"/>
-                <owl:onClass rdf:resource="&bc;CategoryOfGroup"/>
-                <owl:maxQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onProperty rdf:resource="&bc;categorizesGroup"/>
+                <owl:someValuesFrom rdf:resource="&bc;Group"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <owl:disjointWith rdf:resource="&bc;CategoryOfImpactType"/>
@@ -1100,15 +1100,15 @@
         <rdfs:subClassOf rdf:resource="&bc;ThingWithUnit"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;hasUnit"/>
-                <owl:onClass rdf:resource="&bc;Unit"/>
-                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onProperty rdf:resource="&bc;hasReference"/>
+                <owl:someValuesFrom rdf:resource="&bc;Reference"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;hasReference"/>
-                <owl:someValuesFrom rdf:resource="&bc;Reference"/>
+                <owl:onProperty rdf:resource="&bc;hasUnit"/>
+                <owl:onClass rdf:resource="&bc;Unit"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
@@ -1134,14 +1134,14 @@
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;value"/>
+                <owl:onProperty rdf:resource="&bc;uncertainty"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
                 <owl:onDataRange rdf:resource="&xsd;double"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;uncertainty"/>
+                <owl:onProperty rdf:resource="&bc;value"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
                 <owl:onDataRange rdf:resource="&xsd;double"/>
             </owl:Restriction>
@@ -1188,6 +1188,12 @@
     <owl:Class rdf:about="&bc;Group">
         <rdfs:subClassOf>
             <owl:Restriction>
+                <owl:onProperty rdf:resource="&bc;hasDimension"/>
+                <owl:someValuesFrom rdf:resource="&bc;Dimension"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
                 <owl:onProperty rdf:resource="&bc;belongsToCategoryOfGroup"/>
                 <owl:onClass rdf:resource="&bc;CategoryOfGroup"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
@@ -1197,12 +1203,6 @@
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&bc;hasDimension"/>
                 <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;hasDimension"/>
-                <owl:someValuesFrom rdf:resource="&bc;Dimension"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <owl:disjointWith rdf:resource="&bc;ImpactType"/>
@@ -1403,15 +1403,22 @@
     <owl:Class rdf:about="&bc;Relation">
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;hasOriginProcess"/>
+                <owl:onProperty rdf:resource="&bc;hasDestinationProcess"/>
                 <owl:onClass rdf:resource="&bc;Process"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;hasWeightCoefficient"/>
-                <owl:onClass rdf:resource="&bc;Coefficient"/>
+                <owl:onProperty rdf:resource="&bc;exponent"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;short"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&bc;hasOriginProcess"/>
+                <owl:onClass rdf:resource="&bc;Process"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -1424,16 +1431,9 @@
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;hasDestinationProcess"/>
-                <owl:onClass rdf:resource="&bc;Process"/>
+                <owl:onProperty rdf:resource="&bc;hasWeightCoefficient"/>
+                <owl:onClass rdf:resource="&bc;Coefficient"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;exponent"/>
-                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onDataRange rdf:resource="&xsd;short"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <owl:disjointWith rdf:resource="&bc;SingleElement"/>
@@ -1457,14 +1457,14 @@
         <rdfs:subClassOf rdf:resource="&bc;SingleElement"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;value"/>
+                <owl:onProperty rdf:resource="&bc;uncertainty"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
                 <owl:onDataRange rdf:resource="&xsd;double"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;uncertainty"/>
+                <owl:onProperty rdf:resource="&bc;value"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
                 <owl:onDataRange rdf:resource="&xsd;double"/>
             </owl:Restriction>
@@ -1480,13 +1480,13 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&bc;hasTag"/>
-                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
+                <owl:someValuesFrom rdf:resource="&bc;Keyword"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&bc;hasTag"/>
-                <owl:someValuesFrom rdf:resource="&bc;Keyword"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
@@ -3366,13 +3366,11 @@ Since the downstream process (pipeline transport) measures the fuel in terms of 
     <owl:NamedIndividual rdf:about="&bc;gc/lower_heating_value_of_fuel">
         <rdf:type rdf:resource="&bc;CoefficientGroup"/>
         <rdfs:label xml:lang="en">Lower heating value (LHV) of a fuel</rdfs:label>
-        <rdfs:comment xml:lang="en">The values were taken from [OJEU 2007], p. 33/34, table 4 (for all fuels except jet kerosene) and from [OJEU 2009], p. 18 (for jet kerosene). They are based on [IPCC Guidelines 2006]. </rdfs:comment>
+        <rdfs:comment xml:lang="en">Values were taken from [IPCC Guidelines 2006 Vol. 2 Ch. 1], table 1.2, p. 18. </rdfs:comment>
         <belongsToCategoryOfGroup rdf:resource="&bc;c/fuel_source_data_physical_property"/>
         <hasVerticalDimension rdf:resource="&bc;d/fuel_unit_of_energy"/>
         <hasCommonTag rdf:resource="&bc;k/lower_heating_value"/>
-        <hasReference rdf:resource="&bc;ref/ipcc_guidelines_2006"/>
-        <hasReference rdf:resource="&bc;ref/ojeu_2007"/>
-        <hasReference rdf:resource="&bc;ref/ojeu_2009"/>
+        <hasReference rdf:resource="&bc;ref/ipcc_guidelines_2006_vol_2_ch_1"/>
         <hasUnit rdf:resource="&bc;u/gigajoule_per_tonne"/>
     </owl:NamedIndividual>
     
@@ -3440,17 +3438,13 @@ Since the downstream process (pipeline transport) measures the fuel in terms of 
     <owl:NamedIndividual rdf:about="&bc;gc/mass_of_greenhouse_gas_emitted_by_combustion_of_fuel_unit_of_energy_lhv">
         <rdf:type rdf:resource="&bc;CoefficientGroup"/>
         <rdfs:label xml:lang="en">Mass of greenhouse gas emitted by combustion of a fuel, measured in unit of energy (LHV)</rdfs:label>
-        <rdfs:comment xml:lang="en">Emission factors for CO2 were taken from [OJEU 2007], p. 33/34, table 4 (for all fuels except jet kerosene) and from [OJEU 2009], p. 18 (for jet kerosene). 
-
-They represent non-activity-specific emission factors for the combustion of a fuel (tier 1 level, see [IPCC Guidelines 2006]). </rdfs:comment>
+        <rdfs:comment xml:lang="en">Values were taken from [IPCC Guidelines 2006 Vol. 2 Ch. 2], table 2.2, p. 16: default emission factors for stationary combustion in the energy industries.</rdfs:comment>
         <belongsToCategoryOfGroup rdf:resource="&bc;c/fuel_source_data_physical_property"/>
         <hasHorizontalDimension rdf:resource="&bc;d/co2_ch4_n2o"/>
         <hasVerticalDimension rdf:resource="&bc;d/fuel_unit_of_energy"/>
         <hasCommonTag rdf:resource="&bc;k/combustion"/>
-        <hasReference rdf:resource="&bc;ref/ipcc_guidelines_2006"/>
-        <hasReference rdf:resource="&bc;ref/ojeu_2007"/>
-        <hasReference rdf:resource="&bc;ref/ojeu_2009"/>
-        <hasUnit rdf:resource="&bc;u/tonne_per_tera_joule"/>
+        <hasReference rdf:resource="&bc;ref/ipcc_guidelines_2006_vol_2_ch_2"/>
+        <hasUnit rdf:resource="&bc;u/kilogram_per_tera_joule"/>
     </owl:NamedIndividual>
     
 
@@ -4133,14 +4127,14 @@ Refining fuel is assumed to be crude oil. </rdfs:comment>
 
 By looking at greenhouse gas emission impacts, you can view the values of global warming potentials that are used in all the computations. 
 
-Global warming potentials at horizons 20 and 100 years are taken from [IPCC AR5 WG1 2013], chapter 8 (Anthropogenic and Natural Radiative Forcing) table 8.7, p. 714. They include climate-cabon feedbacks in response to emissions of both CO2 and non-CO2 gases.
+Global warming potentials at horizons 20 and 100 years are taken from [IPCC AR5 2013 WG1], chapter 8 (Anthropogenic and Natural Radiative Forcing) table 8.7, p. 714. They include climate-cabon feedbacks in response to emissions of both CO2 and non-CO2 gases.
 
-Global warming potentials at horizon 500 years are taken from [IPCC AR4 WG1 2007], chapter 2 (Changes in Atmospheric Constituents and in Radiative Forcing), table 2.14, p. 212. </rdfs:comment>
+Global warming potentials at horizon 500 years are taken from [IPCC AR4 2007 WG1], chapter 2 (Changes in Atmospheric Constituents and in Radiative Forcing), table 2.14, p. 212. </rdfs:comment>
         <belongsToCategoryOfGroup rdf:resource="&bc;c/direct_generic_elementary_flow"/>
         <hasVerticalDimension rdf:resource="&bc;d/greenhouse_gas"/>
         <hasCommonTag rdf:resource="&bc;k/direct_emission"/>
-        <hasReference rdf:resource="&bc;ref/ipcc_ar4_wg1_2007"/>
-        <hasReference rdf:resource="&bc;ref/ipcc_ar5_wg1_2013"/>
+        <hasReference rdf:resource="&bc;ref/ipcc_ar4_2007_wg1"/>
+        <hasReference rdf:resource="&bc;ref/ipcc_ar5_2013_wg1"/>
         <hasUnit rdf:resource="&bc;u/kilogram"/>
     </owl:NamedIndividual>
     
@@ -9579,41 +9573,56 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     
 
 
-    <!-- http://www.myc-sense.com/ontologies/bc#ref/ipcc_ar4_wg1_2007 -->
+    <!-- http://www.myc-sense.com/ontologies/bc#ref/ipcc_ar4_2007_wg1 -->
 
-    <owl:NamedIndividual rdf:about="&bc;ref/ipcc_ar4_wg1_2007">
+    <owl:NamedIndividual rdf:about="&bc;ref/ipcc_ar4_2007_wg1">
         <rdf:type rdf:resource="&bc;Reference"/>
         <date rdf:datatype="&xsd;string">2007</date>
         <title rdf:datatype="&xsd;string">Fourth Assessment Report (AR4), Climate Change 2007, The Physical Science Basis</title>
-        <shortName rdf:datatype="&xsd;string">IPCC AR4 WG1 2007</shortName>
+        <shortName rdf:datatype="&xsd;string">IPCC AR4 2007 WG1</shortName>
         <creator rdf:datatype="&xsd;string">Integovernemental Panel on Climate Change, Working Group 1</creator>
         <URL rdf:datatype="&xsd;anyURI">http://www.ipcc.ch/report/ar4/wg1/</URL>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.myc-sense.com/ontologies/bc#ref/ipcc_ar5_wg1_2013 -->
+    <!-- http://www.myc-sense.com/ontologies/bc#ref/ipcc_ar5_2013_wg1 -->
 
-    <owl:NamedIndividual rdf:about="&bc;ref/ipcc_ar5_wg1_2013">
+    <owl:NamedIndividual rdf:about="&bc;ref/ipcc_ar5_2013_wg1">
         <rdf:type rdf:resource="&bc;Reference"/>
         <date rdf:datatype="&xsd;string">2013-09</date>
         <title rdf:datatype="&xsd;string">Fifth Assessment Report (AR5), Climate Change 2013, The Physical Science Basis</title>
-        <shortName rdf:datatype="&xsd;string">IPCC AR5 WG1 2013</shortName>
+        <shortName rdf:datatype="&xsd;string">IPCC AR5 2013 WG1</shortName>
         <creator rdf:datatype="&xsd;string">Integovernemental Panel on Climate Change, Working Group 1</creator>
         <URL rdf:datatype="&xsd;anyURI">http://www.ipcc.ch/report/ar5/wg1/</URL>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.myc-sense.com/ontologies/bc#ref/ipcc_guidelines_2006 -->
+    <!-- http://www.myc-sense.com/ontologies/bc#ref/ipcc_guidelines_2006_vol_2_ch_1 -->
 
-    <owl:NamedIndividual rdf:about="&bc;ref/ipcc_guidelines_2006">
+    <owl:NamedIndividual rdf:about="&bc;ref/ipcc_guidelines_2006_vol_2_ch_1">
         <rdf:type rdf:resource="&bc;Reference"/>
         <date rdf:datatype="&xsd;string">2006</date>
-        <title rdf:datatype="&xsd;string">2006 IPCC Guidelines for National Greenhouse Gas Inventories </title>
-        <shortName rdf:datatype="&xsd;string">IPCC Guidelines 2006</shortName>
+        <source rdf:datatype="&xsd;string">2006 IPCC Guidelines for National Greenhouse Gas Inventories</source>
+        <shortName rdf:datatype="&xsd;string">IPCC Guidelines 2006 Vol. 2 Ch. 1</shortName>
         <creator rdf:datatype="&xsd;string">Integovernemental Panel on Climate Change</creator>
-        <URL rdf:datatype="&xsd;anyURI">http://www.ipcc-nggip.iges.or.jp/public/2006gl/index.html</URL>
+        <title rdf:datatype="&xsd;string">Volume 2: Energy, Chapter 1: Introduction</title>
+        <URL rdf:datatype="&xsd;anyURI">http://www.ipcc-nggip.iges.or.jp/public/2006gl/pdf/2_Volume2/V2_1_Ch1_Introduction.pdf</URL>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#ref/ipcc_guidelines_2006_vol_2_ch_2 -->
+
+    <owl:NamedIndividual rdf:about="&bc;ref/ipcc_guidelines_2006_vol_2_ch_2">
+        <rdf:type rdf:resource="&bc;Reference"/>
+        <date rdf:datatype="&xsd;string">2006</date>
+        <source rdf:datatype="&xsd;string">2006 IPCC Guidelines for National Greenhouse Gas Inventories</source>
+        <shortName rdf:datatype="&xsd;string">IPCC Guidelines 2006 Vol. 2 Ch. 2</shortName>
+        <creator rdf:datatype="&xsd;string">Integovernemental Panel on Climate Change</creator>
+        <title rdf:datatype="&xsd;string">Volume 2: Energy, Chapter 2: Stationary Combustion</title>
+        <URL rdf:datatype="&xsd;anyURI">http://www.ipcc-nggip.iges.or.jp/public/2006gl/pdf/2_Volume2/V2_2_Ch2_Stationary_Combustion.pdf</URL>
     </owl:NamedIndividual>
     
 
@@ -9628,32 +9637,6 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
         <title rdf:datatype="&xsd;string">Well-to-Tank Report, version 4.a</title>
         <source rdf:datatype="&xsd;string">Well-to-wheels analysis of future automotive fuels and powertrains in the european context</source>
         <URL rdf:datatype="&xsd;anyURI">http://iet.jrc.ec.europa.eu/about-jec/downloads</URL>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.myc-sense.com/ontologies/bc#ref/ojeu_2007 -->
-
-    <owl:NamedIndividual rdf:about="&bc;ref/ojeu_2007">
-        <rdf:type rdf:resource="&bc;Reference"/>
-        <date rdf:datatype="&xsd;string">2007-07-18</date>
-        <title rdf:datatype="&xsd;string">Decision 2007/589/EC establishing guidelines for the monitoring and reporting of greenhouse gas emissions pursuant to Directive 2003/87/EC of the European Parliament and of the Council</title>
-        <shortName rdf:datatype="&xsd;string">OJEU 2007</shortName>
-        <creator rdf:datatype="&xsd;string">Official Journal of the European Union</creator>
-        <URL rdf:datatype="&xsd;anyURI">http://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32007D0589</URL>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.myc-sense.com/ontologies/bc#ref/ojeu_2009 -->
-
-    <owl:NamedIndividual rdf:about="&bc;ref/ojeu_2009">
-        <rdf:type rdf:resource="&bc;Reference"/>
-        <date rdf:datatype="&xsd;string">2009-04-16</date>
-        <title rdf:datatype="&xsd;string">Decision 2009/339/EC amending Decision 2007/589/EC as regards the inclusion of monitoring and reporting guidelines for emissions and tonne-kilometre data from aviation activities</title>
-        <shortName rdf:datatype="&xsd;string">OJEU 2009</shortName>
-        <creator rdf:datatype="&xsd;string">Official Journal of the European Union</creator>
-        <URL rdf:datatype="&xsd;anyURI">http://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32009D0339</URL>
     </owl:NamedIndividual>
     
 
@@ -10003,15 +9986,54 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     
 
 
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/combustion+anthracite+ch4 -->
+
+    <owl:NamedIndividual rdf:about="&bc;sc/combustion+anthracite+ch4">
+        <rdf:type rdf:resource="&bc;SingleCoefficient"/>
+        <value rdf:datatype="&xsd;double">1.0</value>
+        <hasTag rdf:resource="&bc;k/anthracite"/>
+        <hasTag rdf:resource="&bc;k/ch4"/>
+        <hasTag rdf:resource="&bc;k/combustion"/>
+        <hasUnit rdf:resource="&bc;u/kilogram_per_tera_joule"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.myc-sense.com/ontologies/bc#sc/combustion+anthracite+co2 -->
 
     <owl:NamedIndividual rdf:about="&bc;sc/combustion+anthracite+co2">
         <rdf:type rdf:resource="&bc;SingleCoefficient"/>
-        <value rdf:datatype="&xsd;double">98.2</value>
+        <value rdf:datatype="&xsd;double">98300.0</value>
         <hasTag rdf:resource="&bc;k/anthracite"/>
         <hasTag rdf:resource="&bc;k/co2"/>
         <hasTag rdf:resource="&bc;k/combustion"/>
-        <hasUnit rdf:resource="&bc;u/tonne_per_tera_joule"/>
+        <hasUnit rdf:resource="&bc;u/kilogram_per_tera_joule"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/combustion+anthracite+n2o -->
+
+    <owl:NamedIndividual rdf:about="&bc;sc/combustion+anthracite+n2o">
+        <rdf:type rdf:resource="&bc;SingleCoefficient"/>
+        <value rdf:datatype="&xsd;double">1.5</value>
+        <hasTag rdf:resource="&bc;k/anthracite"/>
+        <hasTag rdf:resource="&bc;k/combustion"/>
+        <hasTag rdf:resource="&bc;k/n2o"/>
+        <hasUnit rdf:resource="&bc;u/kilogram_per_tera_joule"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/combustion+crude_oil+ch4 -->
+
+    <owl:NamedIndividual rdf:about="&bc;sc/combustion+crude_oil+ch4">
+        <rdf:type rdf:resource="&bc;SingleCoefficient"/>
+        <value rdf:datatype="&xsd;double">3.0</value>
+        <hasTag rdf:resource="&bc;k/ch4"/>
+        <hasTag rdf:resource="&bc;k/combustion"/>
+        <hasTag rdf:resource="&bc;k/crude_oil"/>
+        <hasUnit rdf:resource="&bc;u/kilogram_per_tera_joule"/>
     </owl:NamedIndividual>
     
 
@@ -10020,11 +10042,37 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
 
     <owl:NamedIndividual rdf:about="&bc;sc/combustion+crude_oil+co2">
         <rdf:type rdf:resource="&bc;SingleCoefficient"/>
-        <value rdf:datatype="&xsd;double">73.3</value>
+        <value rdf:datatype="&xsd;double">73300.0</value>
         <hasTag rdf:resource="&bc;k/co2"/>
         <hasTag rdf:resource="&bc;k/combustion"/>
         <hasTag rdf:resource="&bc;k/crude_oil"/>
-        <hasUnit rdf:resource="&bc;u/tonne_per_tera_joule"/>
+        <hasUnit rdf:resource="&bc;u/kilogram_per_tera_joule"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/combustion+crude_oil+n2o -->
+
+    <owl:NamedIndividual rdf:about="&bc;sc/combustion+crude_oil+n2o">
+        <rdf:type rdf:resource="&bc;SingleCoefficient"/>
+        <value rdf:datatype="&xsd;double">0.6</value>
+        <hasTag rdf:resource="&bc;k/combustion"/>
+        <hasTag rdf:resource="&bc;k/crude_oil"/>
+        <hasTag rdf:resource="&bc;k/n2o"/>
+        <hasUnit rdf:resource="&bc;u/kilogram_per_tera_joule"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/combustion+gas_diesel_oil+ch4 -->
+
+    <owl:NamedIndividual rdf:about="&bc;sc/combustion+gas_diesel_oil+ch4">
+        <rdf:type rdf:resource="&bc;SingleCoefficient"/>
+        <value rdf:datatype="&xsd;double">3.0</value>
+        <hasTag rdf:resource="&bc;k/ch4"/>
+        <hasTag rdf:resource="&bc;k/combustion"/>
+        <hasTag rdf:resource="&bc;k/gas_diesel_oil"/>
+        <hasUnit rdf:resource="&bc;u/kilogram_per_tera_joule"/>
     </owl:NamedIndividual>
     
 
@@ -10033,11 +10081,37 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
 
     <owl:NamedIndividual rdf:about="&bc;sc/combustion+gas_diesel_oil+co2">
         <rdf:type rdf:resource="&bc;SingleCoefficient"/>
-        <value rdf:datatype="&xsd;double">74.0</value>
+        <value rdf:datatype="&xsd;double">74100.0</value>
         <hasTag rdf:resource="&bc;k/co2"/>
         <hasTag rdf:resource="&bc;k/combustion"/>
         <hasTag rdf:resource="&bc;k/gas_diesel_oil"/>
-        <hasUnit rdf:resource="&bc;u/tonne_per_tera_joule"/>
+        <hasUnit rdf:resource="&bc;u/kilogram_per_tera_joule"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/combustion+gas_diesel_oil+n2o -->
+
+    <owl:NamedIndividual rdf:about="&bc;sc/combustion+gas_diesel_oil+n2o">
+        <rdf:type rdf:resource="&bc;SingleCoefficient"/>
+        <value rdf:datatype="&xsd;double">0.6</value>
+        <hasTag rdf:resource="&bc;k/combustion"/>
+        <hasTag rdf:resource="&bc;k/gas_diesel_oil"/>
+        <hasTag rdf:resource="&bc;k/n2o"/>
+        <hasUnit rdf:resource="&bc;u/kilogram_per_tera_joule"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/combustion+jet_kerosene+ch4 -->
+
+    <owl:NamedIndividual rdf:about="&bc;sc/combustion+jet_kerosene+ch4">
+        <rdf:type rdf:resource="&bc;SingleCoefficient"/>
+        <value rdf:datatype="&xsd;double">3.0</value>
+        <hasTag rdf:resource="&bc;k/ch4"/>
+        <hasTag rdf:resource="&bc;k/combustion"/>
+        <hasTag rdf:resource="&bc;k/jet_kerosene"/>
+        <hasUnit rdf:resource="&bc;u/kilogram_per_tera_joule"/>
     </owl:NamedIndividual>
     
 
@@ -10046,11 +10120,37 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
 
     <owl:NamedIndividual rdf:about="&bc;sc/combustion+jet_kerosene+co2">
         <rdf:type rdf:resource="&bc;SingleCoefficient"/>
-        <value rdf:datatype="&xsd;double">71.8</value>
+        <value rdf:datatype="&xsd;double">71500.0</value>
         <hasTag rdf:resource="&bc;k/co2"/>
         <hasTag rdf:resource="&bc;k/combustion"/>
         <hasTag rdf:resource="&bc;k/jet_kerosene"/>
-        <hasUnit rdf:resource="&bc;u/tonne_per_tera_joule"/>
+        <hasUnit rdf:resource="&bc;u/kilogram_per_tera_joule"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/combustion+jet_kerosene+n2o -->
+
+    <owl:NamedIndividual rdf:about="&bc;sc/combustion+jet_kerosene+n2o">
+        <rdf:type rdf:resource="&bc;SingleCoefficient"/>
+        <value rdf:datatype="&xsd;double">0.6</value>
+        <hasTag rdf:resource="&bc;k/combustion"/>
+        <hasTag rdf:resource="&bc;k/jet_kerosene"/>
+        <hasTag rdf:resource="&bc;k/n2o"/>
+        <hasUnit rdf:resource="&bc;u/kilogram_per_tera_joule"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/combustion+lignite+ch4 -->
+
+    <owl:NamedIndividual rdf:about="&bc;sc/combustion+lignite+ch4">
+        <rdf:type rdf:resource="&bc;SingleCoefficient"/>
+        <value rdf:datatype="&xsd;double">1.0</value>
+        <hasTag rdf:resource="&bc;k/ch4"/>
+        <hasTag rdf:resource="&bc;k/combustion"/>
+        <hasTag rdf:resource="&bc;k/lignite"/>
+        <hasUnit rdf:resource="&bc;u/kilogram_per_tera_joule"/>
     </owl:NamedIndividual>
     
 
@@ -10059,11 +10159,37 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
 
     <owl:NamedIndividual rdf:about="&bc;sc/combustion+lignite+co2">
         <rdf:type rdf:resource="&bc;SingleCoefficient"/>
-        <value rdf:datatype="&xsd;double">101.1</value>
+        <value rdf:datatype="&xsd;double">101000.0</value>
         <hasTag rdf:resource="&bc;k/co2"/>
         <hasTag rdf:resource="&bc;k/combustion"/>
         <hasTag rdf:resource="&bc;k/lignite"/>
-        <hasUnit rdf:resource="&bc;u/tonne_per_tera_joule"/>
+        <hasUnit rdf:resource="&bc;u/kilogram_per_tera_joule"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/combustion+lignite+n2o -->
+
+    <owl:NamedIndividual rdf:about="&bc;sc/combustion+lignite+n2o">
+        <rdf:type rdf:resource="&bc;SingleCoefficient"/>
+        <value rdf:datatype="&xsd;double">1.5</value>
+        <hasTag rdf:resource="&bc;k/combustion"/>
+        <hasTag rdf:resource="&bc;k/lignite"/>
+        <hasTag rdf:resource="&bc;k/n2o"/>
+        <hasUnit rdf:resource="&bc;u/kilogram_per_tera_joule"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/combustion+motor_gasoline+ch4 -->
+
+    <owl:NamedIndividual rdf:about="&bc;sc/combustion+motor_gasoline+ch4">
+        <rdf:type rdf:resource="&bc;SingleCoefficient"/>
+        <value rdf:datatype="&xsd;double">3.0</value>
+        <hasTag rdf:resource="&bc;k/ch4"/>
+        <hasTag rdf:resource="&bc;k/combustion"/>
+        <hasTag rdf:resource="&bc;k/motor_gasoline"/>
+        <hasUnit rdf:resource="&bc;u/kilogram_per_tera_joule"/>
     </owl:NamedIndividual>
     
 
@@ -10072,11 +10198,37 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
 
     <owl:NamedIndividual rdf:about="&bc;sc/combustion+motor_gasoline+co2">
         <rdf:type rdf:resource="&bc;SingleCoefficient"/>
-        <value rdf:datatype="&xsd;double">69.2</value>
+        <value rdf:datatype="&xsd;double">69300.0</value>
         <hasTag rdf:resource="&bc;k/co2"/>
         <hasTag rdf:resource="&bc;k/combustion"/>
         <hasTag rdf:resource="&bc;k/motor_gasoline"/>
-        <hasUnit rdf:resource="&bc;u/tonne_per_tera_joule"/>
+        <hasUnit rdf:resource="&bc;u/kilogram_per_tera_joule"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/combustion+motor_gasoline+n2o -->
+
+    <owl:NamedIndividual rdf:about="&bc;sc/combustion+motor_gasoline+n2o">
+        <rdf:type rdf:resource="&bc;SingleCoefficient"/>
+        <value rdf:datatype="&xsd;double">0.6</value>
+        <hasTag rdf:resource="&bc;k/combustion"/>
+        <hasTag rdf:resource="&bc;k/motor_gasoline"/>
+        <hasTag rdf:resource="&bc;k/n2o"/>
+        <hasUnit rdf:resource="&bc;u/kilogram_per_tera_joule"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/combustion+natural_gas+ch4 -->
+
+    <owl:NamedIndividual rdf:about="&bc;sc/combustion+natural_gas+ch4">
+        <rdf:type rdf:resource="&bc;SingleCoefficient"/>
+        <value rdf:datatype="&xsd;double">1.0</value>
+        <hasTag rdf:resource="&bc;k/ch4"/>
+        <hasTag rdf:resource="&bc;k/combustion"/>
+        <hasTag rdf:resource="&bc;k/natural_gas"/>
+        <hasUnit rdf:resource="&bc;u/kilogram_per_tera_joule"/>
     </owl:NamedIndividual>
     
 
@@ -10085,11 +10237,37 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
 
     <owl:NamedIndividual rdf:about="&bc;sc/combustion+natural_gas+co2">
         <rdf:type rdf:resource="&bc;SingleCoefficient"/>
-        <value rdf:datatype="&xsd;double">56.1</value>
+        <value rdf:datatype="&xsd;double">56100.0</value>
         <hasTag rdf:resource="&bc;k/co2"/>
         <hasTag rdf:resource="&bc;k/combustion"/>
         <hasTag rdf:resource="&bc;k/natural_gas"/>
-        <hasUnit rdf:resource="&bc;u/tonne_per_tera_joule"/>
+        <hasUnit rdf:resource="&bc;u/kilogram_per_tera_joule"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/combustion+natural_gas+n2o -->
+
+    <owl:NamedIndividual rdf:about="&bc;sc/combustion+natural_gas+n2o">
+        <rdf:type rdf:resource="&bc;SingleCoefficient"/>
+        <value rdf:datatype="&xsd;double">0.1</value>
+        <hasTag rdf:resource="&bc;k/combustion"/>
+        <hasTag rdf:resource="&bc;k/n2o"/>
+        <hasTag rdf:resource="&bc;k/natural_gas"/>
+        <hasUnit rdf:resource="&bc;u/kilogram_per_tera_joule"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/combustion+residual_fuel_oil+ch4 -->
+
+    <owl:NamedIndividual rdf:about="&bc;sc/combustion+residual_fuel_oil+ch4">
+        <rdf:type rdf:resource="&bc;SingleCoefficient"/>
+        <value rdf:datatype="&xsd;double">3.0</value>
+        <hasTag rdf:resource="&bc;k/ch4"/>
+        <hasTag rdf:resource="&bc;k/combustion"/>
+        <hasTag rdf:resource="&bc;k/residual_fuel_oil"/>
+        <hasUnit rdf:resource="&bc;u/kilogram_per_tera_joule"/>
     </owl:NamedIndividual>
     
 
@@ -10098,11 +10276,24 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
 
     <owl:NamedIndividual rdf:about="&bc;sc/combustion+residual_fuel_oil+co2">
         <rdf:type rdf:resource="&bc;SingleCoefficient"/>
-        <value rdf:datatype="&xsd;double">77.3</value>
+        <value rdf:datatype="&xsd;double">77400.0</value>
         <hasTag rdf:resource="&bc;k/co2"/>
         <hasTag rdf:resource="&bc;k/combustion"/>
         <hasTag rdf:resource="&bc;k/residual_fuel_oil"/>
-        <hasUnit rdf:resource="&bc;u/tonne_per_tera_joule"/>
+        <hasUnit rdf:resource="&bc;u/kilogram_per_tera_joule"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/combustion+residual_fuel_oil+n2o -->
+
+    <owl:NamedIndividual rdf:about="&bc;sc/combustion+residual_fuel_oil+n2o">
+        <rdf:type rdf:resource="&bc;SingleCoefficient"/>
+        <value rdf:datatype="&xsd;double">0.6</value>
+        <hasTag rdf:resource="&bc;k/combustion"/>
+        <hasTag rdf:resource="&bc;k/n2o"/>
+        <hasTag rdf:resource="&bc;k/residual_fuel_oil"/>
+        <hasUnit rdf:resource="&bc;u/kilogram_per_tera_joule"/>
     </owl:NamedIndividual>
     
 
@@ -12747,6 +12938,14 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     
 
 
+    <!-- http://www.myc-sense.com/ontologies/bc#u/kilogram_per_tera_joule -->
+
+    <owl:NamedIndividual rdf:about="&bc;u/kilogram_per_tera_joule">
+        <foreignUnitID rdf:datatype="&xsd;string">kg.tj^-1</foreignUnitID>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.myc-sense.com/ontologies/bc#u/kilogram_per_vehicle_kilometre -->
 
     <owl:NamedIndividual rdf:about="&bc;u/kilogram_per_vehicle_kilometre">
@@ -12943,14 +13142,6 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
 
     <owl:NamedIndividual rdf:about="&bc;u/tonne_per_hectare">
         <foreignUnitID rdf:datatype="&xsd;string">t.ha^-1</foreignUnitID>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.myc-sense.com/ontologies/bc#u/tonne_per_tera_joule -->
-
-    <owl:NamedIndividual rdf:about="&bc;u/tonne_per_tera_joule">
-        <foreignUnitID rdf:datatype="&xsd;string">t.tj^-1</foreignUnitID>
     </owl:NamedIndividual>
     
 
