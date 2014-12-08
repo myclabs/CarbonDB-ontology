@@ -1022,9 +1022,9 @@
     <owl:Class rdf:about="&bc;ComponentOfImpactType">
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;uncertainty"/>
+                <owl:onProperty rdf:resource="&bc;isBasedOnElementaryFlowType"/>
+                <owl:onClass rdf:resource="&bc;ElementaryFlowType"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onDataRange rdf:resource="&xsd;double"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -1036,14 +1036,14 @@
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;isBasedOnElementaryFlowType"/>
-                <owl:onClass rdf:resource="&bc;ElementaryFlowType"/>
+                <owl:onProperty rdf:resource="&bc;value"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;double"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;value"/>
+                <owl:onProperty rdf:resource="&bc;uncertainty"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
                 <owl:onDataRange rdf:resource="&xsd;double"/>
             </owl:Restriction>
@@ -1120,13 +1120,6 @@
     <owl:Class rdf:about="&bc;ElementaryFlow">
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;hasElementaryFlowType"/>
-                <owl:onClass rdf:resource="&bc;ElementaryFlowType"/>
-                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
                 <owl:onProperty rdf:resource="&bc;isFlowOfSingleProcess"/>
                 <owl:onClass rdf:resource="&bc;SingleProcess"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
@@ -1137,6 +1130,13 @@
                 <owl:onProperty rdf:resource="&bc;uncertainty"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
                 <owl:onDataRange rdf:resource="&xsd;double"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&bc;hasElementaryFlowType"/>
+                <owl:onClass rdf:resource="&bc;ElementaryFlowType"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -1189,6 +1189,12 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&bc;hasDimension"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&bc;hasDimension"/>
                 <owl:someValuesFrom rdf:resource="&bc;Dimension"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -1197,12 +1203,6 @@
                 <owl:onProperty rdf:resource="&bc;belongsToCategoryOfGroup"/>
                 <owl:onClass rdf:resource="&bc;CategoryOfGroup"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;hasDimension"/>
-                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <owl:disjointWith rdf:resource="&bc;ImpactType"/>
@@ -1222,16 +1222,16 @@
     <owl:Class rdf:about="&bc;Impact">
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;hasImpactType"/>
-                <owl:onClass rdf:resource="&bc;ImpactType"/>
+                <owl:onProperty rdf:resource="&bc;value"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;double"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;value"/>
+                <owl:onProperty rdf:resource="&bc;hasImpactType"/>
+                <owl:onClass rdf:resource="&bc;ImpactType"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onDataRange rdf:resource="&xsd;double"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -1251,15 +1251,15 @@
     <owl:Class rdf:about="&bc;ImpactType">
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;belongsToCategoryOfImpactType"/>
-                <owl:onClass rdf:resource="&bc;CategoryOfImpactType"/>
-                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onProperty rdf:resource="&bc;isImpactType"/>
+                <owl:someValuesFrom rdf:resource="&bc;Impact"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;isImpactType"/>
-                <owl:someValuesFrom rdf:resource="&bc;Impact"/>
+                <owl:onProperty rdf:resource="&bc;belongsToCategoryOfImpactType"/>
+                <owl:onClass rdf:resource="&bc;CategoryOfImpactType"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <owl:disjointWith rdf:resource="&bc;Keyword"/>
@@ -1403,13 +1403,6 @@
     <owl:Class rdf:about="&bc;Relation">
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;hasDestinationProcess"/>
-                <owl:onClass rdf:resource="&bc;Process"/>
-                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
                 <owl:onProperty rdf:resource="&bc;exponent"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
                 <owl:onDataRange rdf:resource="&xsd;short"/>
@@ -1418,6 +1411,13 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&bc;hasOriginProcess"/>
+                <owl:onClass rdf:resource="&bc;Process"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&bc;hasDestinationProcess"/>
                 <owl:onClass rdf:resource="&bc;Process"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
@@ -1457,14 +1457,14 @@
         <rdfs:subClassOf rdf:resource="&bc;SingleElement"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;uncertainty"/>
+                <owl:onProperty rdf:resource="&bc;value"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
                 <owl:onDataRange rdf:resource="&xsd;double"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&bc;value"/>
+                <owl:onProperty rdf:resource="&bc;uncertainty"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
                 <owl:onDataRange rdf:resource="&xsd;double"/>
             </owl:Restriction>
@@ -1480,13 +1480,13 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&bc;hasTag"/>
-                <owl:someValuesFrom rdf:resource="&bc;Keyword"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&bc;hasTag"/>
-                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
+                <owl:someValuesFrom rdf:resource="&bc;Keyword"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
@@ -2303,9 +2303,9 @@
         <containsKeyword rdf:resource="&bc;k/fungicide"/>
         <containsKeyword rdf:resource="&bc;k/herbicide"/>
         <containsKeyword rdf:resource="&bc;k/insecticide"/>
-        <containsKeyword rdf:resource="&bc;k/nitrogen_fertilizer"/>
         <containsKeyword rdf:resource="&bc;k/phosphate_fertilizer"/>
         <containsKeyword rdf:resource="&bc;k/potash_fertilizer"/>
+        <containsKeyword rdf:resource="&bc;k/synthetic_nitrogen_fertilizer"/>
     </owl:NamedIndividual>
     
 
@@ -2318,16 +2318,6 @@
         <containsKeyword rdf:resource="&bc;k/agricultural_automotive"/>
         <containsKeyword rdf:resource="&bc;k/agricultural_tractor"/>
         <containsKeyword rdf:resource="&bc;k/agricultural_trailed_machinery"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.myc-sense.com/ontologies/bc#d/agricultural_process_giving_off_greenhouse_gas -->
-
-    <owl:NamedIndividual rdf:about="&bc;d/agricultural_process_giving_off_greenhouse_gas">
-        <rdfs:label xml:lang="en">Agricultural process giving off greenhouse gas</rdfs:label>
-        <rdfs:label xml:lang="fr">Processus agricole à l&apos;origine d&apos;émission de gaz à effet de serre</rdfs:label>
-        <containsKeyword rdf:resource="&bc;k/fugitive_emission_spreading_nitrogen_fertilizer"/>
     </owl:NamedIndividual>
     
 
@@ -2551,25 +2541,11 @@
     
 
 
-    <!-- http://www.myc-sense.com/ontologies/bc#d/fuel_unit_of_energy -->
+    <!-- http://www.myc-sense.com/ontologies/bc#d/fuel_unit_of_energy_or_mass -->
 
-    <owl:NamedIndividual rdf:about="&bc;d/fuel_unit_of_energy">
+    <owl:NamedIndividual rdf:about="&bc;d/fuel_unit_of_energy_or_mass">
         <containsKeyword rdf:resource="&bc;k/anthracite"/>
         <containsKeyword rdf:resource="&bc;k/crude_oil"/>
-        <containsKeyword rdf:resource="&bc;k/gas_diesel_oil"/>
-        <containsKeyword rdf:resource="&bc;k/jet_kerosene"/>
-        <containsKeyword rdf:resource="&bc;k/lignite"/>
-        <containsKeyword rdf:resource="&bc;k/motor_gasoline"/>
-        <containsKeyword rdf:resource="&bc;k/natural_gas"/>
-        <containsKeyword rdf:resource="&bc;k/residual_fuel_oil"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.myc-sense.com/ontologies/bc#d/fuel_unit_of_mass -->
-
-    <owl:NamedIndividual rdf:about="&bc;d/fuel_unit_of_mass">
-        <containsKeyword rdf:resource="&bc;k/anthracite"/>
         <containsKeyword rdf:resource="&bc;k/gas_diesel_oil"/>
         <containsKeyword rdf:resource="&bc;k/jet_kerosene"/>
         <containsKeyword rdf:resource="&bc;k/lignite"/>
@@ -2619,14 +2595,6 @@
         <containsKeyword rdf:resource="&bc;k/ch4"/>
         <containsKeyword rdf:resource="&bc;k/co2"/>
         <containsKeyword rdf:resource="&bc;k/co2e"/>
-        <containsKeyword rdf:resource="&bc;k/n2o"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.myc-sense.com/ontologies/bc#d/greenhouse_gas_emitted_by_spreading_of_nitrogen_based_fertilizer -->
-
-    <owl:NamedIndividual rdf:about="&bc;d/greenhouse_gas_emitted_by_spreading_of_nitrogen_based_fertilizer">
         <containsKeyword rdf:resource="&bc;k/n2o"/>
     </owl:NamedIndividual>
     
@@ -2871,6 +2839,15 @@
 
     <owl:NamedIndividual rdf:about="&bc;d/type_of_electricity_consumption">
         <containsKeyword rdf:resource="&bc;k/european_union_electricity_mix"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#d/type_of_nitrogen_fertilizer -->
+
+    <owl:NamedIndividual rdf:about="&bc;d/type_of_nitrogen_fertilizer">
+        <containsKeyword rdf:resource="&bc;k/organic_nitrogen_fertilizer"/>
+        <containsKeyword rdf:resource="&bc;k/synthetic_nitrogen_fertilizer"/>
     </owl:NamedIndividual>
     
 
@@ -3368,7 +3345,7 @@ Since the downstream process (pipeline transport) measures the fuel in terms of 
         <rdfs:label xml:lang="en">Lower heating value (LHV) of a fuel</rdfs:label>
         <rdfs:comment xml:lang="en">Values were taken from [IPCC Guidelines 2006 Vol. 2 Ch. 1], table 1.2, p. 18. </rdfs:comment>
         <belongsToCategoryOfGroup rdf:resource="&bc;c/fuel_source_data_physical_property"/>
-        <hasVerticalDimension rdf:resource="&bc;d/fuel_unit_of_energy"/>
+        <hasVerticalDimension rdf:resource="&bc;d/fuel_unit_of_energy_or_mass"/>
         <hasCommonTag rdf:resource="&bc;k/lower_heating_value"/>
         <hasReference rdf:resource="&bc;ref/ipcc_guidelines_2006_vol_2_ch_1"/>
         <hasUnit rdf:resource="&bc;u/gigajoule_per_tonne"/>
@@ -3395,6 +3372,7 @@ Since the downstream process (pipeline transport) measures the fuel in terms of 
         <belongsToCategoryOfGroup rdf:resource="&bc;c/crop_cultivation_source_data"/>
         <hasHorizontalDimension rdf:resource="&bc;d/agricultural_input"/>
         <hasVerticalDimension rdf:resource="&bc;d/crop"/>
+        <hasCommonTag rdf:resource="&bc;k/agricultural_input"/>
         <hasUnit rdf:resource="&bc;u/kilogram_per_hectare"/>
     </owl:NamedIndividual>
     
@@ -3441,7 +3419,7 @@ Since the downstream process (pipeline transport) measures the fuel in terms of 
         <rdfs:comment xml:lang="en">Values were taken from [IPCC Guidelines 2006 Vol. 2 Ch. 2], table 2.2, p. 16: default emission factors for stationary combustion in the energy industries.</rdfs:comment>
         <belongsToCategoryOfGroup rdf:resource="&bc;c/fuel_source_data_physical_property"/>
         <hasHorizontalDimension rdf:resource="&bc;d/co2_ch4_n2o"/>
-        <hasVerticalDimension rdf:resource="&bc;d/fuel_unit_of_energy"/>
+        <hasVerticalDimension rdf:resource="&bc;d/fuel_unit_of_energy_or_mass"/>
         <hasCommonTag rdf:resource="&bc;k/combustion"/>
         <hasReference rdf:resource="&bc;ref/ipcc_guidelines_2006_vol_2_ch_2"/>
         <hasUnit rdf:resource="&bc;u/kilogram_per_tera_joule"/>
@@ -3531,10 +3509,21 @@ Data for natural gas are taken from [JEC WTT v4a 2014], paragraph 3.2.3, p. 31. 
     <owl:NamedIndividual rdf:about="&bc;gc/mass_of_volatised_nitrous_oxide_per_mass_of_nitrogen_in_fertilizer">
         <rdf:type rdf:resource="&bc;CoefficientGroup"/>
         <rdfs:label xml:lang="en">Mass of volatised nitrous oxide per mass of nitrogen contained in a nitrogen-based fertilizer</rdfs:label>
-        <rdfs:label xml:lang="fr">Masse de protoyde d&apos;azote volatilisé par masse d&apos;azote contenue dans un engrais azoté</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string">These figures take into account three ways through which N2O is released. 
+
+1. A fraction of the spread nitrogen directly converts into N2O ([IPCC Guidelines 2006 Vol. 4 Ch. 11], table 11.1, p. 11). This fraction is about 1.5 % for an organic fertilizer, and 1 % of a synthetic fertilizer. 
+2. A fraction of the spread nitrogen volatilises as NH3 and NOx (about 20% for an organic fertilizer and 10% for a synthetic fertilizer), and 1% of nitrogen contained in this NH3 and NOx enerates N2O emissions ([IPCC Guidelines 2006 Vol. 4 Ch. 11], table 11.3, p. 24).
+3. A fraction of 30% of the nitrogen is washed and 0.75% of this washed nitrogen will be emitted from leachate ([IPCC Guidelines 2006 Vol. 4 Ch. 11], table 11.3, p. 24).
+
+The final figure is therefore : 
+(0.015 + 0.2 x 0.01 + 0.3 x 0.075) x (44 / 28) = 1.93 % in the case of an organic fertilizer;
+(0.01 + 0.1 x 0.01 + 0.3 x 0.075) x (44 / 28) = 2.09 % in the case of a synthetic fertilizer.
+</rdfs:comment>
         <belongsToCategoryOfGroup rdf:resource="&bc;c/crop_cultivation_source_data"/>
-        <hasVerticalDimension rdf:resource="&bc;d/greenhouse_gas_emitted_by_spreading_of_nitrogen_based_fertilizer"/>
+        <hasVerticalDimension rdf:resource="&bc;d/type_of_nitrogen_fertilizer"/>
         <hasCommonTag rdf:resource="&bc;k/fugitive_emission_spreading_nitrogen_fertilizer"/>
+        <hasCommonTag rdf:resource="&bc;k/n2o"/>
+        <hasReference rdf:resource="&bc;ref/ipcc_guidelines_2006_vol_4_ch_11"/>
         <hasUnit rdf:resource="&bc;u/percent"/>
     </owl:NamedIndividual>
     
@@ -3675,7 +3664,7 @@ Entry &quot;Produced fuel&quot;  takes into account the energy of the produced f
 
 Values were taken from [Staffel 2011].</rdfs:comment>
         <belongsToCategoryOfGroup rdf:resource="&bc;c/fuel_source_data_physical_property"/>
-        <hasVerticalDimension rdf:resource="&bc;d/fuel_unit_of_energy"/>
+        <hasVerticalDimension rdf:resource="&bc;d/fuel_unit_of_energy_or_mass"/>
         <hasCommonTag rdf:resource="&bc;k/ratio_of_hhv_to_lhv"/>
         <hasReference rdf:resource="&bc;ref/staffel_2011"/>
         <hasUnit rdf:resource="&bc;u/one"/>
@@ -4020,7 +4009,7 @@ Refining fuel is assumed to be crude oil. </rdfs:comment>
         <rdfs:label xml:lang="fr">Combustion de combustible, mesuré en unité d&apos;énergie (PCS)</rdfs:label>
         <belongsToCategoryOfGroup rdf:resource="&bc;c/fuel_combustion_process"/>
         <hasHorizontalDimension rdf:resource="&bc;d/combustion_process"/>
-        <hasVerticalDimension rdf:resource="&bc;d/fuel_unit_of_energy"/>
+        <hasVerticalDimension rdf:resource="&bc;d/fuel_unit_of_energy_or_mass"/>
         <hasCommonTag rdf:resource="&bc;k/higher_heating_value"/>
         <hasUnit rdf:resource="&bc;u/kilowatt_hour"/>
     </owl:NamedIndividual>
@@ -4035,7 +4024,7 @@ Refining fuel is assumed to be crude oil. </rdfs:comment>
         <rdfs:label xml:lang="fr">Combustion de combustible, mesuré en unité d&apos;énergie (PCI)</rdfs:label>
         <belongsToCategoryOfGroup rdf:resource="&bc;c/fuel_combustion_process"/>
         <hasHorizontalDimension rdf:resource="&bc;d/combustion_process"/>
-        <hasVerticalDimension rdf:resource="&bc;d/fuel_unit_of_energy"/>
+        <hasVerticalDimension rdf:resource="&bc;d/fuel_unit_of_energy_or_mass"/>
         <hasCommonTag rdf:resource="&bc;k/lower_heating_value"/>
         <hasUnit rdf:resource="&bc;u/kilowatt_hour"/>
     </owl:NamedIndividual>
@@ -4050,7 +4039,7 @@ Refining fuel is assumed to be crude oil. </rdfs:comment>
         <rdfs:label xml:lang="fr">Combution de combustible, mesuré en unité de masse</rdfs:label>
         <belongsToCategoryOfGroup rdf:resource="&bc;c/fuel_combustion_process"/>
         <hasHorizontalDimension rdf:resource="&bc;d/combustion_process"/>
-        <hasVerticalDimension rdf:resource="&bc;d/fuel_unit_of_mass"/>
+        <hasVerticalDimension rdf:resource="&bc;d/fuel_unit_of_energy_or_mass"/>
         <hasCommonTag rdf:resource="&bc;k/mass"/>
         <hasUnit rdf:resource="&bc;u/tonne"/>
     </owl:NamedIndividual>
@@ -4113,6 +4102,7 @@ Refining fuel is assumed to be crude oil. </rdfs:comment>
         <belongsToCategoryOfGroup rdf:resource="&bc;c/crop_cultivation_upstream_processes"/>
         <hasVerticalDimension rdf:resource="&bc;d/crop"/>
         <hasHorizontalDimension rdf:resource="&bc;d/cultivation_process"/>
+        <hasCommonTag rdf:resource="&bc;k/cultivation_of_agricultural_area"/>
         <hasUnit rdf:resource="&bc;u/hectare"/>
     </owl:NamedIndividual>
     
@@ -4219,10 +4209,10 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     <owl:NamedIndividual rdf:about="&bc;gp/emanation_of_nitrous_oxide_from_nitrogen_fertilizer">
         <rdf:type rdf:resource="&bc;ProcessGroup"/>
         <rdfs:label xml:lang="en">Emanation of nitrous oxide from nitrogen-based fertilizer, measured in unit of mass of spread nitrogen</rdfs:label>
-        <rdfs:label xml:lang="fr">Émanation de protoxyde d&apos;azote suite à l&apos;épandage d&apos;engrais azoté, mesuré en unité de masse d&apos;azote épandu</rdfs:label>
         <belongsToCategoryOfGroup rdf:resource="&bc;c/crop_cultivation_upstream_processes"/>
-        <hasVerticalDimension rdf:resource="&bc;d/agricultural_process_giving_off_greenhouse_gas"/>
-        <hasCommonTag rdf:resource="&bc;k/nitrogen_fertilizer"/>
+        <hasVerticalDimension rdf:resource="&bc;d/type_of_nitrogen_fertilizer"/>
+        <hasCommonTag rdf:resource="&bc;k/fugitive_emission_spreading_nitrogen_fertilizer"/>
+        <hasCommonTag rdf:resource="&bc;k/n2o"/>
         <hasUnit rdf:resource="&bc;u/kilogram"/>
     </owl:NamedIndividual>
     
@@ -4958,6 +4948,14 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     
 
 
+    <!-- http://www.myc-sense.com/ontologies/bc#k/agricultural_input -->
+
+    <owl:NamedIndividual rdf:about="&bc;k/agricultural_input">
+        <rdfs:label xml:lang="en">Agricultural input</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.myc-sense.com/ontologies/bc#k/agricultural_machinery -->
 
     <owl:NamedIndividual rdf:about="&bc;k/agricultural_machinery">
@@ -5572,6 +5570,14 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     
 
 
+    <!-- http://www.myc-sense.com/ontologies/bc#k/cultivation_of_agricultural_area -->
+
+    <owl:NamedIndividual rdf:about="&bc;k/cultivation_of_agricultural_area">
+        <rdfs:label xml:lang="en">Cultivation of an agricultural area</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.myc-sense.com/ontologies/bc#k/dairy_animal -->
 
     <owl:NamedIndividual rdf:about="&bc;k/dairy_animal">
@@ -6119,7 +6125,6 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
 
     <owl:NamedIndividual rdf:about="&bc;k/fugitive_emission_spreading_nitrogen_fertilizer">
         <rdfs:label xml:lang="en">Fugitive emission due to spreading of nitrogen fertilizer</rdfs:label>
-        <rdfs:label xml:lang="fr">Émission fugitive liée à l&apos;épandage d&apos;engrais azoté</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -7140,6 +7145,14 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     
 
 
+    <!-- http://www.myc-sense.com/ontologies/bc#k/organic_nitrogen_fertilizer -->
+
+    <owl:NamedIndividual rdf:about="&bc;k/organic_nitrogen_fertilizer">
+        <rdfs:label xml:lang="en">Organic nitrogen (N) fertilizer</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.myc-sense.com/ontologies/bc#k/oxygen_steel_furnace_gas -->
 
     <owl:NamedIndividual rdf:about="&bc;k/oxygen_steel_furnace_gas">
@@ -7852,6 +7865,14 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     <owl:NamedIndividual rdf:about="&bc;k/switzerland">
         <rdfs:label xml:lang="en">Switzerland</rdfs:label>
         <rdfs:label xml:lang="fr">Suisse</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#k/synthetic_nitrogen_fertilizer -->
+
+    <owl:NamedIndividual rdf:about="&bc;k/synthetic_nitrogen_fertilizer">
+        <rdfs:label xml:lang="en">Synthetic nitrogen (N) fertilizer</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -9627,6 +9648,19 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     
 
 
+    <!-- http://www.myc-sense.com/ontologies/bc#ref/ipcc_guidelines_2006_vol_4_ch_11 -->
+
+    <owl:NamedIndividual rdf:about="&bc;ref/ipcc_guidelines_2006_vol_4_ch_11">
+        <rdf:type rdf:resource="&bc;Reference"/>
+        <date rdf:datatype="&xsd;string">2006</date>
+        <source rdf:datatype="&xsd;string">2006 IPCC Guidelines for National Greenhouse Gas Inventories</source>
+        <shortName rdf:datatype="&xsd;string">IPCC Guidelines 2006 Vol. 4 Ch. 11</shortName>
+        <creator rdf:datatype="&xsd;string">Integovernemental Panel on Climate Change</creator>
+        <title rdf:datatype="&xsd;string">Volume 4: Agriculture, Forestry and Other Land Use, Chapter 11: N2O Emissions from Managed Soils, and CO2 Emissions from Lime and Urea Application</title>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.myc-sense.com/ontologies/bc#ref/jec_wtt_v4a_2014 -->
 
     <owl:NamedIndividual rdf:about="&bc;ref/jec_wtt_v4a_2014">
@@ -9700,6 +9734,7 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     <owl:NamedIndividual rdf:about="&bc;sc/agricultural_input+fodder_corn+fungicide">
         <rdf:type rdf:resource="&bc;SingleCoefficient"/>
         <value rdf:datatype="&xsd;double">0.1</value>
+        <hasTag rdf:resource="&bc;k/agricultural_input"/>
         <hasTag rdf:resource="&bc;k/fodder_corn"/>
         <hasTag rdf:resource="&bc;k/fungicide"/>
         <hasUnit rdf:resource="&bc;u/kilogram_per_hectare"/>
@@ -9712,20 +9747,9 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     <owl:NamedIndividual rdf:about="&bc;sc/agricultural_input+fodder_corn+insecticide">
         <rdf:type rdf:resource="&bc;SingleCoefficient"/>
         <value rdf:datatype="&xsd;double">0.2</value>
+        <hasTag rdf:resource="&bc;k/agricultural_input"/>
         <hasTag rdf:resource="&bc;k/fodder_corn"/>
         <hasTag rdf:resource="&bc;k/insecticide"/>
-        <hasUnit rdf:resource="&bc;u/kilogram_per_hectare"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.myc-sense.com/ontologies/bc#sc/agricultural_input+fodder_corn+nitrogen_fertilizer -->
-
-    <owl:NamedIndividual rdf:about="&bc;sc/agricultural_input+fodder_corn+nitrogen_fertilizer">
-        <rdf:type rdf:resource="&bc;SingleCoefficient"/>
-        <value rdf:datatype="&xsd;double">120.0</value>
-        <hasTag rdf:resource="&bc;k/fodder_corn"/>
-        <hasTag rdf:resource="&bc;k/nitrogen_fertilizer"/>
         <hasUnit rdf:resource="&bc;u/kilogram_per_hectare"/>
     </owl:NamedIndividual>
     
@@ -9736,6 +9760,7 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     <owl:NamedIndividual rdf:about="&bc;sc/agricultural_input+fodder_corn+phosphate_fertilizer">
         <rdf:type rdf:resource="&bc;SingleCoefficient"/>
         <value rdf:datatype="&xsd;double">8.0</value>
+        <hasTag rdf:resource="&bc;k/agricultural_input"/>
         <hasTag rdf:resource="&bc;k/fodder_corn"/>
         <hasTag rdf:resource="&bc;k/phosphate_fertilizer"/>
         <hasUnit rdf:resource="&bc;u/kilogram_per_hectare"/>
@@ -9748,8 +9773,22 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     <owl:NamedIndividual rdf:about="&bc;sc/agricultural_input+fodder_corn+potash_fertilizer">
         <rdf:type rdf:resource="&bc;SingleCoefficient"/>
         <value rdf:datatype="&xsd;double">20.0</value>
+        <hasTag rdf:resource="&bc;k/agricultural_input"/>
         <hasTag rdf:resource="&bc;k/fodder_corn"/>
         <hasTag rdf:resource="&bc;k/potash_fertilizer"/>
+        <hasUnit rdf:resource="&bc;u/kilogram_per_hectare"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/agricultural_input+fodder_corn+synthetic_nitrogen_fertilizer -->
+
+    <owl:NamedIndividual rdf:about="&bc;sc/agricultural_input+fodder_corn+synthetic_nitrogen_fertilizer">
+        <rdf:type rdf:resource="&bc;SingleCoefficient"/>
+        <value rdf:datatype="&xsd;double">120.0</value>
+        <hasTag rdf:resource="&bc;k/agricultural_input"/>
+        <hasTag rdf:resource="&bc;k/fodder_corn"/>
+        <hasTag rdf:resource="&bc;k/synthetic_nitrogen_fertilizer"/>
         <hasUnit rdf:resource="&bc;u/kilogram_per_hectare"/>
     </owl:NamedIndividual>
     
@@ -11179,13 +11218,27 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     
 
 
-    <!-- http://www.myc-sense.com/ontologies/bc#sc/fugitive_emission_spreading_nitrogen_fertilizer+n2o -->
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/fugitive_emission_spreading_nitrogen_fertilizer+n2o+organic_nitrogen_fertilizer -->
 
-    <owl:NamedIndividual rdf:about="&bc;sc/fugitive_emission_spreading_nitrogen_fertilizer+n2o">
+    <owl:NamedIndividual rdf:about="&bc;sc/fugitive_emission_spreading_nitrogen_fertilizer+n2o+organic_nitrogen_fertilizer">
+        <rdf:type rdf:resource="&bc;SingleCoefficient"/>
+        <value rdf:datatype="&xsd;double">1.93</value>
+        <hasTag rdf:resource="&bc;k/fugitive_emission_spreading_nitrogen_fertilizer"/>
+        <hasTag rdf:resource="&bc;k/n2o"/>
+        <hasTag rdf:resource="&bc;k/organic_nitrogen_fertilizer"/>
+        <hasUnit rdf:resource="&bc;u/percent"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/fugitive_emission_spreading_nitrogen_fertilizer+n2o+synthetic_nitrogen_fertilizer -->
+
+    <owl:NamedIndividual rdf:about="&bc;sc/fugitive_emission_spreading_nitrogen_fertilizer+n2o+synthetic_nitrogen_fertilizer">
         <rdf:type rdf:resource="&bc;SingleCoefficient"/>
         <value rdf:datatype="&xsd;double">2.09</value>
         <hasTag rdf:resource="&bc;k/fugitive_emission_spreading_nitrogen_fertilizer"/>
         <hasTag rdf:resource="&bc;k/n2o"/>
+        <hasTag rdf:resource="&bc;k/synthetic_nitrogen_fertilizer"/>
         <hasUnit rdf:resource="&bc;u/percent"/>
     </owl:NamedIndividual>
     
@@ -13199,20 +13252,6 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     </rdf:Description>
     <rdf:Description>
         <rdf:type rdf:resource="&swrl;Imp"/>
-        <swrl:head>
-            <rdf:Description>
-                <rdf:type rdf:resource="&swrl;AtomList"/>
-                <rdf:rest rdf:resource="&rdf;nil"/>
-                <rdf:first>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
-                        <swrl:propertyPredicate rdf:resource="&bc;containsKeyword"/>
-                        <swrl:argument1 rdf:resource="&bc;d/greenhouse_gas"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
-                    </rdf:Description>
-                </rdf:first>
-            </rdf:Description>
-        </swrl:head>
         <swrl:body>
             <rdf:Description>
                 <rdf:type rdf:resource="&swrl;AtomList"/>
@@ -13227,6 +13266,20 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
                 </rdf:first>
             </rdf:Description>
         </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="&swrl;AtomList"/>
+                <rdf:rest rdf:resource="&rdf;nil"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="&bc;containsKeyword"/>
+                        <swrl:argument1 rdf:resource="&bc;d/greenhouse_gas"/>
+                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
+                    </rdf:Description>
+                </rdf:first>
+            </rdf:Description>
+        </swrl:head>
     </rdf:Description>
 </rdf:RDF>
 
