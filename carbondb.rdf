@@ -3551,7 +3551,7 @@ The final figure is therefore : 
         <rdfs:label xml:lang="en">Primary energy for production and conditioning of fossil fuel at source, measured in unit of energy (LHV)</rdfs:label>
         <rdfs:comment xml:lang="en">Typical European Union supply, without transportation.
 
-Data for anthracite are taken from [JEC WTT v4a 2014], appendix 4, electricity file, &quot;KO1&quot; process.
+Data for anthracite are taken from [JEC WTT v4a 2014], appendix 4, electricity file, &quot;KO1&quot; process. For lignite, we took identical values (awaiting something better).
 
 Data for crude oil are taken from [JEC WTT v4a 2014], paragraph 3.1.1, p.26. We slightly increased the energy use in production figure, since apparently the data from [JEC 2014] deal with final energy consumed, not primary energy extracted.
 
@@ -12129,6 +12129,76 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     
 
 
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/primary_energy_for_production_and_conditioning_at_source+lignite+energy_use_in_production+anthracite_primary_energy -->
+
+    <owl:NamedIndividual rdf:about="&bc;sc/primary_energy_for_production_and_conditioning_at_source+lignite+energy_use_in_production+anthracite_primary_energy">
+        <rdf:type rdf:resource="&bc;SingleCoefficient"/>
+        <value rdf:datatype="&xsd;double">0.0266</value>
+        <hasTag rdf:resource="&bc;k/anthracite_primary_energy"/>
+        <hasTag rdf:resource="&bc;k/energy_use_in_production"/>
+        <hasTag rdf:resource="&bc;k/lignite"/>
+        <hasTag rdf:resource="&bc;k/primary_energy_for_production_and_conditioning_at_source"/>
+        <hasUnit rdf:resource="&bc;u/megajoule_per_megajoule"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/primary_energy_for_production_and_conditioning_at_source+lignite+energy_use_in_production+crude_oil_primary_energy -->
+
+    <owl:NamedIndividual rdf:about="&bc;sc/primary_energy_for_production_and_conditioning_at_source+lignite+energy_use_in_production+crude_oil_primary_energy">
+        <rdf:type rdf:resource="&bc;SingleCoefficient"/>
+        <value rdf:datatype="&xsd;double">0.0375</value>
+        <hasTag rdf:resource="&bc;k/crude_oil_primary_energy"/>
+        <hasTag rdf:resource="&bc;k/energy_use_in_production"/>
+        <hasTag rdf:resource="&bc;k/lignite"/>
+        <hasTag rdf:resource="&bc;k/primary_energy_for_production_and_conditioning_at_source"/>
+        <hasUnit rdf:resource="&bc;u/megajoule_per_megajoule"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/primary_energy_for_production_and_conditioning_at_source+lignite+energy_use_in_production+lignite_primary_energy -->
+
+    <owl:NamedIndividual rdf:about="&bc;sc/primary_energy_for_production_and_conditioning_at_source+lignite+energy_use_in_production+lignite_primary_energy">
+        <rdf:type rdf:resource="&bc;SingleCoefficient"/>
+        <value rdf:datatype="&xsd;double">0.0016</value>
+        <hasTag rdf:resource="&bc;k/energy_use_in_production"/>
+        <hasTag rdf:resource="&bc;k/lignite"/>
+        <hasTag rdf:resource="&bc;k/lignite_primary_energy"/>
+        <hasTag rdf:resource="&bc;k/primary_energy_for_production_and_conditioning_at_source"/>
+        <hasUnit rdf:resource="&bc;u/megajoule_per_megajoule"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/primary_energy_for_production_and_conditioning_at_source+lignite+energy_use_in_production+natural_gas_primary_energy -->
+
+    <owl:NamedIndividual rdf:about="&bc;sc/primary_energy_for_production_and_conditioning_at_source+lignite+energy_use_in_production+natural_gas_primary_energy">
+        <rdf:type rdf:resource="&bc;SingleCoefficient"/>
+        <value rdf:datatype="&xsd;double">0.01</value>
+        <hasTag rdf:resource="&bc;k/energy_use_in_production"/>
+        <hasTag rdf:resource="&bc;k/lignite"/>
+        <hasTag rdf:resource="&bc;k/natural_gas_primary_energy"/>
+        <hasTag rdf:resource="&bc;k/primary_energy_for_production_and_conditioning_at_source"/>
+        <hasUnit rdf:resource="&bc;u/megajoule_per_megajoule"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.myc-sense.com/ontologies/bc#sc/primary_energy_for_production_and_conditioning_at_source+lignite+produced_fuel+lignite_primary_energy -->
+
+    <owl:NamedIndividual rdf:about="&bc;sc/primary_energy_for_production_and_conditioning_at_source+lignite+produced_fuel+lignite_primary_energy">
+        <rdf:type rdf:resource="&bc;SingleCoefficient"/>
+        <value rdf:datatype="&xsd;double">1.0</value>
+        <hasTag rdf:resource="&bc;k/lignite"/>
+        <hasTag rdf:resource="&bc;k/lignite_primary_energy"/>
+        <hasTag rdf:resource="&bc;k/primary_energy_for_production_and_conditioning_at_source"/>
+        <hasTag rdf:resource="&bc;k/produced_fuel"/>
+        <hasUnit rdf:resource="&bc;u/megajoule_per_megajoule"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.myc-sense.com/ontologies/bc#sc/primary_energy_for_production_and_conditioning_at_source+natural_gas+energy_use_in_production+natural_gas_primary_energy -->
 
     <owl:NamedIndividual rdf:about="&bc;sc/primary_energy_for_production_and_conditioning_at_source+natural_gas+energy_use_in_production+natural_gas_primary_energy">
@@ -13281,20 +13351,6 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     </rdf:Description>
     <rdf:Description>
         <rdf:type rdf:resource="&swrl;Imp"/>
-        <swrl:body>
-            <rdf:Description>
-                <rdf:type rdf:resource="&swrl;AtomList"/>
-                <rdf:rest rdf:resource="&rdf;nil"/>
-                <rdf:first>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
-                        <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
-                        <swrl:argument1 rdf:resource="&bc;k/greenhouse_gas"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
-                    </rdf:Description>
-                </rdf:first>
-            </rdf:Description>
-        </swrl:body>
         <swrl:head>
             <rdf:Description>
                 <rdf:type rdf:resource="&swrl;AtomList"/>
@@ -13309,6 +13365,20 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
                 </rdf:first>
             </rdf:Description>
         </swrl:head>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="&swrl;AtomList"/>
+                <rdf:rest rdf:resource="&rdf;nil"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="&bc;isBroaderThan"/>
+                        <swrl:argument1 rdf:resource="&bc;k/greenhouse_gas"/>
+                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
+                    </rdf:Description>
+                </rdf:first>
+            </rdf:Description>
+        </swrl:body>
     </rdf:Description>
 </rdf:RDF>
 
