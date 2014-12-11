@@ -10783,6 +10783,7 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     <owl:NamedIndividual rdf:about="&www;sc/final_energy_required_for_production+pesticide+anthracite">
         <rdf:type rdf:resource="&www;SingleCoefficient"/>
         <www:hasTag rdf:resource="&www;k/pesticide"/>
+        <www:hasUnit rdf:resource="&www;u/megajoule_per_kilogram"/>
     </owl:NamedIndividual>
     
 
@@ -10792,6 +10793,7 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     <owl:NamedIndividual rdf:about="&www;sc/final_energy_required_for_production+pesticide+electricity">
         <rdf:type rdf:resource="&www;SingleCoefficient"/>
         <www:hasTag rdf:resource="&www;k/pesticide"/>
+        <www:hasUnit rdf:resource="&www;u/megajoule_per_kilogram"/>
     </owl:NamedIndividual>
     
 
@@ -10827,6 +10829,7 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
 
     <owl:NamedIndividual rdf:about="&www;sc/final_energy_required_for_production+posphate_fertilizer+anthracite">
         <rdf:type rdf:resource="&www;SingleCoefficient"/>
+        <www:hasUnit rdf:resource="&www;u/megajoule_per_kilogram"/>
     </owl:NamedIndividual>
     
 
@@ -10836,6 +10839,7 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     <owl:NamedIndividual rdf:about="&www;sc/final_energy_required_for_production+synthetic_nitrogen_fertilizer+anthracite">
         <rdf:type rdf:resource="&www;SingleCoefficient"/>
         <www:hasTag rdf:resource="&www;k/synthetic_nitrogen_fertilizer"/>
+        <www:hasUnit rdf:resource="&www;u/megajoule_per_kilogram"/>
     </owl:NamedIndividual>
     
 
@@ -10844,6 +10848,7 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
 
     <owl:NamedIndividual rdf:about="&www;sc/final_energy_required_for_production+synthetic_nitrogen_fertilizer+electricity">
         <rdf:type rdf:resource="&www;SingleCoefficient"/>
+        <www:hasUnit rdf:resource="&www;u/megajoule_per_kilogram"/>
     </owl:NamedIndividual>
     
 
@@ -10852,6 +10857,7 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
 
     <owl:NamedIndividual rdf:about="&www;sc/final_energy_required_for_production+synthetic_nitrogen_fertilizer+gas_diesel_oil">
         <rdf:type rdf:resource="&www;SingleCoefficient"/>
+        <www:hasUnit rdf:resource="&www;u/megajoule_per_kilogram"/>
     </owl:NamedIndividual>
     
 
@@ -10868,6 +10874,7 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
 
     <owl:NamedIndividual rdf:about="&www;sc/final_energy_required_for_production+synthetic_nitrogen_fertilizer+residual_fuel_oil">
         <rdf:type rdf:resource="&www;SingleCoefficient"/>
+        <www:hasUnit rdf:resource="&www;u/megajoule_per_kilogram"/>
     </owl:NamedIndividual>
     
 
