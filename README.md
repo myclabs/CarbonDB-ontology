@@ -1,4 +1,4 @@
-carbonontology
+CarbonDB
 ==============
 
 CarbonDB is a [life cycle inventory](http://en.wikipedia.org/wiki/Life-cycle_assessment) (LCI) [open dataset](http://en.wikipedia.org/wiki/Open_data) mainly centered on greenhouse gas and energy impacts. It is structured as a domain [ontology](http://en.wikipedia.org/wiki/Ontology_(information_science)) in terms of the [Ressource Description Framework](http://en.wikipedia.org/wiki/Resource_Description_Framework) (RDF) [World Wide Web Consortium](http://www.w3.org/) specification. Please feel free to contribute by submitting issues or directly submitting an improved version of the ontology. 
