@@ -9233,18 +9233,6 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     
 
 
-    <!-- http://www.carbondb.org#r/mass_of_greenhouse_gas_emitted_by_production_of_chemical -->
-
-    <owl:NamedIndividual rdf:about="&www;r/mass_of_greenhouse_gas_emitted_by_production_of_chemical">
-        <rdf:type rdf:resource="&www;SourceRelation"/>
-        <www:exponent rdf:datatype="&xsd;short">1</www:exponent>
-        <www:hasOriginProcess rdf:resource="&www;gp/direct_emission_of_greenhouse_gas"/>
-        <www:hasDestinationProcess rdf:resource="&www;gp/production_of_chemical_unit_of_mass"/>
-        <www:hasRelationType rdf:resource="&www;rt/synchronous_dependency"/>
-    </owl:NamedIndividual>
-    
-
-
     <!-- http://www.carbondb.org#r/mass_of_greenhouse_gas_emitted_by_production_of_crude_oil_unit_of_energy_lhv -->
 
     <owl:NamedIndividual rdf:about="&www;r/mass_of_greenhouse_gas_emitted_by_production_of_crude_oil_unit_of_energy_lhv">
@@ -10803,6 +10791,7 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     <owl:NamedIndividual rdf:about="&www;sc/final_energy_required_for_production+pesticide+gas_diesel_oil">
         <rdf:type rdf:resource="&www;SingleCoefficient"/>
         <www:hasTag rdf:resource="&www;k/pesticide"/>
+        <www:hasUnit rdf:resource="&www;u/megajoule_per_kilogram"/>
     </owl:NamedIndividual>
     
 
@@ -10812,6 +10801,7 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     <owl:NamedIndividual rdf:about="&www;sc/final_energy_required_for_production+pesticide+natural_gas">
         <rdf:type rdf:resource="&www;SingleCoefficient"/>
         <www:hasTag rdf:resource="&www;k/pesticide"/>
+        <www:hasUnit rdf:resource="&www;u/megajoule_per_kilogram"/>
     </owl:NamedIndividual>
     
 
@@ -10821,6 +10811,7 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     <owl:NamedIndividual rdf:about="&www;sc/final_energy_required_for_production+pesticide+residual_fuel_oil">
         <rdf:type rdf:resource="&www;SingleCoefficient"/>
         <www:hasTag rdf:resource="&www;k/pesticide"/>
+        <www:hasUnit rdf:resource="&www;u/megajoule_per_kilogram"/>
     </owl:NamedIndividual>
     
 
@@ -10866,6 +10857,7 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
 
     <owl:NamedIndividual rdf:about="&www;sc/final_energy_required_for_production+synthetic_nitrogen_fertilizer+natural_gas">
         <rdf:type rdf:resource="&www;SingleCoefficient"/>
+        <www:hasUnit rdf:resource="&www;u/megajoule_per_kilogram"/>
     </owl:NamedIndividual>
     
 
@@ -13263,20 +13255,6 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     </rdf:Description>
     <rdf:Description>
         <rdf:type rdf:resource="&swrl;Imp"/>
-        <swrl:body>
-            <rdf:Description>
-                <rdf:type rdf:resource="&swrl;AtomList"/>
-                <rdf:rest rdf:resource="&rdf;nil"/>
-                <rdf:first>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
-                        <swrl:propertyPredicate rdf:resource="&www;isBroaderThan"/>
-                        <swrl:argument1 rdf:resource="&www;k/greenhouse_gas"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
-                    </rdf:Description>
-                </rdf:first>
-            </rdf:Description>
-        </swrl:body>
         <swrl:head>
             <rdf:Description>
                 <rdf:type rdf:resource="&swrl;AtomList"/>
@@ -13291,6 +13269,20 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
                 </rdf:first>
             </rdf:Description>
         </swrl:head>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="&swrl;AtomList"/>
+                <rdf:rest rdf:resource="&rdf;nil"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="&www;isBroaderThan"/>
+                        <swrl:argument1 rdf:resource="&www;k/greenhouse_gas"/>
+                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
+                    </rdf:Description>
+                </rdf:first>
+            </rdf:Description>
+        </swrl:body>
     </rdf:Description>
 </rdf:RDF>
 
