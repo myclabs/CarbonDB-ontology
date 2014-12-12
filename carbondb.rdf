@@ -145,8 +145,8 @@
     <!-- http://www.carbondb.org/#belongsToParentCategoryOfGroup -->
 
     <owl:ObjectProperty rdf:about="&cdb;belongsToParentCategoryOfGroup">
-        <rdfs:domain rdf:resource="&cdb;CategoryOfGroup"/>
         <rdfs:range rdf:resource="&cdb;CategoryOfGroup"/>
+        <rdfs:domain rdf:resource="&cdb;CategoryOfGroup"/>
     </owl:ObjectProperty>
     
 
@@ -193,8 +193,8 @@
     <!-- http://www.carbondb.org/#containsChildCategoryOfGroup -->
 
     <owl:ObjectProperty rdf:about="&cdb;containsChildCategoryOfGroup">
-        <rdfs:domain rdf:resource="&cdb;CategoryOfGroup"/>
         <rdfs:range rdf:resource="&cdb;CategoryOfGroup"/>
+        <rdfs:domain rdf:resource="&cdb;CategoryOfGroup"/>
         <owl:inverseOf rdf:resource="&cdb;belongsToParentCategoryOfGroup"/>
     </owl:ObjectProperty>
     
@@ -642,8 +642,8 @@
     <!-- http://www.carbondb.org/#isLinkedToKeyword -->
 
     <owl:ObjectProperty rdf:about="&cdb;isLinkedToKeyword">
-        <rdfs:range rdf:resource="&cdb;Keyword"/>
         <rdfs:domain rdf:resource="&cdb;Keyword"/>
+        <rdfs:range rdf:resource="&cdb;Keyword"/>
     </owl:ObjectProperty>
     
 
@@ -1022,20 +1022,6 @@
     <owl:Class rdf:about="&cdb;ComponentOfImpactType">
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&cdb;isBasedOnElementaryFlowType"/>
-                <owl:onClass rdf:resource="&cdb;ElementaryFlowType"/>
-                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&cdb;uncertainty"/>
-                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onDataRange rdf:resource="&xsd;double"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
                 <owl:onProperty rdf:resource="&cdb;contributesToImpactType"/>
                 <owl:onClass rdf:resource="&cdb;ImpactType"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
@@ -1044,6 +1030,20 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&cdb;value"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;double"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cdb;isBasedOnElementaryFlowType"/>
+                <owl:onClass rdf:resource="&cdb;ElementaryFlowType"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cdb;uncertainty"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
                 <owl:onDataRange rdf:resource="&xsd;double"/>
             </owl:Restriction>
@@ -1069,13 +1069,13 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&cdb;containsKeyword"/>
-                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
+                <owl:someValuesFrom rdf:resource="&cdb;Keyword"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&cdb;containsKeyword"/>
-                <owl:someValuesFrom rdf:resource="&cdb;Keyword"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <owl:disjointWith rdf:resource="&cdb;ElementaryFlow"/>
@@ -1120,13 +1120,6 @@
     <owl:Class rdf:about="&cdb;ElementaryFlow">
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&cdb;uncertainty"/>
-                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onDataRange rdf:resource="&xsd;double"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
                 <owl:onProperty rdf:resource="&cdb;isFlowOfSingleProcess"/>
                 <owl:onClass rdf:resource="&cdb;SingleProcess"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
@@ -1134,16 +1127,23 @@
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&cdb;value"/>
+                <owl:onProperty rdf:resource="&cdb;hasElementaryFlowType"/>
+                <owl:onClass rdf:resource="&cdb;ElementaryFlowType"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cdb;uncertainty"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
                 <owl:onDataRange rdf:resource="&xsd;double"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&cdb;hasElementaryFlowType"/>
-                <owl:onClass rdf:resource="&cdb;ElementaryFlowType"/>
+                <owl:onProperty rdf:resource="&cdb;value"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;double"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <owl:disjointWith rdf:resource="&cdb;ElementaryFlowType"/>
@@ -1188,15 +1188,15 @@
     <owl:Class rdf:about="&cdb;Group">
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&cdb;belongsToCategoryOfGroup"/>
-                <owl:onClass rdf:resource="&cdb;CategoryOfGroup"/>
-                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onProperty rdf:resource="&cdb;hasDimension"/>
+                <owl:someValuesFrom rdf:resource="&cdb;Dimension"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&cdb;hasDimension"/>
-                <owl:someValuesFrom rdf:resource="&cdb;Dimension"/>
+                <owl:onProperty rdf:resource="&cdb;belongsToCategoryOfGroup"/>
+                <owl:onClass rdf:resource="&cdb;CategoryOfGroup"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -1229,16 +1229,16 @@
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&cdb;hasImpactType"/>
-                <owl:onClass rdf:resource="&cdb;ImpactType"/>
+                <owl:onProperty rdf:resource="&cdb;uncertainty"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;double"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&cdb;uncertainty"/>
+                <owl:onProperty rdf:resource="&cdb;hasImpactType"/>
+                <owl:onClass rdf:resource="&cdb;ImpactType"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onDataRange rdf:resource="&xsd;double"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <owl:disjointWith rdf:resource="&cdb;PositionOfKeywordInDimension"/>
@@ -1403,13 +1403,6 @@
     <owl:Class rdf:about="&cdb;Relation">
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&cdb;hasDestinationProcess"/>
-                <owl:onClass rdf:resource="&cdb;Process"/>
-                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
                 <owl:onProperty rdf:resource="&cdb;hasWeightCoefficient"/>
                 <owl:onClass rdf:resource="&cdb;Coefficient"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
@@ -1420,6 +1413,13 @@
                 <owl:onProperty rdf:resource="&cdb;exponent"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
                 <owl:onDataRange rdf:resource="&xsd;short"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cdb;hasDestinationProcess"/>
+                <owl:onClass rdf:resource="&cdb;Process"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -4692,8 +4692,8 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     <!-- http://www.carbondb.org/#ief/00008 -->
 
     <owl:NamedIndividual rdf:about="&cdb;ief/00008">
-        <cdb:value rdf:datatype="&xsd;double">1.0</cdb:value>
         <cdb:uncertainty rdf:datatype="&xsd;double">1.0</cdb:uncertainty>
+        <cdb:value rdf:datatype="&xsd;double">1.0</cdb:value>
         <cdb:hasElementaryFlowType rdf:resource="&cdb;eft/pe/undifferentiated"/>
     </owl:NamedIndividual>
     
@@ -7324,7 +7324,6 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
 
     <owl:NamedIndividual rdf:about="&cdb;k/potash_fertilizer">
         <rdfs:label xml:lang="en">Potash (K) fertilizer</rdfs:label>
-        <rdfs:label xml:lang="fr">Engrais potassique (K)</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -7810,8 +7809,8 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     <!-- http://www.carbondb.org/#k/sugar_beet -->
 
     <owl:NamedIndividual rdf:about="&cdb;k/sugar_beet">
-        <rdfs:label xml:lang="fr">Betterave</rdfs:label>
         <rdfs:label>Sugar beet</rdfs:label>
+        <rdfs:label xml:lang="fr">Betterave</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -7933,8 +7932,8 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     <!-- http://www.carbondb.org/#k/towboat_between_590_and_880_kw -->
 
     <owl:NamedIndividual rdf:about="&cdb;k/towboat_between_590_and_880_kw">
-        <rdfs:label>Towboat 590 - 880 kW</rdfs:label>
         <rdfs:label xml:lang="fr">Pousseur 590 - 880 kW</rdfs:label>
+        <rdfs:label>Towboat 590 - 880 kW</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -7991,8 +7990,8 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     <!-- http://www.carbondb.org/#k/type_of_crop -->
 
     <owl:NamedIndividual rdf:about="&cdb;k/type_of_crop">
-        <rdfs:label xml:lang="fr">Type de culture</rdfs:label>
         <rdfs:label>Type of crop</rdfs:label>
+        <rdfs:label xml:lang="fr">Type de culture</rdfs:label>
         <cdb:isBroaderThan rdf:resource="&cdb;k/arboriculture_viticulture"/>
         <cdb:isBroaderThan rdf:resource="&cdb;k/cereal"/>
         <cdb:isBroaderThan rdf:resource="&cdb;k/grassland"/>
@@ -10770,6 +10769,9 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
 
     <owl:NamedIndividual rdf:about="&cdb;sc/final_energy_required_for_production+pesticide+anthracite">
         <rdf:type rdf:resource="&cdb;SingleCoefficient"/>
+        <cdb:value rdf:datatype="&xsd;double">7.62</cdb:value>
+        <cdb:hasTag rdf:resource="&cdb;k/anthracite"/>
+        <cdb:hasTag rdf:resource="&cdb;k/final_energy_required_for_production"/>
         <cdb:hasTag rdf:resource="&cdb;k/pesticide"/>
         <cdb:hasUnit rdf:resource="&cdb;u/megajoule_per_kilogram"/>
     </owl:NamedIndividual>
@@ -10780,6 +10782,9 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
 
     <owl:NamedIndividual rdf:about="&cdb;sc/final_energy_required_for_production+pesticide+electricity">
         <rdf:type rdf:resource="&cdb;SingleCoefficient"/>
+        <cdb:value rdf:datatype="&xsd;double">28.48</cdb:value>
+        <cdb:hasTag rdf:resource="&cdb;k/electricity"/>
+        <cdb:hasTag rdf:resource="&cdb;k/final_energy_required_for_production"/>
         <cdb:hasTag rdf:resource="&cdb;k/pesticide"/>
         <cdb:hasUnit rdf:resource="&cdb;u/megajoule_per_kilogram"/>
     </owl:NamedIndividual>
@@ -10790,6 +10795,9 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
 
     <owl:NamedIndividual rdf:about="&cdb;sc/final_energy_required_for_production+pesticide+gas_diesel_oil">
         <rdf:type rdf:resource="&cdb;SingleCoefficient"/>
+        <cdb:value rdf:datatype="&xsd;double">58.1</cdb:value>
+        <cdb:hasTag rdf:resource="&cdb;k/final_energy_required_for_production"/>
+        <cdb:hasTag rdf:resource="&cdb;k/gas_diesel_oil"/>
         <cdb:hasTag rdf:resource="&cdb;k/pesticide"/>
         <cdb:hasUnit rdf:resource="&cdb;u/megajoule_per_kilogram"/>
     </owl:NamedIndividual>
@@ -10800,6 +10808,9 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
 
     <owl:NamedIndividual rdf:about="&cdb;sc/final_energy_required_for_production+pesticide+natural_gas">
         <rdf:type rdf:resource="&cdb;SingleCoefficient"/>
+        <cdb:value rdf:datatype="&xsd;double">71.4</cdb:value>
+        <cdb:hasTag rdf:resource="&cdb;k/final_energy_required_for_production"/>
+        <cdb:hasTag rdf:resource="&cdb;k/natural_gas"/>
         <cdb:hasTag rdf:resource="&cdb;k/pesticide"/>
         <cdb:hasUnit rdf:resource="&cdb;u/megajoule_per_kilogram"/>
     </owl:NamedIndividual>
@@ -10810,62 +10821,114 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
 
     <owl:NamedIndividual rdf:about="&cdb;sc/final_energy_required_for_production+pesticide+residual_fuel_oil">
         <rdf:type rdf:resource="&cdb;SingleCoefficient"/>
+        <cdb:value rdf:datatype="&xsd;double">32.5</cdb:value>
+        <cdb:hasTag rdf:resource="&cdb;k/final_energy_required_for_production"/>
         <cdb:hasTag rdf:resource="&cdb;k/pesticide"/>
+        <cdb:hasTag rdf:resource="&cdb;k/residual_fuel_oil"/>
         <cdb:hasUnit rdf:resource="&cdb;u/megajoule_per_kilogram"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.carbondb.org/#sc/final_energy_required_for_production+posphate_fertilizer+anthracite -->
+    <!-- http://www.carbondb.org/#sc/final_energy_required_for_production+phosphate_fertilizer+anthracite -->
 
-    <owl:NamedIndividual rdf:about="&cdb;sc/final_energy_required_for_production+posphate_fertilizer+anthracite">
+    <owl:NamedIndividual rdf:about="&cdb;sc/final_energy_required_for_production+phosphate_fertilizer+anthracite">
         <rdf:type rdf:resource="&cdb;SingleCoefficient"/>
+        <cdb:value rdf:datatype="&xsd;double">0.57</cdb:value>
+        <cdb:hasTag rdf:resource="&cdb;k/anthracite"/>
+        <cdb:hasTag rdf:resource="&cdb;k/final_energy_required_for_production"/>
+        <cdb:hasTag rdf:resource="&cdb;k/phosphate_fertilizer"/>
         <cdb:hasUnit rdf:resource="&cdb;u/megajoule_per_kilogram"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.carbondb.org/#sc/final_energy_required_for_production+synthetic_nitrogen_fertilizer+anthracite -->
+    <!-- http://www.carbondb.org/#sc/final_energy_required_for_production+phosphate_fertilizer+electricity -->
 
-    <owl:NamedIndividual rdf:about="&cdb;sc/final_energy_required_for_production+synthetic_nitrogen_fertilizer+anthracite">
+    <owl:NamedIndividual rdf:about="&cdb;sc/final_energy_required_for_production+phosphate_fertilizer+electricity">
         <rdf:type rdf:resource="&cdb;SingleCoefficient"/>
-        <cdb:hasTag rdf:resource="&cdb;k/synthetic_nitrogen_fertilizer"/>
+        <cdb:value rdf:datatype="&xsd;double">1.602</cdb:value>
+        <cdb:hasTag rdf:resource="&cdb;k/electricity"/>
+        <cdb:hasTag rdf:resource="&cdb;k/final_energy_required_for_production"/>
+        <cdb:hasTag rdf:resource="&cdb;k/phosphate_fertilizer"/>
         <cdb:hasUnit rdf:resource="&cdb;u/megajoule_per_kilogram"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.carbondb.org/#sc/final_energy_required_for_production+synthetic_nitrogen_fertilizer+electricity -->
+    <!-- http://www.carbondb.org/#sc/final_energy_required_for_production+phosphate_fertilizer+gas_diesel_oil -->
 
-    <owl:NamedIndividual rdf:about="&cdb;sc/final_energy_required_for_production+synthetic_nitrogen_fertilizer+electricity">
+    <owl:NamedIndividual rdf:about="&cdb;sc/final_energy_required_for_production+phosphate_fertilizer+gas_diesel_oil">
         <rdf:type rdf:resource="&cdb;SingleCoefficient"/>
+        <cdb:value rdf:datatype="&xsd;double">1.12</cdb:value>
+        <cdb:hasTag rdf:resource="&cdb;k/final_energy_required_for_production"/>
+        <cdb:hasTag rdf:resource="&cdb;k/gas_diesel_oil"/>
+        <cdb:hasTag rdf:resource="&cdb;k/phosphate_fertilizer"/>
         <cdb:hasUnit rdf:resource="&cdb;u/megajoule_per_kilogram"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.carbondb.org/#sc/final_energy_required_for_production+synthetic_nitrogen_fertilizer+gas_diesel_oil -->
+    <!-- http://www.carbondb.org/#sc/final_energy_required_for_production+phosphate_fertilizer+natural_gas -->
 
-    <owl:NamedIndividual rdf:about="&cdb;sc/final_energy_required_for_production+synthetic_nitrogen_fertilizer+gas_diesel_oil">
+    <owl:NamedIndividual rdf:about="&cdb;sc/final_energy_required_for_production+phosphate_fertilizer+natural_gas">
         <rdf:type rdf:resource="&cdb;SingleCoefficient"/>
+        <cdb:value rdf:datatype="&xsd;double">3.15</cdb:value>
+        <cdb:hasTag rdf:resource="&cdb;k/final_energy_required_for_production"/>
+        <cdb:hasTag rdf:resource="&cdb;k/natural_gas"/>
+        <cdb:hasTag rdf:resource="&cdb;k/phosphate_fertilizer"/>
         <cdb:hasUnit rdf:resource="&cdb;u/megajoule_per_kilogram"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.carbondb.org/#sc/final_energy_required_for_production+synthetic_nitrogen_fertilizer+natural_gas -->
+    <!-- http://www.carbondb.org/#sc/final_energy_required_for_production+phosphate_fertilizer+residual_fuel_oil -->
 
-    <owl:NamedIndividual rdf:about="&cdb;sc/final_energy_required_for_production+synthetic_nitrogen_fertilizer+natural_gas">
+    <owl:NamedIndividual rdf:about="&cdb;sc/final_energy_required_for_production+phosphate_fertilizer+residual_fuel_oil">
         <rdf:type rdf:resource="&cdb;SingleCoefficient"/>
+        <cdb:value rdf:datatype="&xsd;double">5.0</cdb:value>
+        <cdb:hasTag rdf:resource="&cdb;k/final_energy_required_for_production"/>
+        <cdb:hasTag rdf:resource="&cdb;k/phosphate_fertilizer"/>
+        <cdb:hasTag rdf:resource="&cdb;k/residual_fuel_oil"/>
         <cdb:hasUnit rdf:resource="&cdb;u/megajoule_per_kilogram"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.carbondb.org/#sc/final_energy_required_for_production+synthetic_nitrogen_fertilizer+residual_fuel_oil -->
+    <!-- http://www.carbondb.org/#sc/final_energy_required_for_production+potash_fertilizer+electricity -->
 
-    <owl:NamedIndividual rdf:about="&cdb;sc/final_energy_required_for_production+synthetic_nitrogen_fertilizer+residual_fuel_oil">
+    <owl:NamedIndividual rdf:about="&cdb;sc/final_energy_required_for_production+potash_fertilizer+electricity">
         <rdf:type rdf:resource="&cdb;SingleCoefficient"/>
+        <cdb:value rdf:datatype="&xsd;double">0.22</cdb:value>
+        <cdb:hasTag rdf:resource="&cdb;k/electricity"/>
+        <cdb:hasTag rdf:resource="&cdb;k/final_energy_required_for_production"/>
+        <cdb:hasTag rdf:resource="&cdb;k/potash_fertilizer"/>
+        <cdb:hasUnit rdf:resource="&cdb;u/megajoule_per_kilogram"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.carbondb.org/#sc/final_energy_required_for_production+potash_fertilizer+gas_diesel_oil -->
+
+    <owl:NamedIndividual rdf:about="&cdb;sc/final_energy_required_for_production+potash_fertilizer+gas_diesel_oil">
+        <rdf:type rdf:resource="&cdb;SingleCoefficient"/>
+        <cdb:value rdf:datatype="&xsd;double">0.54</cdb:value>
+        <cdb:hasTag rdf:resource="&cdb;k/final_energy_required_for_production"/>
+        <cdb:hasTag rdf:resource="&cdb;k/gas_diesel_oil"/>
+        <cdb:hasTag rdf:resource="&cdb;k/potash_fertilizer"/>
+        <cdb:hasUnit rdf:resource="&cdb;u/megajoule_per_kilogram"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.carbondb.org/#sc/final_energy_required_for_production+potash_fertilizer+natural_gas -->
+
+    <owl:NamedIndividual rdf:about="&cdb;sc/final_energy_required_for_production+potash_fertilizer+natural_gas">
+        <rdf:type rdf:resource="&cdb;SingleCoefficient"/>
+        <cdb:value rdf:datatype="&xsd;double">7.5</cdb:value>
+        <cdb:hasTag rdf:resource="&cdb;k/final_energy_required_for_production"/>
+        <cdb:hasTag rdf:resource="&cdb;k/natural_gas"/>
+        <cdb:hasTag rdf:resource="&cdb;k/potash_fertilizer"/>
         <cdb:hasUnit rdf:resource="&cdb;u/megajoule_per_kilogram"/>
     </owl:NamedIndividual>
     
@@ -12174,7 +12237,7 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
 
     <owl:NamedIndividual rdf:about="&cdb;sc/primary_energy_for_production_and_conditioning_at_source+crude_oil+venting_and_fugitive_loss+natural_gas_primary_energy">
         <rdf:type rdf:resource="&cdb;SingleCoefficient"/>
-        <cdb:value rdf:datatype="&xsd;double">0.001</cdb:value>
+        <cdb:value rdf:datatype="&xsd;double">0.0010</cdb:value>
         <cdb:hasTag rdf:resource="&cdb;k/crude_oil"/>
         <cdb:hasTag rdf:resource="&cdb;k/natural_gas_primary_energy"/>
         <cdb:hasTag rdf:resource="&cdb;k/primary_energy_for_production_and_conditioning_at_source"/>
@@ -12286,7 +12349,7 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
 
     <owl:NamedIndividual rdf:about="&cdb;sc/primary_energy_for_production_and_conditioning_at_source+natural_gas+venting_and_fugitive_loss+natural_gas_primary_energy">
         <rdf:type rdf:resource="&cdb;SingleCoefficient"/>
-        <cdb:value rdf:datatype="&xsd;double">0.004</cdb:value>
+        <cdb:value rdf:datatype="&xsd;double">0.0040</cdb:value>
         <cdb:hasTag rdf:resource="&cdb;k/natural_gas"/>
         <cdb:hasTag rdf:resource="&cdb;k/natural_gas_primary_energy"/>
         <cdb:hasTag rdf:resource="&cdb;k/primary_energy_for_production_and_conditioning_at_source"/>
