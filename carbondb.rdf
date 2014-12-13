@@ -934,7 +934,7 @@
                 <owl:someValuesFrom rdf:resource="&cdb;ElementaryFlowType"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <owl:disjointWith rdf:resource="&cdb;Group"/>
+        <owl:disjointWith rdf:resource="&cdb;CategoryOfImpactType"/>
     </owl:Class>
     
 
@@ -943,6 +943,7 @@
 
     <owl:Class rdf:about="&cdb;CategoryOfElementaryFlowTypeOrImpactType">
         <rdfs:subClassOf rdf:resource="&cdb;ThingWithUnit"/>
+        <owl:disjointWith rdf:resource="&cdb;Element"/>
     </owl:Class>
     
 
@@ -963,16 +964,17 @@
                 <owl:maxQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxQualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <owl:disjointWith rdf:resource="&cdb;CategoryOfImpactType"/>
         <owl:disjointWith rdf:resource="&cdb;ComponentOfImpactType"/>
         <owl:disjointWith rdf:resource="&cdb;Dimension"/>
         <owl:disjointWith rdf:resource="&cdb;ElementaryFlow"/>
         <owl:disjointWith rdf:resource="&cdb;ElementaryFlowType"/>
         <owl:disjointWith rdf:resource="&cdb;Group"/>
+        <owl:disjointWith rdf:resource="&cdb;Impact"/>
         <owl:disjointWith rdf:resource="&cdb;ImpactType"/>
         <owl:disjointWith rdf:resource="&cdb;Keyword"/>
         <owl:disjointWith rdf:resource="&cdb;Position"/>
         <owl:disjointWith rdf:resource="&cdb;Reference"/>
+        <owl:disjointWith rdf:resource="&cdb;Relation"/>
         <owl:disjointWith rdf:resource="&cdb;RelationType"/>
         <owl:disjointWith rdf:resource="&cdb;SingleElement"/>
         <owl:disjointWith rdf:resource="&cdb;ThingWithUnit"/>
@@ -991,9 +993,6 @@
                 <owl:someValuesFrom rdf:resource="&cdb;ImpactType"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <owl:disjointWith rdf:resource="&cdb;Element"/>
-        <owl:disjointWith rdf:resource="&cdb;Group"/>
-        <owl:disjointWith rdf:resource="&cdb;SingleElement"/>
     </owl:Class>
     
 
@@ -1094,9 +1093,10 @@
         <owl:disjointWith rdf:resource="&cdb;ElementaryFlow"/>
         <owl:disjointWith rdf:resource="&cdb;ElementaryFlowType"/>
         <owl:disjointWith rdf:resource="&cdb;Group"/>
+        <owl:disjointWith rdf:resource="&cdb;Impact"/>
         <owl:disjointWith rdf:resource="&cdb;ImpactType"/>
         <owl:disjointWith rdf:resource="&cdb;Keyword"/>
-        <owl:disjointWith rdf:resource="&cdb;PositionOfKeywordInDimension"/>
+        <owl:disjointWith rdf:resource="&cdb;Position"/>
         <owl:disjointWith rdf:resource="&cdb;Reference"/>
         <owl:disjointWith rdf:resource="&cdb;Relation"/>
         <owl:disjointWith rdf:resource="&cdb;RelationType"/>
@@ -1161,9 +1161,10 @@
         </rdfs:subClassOf>
         <owl:disjointWith rdf:resource="&cdb;ElementaryFlowType"/>
         <owl:disjointWith rdf:resource="&cdb;Group"/>
+        <owl:disjointWith rdf:resource="&cdb;Impact"/>
         <owl:disjointWith rdf:resource="&cdb;ImpactType"/>
         <owl:disjointWith rdf:resource="&cdb;Keyword"/>
-        <owl:disjointWith rdf:resource="&cdb;PositionOfKeywordInDimension"/>
+        <owl:disjointWith rdf:resource="&cdb;Position"/>
         <owl:disjointWith rdf:resource="&cdb;Reference"/>
         <owl:disjointWith rdf:resource="&cdb;Relation"/>
         <owl:disjointWith rdf:resource="&cdb;RelationType"/>
@@ -1184,14 +1185,29 @@
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cdb;isElementaryFlowTypeOfComponentOfImpactType"/>
+                <owl:someValuesFrom rdf:resource="&cdb;ComponentOfImpactType"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cdb;isTypeOfElementaryFlow"/>
+                <owl:someValuesFrom rdf:resource="&cdb;ElementaryFlow"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <owl:disjointWith rdf:resource="&cdb;Group"/>
+        <owl:disjointWith rdf:resource="&cdb;Impact"/>
         <owl:disjointWith rdf:resource="&cdb;ImpactType"/>
         <owl:disjointWith rdf:resource="&cdb;Keyword"/>
-        <owl:disjointWith rdf:resource="&cdb;PositionOfKeywordInDimension"/>
+        <owl:disjointWith rdf:resource="&cdb;Position"/>
         <owl:disjointWith rdf:resource="&cdb;Reference"/>
         <owl:disjointWith rdf:resource="&cdb;Relation"/>
+        <owl:disjointWith rdf:resource="&cdb;RelationType"/>
         <owl:disjointWith rdf:resource="&cdb;SingleElement"/>
         <owl:disjointWith rdf:resource="&cdb;ThingWithUnit"/>
+        <owl:disjointWith rdf:resource="&cdb;Unit"/>
     </owl:Class>
     
 
@@ -1199,6 +1215,12 @@
     <!-- http://www.carbondb.org/#Group -->
 
     <owl:Class rdf:about="&cdb;Group">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cdb;hasDimension"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&cdb;belongsToCategoryOfGroup"/>
@@ -1209,18 +1231,13 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&cdb;hasDimension"/>
-                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&cdb;hasDimension"/>
                 <owl:someValuesFrom rdf:resource="&cdb;Dimension"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="&cdb;Impact"/>
         <owl:disjointWith rdf:resource="&cdb;ImpactType"/>
         <owl:disjointWith rdf:resource="&cdb;Keyword"/>
-        <owl:disjointWith rdf:resource="&cdb;PositionOfKeywordInDimension"/>
+        <owl:disjointWith rdf:resource="&cdb;Position"/>
         <owl:disjointWith rdf:resource="&cdb;Reference"/>
         <owl:disjointWith rdf:resource="&cdb;Relation"/>
         <owl:disjointWith rdf:resource="&cdb;RelationType"/>
@@ -1235,9 +1252,9 @@
     <owl:Class rdf:about="&cdb;Impact">
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&cdb;uncertainty"/>
+                <owl:onProperty rdf:resource="&cdb;hasImpactType"/>
+                <owl:onClass rdf:resource="&cdb;ImpactType"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onDataRange rdf:resource="&xsd;double"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -1249,12 +1266,20 @@
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&cdb;hasImpactType"/>
-                <owl:onClass rdf:resource="&cdb;ImpactType"/>
+                <owl:onProperty rdf:resource="&cdb;uncertainty"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;double"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <owl:disjointWith rdf:resource="&cdb;PositionOfKeywordInDimension"/>
+        <owl:disjointWith rdf:resource="&cdb;ImpactType"/>
+        <owl:disjointWith rdf:resource="&cdb;Keyword"/>
+        <owl:disjointWith rdf:resource="&cdb;Position"/>
+        <owl:disjointWith rdf:resource="&cdb;Reference"/>
+        <owl:disjointWith rdf:resource="&cdb;Relation"/>
+        <owl:disjointWith rdf:resource="&cdb;RelationType"/>
+        <owl:disjointWith rdf:resource="&cdb;SingleElement"/>
+        <owl:disjointWith rdf:resource="&cdb;ThingWithUnit"/>
+        <owl:disjointWith rdf:resource="&cdb;Unit"/>
     </owl:Class>
     
 
@@ -1276,10 +1301,11 @@
             </owl:Restriction>
         </rdfs:subClassOf>
         <owl:disjointWith rdf:resource="&cdb;Keyword"/>
-        <owl:disjointWith rdf:resource="&cdb;PositionOfKeywordInDimension"/>
+        <owl:disjointWith rdf:resource="&cdb;Position"/>
         <owl:disjointWith rdf:resource="&cdb;Reference"/>
         <owl:disjointWith rdf:resource="&cdb;Relation"/>
         <owl:disjointWith rdf:resource="&cdb;RelationType"/>
+        <owl:disjointWith rdf:resource="&cdb;SingleElement"/>
         <owl:disjointWith rdf:resource="&cdb;ThingWithUnit"/>
         <owl:disjointWith rdf:resource="&cdb;Unit"/>
     </owl:Class>
@@ -1308,6 +1334,7 @@
         <rdfs:label xml:lang="fr">Mot clé</rdfs:label>
         <owl:disjointWith rdf:resource="&cdb;Position"/>
         <owl:disjointWith rdf:resource="&cdb;Reference"/>
+        <owl:disjointWith rdf:resource="&cdb;Relation"/>
         <owl:disjointWith rdf:resource="&cdb;RelationType"/>
         <owl:disjointWith rdf:resource="&cdb;SingleElement"/>
         <owl:disjointWith rdf:resource="&cdb;ThingWithUnit"/>
@@ -1326,6 +1353,12 @@
                 <owl:onDataRange rdf:resource="&xsd;short"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="&cdb;Reference"/>
+        <owl:disjointWith rdf:resource="&cdb;Relation"/>
+        <owl:disjointWith rdf:resource="&cdb;RelationType"/>
+        <owl:disjointWith rdf:resource="&cdb;SingleElement"/>
+        <owl:disjointWith rdf:resource="&cdb;ThingWithUnit"/>
+        <owl:disjointWith rdf:resource="&cdb;Unit"/>
     </owl:Class>
     
 
@@ -1334,6 +1367,10 @@
 
     <owl:Class rdf:about="&cdb;PositionOfCommonTagInGroup">
         <rdfs:subClassOf rdf:resource="&cdb;Position"/>
+        <owl:disjointWith rdf:resource="&cdb;PositionOfDimensionInGroup"/>
+        <owl:disjointWith rdf:resource="&cdb;PositionOfElementaryFlowTypeInCategory"/>
+        <owl:disjointWith rdf:resource="&cdb;PositionOfImpactTypeInCategory"/>
+        <owl:disjointWith rdf:resource="&cdb;PositionOfKeywordInDimension"/>
     </owl:Class>
     
 
@@ -1342,6 +1379,9 @@
 
     <owl:Class rdf:about="&cdb;PositionOfDimensionInGroup">
         <rdfs:subClassOf rdf:resource="&cdb;Position"/>
+        <owl:disjointWith rdf:resource="&cdb;PositionOfElementaryFlowTypeInCategory"/>
+        <owl:disjointWith rdf:resource="&cdb;PositionOfImpactTypeInCategory"/>
+        <owl:disjointWith rdf:resource="&cdb;PositionOfKeywordInDimension"/>
     </owl:Class>
     
 
@@ -1350,6 +1390,8 @@
 
     <owl:Class rdf:about="&cdb;PositionOfElementaryFlowTypeInCategory">
         <rdfs:subClassOf rdf:resource="&cdb;Position"/>
+        <owl:disjointWith rdf:resource="&cdb;PositionOfImpactTypeInCategory"/>
+        <owl:disjointWith rdf:resource="&cdb;PositionOfKeywordInDimension"/>
     </owl:Class>
     
 
@@ -1358,6 +1400,7 @@
 
     <owl:Class rdf:about="&cdb;PositionOfImpactTypeInCategory">
         <rdfs:subClassOf rdf:resource="&cdb;Position"/>
+        <owl:disjointWith rdf:resource="&cdb;PositionOfKeywordInDimension"/>
     </owl:Class>
     
 
@@ -1380,12 +1423,6 @@
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <owl:disjointWith rdf:resource="&cdb;Reference"/>
-        <owl:disjointWith rdf:resource="&cdb;Relation"/>
-        <owl:disjointWith rdf:resource="&cdb;RelationType"/>
-        <owl:disjointWith rdf:resource="&cdb;SingleElement"/>
-        <owl:disjointWith rdf:resource="&cdb;ThingWithUnit"/>
-        <owl:disjointWith rdf:resource="&cdb;Unit"/>
     </owl:Class>
     
 
@@ -1465,8 +1502,10 @@
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="&cdb;RelationType"/>
         <owl:disjointWith rdf:resource="&cdb;SingleElement"/>
         <owl:disjointWith rdf:resource="&cdb;ThingWithUnit"/>
+        <owl:disjointWith rdf:resource="&cdb;Unit"/>
     </owl:Class>
     
 
@@ -1474,7 +1513,9 @@
     <!-- http://www.carbondb.org/#RelationType -->
 
     <owl:Class rdf:about="&cdb;RelationType">
+        <owl:disjointWith rdf:resource="&cdb;SingleElement"/>
         <owl:disjointWith rdf:resource="&cdb;ThingWithUnit"/>
+        <owl:disjointWith rdf:resource="&cdb;Unit"/>
     </owl:Class>
     
 
@@ -1518,6 +1559,7 @@
                 <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="&cdb;Unit"/>
     </owl:Class>
     
 
