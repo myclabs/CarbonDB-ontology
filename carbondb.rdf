@@ -95,16 +95,6 @@
     
 
 
-    <!-- http://www.carbondb.org/#belongsTo -->
-
-    <owl:ObjectProperty rdf:about="&cdb;belongsTo">
-        <rdf:type rdf:resource="&owl;IrreflexiveProperty"/>
-        <owl:inverseOf rdf:resource="&cdb;contains"/>
-        <rdfs:subPropertyOf rdf:resource="&cdb;isLinkedToKeyword"/>
-    </owl:ObjectProperty>
-    
-
-
     <!-- http://www.carbondb.org/#belongsToCategoryOfElementaryFlowType -->
 
     <owl:ObjectProperty rdf:about="&cdb;belongsToCategoryOfElementaryFlowType">
@@ -181,15 +171,6 @@
     
 
 
-    <!-- http://www.carbondb.org/#contains -->
-
-    <owl:ObjectProperty rdf:about="&cdb;contains">
-        <rdf:type rdf:resource="&owl;IrreflexiveProperty"/>
-        <rdfs:subPropertyOf rdf:resource="&cdb;isLinkedToKeyword"/>
-    </owl:ObjectProperty>
-    
-
-
     <!-- http://www.carbondb.org/#containsChildCategoryOfGroup -->
 
     <owl:ObjectProperty rdf:about="&cdb;containsChildCategoryOfGroup">
@@ -214,14 +195,6 @@
     <owl:ObjectProperty rdf:about="&cdb;contributesToImpactType">
         <rdfs:domain rdf:resource="&cdb;ComponentOfImpactType"/>
         <rdfs:range rdf:resource="&cdb;ImpactType"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.carbondb.org/#hasAttribute -->
-
-    <owl:ObjectProperty rdf:about="&cdb;hasAttribute">
-        <rdfs:subPropertyOf rdf:resource="&cdb;isLinkedToKeyword"/>
     </owl:ObjectProperty>
     
 
@@ -326,14 +299,6 @@
         <rdfs:range rdf:resource="&cdb;InputElementaryFlow"/>
         <rdfs:domain rdf:resource="&cdb;SingleProcess"/>
         <rdfs:subPropertyOf rdf:resource="&cdb;hasFlow"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.carbondb.org/#hasMatterState -->
-
-    <owl:ObjectProperty rdf:about="&cdb;hasMatterState">
-        <rdfs:subPropertyOf rdf:resource="&cdb;isLinkedToKeyword"/>
     </owl:ObjectProperty>
     
 
@@ -474,15 +439,6 @@
     
 
 
-    <!-- http://www.carbondb.org/#hasPrimarySource -->
-
-    <owl:ObjectProperty rdf:about="&cdb;hasPrimarySource">
-        <rdfs:subPropertyOf rdf:resource="&cdb;isLinkedToKeyword"/>
-        <owl:inverseOf rdf:resource="&cdb;isPrimarySourceOf"/>
-    </owl:ObjectProperty>
-    
-
-
     <!-- http://www.carbondb.org/#hasReference -->
 
     <owl:ObjectProperty rdf:about="&cdb;hasReference">
@@ -554,29 +510,11 @@
     
 
 
-    <!-- http://www.carbondb.org/#isAttributeOf -->
-
-    <owl:ObjectProperty rdf:about="&cdb;isAttributeOf">
-        <rdfs:subPropertyOf rdf:resource="&cdb;isLinkedToKeyword"/>
-    </owl:ObjectProperty>
-    
-
-
     <!-- http://www.carbondb.org/#isBasedOnElementaryFlowType -->
 
     <owl:ObjectProperty rdf:about="&cdb;isBasedOnElementaryFlowType">
         <rdfs:domain rdf:resource="&cdb;ComponentOfImpactType"/>
         <rdfs:range rdf:resource="&cdb;ElementaryFlowType"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.carbondb.org/#isBroaderThan -->
-
-    <owl:ObjectProperty rdf:about="&cdb;isBroaderThan">
-        <rdf:type rdf:resource="&owl;IrreflexiveProperty"/>
-        <rdfs:subPropertyOf rdf:resource="&cdb;isLinkedToKeyword"/>
-        <owl:inverseOf rdf:resource="&cdb;isNarrowerThan"/>
     </owl:ObjectProperty>
     
 
@@ -683,33 +621,6 @@
     
 
 
-    <!-- http://www.carbondb.org/#isLinkedToKeyword -->
-
-    <owl:ObjectProperty rdf:about="&cdb;isLinkedToKeyword">
-        <rdfs:domain rdf:resource="&cdb;Keyword"/>
-        <rdfs:range rdf:resource="&cdb;Keyword"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.carbondb.org/#isMatterStateOf -->
-
-    <owl:ObjectProperty rdf:about="&cdb;isMatterStateOf">
-        <owl:inverseOf rdf:resource="&cdb;hasMatterState"/>
-        <rdfs:subPropertyOf rdf:resource="&cdb;isLinkedToKeyword"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.carbondb.org/#isNarrowerThan -->
-
-    <owl:ObjectProperty rdf:about="&cdb;isNarrowerThan">
-        <rdf:type rdf:resource="&owl;IrreflexiveProperty"/>
-        <rdfs:subPropertyOf rdf:resource="&cdb;isLinkedToKeyword"/>
-    </owl:ObjectProperty>
-    
-
-
     <!-- http://www.carbondb.org/#isOriginOfRelation -->
 
     <owl:ObjectProperty rdf:about="&cdb;isOriginOfRelation">
@@ -717,14 +628,6 @@
         <rdfs:range rdf:resource="&cdb;Relation"/>
         <owl:inverseOf rdf:resource="&cdb;hasOriginProcess"/>
         <rdfs:subPropertyOf rdf:resource="&cdb;isInvolvedInRelation"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.carbondb.org/#isPrimarySourceOf -->
-
-    <owl:ObjectProperty rdf:about="&cdb;isPrimarySourceOf">
-        <rdfs:subPropertyOf rdf:resource="&cdb;isLinkedToKeyword"/>
     </owl:ObjectProperty>
     
 
@@ -2633,16 +2536,6 @@
 
     <owl:NamedIndividual rdf:about="&cdb;d/dairy_animal">
         <cdb:containsKeyword rdf:resource="&cdb;k/dairy_cow"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#d/end_of_life_of_waste -->
-
-    <owl:NamedIndividual rdf:about="&cdb;d/end_of_life_of_waste">
-        <cdb:containsKeyword rdf:resource="&cdb;k/incineration"/>
-        <cdb:containsKeyword rdf:resource="&cdb;k/landfill"/>
-        <cdb:containsKeyword rdf:resource="&cdb;k/undifferentiated"/>
     </owl:NamedIndividual>
     
 
@@ -4981,51 +4874,6 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     
 
 
-    <!-- http://www.carbondb.org/#k/1600_teu -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/1600_teu">
-        <rdfs:label xml:lang="en">1600 TEU (twenty-foot equivalent unit)</rdfs:label>
-        <rdfs:label xml:lang="fr">1600 EVP (équivalent vingt pieds)</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/2200_teu -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/2200_teu">
-        <rdfs:label xml:lang="en">2200 TEU (twenty-foot equivalent unit)</rdfs:label>
-        <rdfs:label xml:lang="fr">2200 EVP (équivalent vingt pieds)</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/26_t_semi_trailer_truck -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/26_t_semi_trailer_truck">
-        <rdfs:label xml:lang="en">26 t semi-trailer truck</rdfs:label>
-        <rdfs:label xml:lang="fr">Semi remorque (véhicule articulé) 26 t</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/35_t_semi_trailer_truck -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/35_t_semi_trailer_truck">
-        <rdfs:label xml:lang="en">35 t semi-trailer truck</rdfs:label>
-        <rdfs:label xml:lang="fr">Semi-remorque (véhicule articulé) 35 t</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/40_t_refrigerated_semi_trailer_truck -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/40_t_refrigerated_semi_trailer_truck">
-        <rdfs:label xml:lang="en">40 t refrigerated semi-trailer truck</rdfs:label>
-        <rdfs:label xml:lang="fr">Semi-remorque (véhicule articulé) 40 t frigorifique</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
     <!-- http://www.carbondb.org/#k/40_t_semi_trailer_truck -->
 
     <owl:NamedIndividual rdf:about="&cdb;k/40_t_semi_trailer_truck">
@@ -5035,38 +4883,11 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     
 
 
-    <!-- http://www.carbondb.org/#k/45_m3_carrier -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/45_m3_carrier">
-        <rdfs:label xml:lang="en">45 m3 carrier</rdfs:label>
-        <rdfs:label xml:lang="fr">Porteur 45 m3</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/5500_teu -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/5500_teu">
-        <rdfs:label xml:lang="en">5500 TEU (twenty-foot equivalent unit)</rdfs:label>
-        <rdfs:label xml:lang="fr">5500 EVP (équivalent vingt pieds)</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
     <!-- http://www.carbondb.org/#k/800_teu -->
 
     <owl:NamedIndividual rdf:about="&cdb;k/800_teu">
         <rdfs:label xml:lang="en">800 TEU (twenty-foot equivalent unit)</rdfs:label>
         <rdfs:label xml:lang="fr">800 EVP (équivalent vingt pieds)</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/8_m3_light_commercial_vehicle -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/8_m3_light_commercial_vehicle">
-        <rdfs:label xml:lang="en">8 m3 light commercial vehicle</rdfs:label>
-        <rdfs:label xml:lang="fr">Véhicule utilitaire léger 8 m3</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -5085,24 +4906,6 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     <owl:NamedIndividual rdf:about="&cdb;k/9500_teu">
         <rdfs:label xml:lang="en">9500 TEU (twenty-foot equivalent unit)</rdfs:label>
         <rdfs:label xml:lang="fr">9500 EVP (équivalent vingt pieds)</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/adult_sheep_meat -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/adult_sheep_meat">
-        <rdfs:label xml:lang="en">Adult sheep</rdfs:label>
-        <rdfs:label xml:lang="fr">Mouton adulte</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/aframax -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/aframax">
-        <rdfs:label xml:lang="en">Aframax</rdfs:label>
-        <rdfs:label xml:lang="fr">Aframax</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -5215,15 +5018,6 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     
 
 
-    <!-- http://www.carbondb.org/#k/aluminium -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/aluminium">
-        <rdfs:label xml:lang="en">Aluminium</rdfs:label>
-        <rdfs:label xml:lang="fr">Aluminium</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
     <!-- http://www.carbondb.org/#k/animal_feed -->
 
     <owl:NamedIndividual rdf:about="&cdb;k/animal_feed">
@@ -5237,8 +5031,6 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
 
     <owl:NamedIndividual rdf:about="&cdb;k/anthracite">
         <rdfs:label xml:lang="en">Anthracite (hard coal)</rdfs:label>
-        <cdb:hasPrimarySource rdf:resource="&cdb;k/fossil"/>
-        <cdb:hasMatterState rdf:resource="&cdb;k/solid"/>
     </owl:NamedIndividual>
     
 
@@ -5247,15 +5039,6 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
 
     <owl:NamedIndividual rdf:about="&cdb;k/anthracite_primary_energy">
         <rdfs:label xml:lang="en">Anthracite / hard coal (primary energy)</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/arboriculture_viticulture -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/arboriculture_viticulture">
-        <rdfs:label xml:lang="en">Arboriculture / viticulture</rdfs:label>
-        <rdfs:label xml:lang="fr">Arboriculture / viticulture</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -5293,26 +5076,6 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     
 
 
-    <!-- http://www.carbondb.org/#k/aviation_gasoline -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/aviation_gasoline">
-        <rdfs:label xml:lang="fr">Aviation gasoline</rdfs:label>
-        <rdfs:label xml:lang="fr">Essence aviation (avgas)</rdfs:label>
-        <cdb:hasPrimarySource rdf:resource="&cdb;k/fossil"/>
-        <cdb:hasMatterState rdf:resource="&cdb;k/liquid"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/barely -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/barely">
-        <rdfs:label xml:lang="en">Barely</rdfs:label>
-        <rdfs:label xml:lang="fr">Orge</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
     <!-- http://www.carbondb.org/#k/beef -->
 
     <owl:NamedIndividual rdf:about="&cdb;k/beef">
@@ -5335,15 +5098,6 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
 
     <owl:NamedIndividual rdf:about="&cdb;k/before_pumping_losses">
         <rdfs:label xml:lang="en">Before pumping losses</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/belgium -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/belgium">
-        <rdfs:label xml:lang="en">Belgium</rdfs:label>
-        <rdfs:label xml:lang="fr">Belgique</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -5393,37 +5147,6 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     
 
 
-    <!-- http://www.carbondb.org/#k/billy_goat -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/billy_goat">
-        <rdfs:label xml:lang="en">Billy goat</rdfs:label>
-        <rdfs:label xml:lang="fr">Bouc</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/breeding_sow -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/breeding_sow">
-        <rdfs:label xml:lang="en">Breeding sow</rdfs:label>
-        <rdfs:label xml:lang="fr">Truie mère</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/bulk_carrier -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/bulk_carrier">
-        <rdfs:label xml:lang="en">Bulk carrier</rdfs:label>
-        <rdfs:label xml:lang="fr">Vraquier</rdfs:label>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/capesize"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/handymax"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/handysize"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/panamax"/>
-    </owl:NamedIndividual>
-    
-
-
     <!-- http://www.carbondb.org/#k/bulk_freight -->
 
     <owl:NamedIndividual rdf:about="&cdb;k/bulk_freight">
@@ -5468,68 +5191,11 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     
 
 
-    <!-- http://www.carbondb.org/#k/capesize -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/capesize">
-        <rdfs:label xml:lang="en">Capesize</rdfs:label>
-        <rdfs:label xml:lang="fr">Capesize</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
     <!-- http://www.carbondb.org/#k/car -->
 
     <owl:NamedIndividual rdf:about="&cdb;k/car">
         <rdfs:label xml:lang="en">Car</rdfs:label>
         <rdfs:label xml:lang="fr">Voiture</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/cardboard -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/cardboard">
-        <rdfs:label xml:lang="en">Cardboard</rdfs:label>
-        <rdfs:label xml:lang="fr">Carton</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/carrier -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/carrier">
-        <rdfs:label xml:lang="en">Road carrier</rdfs:label>
-        <rdfs:label xml:lang="fr">Porteur routier</rdfs:label>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/45_m3_carrier"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/gvwr_12_t_carrier"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/gvwr_19_t_carrier"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/gvwr_19_t_refrigerated_carrier"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/gvwr_7_5_t_carrier"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/cereal -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/cereal">
-        <rdfs:label xml:lang="fr">Cereal</rdfs:label>
-        <rdfs:label xml:lang="fr">Céréale</rdfs:label>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/barely"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/cereal_high_protein_oil_seed"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/common_wheat"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/durum_wheat"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/fodder_corn"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/grain_corn"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/sorghum"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/cereal_high_protein_oil_seed -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/cereal_high_protein_oil_seed">
-        <rdfs:label xml:lang="en">Cereal - high protein oil seed</rdfs:label>
-        <rdfs:label xml:lang="fr">Céréale oléoprotéagineux</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -5561,28 +5227,6 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     
 
 
-    <!-- http://www.carbondb.org/#k/coke_oven_gas -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/coke_oven_gas">
-        <rdfs:label xml:lang="en">Coke oven gas</rdfs:label>
-        <rdfs:label xml:lang="fr">Gaz de cokerie</rdfs:label>
-        <cdb:hasPrimarySource rdf:resource="&cdb;k/fossil"/>
-        <cdb:hasMatterState rdf:resource="&cdb;k/gas"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/coking_coal -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/coking_coal">
-        <rdfs:label xml:lang="en">Coking coal</rdfs:label>
-        <rdfs:label xml:lang="fr">Charbon à coke</rdfs:label>
-        <cdb:hasPrimarySource rdf:resource="&cdb;k/fossil"/>
-        <cdb:hasMatterState rdf:resource="&cdb;k/solid"/>
-    </owl:NamedIndividual>
-    
-
-
     <!-- http://www.carbondb.org/#k/combined_cycle_gas_turbine -->
 
     <owl:NamedIndividual rdf:about="&cdb;k/combined_cycle_gas_turbine">
@@ -5608,15 +5252,6 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     
 
 
-    <!-- http://www.carbondb.org/#k/common_wheat -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/common_wheat">
-        <rdfs:label xml:lang="fr">Blé tendre</rdfs:label>
-        <rdfs:label xml:lang="fr">Common wheat</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
     <!-- http://www.carbondb.org/#k/component_of_electricity_mix -->
 
     <owl:NamedIndividual rdf:about="&cdb;k/component_of_electricity_mix">
@@ -5629,30 +5264,6 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
 
     <owl:NamedIndividual rdf:about="&cdb;k/conditioning_and_distribution">
         <rdfs:label xml:lang="en">Conditioning &amp; distribution</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/container_ship -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/container_ship">
-        <rdfs:label xml:lang="en">Container ship</rdfs:label>
-        <rdfs:label xml:lang="fr">Porte-conteneurs</rdfs:label>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/1600_teu"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/2200_teu"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/5500_teu"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/800_teu"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/9500_teu"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/continent -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/continent">
-        <rdfs:label xml:lang="en">Continent</rdfs:label>
-        <rdfs:label xml:lang="fr">Continent</rdfs:label>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/europe"/>
     </owl:NamedIndividual>
     
 
@@ -5731,8 +5342,6 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     <owl:NamedIndividual rdf:about="&cdb;k/crude_oil">
         <rdfs:label xml:lang="en">Crude Oil</rdfs:label>
         <rdfs:label xml:lang="fr">Pétrole brut</rdfs:label>
-        <cdb:hasPrimarySource rdf:resource="&cdb;k/fossil"/>
-        <cdb:hasMatterState rdf:resource="&cdb;k/liquid"/>
     </owl:NamedIndividual>
     
 
@@ -5778,16 +5387,6 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     
 
 
-    <!-- http://www.carbondb.org/#k/dairy_animal -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/dairy_animal">
-        <rdfs:label xml:lang="en">Dairy animal</rdfs:label>
-        <rdfs:label xml:lang="fr">Animal laitier</rdfs:label>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/dairy_cow"/>
-    </owl:NamedIndividual>
-    
-
-
     <!-- http://www.carbondb.org/#k/dairy_cow -->
 
     <owl:NamedIndividual rdf:about="&cdb;k/dairy_cow">
@@ -5802,25 +5401,6 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     <owl:NamedIndividual rdf:about="&cdb;k/dairy_cow_meat">
         <rdfs:label xml:lang="en">Dairy cow (meat)</rdfs:label>
         <rdfs:label xml:lang="fr">Vache laitière (viande)</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/deadweight_tonnage -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/deadweight_tonnage">
-        <rdf:type rdf:resource="&cdb;Keyword"/>
-        <rdfs:label xml:lang="en">Deadweight tonnage</rdfs:label>
-        <rdfs:label xml:lang="fr">Port en lourd</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/denmark -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/denmark">
-        <rdfs:label xml:lang="en">Denmark</rdfs:label>
-        <rdfs:label xml:lang="fr">Danemark</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -5868,33 +5448,6 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     
 
 
-    <!-- http://www.carbondb.org/#k/draught_horse -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/draught_horse">
-        <rdfs:label xml:lang="en">Draught horse</rdfs:label>
-        <rdfs:label xml:lang="fr">Cheval de trait</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/duck -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/duck">
-        <rdfs:label xml:lang="en">Duck</rdfs:label>
-        <rdfs:label xml:lang="fr">Canard</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/durum_wheat -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/durum_wheat">
-        <rdfs:label xml:lang="en">Durum wheat</rdfs:label>
-        <rdfs:label xml:lang="fr">Blé dur</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
     <!-- http://www.carbondb.org/#k/efficiency -->
 
     <owl:NamedIndividual rdf:about="&cdb;k/efficiency">
@@ -5907,15 +5460,6 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
 
     <owl:NamedIndividual rdf:about="&cdb;k/efficiency_of_diesel_electric_conversion">
         <rdfs:label xml:lang="en">Efficiency of diesel-electric conversion</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/egg_laying_hen -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/egg_laying_hen">
-        <rdfs:label xml:lang="en">Egg-laying hen</rdfs:label>
-        <rdfs:label xml:lang="fr">Poule pondeuse</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -5978,16 +5522,6 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     
 
 
-    <!-- http://www.carbondb.org/#k/energy_vector -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/energy_vector">
-        <rdfs:label xml:lang="en">Energy vector</rdfs:label>
-        <rdfs:label xml:lang="fr">Vecteur énergétique</rdfs:label>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/electricity"/>
-    </owl:NamedIndividual>
-    
-
-
     <!-- http://www.carbondb.org/#k/engine_size -->
 
     <owl:NamedIndividual rdf:about="&cdb;k/engine_size"/>
@@ -6003,72 +5537,6 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     
 
 
-    <!-- http://www.carbondb.org/#k/ethane -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/ethane">
-        <rdfs:label xml:lang="en">Ethane</rdfs:label>
-        <rdfs:label xml:lang="fr">Éthane</rdfs:label>
-        <cdb:hasPrimarySource rdf:resource="&cdb;k/fossil"/>
-        <cdb:hasMatterState rdf:resource="&cdb;k/gas"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/ethanol_fuel -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/ethanol_fuel">
-        <rdfs:label xml:lang="en">Ethanol fuel</rdfs:label>
-        <rdfs:label xml:lang="fr">Bioéthanol</rdfs:label>
-        <cdb:hasMatterState rdf:resource="&cdb;k/liquid"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/ethanol_fuel_mixture_e10 -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/ethanol_fuel_mixture_e10">
-        <rdfs:label xml:lang="en">E10 (10% ethanol fuel mixture)</rdfs:label>
-        <rdfs:label xml:lang="fr">Sans plomb 95 10% bioéthanol (SP95-E10)</rdfs:label>
-        <cdb:hasMatterState rdf:resource="&cdb;k/liquid"/>
-        <cdb:hasPrimarySource rdf:resource="&cdb;k/mix_biomass_fossil_fuel"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/ethanol_fuel_mixture_e85 -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/ethanol_fuel_mixture_e85">
-        <rdfs:label xml:lang="en">Ethanol fuel mixture E85</rdfs:label>
-        <rdfs:label xml:lang="fr">Carburant E85</rdfs:label>
-        <cdb:hasMatterState rdf:resource="&cdb;k/liquid"/>
-        <cdb:hasPrimarySource rdf:resource="&cdb;k/mix_biomass_fossil_fuel"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/europe -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/europe">
-        <rdfs:label xml:lang="en">Europe</rdfs:label>
-        <rdfs:label xml:lang="fr">Europe</rdfs:label>
-        <cdb:contains rdf:resource="&cdb;k/belgium"/>
-        <cdb:contains rdf:resource="&cdb;k/denmark"/>
-        <cdb:contains rdf:resource="&cdb;k/france"/>
-        <cdb:contains rdf:resource="&cdb;k/germany"/>
-        <cdb:contains rdf:resource="&cdb;k/ireland"/>
-        <cdb:contains rdf:resource="&cdb;k/italy"/>
-        <cdb:contains rdf:resource="&cdb;k/luxemburg"/>
-        <cdb:contains rdf:resource="&cdb;k/netherlands"/>
-        <cdb:contains rdf:resource="&cdb;k/norway"/>
-        <cdb:contains rdf:resource="&cdb;k/portugal"/>
-        <cdb:contains rdf:resource="&cdb;k/spain"/>
-        <cdb:contains rdf:resource="&cdb;k/sweden"/>
-        <cdb:contains rdf:resource="&cdb;k/switzerland"/>
-        <cdb:contains rdf:resource="&cdb;k/united_kingdom"/>
-    </owl:NamedIndividual>
-    
-
-
     <!-- http://www.carbondb.org/#k/european_union_electricity_mix -->
 
     <owl:NamedIndividual rdf:about="&cdb;k/european_union_electricity_mix">
@@ -6077,89 +5545,10 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     
 
 
-    <!-- http://www.carbondb.org/#k/ewe -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/ewe">
-        <rdfs:label xml:lang="en">Ewe</rdfs:label>
-        <rdfs:label xml:lang="fr">Brebis</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/ewe_lamb -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/ewe_lamb">
-        <rdfs:label xml:lang="en">Ewe lamb</rdfs:label>
-        <rdfs:label xml:lang="fr">Agnelle</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/ewe_meat -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/ewe_meat">
-        <rdfs:label xml:lang="en">Ewe</rdfs:label>
-        <rdfs:label xml:lang="fr">Brebis</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
     <!-- http://www.carbondb.org/#k/extra_large_train_2000_t -->
 
     <owl:NamedIndividual rdf:about="&cdb;k/extra_large_train_2000_t">
         <rdfs:label xml:lang="en">Extra large train (2000 t)</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/factory_chicken -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/factory_chicken">
-        <rdfs:label xml:lang="en">Factory chicken</rdfs:label>
-        <rdfs:label xml:lang="fr">Poulet industriel</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/farmed_animal -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/farmed_animal">
-        <rdfs:label xml:lang="en">Farmed animal</rdfs:label>
-        <rdfs:label xml:lang="fr">Animal d&apos;élevage</rdfs:label>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/goat_category"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/horse"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/pig"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/poultry"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/sheep"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/fattening_pig -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/fattening_pig">
-        <rdfs:label xml:lang="en">Fattening pig</rdfs:label>
-        <rdfs:label xml:lang="fr">Porc à l&apos;engrais</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/female_kid -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/female_kid">
-        <rdfs:label xml:lang="en">Female kid</rdfs:label>
-        <rdfs:label xml:lang="fr">Chevreau, chevrette</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/ferry -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/ferry">
-        <rdfs:label xml:lang="en">Ferry</rdfs:label>
-        <rdfs:label xml:lang="fr">Ferry</rdfs:label>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/roll_on_roll_of_passenger"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/roll_on_roll_off"/>
     </owl:NamedIndividual>
     
 
@@ -6190,24 +5579,6 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     
 
 
-    <!-- http://www.carbondb.org/#k/flat_glass -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/flat_glass">
-        <rdfs:label xml:lang="en">Flat glass</rdfs:label>
-        <rdfs:label xml:lang="fr">Verre plat</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/foal -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/foal">
-        <rdfs:label xml:lang="en">Foal</rdfs:label>
-        <rdfs:label xml:lang="fr">Poulain</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
     <!-- http://www.carbondb.org/#k/fodder_corn -->
 
     <owl:NamedIndividual rdf:about="&cdb;k/fodder_corn">
@@ -6217,88 +5588,10 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     
 
 
-    <!-- http://www.carbondb.org/#k/fossil -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/fossil">
-        <rdfs:label xml:lang="en">Fossil</rdfs:label>
-        <rdfs:label xml:lang="fr">Fossile</rdfs:label>
-        <cdb:isNarrowerThan rdf:resource="&cdb;k/fuel_primary_source"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/france -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/france">
-        <rdfs:label xml:lang="en">France</rdfs:label>
-        <rdfs:label xml:lang="fr">France</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/free_range_chicken -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/free_range_chicken">
-        <rdfs:label xml:lang="en">Free range chicken</rdfs:label>
-        <rdfs:label xml:lang="fr">Poulet fermier</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/free_range_guinea_fowl -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/free_range_guinea_fowl">
-        <rdfs:label xml:lang="en">Free range guinea fowl</rdfs:label>
-        <rdfs:label xml:lang="fr">Pintade fermière</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
     <!-- http://www.carbondb.org/#k/freight_transport_ship -->
 
     <owl:NamedIndividual rdf:about="&cdb;k/freight_transport_ship">
         <rdfs:label xml:lang="en">Freight transport ship</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/fuel -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/fuel">
-        <rdfs:label xml:lang="en">Fuel</rdfs:label>
-        <rdfs:label xml:lang="fr">Combustible</rdfs:label>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/anthracite"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/aviation_gasoline"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/coke_oven_gas"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/coking_coal"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/crude_oil"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/ethane"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/ethanol_fuel"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/ethanol_fuel_mixture_e10"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/ethanol_fuel_mixture_e85"/>
-        <cdb:hasAttribute rdf:resource="&cdb;k/fuel_primary_source"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/gas_diesel_oil"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/gas_works_gas"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/heavy_fuel_oil"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/jet_kerosene"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/lignite"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/lignite_coke"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/liquefied_natural_gas"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/liquefied_petroleum_gas"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/lubricant"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/motor_gasoline"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/naphtha"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/natural_gas"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/oil_shale"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/oxygen_steel_furnace_gas"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/peat"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/petroleum_coke"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/refinery_gas"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/residual_fuel_oil"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/shale_oil"/>
-        <cdb:hasAttribute rdf:resource="&cdb;k/state_of_matter"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/waste_oil"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/white_spirit"/>
     </owl:NamedIndividual>
     
 
@@ -6321,14 +5614,6 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     
 
 
-    <!-- http://www.carbondb.org/#k/fuel_primary_source -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/fuel_primary_source">
-        <cdb:isBroaderThan rdf:resource="&cdb;k/mix_biomass_fossil_fuel"/>
-    </owl:NamedIndividual>
-    
-
-
     <!-- http://www.carbondb.org/#k/fugitive_emission_spreading_nitrogen_fertilizer -->
 
     <owl:NamedIndividual rdf:about="&cdb;k/fugitive_emission_spreading_nitrogen_fertilizer">
@@ -6346,43 +5631,10 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     
 
 
-    <!-- http://www.carbondb.org/#k/gas -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/gas">
-        <rdfs:label xml:lang="en">Gas</rdfs:label>
-        <rdfs:label xml:lang="fr">Gaz</rdfs:label>
-        <cdb:isNarrowerThan rdf:resource="&cdb;k/state_of_matter"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/gas_carrier -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/gas_carrier">
-        <rdfs:label xml:lang="en">Gas carrier</rdfs:label>
-        <rdfs:label xml:lang="fr">Gazier</rdfs:label>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/very_large_gas_carrier"/>
-    </owl:NamedIndividual>
-    
-
-
     <!-- http://www.carbondb.org/#k/gas_diesel_oil -->
 
     <owl:NamedIndividual rdf:about="&cdb;k/gas_diesel_oil">
         <rdfs:label xml:lang="en">Gas/diesel oil</rdfs:label>
-        <cdb:hasPrimarySource rdf:resource="&cdb;k/fossil"/>
-        <cdb:hasMatterState rdf:resource="&cdb;k/liquid"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/gas_works_gas -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/gas_works_gas">
-        <rdfs:label xml:lang="en">Gas works gas</rdfs:label>
-        <rdfs:label xml:lang="fr">Gaz d&apos;usine à gaz</rdfs:label>
-        <cdb:hasPrimarySource rdf:resource="&cdb;k/fossil"/>
-        <cdb:hasMatterState rdf:resource="&cdb;k/gas"/>
     </owl:NamedIndividual>
     
 
@@ -6396,222 +5648,10 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     
 
 
-    <!-- http://www.carbondb.org/#k/gelding_mare_not_in_foal -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/gelding_mare_not_in_foal">
-        <rdfs:label xml:lang="en">Gelding, mare not in foal</rdfs:label>
-        <rdfs:label xml:lang="fr">Hongre, jument vide</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/germany -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/germany">
-        <rdfs:label xml:lang="en">Germany</rdfs:label>
-        <rdfs:label xml:lang="fr">Allemagne</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/glass -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/glass">
-        <rdfs:label xml:lang="en">Glass</rdfs:label>
-        <rdfs:label xml:lang="fr">Verre</rdfs:label>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/flat_glass"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/glass_fibre"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/glass_jar"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/technical_glass"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/glass_fibre -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/glass_fibre">
-        <rdfs:label xml:lang="en">Glass fibre</rdfs:label>
-        <rdfs:label xml:lang="fr">Fibre de verre</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/glass_jar -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/glass_jar">
-        <rdfs:label xml:lang="en">Glass jar</rdfs:label>
-        <rdfs:label xml:lang="fr">Verre flacon</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/goat -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/goat">
-        <rdfs:label xml:lang="en">Goat</rdfs:label>
-        <rdfs:label xml:lang="fr">Chèvre</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/goat_category -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/goat_category">
-        <rdfs:label xml:lang="en">Goat (category)</rdfs:label>
-        <rdfs:label xml:lang="fr">Caprin</rdfs:label>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/billy_goat"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/female_kid"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/goat"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/grain_corn -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/grain_corn">
-        <rdfs:label xml:lang="en">Grain corn</rdfs:label>
-        <rdfs:label xml:lang="fr">Maïs grain</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/grassland -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/grassland">
-        <rdfs:label xml:lang="en">Grassland</rdfs:label>
-        <rdfs:label xml:lang="fr">Prairie</rdfs:label>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/productive_natural_grassland"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/productive_permanent_grassland"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/relatively_unproductive_natural_grassland"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/temporary_grassland"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/grazing_lamb -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/grazing_lamb">
-        <rdfs:label xml:lang="en">Grazing lamb</rdfs:label>
-        <rdfs:label xml:lang="fr">Agneau à l&apos;herbe</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/grazing_lamb_meat -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/grazing_lamb_meat">
-        <rdfs:label xml:lang="en">Grazing lamb</rdfs:label>
-        <rdfs:label xml:lang="fr">Agneau à l&apos;herbe</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/greenhouse_gas -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/greenhouse_gas">
-        <rdfs:label xml:lang="en">Greenhouse gas</rdfs:label>
-        <rdfs:label xml:lang="fr">Gaz à effet de serre</rdfs:label>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/ch4"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/co2"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/co2e"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/n2o"/>
-    </owl:NamedIndividual>
-    
-
-
     <!-- http://www.carbondb.org/#k/gross_electricity_generation -->
 
     <owl:NamedIndividual rdf:about="&cdb;k/gross_electricity_generation">
         <rdfs:label xml:lang="en">Gross electricity generation</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/gvwr_12_t_carrier -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/gvwr_12_t_carrier">
-        <rdfs:label xml:lang="en">GVWR (gross vehicle weight rating) 12 t carrier</rdfs:label>
-        <rdfs:label xml:lang="fr">Porteur PTAC (poids total autorisé en charge) 12 t</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/gvwr_19_t_carrier -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/gvwr_19_t_carrier">
-        <rdfs:label xml:lang="en">GVWR (gross vehicle weight rating) 19 t carrier</rdfs:label>
-        <rdfs:label xml:lang="fr">Porteur PTAC (poids total autorisé en charge) 19t</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/gvwr_19_t_refrigerated_carrier -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/gvwr_19_t_refrigerated_carrier">
-        <rdfs:label xml:lang="en">GVWR (gross vehicle weight rating) 19 t refrigerated carrier</rdfs:label>
-        <rdfs:label xml:lang="fr">Porteur PTAC (poids total autorisé en charge) 19t frigorifique</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/gvwr_3_5_t_light_commercial_vehicle -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/gvwr_3_5_t_light_commercial_vehicle">
-        <rdfs:label xml:lang="en">Light commercial vehicle, GVWR (gross vehicle weight rating) 3.5 t</rdfs:label>
-        <rdfs:label xml:lang="fr">Véhicule utilitaire léger, PTAC (poids total autorisé en charge) 3,5 t</rdfs:label>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/gvwr_3_5_t_light_commercial_vehicle_letter_shopping"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/gvwr_3_5_t_light_commercial_vehicle_package"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/gvwr_3_5_t_light_commercial_vehicle_letter_shopping -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/gvwr_3_5_t_light_commercial_vehicle_letter_shopping">
-        <rdfs:label xml:lang="en">Light commercial vehicle, GVWR (gross vehicle weight rating) 3.5 t, letter, shopping</rdfs:label>
-        <rdfs:label xml:lang="fr">Véhicule utilitaire léger, PTAC (poids total autorisé en charge) 3,5 t, pli, course</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/gvwr_3_5_t_light_commercial_vehicle_package -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/gvwr_3_5_t_light_commercial_vehicle_package">
-        <rdfs:label xml:lang="en">Light commercial vehicle, GVWR (gross vehicle weight rating) 3.5 t, package</rdfs:label>
-        <rdfs:label xml:lang="fr">Véhicule utilitaire léger, PTAC (poids total autorisé en charge) 3,5 t, colis</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/gvwr_7_5_t_carrier -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/gvwr_7_5_t_carrier">
-        <rdfs:label xml:lang="en">GVWR (gross vehicle weight rating) 7.5 t carrier</rdfs:label>
-        <rdfs:label xml:lang="fr">Porteur PTAC (poids total autorisé en charge) 7,5 t</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/handy_product_tanker -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/handy_product_tanker"/>
-    
-
-
-    <!-- http://www.carbondb.org/#k/handymax -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/handymax">
-        <rdfs:label xml:lang="en">Handymax</rdfs:label>
-        <rdfs:label xml:lang="fr">Handymax</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/handysize -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/handysize">
-        <rdfs:label xml:lang="en">Handysize</rdfs:label>
-        <rdfs:label xml:lang="fr">Handysize</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -6630,8 +5670,6 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     <owl:NamedIndividual rdf:about="&cdb;k/heavy_fuel_oil">
         <rdfs:label xml:lang="en">Heavy fuel oil (HFO, number 6 fuel oil, residual fuel oil)</rdfs:label>
         <rdfs:label xml:lang="fr">Fioul lourd (HFO)</rdfs:label>
-        <cdb:hasPrimarySource rdf:resource="&cdb;k/fossil"/>
-        <cdb:hasMatterState rdf:resource="&cdb;k/liquid"/>
     </owl:NamedIndividual>
     
 
@@ -6653,33 +5691,11 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     
 
 
-    <!-- http://www.carbondb.org/#k/high_density_polyethylene -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/high_density_polyethylene">
-        <rdfs:label xml:lang="en">High density polyethylene</rdfs:label>
-        <rdfs:label xml:lang="fr">Polyéthylène haute densité</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
     <!-- http://www.carbondb.org/#k/higher_heating_value -->
 
     <owl:NamedIndividual rdf:about="&cdb;k/higher_heating_value">
         <rdfs:label xml:lang="en">Higher Heating Value (HHV)</rdfs:label>
         <rdfs:label xml:lang="fr">Pouvoir Calorifique Supérieur (PCS)</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/horse -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/horse">
-        <rdfs:label xml:lang="en">Horse</rdfs:label>
-        <rdfs:label xml:lang="fr">Cheval</rdfs:label>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/draught_horse"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/foal"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/gelding_mare_not_in_foal"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/mare_in_foal_stallion"/>
     </owl:NamedIndividual>
     
 
@@ -6700,15 +5716,6 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     
 
 
-    <!-- http://www.carbondb.org/#k/incineration -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/incineration">
-        <rdfs:label xml:lang="en">Incineration</rdfs:label>
-        <rdfs:label xml:lang="fr">Incinération</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
     <!-- http://www.carbondb.org/#k/integrated_gasification_combined_cycle_anthracite_power_plant -->
 
     <owl:NamedIndividual rdf:about="&cdb;k/integrated_gasification_combined_cycle_anthracite_power_plant">
@@ -6717,48 +5724,10 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     
 
 
-    <!-- http://www.carbondb.org/#k/ireland -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/ireland">
-        <rdfs:label xml:lang="en">Ireland</rdfs:label>
-        <rdfs:label xml:lang="fr">Irlande</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/italy -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/italy">
-        <rdfs:label xml:lang="en">Italy</rdfs:label>
-        <rdfs:label xml:lang="fr">Italie</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
     <!-- http://www.carbondb.org/#k/jet_kerosene -->
 
     <owl:NamedIndividual rdf:about="&cdb;k/jet_kerosene">
         <rdfs:label xml:lang="en">Jet kerosene (jet A1 or jet A)</rdfs:label>
-        <cdb:hasPrimarySource rdf:resource="&cdb;k/fossil"/>
-        <cdb:hasMatterState rdf:resource="&cdb;k/liquid"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/lamb_of_slaughter -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/lamb_of_slaughter">
-        <rdfs:label xml:lang="en">Lamb of slaughter</rdfs:label>
-        <rdfs:label xml:lang="fr">Agneau de boucherie</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/landfill -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/landfill">
-        <rdfs:label xml:lang="en">Landfill</rdfs:label>
-        <rdfs:label xml:lang="fr">Centre d&apos;enfouissement</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -6767,25 +5736,6 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
 
     <owl:NamedIndividual rdf:about="&cdb;k/large_train_1500_t">
         <rdfs:label xml:lang="en">Large train (1500 t)</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/lead -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/lead">
-        <rdfs:label xml:lang="en">Lead</rdfs:label>
-        <rdfs:label xml:lang="fr">Plomb</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/legume -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/legume">
-        <rdfs:label xml:lang="en">Legume (pulse, Fabaceae)</rdfs:label>
-        <rdfs:label xml:lang="fr">Légumineuse (Fabaceae)</rdfs:label>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/peas"/>
     </owl:NamedIndividual>
     
 
@@ -6843,17 +5793,6 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     
 
 
-    <!-- http://www.carbondb.org/#k/light_commercial_vehicle -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/light_commercial_vehicle">
-        <rdfs:label xml:lang="en">Light commercial vehicle</rdfs:label>
-        <rdfs:label xml:lang="fr">Véhicule utilitaire léger</rdfs:label>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/8_m3_light_commercial_vehicle"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/gvwr_3_5_t_light_commercial_vehicle"/>
-    </owl:NamedIndividual>
-    
-
-
     <!-- http://www.carbondb.org/#k/light_train_500_t -->
 
     <owl:NamedIndividual rdf:about="&cdb;k/light_train_500_t">
@@ -6866,19 +5805,6 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
 
     <owl:NamedIndividual rdf:about="&cdb;k/lignite">
         <rdfs:label xml:lang="en">Lignite (brown coal)</rdfs:label>
-        <cdb:hasPrimarySource rdf:resource="&cdb;k/fossil"/>
-        <cdb:hasMatterState rdf:resource="&cdb;k/solid"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/lignite_coke -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/lignite_coke">
-        <rdfs:label xml:lang="en">Lignite coke</rdfs:label>
-        <rdfs:label xml:lang="fr">Coke de lignite</rdfs:label>
-        <cdb:hasPrimarySource rdf:resource="&cdb;k/fossil"/>
-        <cdb:hasMatterState rdf:resource="&cdb;k/solid"/>
     </owl:NamedIndividual>
     
 
@@ -6887,38 +5813,6 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
 
     <owl:NamedIndividual rdf:about="&cdb;k/lignite_primary_energy">
         <rdfs:label xml:lang="en">Lignite / brown coal (primary energy)</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/liquefied_natural_gas -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/liquefied_natural_gas">
-        <rdfs:label xml:lang="en">Liquified natural gas (LNG)</rdfs:label>
-        <rdfs:label xml:lang="fr">Gaz naturel liquéfié (GNL)</rdfs:label>
-        <cdb:hasPrimarySource rdf:resource="&cdb;k/fossil"/>
-        <cdb:hasMatterState rdf:resource="&cdb;k/liquid"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/liquefied_petroleum_gas -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/liquefied_petroleum_gas">
-        <rdfs:label xml:lang="en">Liquified Petroleum Gas (LPG)</rdfs:label>
-        <rdfs:label xml:lang="fr">Gaz de pétrole liquéfié (GPL)</rdfs:label>
-        <cdb:hasPrimarySource rdf:resource="&cdb;k/fossil"/>
-        <cdb:hasMatterState rdf:resource="&cdb;k/liquid"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/liquid -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/liquid">
-        <rdfs:label xml:lang="en">Liquid</rdfs:label>
-        <rdfs:label xml:lang="fr">Liquide</rdfs:label>
-        <cdb:isNarrowerThan rdf:resource="&cdb;k/state_of_matter"/>
     </owl:NamedIndividual>
     
 
@@ -6957,40 +5851,11 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     
 
 
-    <!-- http://www.carbondb.org/#k/low_density_polyethylene -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/low_density_polyethylene">
-        <rdfs:label xml:lang="en">Low density polyethylene</rdfs:label>
-        <rdfs:label xml:lang="fr">Polyéthylène basse densité</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
     <!-- http://www.carbondb.org/#k/lower_heating_value -->
 
     <owl:NamedIndividual rdf:about="&cdb;k/lower_heating_value">
         <rdfs:label xml:lang="en">Lower heating value</rdfs:label>
         <rdfs:label xml:lang="fr">Pouvoir calorifique inférieur</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/lubricant -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/lubricant">
-        <rdfs:label xml:lang="fr">Lubricant</rdfs:label>
-        <rdfs:label xml:lang="fr">Lubrifiant</rdfs:label>
-        <cdb:hasPrimarySource rdf:resource="&cdb;k/fossil"/>
-        <cdb:hasMatterState rdf:resource="&cdb;k/liquid"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/luxemburg -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/luxemburg">
-        <rdfs:label xml:lang="en">Luxemburg</rdfs:label>
-        <rdfs:label xml:lang="fr">Luxembourg</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -7013,22 +5878,11 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     
 
 
-    <!-- http://www.carbondb.org/#k/mare_in_foal_stallion -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/mare_in_foal_stallion">
-        <rdfs:label xml:lang="en">Mare in foal, stallion</rdfs:label>
-        <rdfs:label xml:lang="fr">Jument reproductrice, étalon</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
     <!-- http://www.carbondb.org/#k/marine_diesel_oil -->
 
     <owl:NamedIndividual rdf:about="&cdb;k/marine_diesel_oil">
         <rdfs:label xml:lang="en">Marine Diesel oil (MDO)</rdfs:label>
         <rdfs:label xml:lang="fr">Marine Diesel oil (MDO)</rdfs:label>
-        <cdb:hasPrimarySource rdf:resource="&cdb;k/fossil"/>
-        <cdb:hasMatterState rdf:resource="&cdb;k/liquid"/>
     </owl:NamedIndividual>
     
 
@@ -7038,20 +5892,6 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     <owl:NamedIndividual rdf:about="&cdb;k/maritime_transport">
         <rdfs:label xml:lang="en">Maritime transport</rdfs:label>
         <rdfs:label xml:lang="fr">Transport maritime</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/maritime_transport_ship -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/maritime_transport_ship">
-        <rdfs:label xml:lang="en">Maritime transport ship</rdfs:label>
-        <rdfs:label xml:lang="fr">Navire de transport maritime</rdfs:label>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/bulk_carrier"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/container_ship"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/ferry"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/gas_carrier"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/tanker"/>
     </owl:NamedIndividual>
     
 
@@ -7096,44 +5936,6 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     <owl:NamedIndividual rdf:about="&cdb;k/material">
         <rdfs:label xml:lang="en">Material</rdfs:label>
         <rdfs:label xml:lang="fr">Matière première</rdfs:label>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/glass"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/metal"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/paper_cardboard"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/plastic"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/maximum_takeoff_weight -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/maximum_takeoff_weight">
-        <rdf:type rdf:resource="&cdb;Keyword"/>
-        <rdfs:label xml:lang="en">Maximum takeoff weight</rdfs:label>
-        <rdfs:label xml:lang="fr">Masse maximale au décollage</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/meat -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/meat">
-        <rdfs:label xml:lang="en">Meat</rdfs:label>
-        <rdfs:label xml:lang="fr">Viande</rdfs:label>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/sheep_meat"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/metal -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/metal">
-        <rdfs:label xml:lang="en">Metal</rdfs:label>
-        <rdfs:label xml:lang="fr">Métal</rdfs:label>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/aluminium"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/lead"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/nickel"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/steel_sheet_metal"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/zinc"/>
     </owl:NamedIndividual>
     
 
@@ -7143,15 +5945,6 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     <owl:NamedIndividual rdf:about="&cdb;k/milk_yield">
         <rdfs:label xml:lang="en">Milk yield</rdfs:label>
         <rdfs:label xml:lang="fr">Rendement laitier</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/mix_biomass_fossil_fuel -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/mix_biomass_fossil_fuel">
-        <rdfs:label xml:lang="en">Mix of biomass and fossil fuels</rdfs:label>
-        <rdfs:label xml:lang="fr">Mélange de carburants d&apos;origine fossile et issus de la biomasse</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -7187,19 +5980,6 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
 
     <owl:NamedIndividual rdf:about="&cdb;k/motor_gasoline">
         <rdfs:label xml:lang="en">Motor gasoline</rdfs:label>
-        <cdb:hasPrimarySource rdf:resource="&cdb;k/fossil"/>
-        <cdb:hasMatterState rdf:resource="&cdb;k/liquid"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/motorcycle_engine_displacement -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/motorcycle_engine_displacement">
-        <rdfs:label xml:lang="en">Motorcycle engine displacement</rdfs:label>
-        <rdfs:label xml:lang="fr">Cylindrée de moto</rdfs:label>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/less_than_750_cm3"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/more_than_750_cm3"/>
     </owl:NamedIndividual>
     
 
@@ -7213,24 +5993,11 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     
 
 
-    <!-- http://www.carbondb.org/#k/naphtha -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/naphtha">
-        <rdfs:label xml:lang="en">Naphtha</rdfs:label>
-        <rdfs:label xml:lang="fr">Naphta</rdfs:label>
-        <cdb:hasPrimarySource rdf:resource="&cdb;k/fossil"/>
-        <cdb:hasMatterState rdf:resource="&cdb;k/liquid"/>
-    </owl:NamedIndividual>
-    
-
-
     <!-- http://www.carbondb.org/#k/natural_gas -->
 
     <owl:NamedIndividual rdf:about="&cdb;k/natural_gas">
         <rdfs:label xml:lang="en">Natural gas</rdfs:label>
         <rdfs:label xml:lang="fr">Gaz naturel</rdfs:label>
-        <cdb:hasPrimarySource rdf:resource="&cdb;k/fossil"/>
-        <cdb:hasMatterState rdf:resource="&cdb;k/gas"/>
     </owl:NamedIndividual>
     
 
@@ -7260,33 +6027,6 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     
 
 
-    <!-- http://www.carbondb.org/#k/netherlands -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/netherlands">
-        <rdfs:label xml:lang="en">Netherlands</rdfs:label>
-        <rdfs:label xml:lang="fr">Pays-bas</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/nickel -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/nickel">
-        <rdfs:label xml:lang="en">Nickel</rdfs:label>
-        <rdfs:label xml:lang="fr">Nickel</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/norway -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/norway">
-        <rdfs:label xml:lang="en">Norway</rdfs:label>
-        <rdfs:label xml:lang="fr">Norvège</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
     <!-- http://www.carbondb.org/#k/nuclear_primary_energy -->
 
     <owl:NamedIndividual rdf:about="&cdb;k/nuclear_primary_energy">
@@ -7295,102 +6035,10 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     
 
 
-    <!-- http://www.carbondb.org/#k/nylon -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/nylon">
-        <rdfs:label xml:lang="en">Nylon</rdfs:label>
-        <rdfs:label xml:lang="fr">Nylon</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/oil_shale -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/oil_shale">
-        <rdfs:label xml:lang="en">Oil shale</rdfs:label>
-        <rdfs:label xml:lang="fr">Schiste bitumineux</rdfs:label>
-        <cdb:hasPrimarySource rdf:resource="&cdb;k/fossil"/>
-        <cdb:hasMatterState rdf:resource="&cdb;k/liquid"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/oilcrop -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/oilcrop">
-        <rdfs:label xml:lang="en">Oilcrop</rdfs:label>
-        <rdfs:label xml:lang="fr">Oléagineux</rdfs:label>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/rapeseed"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/sunflower"/>
-    </owl:NamedIndividual>
-    
-
-
     <!-- http://www.carbondb.org/#k/organic_nitrogen_fertilizer -->
 
     <owl:NamedIndividual rdf:about="&cdb;k/organic_nitrogen_fertilizer">
         <rdfs:label xml:lang="en">Organic nitrogen (N) fertilizer</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/oxygen_steel_furnace_gas -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/oxygen_steel_furnace_gas">
-        <rdfs:label xml:lang="fr">Gaz d&apos;acierie</rdfs:label>
-        <rdfs:label xml:lang="fr">Gaz de convertisseur à l&apos;oxygène</rdfs:label>
-        <rdfs:label xml:lang="fr">Oxygen steel furnace gas</rdfs:label>
-        <cdb:hasPrimarySource rdf:resource="&cdb;k/fossil"/>
-        <cdb:hasMatterState rdf:resource="&cdb;k/gas"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/panamax -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/panamax">
-        <rdfs:label xml:lang="en">Panamax</rdfs:label>
-        <rdfs:label xml:lang="fr">Panamax</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/paper -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/paper">
-        <rdfs:label xml:lang="en">Paper</rdfs:label>
-        <rdfs:label xml:lang="fr">Papier</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/paper_cardboard -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/paper_cardboard">
-        <rdfs:label xml:lang="en">Paper cardboard</rdfs:label>
-        <rdfs:label xml:lang="fr">Papier carton</rdfs:label>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/cardboard"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/paper"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/peas -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/peas">
-        <rdfs:label xml:lang="en">Peas</rdfs:label>
-        <rdfs:label xml:lang="fr">Pois</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/peat -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/peat">
-        <rdfs:label xml:lang="en">Peat</rdfs:label>
-        <rdfs:label xml:lang="fr">Tourbe</rdfs:label>
-        <cdb:hasPrimarySource rdf:resource="&cdb;k/fossil"/>
-        <cdb:hasMatterState rdf:resource="&cdb;k/solid"/>
     </owl:NamedIndividual>
     
 
@@ -7409,33 +6057,11 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     
 
 
-    <!-- http://www.carbondb.org/#k/petroleum_coke -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/petroleum_coke">
-        <rdfs:label xml:lang="en">Petroleum coke</rdfs:label>
-        <rdfs:label xml:lang="fr">Coke de pétrole</rdfs:label>
-        <cdb:hasPrimarySource rdf:resource="&cdb;k/fossil"/>
-        <cdb:hasMatterState rdf:resource="&cdb;k/solid"/>
-    </owl:NamedIndividual>
-    
-
-
     <!-- http://www.carbondb.org/#k/phosphate_fertilizer -->
 
     <owl:NamedIndividual rdf:about="&cdb;k/phosphate_fertilizer">
         <rdfs:label xml:lang="en">Phosphate (P) fertilizer</rdfs:label>
         <rdfs:label xml:lang="fr">Engrais phosphaté (P)</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/pig -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/pig">
-        <rdfs:label xml:lang="en">Pig</rdfs:label>
-        <rdfs:label xml:lang="fr">Porcin</rdfs:label>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/breeding_sow"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/fattening_pig"/>
     </owl:NamedIndividual>
     
 
@@ -7448,105 +6074,10 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     
 
 
-    <!-- http://www.carbondb.org/#k/plastic -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/plastic">
-        <rdfs:label xml:lang="en">Plastic</rdfs:label>
-        <rdfs:label xml:lang="es">Plastique</rdfs:label>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/high_density_polyethylene"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/low_density_polyethylene"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/nylon"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/polyethylene_terephthalate"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/polyethylene_terephthalate_plastic_film"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/polystyrene"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/polyurethane"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/polyvinyl_chloride"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/polyethylene_terephthalate -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/polyethylene_terephthalate">
-        <rdfs:label xml:lang="en">Polyethylene terephthalate (PET)</rdfs:label>
-        <rdfs:label xml:lang="fr">Polytéréphtalate d&apos;éthylène (PET)</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/polyethylene_terephthalate_plastic_film -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/polyethylene_terephthalate_plastic_film">
-        <rdfs:label xml:lang="en">Polyethylene terephthalate (PET) plastic film - not recyclable</rdfs:label>
-        <rdfs:label xml:lang="fr">Polytéréphtalate d&apos;éthylène (PET) film plastique - non recyclable</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/polystyrene -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/polystyrene">
-        <rdfs:label xml:lang="en">Polystyrene</rdfs:label>
-        <rdfs:label xml:lang="fr">Polystyrène</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/polyurethane -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/polyurethane">
-        <rdfs:label xml:lang="en">Polyurethane</rdfs:label>
-        <rdfs:label xml:lang="fr">Polyuréthane</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/polyvinyl_chloride -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/polyvinyl_chloride">
-        <rdfs:label xml:lang="en">Polyvinyl chloride (PVC)</rdfs:label>
-        <rdfs:label xml:lang="fr">Polychlorure de vinyle (PVC)</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/portugal -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/portugal">
-        <rdfs:label xml:lang="en">Portugal</rdfs:label>
-        <rdfs:label xml:lang="fr">Portugal</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
     <!-- http://www.carbondb.org/#k/potash_fertilizer -->
 
     <owl:NamedIndividual rdf:about="&cdb;k/potash_fertilizer">
         <rdfs:label xml:lang="en">Potash (K) fertilizer</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/potato -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/potato">
-        <rdfs:label xml:lang="en">Potato</rdfs:label>
-        <rdfs:label xml:lang="fr">Pommes de terre</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/poultry -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/poultry">
-        <rdfs:label xml:lang="en">Poultry</rdfs:label>
-        <rdfs:label xml:lang="fr">Volaille</rdfs:label>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/duck"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/egg_laying_hen"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/factory_chicken"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/free_range_chicken"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/free_range_guinea_fowl"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/turkey"/>
     </owl:NamedIndividual>
     
 
@@ -7563,18 +6094,6 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
 
     <owl:NamedIndividual rdf:about="&cdb;k/primary_energy_for_production_and_conditioning_at_source">
         <rdfs:label xml:lang="en">Primary energy for production &amp; conditioning at source</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/process -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/process">
-        <rdfs:label xml:lang="en">Process</rdfs:label>
-        <rdfs:label xml:lang="fr">Processus</rdfs:label>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/combustion"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/enteric_fermentation"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/manure_fermentation"/>
     </owl:NamedIndividual>
     
 
@@ -7613,24 +6132,6 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     
 
 
-    <!-- http://www.carbondb.org/#k/productive_natural_grassland -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/productive_natural_grassland">
-        <rdfs:label xml:lang="en">Productive natural grassland</rdfs:label>
-        <rdfs:label xml:lang="fr">Prairies naturelles productives</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/productive_permanent_grassland -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/productive_permanent_grassland">
-        <rdfs:label xml:lang="en">Productive permanent grassland</rdfs:label>
-        <rdfs:label xml:lang="fr">Prairies permanentes productives</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
     <!-- http://www.carbondb.org/#k/proportion_of_dry_matter -->
 
     <owl:NamedIndividual rdf:about="&cdb;k/proportion_of_dry_matter">
@@ -7644,24 +6145,6 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
 
     <owl:NamedIndividual rdf:about="&cdb;k/rail_freight_transport">
         <rdfs:label xml:lang="en">Rail freight transport</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/ram -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/ram">
-        <rdfs:label xml:lang="en">Ram</rdfs:label>
-        <rdfs:label xml:lang="es">Bélier</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/rapeseed -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/rapeseed">
-        <rdfs:label xml:lang="en">Rapeseed</rdfs:label>
-        <rdfs:label xml:lang="fr">Colza</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -7733,30 +6216,10 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     
 
 
-    <!-- http://www.carbondb.org/#k/refinery_gas -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/refinery_gas">
-        <rdfs:label xml:lang="en">Refinery gas</rdfs:label>
-        <rdfs:label xml:lang="fr">Gaz de raffinerie</rdfs:label>
-        <cdb:hasPrimarySource rdf:resource="&cdb;k/fossil"/>
-        <cdb:hasMatterState rdf:resource="&cdb;k/gas"/>
-    </owl:NamedIndividual>
-    
-
-
     <!-- http://www.carbondb.org/#k/refining_energy -->
 
     <owl:NamedIndividual rdf:about="&cdb;k/refining_energy">
         <rdfs:label xml:lang="en">Refining energy</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/relatively_unproductive_natural_grassland -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/relatively_unproductive_natural_grassland">
-        <rdfs:label xml:lang="en">Relatively unproductive natural grassland</rdfs:label>
-        <rdfs:label xml:lang="fr">Prairies naturelles peu productives (pâturées)</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -7766,8 +6229,6 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     <owl:NamedIndividual rdf:about="&cdb;k/residual_fuel_oil">
         <rdfs:label xml:lang="en">Residual fuel oil</rdfs:label>
         <rdfs:label xml:lang="fr">Fioul lourd</rdfs:label>
-        <cdb:hasPrimarySource rdf:resource="&cdb;k/fossil"/>
-        <cdb:hasMatterState rdf:resource="&cdb;k/liquid"/>
     </owl:NamedIndividual>
     
 
@@ -7780,127 +6241,11 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     
 
 
-    <!-- http://www.carbondb.org/#k/roll_on_roll_of_passenger -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/roll_on_roll_of_passenger">
-        <rdfs:label xml:lang="en">Rroll-on/roll-off passenger (ROPAX)</rdfs:label>
-        <rdfs:label xml:lang="fr">Roulier avec passager (ROPAX)</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/roll_on_roll_off -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/roll_on_roll_off">
-        <rdfs:label xml:lang="en">Roll-on/roll-off</rdfs:label>
-        <rdfs:label xml:lang="fr">Roulier (Ro-Ro)</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/root_tuber -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/root_tuber">
-        <rdfs:label xml:lang="en">Root, tuber</rdfs:label>
-        <rdfs:label xml:lang="fr">Racine, tubercule</rdfs:label>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/potato"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/sugar_beet"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/self_propelled -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/self_propelled">
-        <rdfs:label xml:lang="en">Self-propelled</rdfs:label>
-        <rdfs:label xml:lang="fr">Automoteur</rdfs:label>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/self_propelled_between_1000_and_1500_t"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/self_propelled_between_400_and_650_t"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/self_propelled_between_650_and_1000_t"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/self_propelled_less_than_400_t"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/self_propelled_more_than_1500_t"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/self_propelled_between_1000_and_1500_t -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/self_propelled_between_1000_and_1500_t">
-        <rdfs:label xml:lang="en">Self-propelled 1000 - 1500 t</rdfs:label>
-        <rdfs:label xml:lang="fr">Automoteur 1000 - 1500 t</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
     <!-- http://www.carbondb.org/#k/self_propelled_between_400_and_650_t -->
 
     <owl:NamedIndividual rdf:about="&cdb;k/self_propelled_between_400_and_650_t">
         <rdfs:label xml:lang="en">Self-propelled 400 - 650 t</rdfs:label>
         <rdfs:label xml:lang="fr">Automoteur 400 - 650 t</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/self_propelled_between_650_and_1000_t -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/self_propelled_between_650_and_1000_t">
-        <rdfs:label xml:lang="en">Self-propelled 650 - 1000 t</rdfs:label>
-        <rdfs:label xml:lang="fr">Automoteur 650 - 1000 t</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/self_propelled_less_than_400_t -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/self_propelled_less_than_400_t">
-        <rdfs:label xml:lang="en">Self-propelled less than 400 t</rdfs:label>
-        <rdfs:label xml:lang="fr">Automoteur moins de 400 t</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/self_propelled_more_than_1500_t -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/self_propelled_more_than_1500_t">
-        <rdfs:label xml:lang="en">Self-propelled more than 1500 t</rdfs:label>
-        <rdfs:label xml:lang="fr">Automoteur plus de 1500 t</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/shale_oil -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/shale_oil">
-        <rdfs:label xml:lang="en">Shale oil</rdfs:label>
-        <rdfs:label xml:lang="fr">Huile de schiste</rdfs:label>
-        <cdb:hasPrimarySource rdf:resource="&cdb;k/fossil"/>
-        <cdb:hasMatterState rdf:resource="&cdb;k/liquid"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/sheep -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/sheep">
-        <rdfs:label xml:lang="en">Sheep</rdfs:label>
-        <rdfs:label xml:lang="fr">Ovin</rdfs:label>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/ewe"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/ewe_lamb"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/grazing_lamb"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/lamb_of_slaughter"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/ram"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/suckling_lamb"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/sheep_meat -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/sheep_meat">
-        <cdb:isBroaderThan rdf:resource="&cdb;k/adult_sheep_meat"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/ewe_meat"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/grazing_lamb_meat"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/suckling_lamb_meat"/>
     </owl:NamedIndividual>
     
 
@@ -7923,52 +6268,6 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     
 
 
-    <!-- http://www.carbondb.org/#k/solid -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/solid">
-        <rdfs:label xml:lang="en">Solid</rdfs:label>
-        <rdfs:label xml:lang="fr">Solide</rdfs:label>
-        <cdb:isNarrowerThan rdf:resource="&cdb;k/state_of_matter"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/sorghum -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/sorghum">
-        <rdfs:label xml:lang="en">Sorghum</rdfs:label>
-        <rdfs:label xml:lang="fr">Sorgho</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/spain -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/spain">
-        <rdfs:label xml:lang="en">Spain</rdfs:label>
-        <rdfs:label xml:lang="fr">Espagne</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/state_of_matter -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/state_of_matter">
-        <rdfs:label xml:lang="en">State of matter</rdfs:label>
-        <rdfs:label xml:lang="fr">État de la matière</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/steel_sheet_metal -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/steel_sheet_metal">
-        <rdfs:label xml:lang="en">Steel or sheet metal</rdfs:label>
-        <rdfs:label xml:lang="fr">Acier ou fer blanc</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
     <!-- http://www.carbondb.org/#k/suckler_cow -->
 
     <owl:NamedIndividual rdf:about="&cdb;k/suckler_cow">
@@ -7983,42 +6282,6 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     <owl:NamedIndividual rdf:about="&cdb;k/suckler_cow_meat">
         <rdfs:label xml:lang="en">Suckler cow (meat)</rdfs:label>
         <rdfs:label xml:lang="fr">Vache allaitante (viande)</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/suckling_lamb -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/suckling_lamb">
-        <rdfs:label xml:lang="en">Suckling lamb</rdfs:label>
-        <rdfs:label xml:lang="fr">Agneau de lait</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/suckling_lamb_meat -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/suckling_lamb_meat">
-        <rdfs:label xml:lang="en">Suckling lamb</rdfs:label>
-        <rdfs:label xml:lang="fr">Agneau de lait</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/sugar_beet -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/sugar_beet">
-        <rdfs:label>Sugar beet</rdfs:label>
-        <rdfs:label xml:lang="fr">Betterave</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/sunflower -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/sunflower">
-        <rdfs:label xml:lang="en">Sunflower</rdfs:label>
-        <rdfs:label xml:lang="fr">Tournesol</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -8039,82 +6302,10 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     
 
 
-    <!-- http://www.carbondb.org/#k/sweden -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/sweden">
-        <rdfs:label xml:lang="en">Sweden</rdfs:label>
-        <rdfs:label xml:lang="fr">Suède</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/switzerland -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/switzerland">
-        <rdfs:label xml:lang="en">Switzerland</rdfs:label>
-        <rdfs:label xml:lang="fr">Suisse</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
     <!-- http://www.carbondb.org/#k/synthetic_nitrogen_fertilizer -->
 
     <owl:NamedIndividual rdf:about="&cdb;k/synthetic_nitrogen_fertilizer">
         <rdfs:label xml:lang="en">Synthetic nitrogen (N) fertilizer</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/tanker -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/tanker">
-        <rdfs:label xml:lang="en">Tanker</rdfs:label>
-        <rdfs:label xml:lang="fr">Pétrolier</rdfs:label>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/aframax"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/handy_product_tanker"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/very_large_crude_carrier"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/tax_horsepower -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/tax_horsepower">
-        <cdb:isBroaderThan rdf:resource="&cdb;k/11_hp_and_above"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/between_0_and_5_hp"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/between_6_and_10_hp"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/undifferentiated_tax_horsepower"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/technical_glass -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/technical_glass">
-        <rdfs:label xml:lang="en">Technical glass</rdfs:label>
-        <rdfs:label xml:lang="fr">Verre technique</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/temporary_grassland -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/temporary_grassland">
-        <rdfs:label xml:lang="en">Temporary grassland</rdfs:label>
-        <rdfs:label xml:lang="fr">Prairies temporaires</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/towboat -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/towboat">
-        <rdfs:label xml:lang="en">Towboat</rdfs:label>
-        <rdfs:label xml:lang="fr">Pousseur</rdfs:label>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/towboat_between_295_and_590_kw"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/towboat_between_590_and_880_kw"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/towboat_more_than_880_kw_maritime_container"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/towboat_more_than_880_kw_off_maritime_container"/>
     </owl:NamedIndividual>
     
 
@@ -8128,76 +6319,10 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     
 
 
-    <!-- http://www.carbondb.org/#k/towboat_between_590_and_880_kw -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/towboat_between_590_and_880_kw">
-        <rdfs:label xml:lang="fr">Pousseur 590 - 880 kW</rdfs:label>
-        <rdfs:label>Towboat 590 - 880 kW</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/towboat_more_than_880_kw_maritime_container -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/towboat_more_than_880_kw_maritime_container">
-        <rdfs:label xml:lang="en">Towboat &gt; 800 kW (maritime containers)</rdfs:label>
-        <rdfs:label xml:lang="fr">Pousseur &gt; 880 kW (conteneurs maritimes)</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/towboat_more_than_880_kw_off_maritime_container -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/towboat_more_than_880_kw_off_maritime_container">
-        <rdfs:label xml:lang="en">Towboat &gt; 800 kW (off maritime containers)</rdfs:label>
-        <rdfs:label xml:lang="fr">Pousseur &gt; 880 kW (hors conteneurs maritimes)</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/tractor_unit -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/tractor_unit">
-        <rdfs:label xml:lang="en">Tractor unit</rdfs:label>
-        <rdfs:label xml:lang="fr">Tracteur routier</rdfs:label>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/26_t_semi_trailer_truck"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/35_t_semi_trailer_truck"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/40_t_refrigerated_semi_trailer_truck"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/40_t_semi_trailer_truck"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/90_m3_semi_trailer_truck"/>
-    </owl:NamedIndividual>
-    
-
-
     <!-- http://www.carbondb.org/#k/transportation_to_market -->
 
     <owl:NamedIndividual rdf:about="&cdb;k/transportation_to_market">
         <rdfs:label xml:lang="en">Transportation to market</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/turkey -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/turkey">
-        <rdfs:label xml:lang="en">Turkey</rdfs:label>
-        <rdfs:label xml:lang="fr">Dinde</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/type_of_crop -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/type_of_crop">
-        <rdfs:label>Type of crop</rdfs:label>
-        <rdfs:label xml:lang="fr">Type de culture</rdfs:label>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/arboriculture_viticulture"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/cereal"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/grassland"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/legume"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/oilcrop"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/root_tuber"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/vines"/>
     </owl:NamedIndividual>
     
 
@@ -8207,51 +6332,6 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     <owl:NamedIndividual rdf:about="&cdb;k/type_of_end_of_life_of_waste">
         <rdfs:label xml:lang="en">Type of end of life of waste</rdfs:label>
         <rdfs:label xml:lang="fr">Type de fin de vie de déchet</rdfs:label>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/incineration"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/landfill"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/type_of_engine -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/type_of_engine">
-        <cdb:isBroaderThan rdf:resource="&cdb;k/diesel_engine"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/gasoline_engine"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/type_of_road_freight_vehicle -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/type_of_road_freight_vehicle">
-        <cdb:isBroaderThan rdf:resource="&cdb;k/carrier"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/light_commercial_vehicle"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/tractor_unit"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/type_of_waste -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/type_of_waste">
-        <rdfs:label xml:lang="en">Type of waste</rdfs:label>
-        <rdfs:label xml:lang="fr">Type de déchet</rdfs:label>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/cardboard"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/glass"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/metal"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/paper"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/plastic"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/waste_electrical_electronic_equipment"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/undifferentiated -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/undifferentiated">
-        <rdfs:label xml:lang="en">Undifferentiated</rdfs:label>
-        <rdfs:label xml:lang="fr">Indifférencié(e)</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -8282,15 +6362,6 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     
 
 
-    <!-- http://www.carbondb.org/#k/united_kingdom -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/united_kingdom">
-        <rdfs:label xml:lang="en">United Kingdom</rdfs:label>
-        <rdfs:label xml:lang="fr">Royaume Uni</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
     <!-- http://www.carbondb.org/#k/upstream_of_fuel -->
 
     <owl:NamedIndividual rdf:about="&cdb;k/upstream_of_fuel">
@@ -8312,33 +6383,6 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
 
     <owl:NamedIndividual rdf:about="&cdb;k/venting_and_fugitive_loss">
         <rdfs:label xml:lang="en">Venting and fugitive losses</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/very_large_crude_carrier -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/very_large_crude_carrier">
-        <rdfs:label xml:lang="en">Very Large Crude Carrier</rdfs:label>
-        <rdfs:label xml:lang="fr">Very Large Crude Carrier (très grand pétrolier transporteur de brut)</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/very_large_gas_carrier -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/very_large_gas_carrier">
-        <rdfs:label xml:lang="en">Very Large Gas Carrier</rdfs:label>
-        <rdfs:label xml:lang="fr">Very Large Gas Carrier</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/vines -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/vines">
-        <rdfs:label xml:lang="en">Vines</rdfs:label>
-        <rdfs:label xml:lang="fr">Vignes</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -8378,26 +6422,6 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     
 
 
-    <!-- http://www.carbondb.org/#k/waste_electrical_electronic_equipment -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/waste_electrical_electronic_equipment">
-        <rdfs:label xml:lang="en">Waste electrical and electronic equipment (WEEE)</rdfs:label>
-        <rdfs:label xml:lang="fr">Déchet d&apos;équipement électrique ou électronique (DEEE)</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/waste_oil -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/waste_oil">
-        <rdfs:label xml:lang="en">Waste oil</rdfs:label>
-        <rdfs:label xml:lang="fr">Huile usagée</rdfs:label>
-        <cdb:hasPrimarySource rdf:resource="&cdb;k/fossil"/>
-        <cdb:hasMatterState rdf:resource="&cdb;k/liquid"/>
-    </owl:NamedIndividual>
-    
-
-
     <!-- http://www.carbondb.org/#k/waterway_transport -->
 
     <owl:NamedIndividual rdf:about="&cdb;k/waterway_transport">
@@ -8407,42 +6431,11 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     
 
 
-    <!-- http://www.carbondb.org/#k/waterway_transport_ship -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/waterway_transport_ship">
-        <rdfs:label xml:lang="en">Waterway transport ship</rdfs:label>
-        <rdfs:label xml:lang="fr">Navire de transport fluvial</rdfs:label>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/self_propelled"/>
-        <cdb:isBroaderThan rdf:resource="&cdb;k/towboat"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/white_spirit -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/white_spirit">
-        <rdfs:label xml:lang="en">White spirit</rdfs:label>
-        <rdfs:label xml:lang="fr">White spirit</rdfs:label>
-        <cdb:hasPrimarySource rdf:resource="&cdb;k/fossil"/>
-        <cdb:hasMatterState rdf:resource="&cdb;k/liquid"/>
-    </owl:NamedIndividual>
-    
-
-
     <!-- http://www.carbondb.org/#k/yoghurt -->
 
     <owl:NamedIndividual rdf:about="&cdb;k/yoghurt">
         <rdfs:label xml:lang="en">Yoghurt</rdfs:label>
         <rdfs:label xml:lang="fr">Yaourt</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/#k/zinc -->
-
-    <owl:NamedIndividual rdf:about="&cdb;k/zinc">
-        <rdfs:label xml:lang="en">Zinc</rdfs:label>
-        <rdfs:label xml:lang="fr">Zinc</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -13668,51 +11661,6 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     <owl:NamedIndividual rdf:about="&cdb;u/year">
         <cdb:foreignUnitID rdf:datatype="&xsd;string">an</cdb:foreignUnitID>
     </owl:NamedIndividual>
-    
-
-
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // Rules
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
-
-    <rdf:Description rdf:about="urn:swrl#kw">
-        <rdf:type rdf:resource="&swrl;Variable"/>
-    </rdf:Description>
-    <rdf:Description>
-        <rdf:type rdf:resource="&swrl;Imp"/>
-        <swrl:body>
-            <rdf:Description>
-                <rdf:type rdf:resource="&swrl;AtomList"/>
-                <rdf:rest rdf:resource="&rdf;nil"/>
-                <rdf:first>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
-                        <swrl:propertyPredicate rdf:resource="&cdb;isBroaderThan"/>
-                        <swrl:argument1 rdf:resource="&cdb;k/greenhouse_gas"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
-                    </rdf:Description>
-                </rdf:first>
-            </rdf:Description>
-        </swrl:body>
-        <swrl:head>
-            <rdf:Description>
-                <rdf:type rdf:resource="&swrl;AtomList"/>
-                <rdf:rest rdf:resource="&rdf;nil"/>
-                <rdf:first>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
-                        <swrl:propertyPredicate rdf:resource="&cdb;containsKeyword"/>
-                        <swrl:argument1 rdf:resource="&cdb;d/greenhouse_gas"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#kw"/>
-                    </rdf:Description>
-                </rdf:first>
-            </rdf:Description>
-        </swrl:head>
-    </rdf:Description>
 </rdf:RDF>
 
 
