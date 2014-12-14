@@ -348,6 +348,28 @@
     
 
 
+    <!-- http://www.carbondb.org/#hasPositionAsCategoryForSomeElementaryFlowType -->
+
+    <owl:ObjectProperty rdf:about="&cdb;hasPositionAsCategoryForSomeElementaryFlowType">
+        <rdfs:domain rdf:resource="&cdb;CategoryOfElementaryFlowType"/>
+        <rdfs:range rdf:resource="&cdb;PositionOfElementaryFlowTypeInCategory"/>
+        <rdfs:subPropertyOf rdf:resource="&cdb;hasPositionAsContext"/>
+        <owl:inverseOf rdf:resource="&cdb;providesPositionInCategoryToSomeElementaryFlowType"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.carbondb.org/#hasPositionAsCategoryForSomeImpactType -->
+
+    <owl:ObjectProperty rdf:about="&cdb;hasPositionAsCategoryForSomeImpactType">
+        <rdfs:domain rdf:resource="&cdb;CategoryOfImpactType"/>
+        <rdfs:range rdf:resource="&cdb;PositionOfImpactTypeInCategory"/>
+        <rdfs:subPropertyOf rdf:resource="&cdb;hasPositionAsContext"/>
+        <owl:inverseOf rdf:resource="&cdb;providesPositionInCategoryToSomeImpactType"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://www.carbondb.org/#hasPositionAsCommonTagInSomeGroup -->
 
     <owl:ObjectProperty rdf:about="&cdb;hasPositionAsCommonTagInSomeGroup">
@@ -389,6 +411,17 @@
     
 
 
+    <!-- http://www.carbondb.org/#hasPositionAsElementaryFlowTypeInSomeCategory -->
+
+    <owl:ObjectProperty rdf:about="&cdb;hasPositionAsElementaryFlowTypeInSomeCategory">
+        <rdfs:domain rdf:resource="&cdb;ElementaryFlowType"/>
+        <rdfs:range rdf:resource="&cdb;PositionOfElementaryFlowTypeInCategory"/>
+        <rdfs:subPropertyOf rdf:resource="&cdb;hasPositionAsIndividual"/>
+        <owl:inverseOf rdf:resource="&cdb;providesPositionToElementaryFlowTypeInSomeCategory"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://www.carbondb.org/#hasPositionAsGroupForSomeCommonTag -->
 
     <owl:ObjectProperty rdf:about="&cdb;hasPositionAsGroupForSomeCommonTag">
@@ -407,6 +440,17 @@
         <rdfs:range rdf:resource="&cdb;PositionOfDimensionInGroup"/>
         <rdfs:subPropertyOf rdf:resource="&cdb;hasPositionAsContext"/>
         <owl:inverseOf rdf:resource="&cdb;providesPositionInGroupToSomeDimension"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.carbondb.org/#hasPositionAsImpactTypeInSomeCategory -->
+
+    <owl:ObjectProperty rdf:about="&cdb;hasPositionAsImpactTypeInSomeCategory">
+        <rdfs:domain rdf:resource="&cdb;ImpactType"/>
+        <rdfs:range rdf:resource="&cdb;PositionOfImpactTypeInCategory"/>
+        <rdfs:subPropertyOf rdf:resource="&cdb;hasPositionAsIndividual"/>
+        <owl:inverseOf rdf:resource="&cdb;providesPositionToImpactTypeInSomeCategory"/>
     </owl:ObjectProperty>
     
 
@@ -745,6 +789,26 @@
     
 
 
+    <!-- http://www.carbondb.org/#providesPositionInCategoryToSomeElementaryFlowType -->
+
+    <owl:ObjectProperty rdf:about="&cdb;providesPositionInCategoryToSomeElementaryFlowType">
+        <rdfs:range rdf:resource="&cdb;CategoryOfElementaryFlowType"/>
+        <rdfs:domain rdf:resource="&cdb;PositionOfElementaryFlowTypeInCategory"/>
+        <rdfs:subPropertyOf rdf:resource="&cdb;providesPositionInContext"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.carbondb.org/#providesPositionInCategoryToSomeImpactType -->
+
+    <owl:ObjectProperty rdf:about="&cdb;providesPositionInCategoryToSomeImpactType">
+        <rdfs:range rdf:resource="&cdb;CategoryOfImpactType"/>
+        <rdfs:domain rdf:resource="&cdb;PositionOfImpactTypeInCategory"/>
+        <rdfs:subPropertyOf rdf:resource="&cdb;providesPositionInContext"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://www.carbondb.org/#providesPositionInContext -->
 
     <owl:ObjectProperty rdf:about="&cdb;providesPositionInContext">
@@ -799,6 +863,26 @@
         <rdfs:range rdf:resource="&cdb;Dimension"/>
         <rdfs:domain rdf:resource="&cdb;PositionOfDimensionInGroup"/>
         <owl:inverseOf rdf:resource="&cdb;hasPositionAsDimensionInSomeGroup"/>
+        <rdfs:subPropertyOf rdf:resource="&cdb;providesPositionToIndividual"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.carbondb.org/#providesPositionToElementaryFlowTypeInSomeCategory -->
+
+    <owl:ObjectProperty rdf:about="&cdb;providesPositionToElementaryFlowTypeInSomeCategory">
+        <rdfs:range rdf:resource="&cdb;ElementaryFlowType"/>
+        <rdfs:domain rdf:resource="&cdb;PositionOfElementaryFlowTypeInCategory"/>
+        <rdfs:subPropertyOf rdf:resource="&cdb;providesPositionToIndividual"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.carbondb.org/#providesPositionToImpactTypeInSomeCategory -->
+
+    <owl:ObjectProperty rdf:about="&cdb;providesPositionToImpactTypeInSomeCategory">
+        <rdfs:range rdf:resource="&cdb;ImpactType"/>
+        <rdfs:domain rdf:resource="&cdb;PositionOfImpactTypeInCategory"/>
         <rdfs:subPropertyOf rdf:resource="&cdb;providesPositionToIndividual"/>
     </owl:ObjectProperty>
     
@@ -953,15 +1037,15 @@
     <owl:Class rdf:about="&cdb;CategoryOfGroup">
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&cdb;categorizesGroup"/>
-                <owl:someValuesFrom rdf:resource="&cdb;Group"/>
+                <owl:onProperty rdf:resource="&cdb;belongsToParentCategoryOfGroup"/>
+                <owl:onClass rdf:resource="&cdb;CategoryOfGroup"/>
+                <owl:maxQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxQualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&cdb;belongsToParentCategoryOfGroup"/>
-                <owl:onClass rdf:resource="&cdb;CategoryOfGroup"/>
-                <owl:maxQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onProperty rdf:resource="&cdb;categorizesGroup"/>
+                <owl:someValuesFrom rdf:resource="&cdb;Group"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <owl:disjointWith rdf:resource="&cdb;ComponentOfImpactType"/>
@@ -1022,7 +1106,21 @@
     <owl:Class rdf:about="&cdb;ComponentOfImpactType">
         <rdfs:subClassOf>
             <owl:Restriction>
+                <owl:onProperty rdf:resource="&cdb;isBasedOnElementaryFlowType"/>
+                <owl:onClass rdf:resource="&cdb;ElementaryFlowType"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
                 <owl:onProperty rdf:resource="&cdb;value"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;double"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cdb;uncertainty"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
                 <owl:onDataRange rdf:resource="&xsd;double"/>
             </owl:Restriction>
@@ -1032,20 +1130,6 @@
                 <owl:onProperty rdf:resource="&cdb;contributesToImpactType"/>
                 <owl:onClass rdf:resource="&cdb;ImpactType"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&cdb;isBasedOnElementaryFlowType"/>
-                <owl:onClass rdf:resource="&cdb;ElementaryFlowType"/>
-                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&cdb;uncertainty"/>
-                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onDataRange rdf:resource="&xsd;double"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <owl:disjointWith rdf:resource="&cdb;Dimension"/>
@@ -1113,15 +1197,15 @@
         <rdfs:subClassOf rdf:resource="&cdb;ThingWithUnit"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&cdb;hasReference"/>
-                <owl:someValuesFrom rdf:resource="&cdb;Reference"/>
+                <owl:onProperty rdf:resource="&cdb;hasUnit"/>
+                <owl:onClass rdf:resource="&cdb;Unit"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&cdb;hasUnit"/>
-                <owl:onClass rdf:resource="&cdb;Unit"/>
-                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onProperty rdf:resource="&cdb;hasReference"/>
+                <owl:someValuesFrom rdf:resource="&cdb;Reference"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
@@ -1133,16 +1217,16 @@
     <owl:Class rdf:about="&cdb;ElementaryFlow">
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&cdb;value"/>
+                <owl:onProperty rdf:resource="&cdb;isFlowOfSingleProcess"/>
+                <owl:onClass rdf:resource="&cdb;SingleProcess"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onDataRange rdf:resource="&xsd;double"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&cdb;isFlowOfSingleProcess"/>
-                <owl:onClass rdf:resource="&cdb;SingleProcess"/>
+                <owl:onProperty rdf:resource="&cdb;value"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;double"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -1180,6 +1264,12 @@
     <owl:Class rdf:about="&cdb;ElementaryFlowType">
         <rdfs:subClassOf>
             <owl:Restriction>
+                <owl:onProperty rdf:resource="&cdb;isTypeOfElementaryFlow"/>
+                <owl:someValuesFrom rdf:resource="&cdb;ElementaryFlow"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
                 <owl:onProperty rdf:resource="&cdb;belongsToCategoryOfElementaryFlowType"/>
                 <owl:onClass rdf:resource="&cdb;CategoryOfElementaryFlowType"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
@@ -1189,12 +1279,6 @@
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&cdb;isElementaryFlowTypeOfComponentOfImpactType"/>
                 <owl:someValuesFrom rdf:resource="&cdb;ComponentOfImpactType"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&cdb;isTypeOfElementaryFlow"/>
-                <owl:someValuesFrom rdf:resource="&cdb;ElementaryFlow"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <owl:disjointWith rdf:resource="&cdb;Group"/>
@@ -1218,6 +1302,12 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&cdb;hasDimension"/>
+                <owl:someValuesFrom rdf:resource="&cdb;Dimension"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cdb;hasDimension"/>
                 <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -1226,12 +1316,6 @@
                 <owl:onProperty rdf:resource="&cdb;belongsToCategoryOfGroup"/>
                 <owl:onClass rdf:resource="&cdb;CategoryOfGroup"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&cdb;hasDimension"/>
-                <owl:someValuesFrom rdf:resource="&cdb;Dimension"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <owl:disjointWith rdf:resource="&cdb;Impact"/>
@@ -1367,6 +1451,20 @@
 
     <owl:Class rdf:about="&cdb;PositionOfCommonTagInGroup">
         <rdfs:subClassOf rdf:resource="&cdb;Position"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cdb;providesPositionToCommonTagInSomeGroup"/>
+                <owl:onClass rdf:resource="&cdb;Keyword"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cdb;providesPositionInGroupToSomeCommonTag"/>
+                <owl:onClass rdf:resource="&cdb;Group"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <owl:disjointWith rdf:resource="&cdb;PositionOfDimensionInGroup"/>
         <owl:disjointWith rdf:resource="&cdb;PositionOfElementaryFlowTypeInCategory"/>
         <owl:disjointWith rdf:resource="&cdb;PositionOfImpactTypeInCategory"/>
@@ -1379,6 +1477,20 @@
 
     <owl:Class rdf:about="&cdb;PositionOfDimensionInGroup">
         <rdfs:subClassOf rdf:resource="&cdb;Position"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cdb;providesPositionToDimensionInSomeGroup"/>
+                <owl:onClass rdf:resource="&cdb;Dimension"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cdb;providesPositionInGroupToSomeDimension"/>
+                <owl:onClass rdf:resource="&cdb;Group"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <owl:disjointWith rdf:resource="&cdb;PositionOfElementaryFlowTypeInCategory"/>
         <owl:disjointWith rdf:resource="&cdb;PositionOfImpactTypeInCategory"/>
         <owl:disjointWith rdf:resource="&cdb;PositionOfKeywordInDimension"/>
@@ -1411,15 +1523,15 @@
         <rdfs:subClassOf rdf:resource="&cdb;Position"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&cdb;providesPositionInDimensionToSomeKeyword"/>
-                <owl:onClass rdf:resource="&cdb;Dimension"/>
+                <owl:onProperty rdf:resource="&cdb;providesPositionToKeywordInSomeDimension"/>
+                <owl:onClass rdf:resource="&cdb;Keyword"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&cdb;providesPositionToKeywordInSomeDimension"/>
-                <owl:onClass rdf:resource="&cdb;Keyword"/>
+                <owl:onProperty rdf:resource="&cdb;providesPositionInDimensionToSomeKeyword"/>
+                <owl:onClass rdf:resource="&cdb;Dimension"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -1469,20 +1581,6 @@
     <owl:Class rdf:about="&cdb;Relation">
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&cdb;hasRelationType"/>
-                <owl:onClass rdf:resource="&cdb;RelationType"/>
-                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&cdb;hasWeightCoefficient"/>
-                <owl:onClass rdf:resource="&cdb;Coefficient"/>
-                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
                 <owl:onProperty rdf:resource="&cdb;exponent"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
                 <owl:onDataRange rdf:resource="&xsd;short"/>
@@ -1497,8 +1595,22 @@
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
+                <owl:onProperty rdf:resource="&cdb;hasRelationType"/>
+                <owl:onClass rdf:resource="&cdb;RelationType"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
                 <owl:onProperty rdf:resource="&cdb;hasOriginProcess"/>
                 <owl:onClass rdf:resource="&cdb;Process"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cdb;hasWeightCoefficient"/>
+                <owl:onClass rdf:resource="&cdb;Coefficient"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -2099,6 +2211,10 @@
     <owl:NamedIndividual rdf:about="&cdb;cateft/greenhouse_gas_emission">
         <rdf:type rdf:resource="&cdb;CategoryOfElementaryFlowType"/>
         <rdfs:label xml:lang="en">Greenhouse gas emission</rdfs:label>
+        <cdb:hasPositionAsCategoryForSomeElementaryFlowType rdf:resource="&cdb;pos/cateft/greenhouse_gas_emission+ch4+3"/>
+        <cdb:hasPositionAsCategoryForSomeElementaryFlowType rdf:resource="&cdb;pos/cateft/greenhouse_gas_emission+co2+1"/>
+        <cdb:hasPositionAsCategoryForSomeElementaryFlowType rdf:resource="&cdb;pos/cateft/greenhouse_gas_emission+co2e+2"/>
+        <cdb:hasPositionAsCategoryForSomeElementaryFlowType rdf:resource="&cdb;pos/cateft/greenhouse_gas_emission+n2o+4"/>
         <cdb:hasUnit rdf:resource="&cdb;u/kilogram"/>
     </owl:NamedIndividual>
     
@@ -2109,6 +2225,13 @@
     <owl:NamedIndividual rdf:about="&cdb;cateft/primary_energy_extraction">
         <rdf:type rdf:resource="&cdb;CategoryOfElementaryFlowType"/>
         <rdfs:label xml:lang="en">Primary energy extraction</rdfs:label>
+        <cdb:hasPositionAsCategoryForSomeElementaryFlowType rdf:resource="&cdb;pos/cateft/primary_energy_extraction+anthracite+3"/>
+        <cdb:hasPositionAsCategoryForSomeElementaryFlowType rdf:resource="&cdb;pos/cateft/primary_energy_extraction+crude_oil+1"/>
+        <cdb:hasPositionAsCategoryForSomeElementaryFlowType rdf:resource="&cdb;pos/cateft/primary_energy_extraction+hydro_power+6"/>
+        <cdb:hasPositionAsCategoryForSomeElementaryFlowType rdf:resource="&cdb;pos/cateft/primary_energy_extraction+lignite+4"/>
+        <cdb:hasPositionAsCategoryForSomeElementaryFlowType rdf:resource="&cdb;pos/cateft/primary_energy_extraction+natural_gas+2"/>
+        <cdb:hasPositionAsCategoryForSomeElementaryFlowType rdf:resource="&cdb;pos/cateft/primary_energy_extraction+nuclear+5"/>
+        <cdb:hasPositionAsCategoryForSomeElementaryFlowType rdf:resource="&cdb;pos/cateft/primary_energy_extraction+undifferentiated+7"/>
         <cdb:hasUnit rdf:resource="&cdb;u/kilowatt_hour"/>
     </owl:NamedIndividual>
     
@@ -2122,6 +2245,9 @@
         <rdfs:label xml:lang="fr">Émission de gaz à effet de serre</rdfs:label>
         <cdb:header xml:lang="en">GWP time horizon</cdb:header>
         <cdb:header xml:lang="fr">Horizon temporel du PRG</cdb:header>
+        <cdb:hasPositionAsCategoryForSomeImpactType rdf:resource="&cdb;pos/catit/greenhouse_gas_emission+gwp_100_years+2"/>
+        <cdb:hasPositionAsCategoryForSomeImpactType rdf:resource="&cdb;pos/catit/greenhouse_gas_emission+gwp_20_years+1"/>
+        <cdb:hasPositionAsCategoryForSomeImpactType rdf:resource="&cdb;pos/catit/greenhouse_gas_emission+gwp_500_years+3"/>
         <cdb:hasUnit rdf:resource="&cdb;u/kilogram_co2_equivalent"/>
     </owl:NamedIndividual>
     
@@ -2135,6 +2261,7 @@
         <rdfs:label xml:lang="fr">Extraction d&apos;énergie primaire</rdfs:label>
         <cdb:header xml:lang="en">Type</cdb:header>
         <cdb:header xml:lang="fr">Type</cdb:header>
+        <cdb:hasPositionAsCategoryForSomeImpactType rdf:resource="&cdb;pos/catit/primary_energy_extraction+total_primary_energy+1"/>
         <cdb:hasUnit rdf:resource="&cdb;u/kilowatt_hour"/>
     </owl:NamedIndividual>
     
@@ -8317,6 +8444,147 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
         <rdfs:label xml:lang="en">Zinc</rdfs:label>
         <rdfs:label xml:lang="fr">Zinc</rdfs:label>
     </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.carbondb.org/#pos/cateft/greenhouse_gas_emission+ch4+3 -->
+
+    <owl:NamedIndividual rdf:about="&cdb;pos/cateft/greenhouse_gas_emission+ch4+3">
+        <cdb:position rdf:datatype="&xsd;short">3</cdb:position>
+        <cdb:providesPositionToElementaryFlowTypeInSomeCategory rdf:resource="&cdb;eft/ghg/ch4"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.carbondb.org/#pos/cateft/greenhouse_gas_emission+co2+1 -->
+
+    <owl:NamedIndividual rdf:about="&cdb;pos/cateft/greenhouse_gas_emission+co2+1">
+        <cdb:position rdf:datatype="&xsd;short">1</cdb:position>
+        <cdb:providesPositionToElementaryFlowTypeInSomeCategory rdf:resource="&cdb;eft/ghg/co2"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.carbondb.org/#pos/cateft/greenhouse_gas_emission+co2e+2 -->
+
+    <owl:NamedIndividual rdf:about="&cdb;pos/cateft/greenhouse_gas_emission+co2e+2">
+        <cdb:position rdf:datatype="&xsd;short">2</cdb:position>
+        <cdb:providesPositionToElementaryFlowTypeInSomeCategory rdf:resource="&cdb;eft/ghg/co2e"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.carbondb.org/#pos/cateft/greenhouse_gas_emission+n2o+4 -->
+
+    <owl:NamedIndividual rdf:about="&cdb;pos/cateft/greenhouse_gas_emission+n2o+4">
+        <cdb:position rdf:datatype="&xsd;short">4</cdb:position>
+        <cdb:providesPositionToElementaryFlowTypeInSomeCategory rdf:resource="&cdb;eft/ghg/n2o"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.carbondb.org/#pos/cateft/primary_energy_extraction+anthracite+3 -->
+
+    <owl:NamedIndividual rdf:about="&cdb;pos/cateft/primary_energy_extraction+anthracite+3">
+        <cdb:position rdf:datatype="&xsd;short">3</cdb:position>
+        <cdb:providesPositionToElementaryFlowTypeInSomeCategory rdf:resource="&cdb;eft/pe/anthracite"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.carbondb.org/#pos/cateft/primary_energy_extraction+crude_oil+1 -->
+
+    <owl:NamedIndividual rdf:about="&cdb;pos/cateft/primary_energy_extraction+crude_oil+1">
+        <cdb:position rdf:datatype="&xsd;short">1</cdb:position>
+        <cdb:providesPositionToElementaryFlowTypeInSomeCategory rdf:resource="&cdb;eft/pe/crude_oil"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.carbondb.org/#pos/cateft/primary_energy_extraction+hydro_power+6 -->
+
+    <owl:NamedIndividual rdf:about="&cdb;pos/cateft/primary_energy_extraction+hydro_power+6">
+        <cdb:position rdf:datatype="&xsd;short">6</cdb:position>
+        <cdb:providesPositionToElementaryFlowTypeInSomeCategory rdf:resource="&cdb;eft/pe/hydro_power"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.carbondb.org/#pos/cateft/primary_energy_extraction+lignite+4 -->
+
+    <owl:NamedIndividual rdf:about="&cdb;pos/cateft/primary_energy_extraction+lignite+4">
+        <cdb:position rdf:datatype="&xsd;short">4</cdb:position>
+        <cdb:providesPositionToElementaryFlowTypeInSomeCategory rdf:resource="&cdb;eft/pe/lignite"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.carbondb.org/#pos/cateft/primary_energy_extraction+natural_gas+2 -->
+
+    <owl:NamedIndividual rdf:about="&cdb;pos/cateft/primary_energy_extraction+natural_gas+2">
+        <cdb:position rdf:datatype="&xsd;short">2</cdb:position>
+        <cdb:providesPositionToElementaryFlowTypeInSomeCategory rdf:resource="&cdb;eft/pe/natural_gas"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.carbondb.org/#pos/cateft/primary_energy_extraction+nuclear+5 -->
+
+    <owl:NamedIndividual rdf:about="&cdb;pos/cateft/primary_energy_extraction+nuclear+5">
+        <cdb:position rdf:datatype="&xsd;short">5</cdb:position>
+        <cdb:providesPositionToElementaryFlowTypeInSomeCategory rdf:resource="&cdb;eft/pe/nuclear"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.carbondb.org/#pos/cateft/primary_energy_extraction+undifferentiated+7 -->
+
+    <owl:NamedIndividual rdf:about="&cdb;pos/cateft/primary_energy_extraction+undifferentiated+7">
+        <cdb:position rdf:datatype="&xsd;short">7</cdb:position>
+        <cdb:providesPositionToElementaryFlowTypeInSomeCategory rdf:resource="&cdb;eft/pe/undifferentiated"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.carbondb.org/#pos/catit/greenhouse_gas_emission+gwp_100_years+2 -->
+
+    <owl:NamedIndividual rdf:about="&cdb;pos/catit/greenhouse_gas_emission+gwp_100_years+2">
+        <cdb:position rdf:datatype="&xsd;short">2</cdb:position>
+        <cdb:providesPositionToImpactTypeInSomeCategory rdf:resource="&cdb;it/ghg_emission_measured_using_gwp_over_100_years"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.carbondb.org/#pos/catit/greenhouse_gas_emission+gwp_20_years+1 -->
+
+    <owl:NamedIndividual rdf:about="&cdb;pos/catit/greenhouse_gas_emission+gwp_20_years+1">
+        <cdb:position rdf:datatype="&xsd;short">1</cdb:position>
+        <cdb:providesPositionToImpactTypeInSomeCategory rdf:resource="&cdb;it/ghg_emission_measured_using_gwp_over_20_years"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.carbondb.org/#pos/catit/greenhouse_gas_emission+gwp_500_years+3 -->
+
+    <owl:NamedIndividual rdf:about="&cdb;pos/catit/greenhouse_gas_emission+gwp_500_years+3">
+        <cdb:position rdf:datatype="&xsd;short">3</cdb:position>
+        <cdb:providesPositionToImpactTypeInSomeCategory rdf:resource="&cdb;it/ghg_emission_measured_using_gwp_over_500_years"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.carbondb.org/#pos/catit/primary_energy_extraction+1 -->
+
+    <owl:NamedIndividual rdf:about="&cdb;pos/catit/primary_energy_extraction+1">
+        <cdb:position rdf:datatype="&xsd;short">1</cdb:position>
+        <cdb:providesPositionToImpactTypeInSomeCategory rdf:resource="&cdb;it/total_primary_energy"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.carbondb.org/#pos/catit/primary_energy_extraction+total_primary_energy+1 -->
+
+    <owl:NamedIndividual rdf:about="&cdb;pos/catit/primary_energy_extraction+total_primary_energy+1"/>
     
 
 
