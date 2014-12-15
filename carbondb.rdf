@@ -1009,6 +1009,13 @@
     <owl:Class rdf:about="&ontology;ComponentOfImpactType">
         <rdfs:subClassOf>
             <owl:Restriction>
+                <owl:onProperty rdf:resource="&ontology;uncertainty"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;double"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
                 <owl:onProperty rdf:resource="&ontology;isBasedOnElementaryFlowType"/>
                 <owl:onClass rdf:resource="&ontology;ElementaryFlowType"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
@@ -1024,13 +1031,6 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&ontology;value"/>
-                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onDataRange rdf:resource="&xsd;double"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontology;uncertainty"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
                 <owl:onDataRange rdf:resource="&xsd;double"/>
             </owl:Restriction>
@@ -1100,15 +1100,15 @@
         <rdfs:subClassOf rdf:resource="&ontology;ThingWithUnit"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontology;hasUnit"/>
-                <owl:onClass rdf:resource="&ontology;Unit"/>
-                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onProperty rdf:resource="&ontology;hasReference"/>
+                <owl:someValuesFrom rdf:resource="&ontology;Reference"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontology;hasReference"/>
-                <owl:someValuesFrom rdf:resource="&ontology;Reference"/>
+                <owl:onProperty rdf:resource="&ontology;hasUnit"/>
+                <owl:onClass rdf:resource="&ontology;Unit"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
@@ -1120,13 +1120,6 @@
     <owl:Class rdf:about="&ontology;ElementaryFlow">
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontology;value"/>
-                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onDataRange rdf:resource="&xsd;double"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
                 <owl:onProperty rdf:resource="&ontology;isFlowOfSingleProcess"/>
                 <owl:onClass rdf:resource="&ontology;SingleProcess"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
@@ -1134,16 +1127,23 @@
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontology;uncertainty"/>
+                <owl:onProperty rdf:resource="&ontology;hasElementaryFlowType"/>
+                <owl:onClass rdf:resource="&ontology;ElementaryFlowType"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&ontology;value"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
                 <owl:onDataRange rdf:resource="&xsd;double"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontology;hasElementaryFlowType"/>
-                <owl:onClass rdf:resource="&ontology;ElementaryFlowType"/>
+                <owl:onProperty rdf:resource="&ontology;uncertainty"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;double"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <owl:disjointWith rdf:resource="&ontology;ElementaryFlowType"/>
@@ -1167,6 +1167,13 @@
     <owl:Class rdf:about="&ontology;ElementaryFlowType">
         <rdfs:subClassOf>
             <owl:Restriction>
+                <owl:onProperty rdf:resource="&ontology;belongsToCategoryOfElementaryFlowType"/>
+                <owl:onClass rdf:resource="&ontology;CategoryOfElementaryFlowType"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
                 <owl:onProperty rdf:resource="&ontology;isTypeOfElementaryFlow"/>
                 <owl:someValuesFrom rdf:resource="&ontology;ElementaryFlow"/>
             </owl:Restriction>
@@ -1175,13 +1182,6 @@
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&ontology;isElementaryFlowTypeOfComponentOfImpactType"/>
                 <owl:someValuesFrom rdf:resource="&ontology;ComponentOfImpactType"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontology;belongsToCategoryOfElementaryFlowType"/>
-                <owl:onClass rdf:resource="&ontology;CategoryOfElementaryFlowType"/>
-                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <owl:disjointWith rdf:resource="&ontology;Group"/>
@@ -1204,15 +1204,15 @@
     <owl:Class rdf:about="&ontology;Group">
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontology;belongsToCategoryOfGroup"/>
-                <owl:onClass rdf:resource="&ontology;CategoryOfGroup"/>
-                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onProperty rdf:resource="&ontology;hasDimension"/>
+                <owl:someValuesFrom rdf:resource="&ontology;Dimension"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontology;hasDimension"/>
-                <owl:someValuesFrom rdf:resource="&ontology;Dimension"/>
+                <owl:onProperty rdf:resource="&ontology;belongsToCategoryOfGroup"/>
+                <owl:onClass rdf:resource="&ontology;CategoryOfGroup"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -1239,9 +1239,9 @@
     <owl:Class rdf:about="&ontology;Impact">
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontology;uncertainty"/>
+                <owl:onProperty rdf:resource="&ontology;hasImpactType"/>
+                <owl:onClass rdf:resource="&ontology;ImpactType"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onDataRange rdf:resource="&xsd;double"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -1253,9 +1253,9 @@
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontology;hasImpactType"/>
-                <owl:onClass rdf:resource="&ontology;ImpactType"/>
+                <owl:onProperty rdf:resource="&ontology;uncertainty"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;double"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <owl:disjointWith rdf:resource="&ontology;ImpactType"/>
@@ -1356,15 +1356,15 @@
         <rdfs:subClassOf rdf:resource="&ontology;Position"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontology;providesPositionToCommonTagInSomeGroup"/>
-                <owl:onClass rdf:resource="&ontology;Keyword"/>
+                <owl:onProperty rdf:resource="&ontology;providesPositionInGroupToSomeCommonTag"/>
+                <owl:onClass rdf:resource="&ontology;Group"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontology;providesPositionInGroupToSomeCommonTag"/>
-                <owl:onClass rdf:resource="&ontology;Group"/>
+                <owl:onProperty rdf:resource="&ontology;providesPositionToCommonTagInSomeGroup"/>
+                <owl:onClass rdf:resource="&ontology;Keyword"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -1426,15 +1426,15 @@
         <rdfs:subClassOf rdf:resource="&ontology;Position"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontology;providesPositionInDimensionToSomeKeyword"/>
-                <owl:onClass rdf:resource="&ontology;Dimension"/>
+                <owl:onProperty rdf:resource="&ontology;providesPositionToKeywordInSomeDimension"/>
+                <owl:onClass rdf:resource="&ontology;Keyword"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontology;providesPositionToKeywordInSomeDimension"/>
-                <owl:onClass rdf:resource="&ontology;Keyword"/>
+                <owl:onProperty rdf:resource="&ontology;providesPositionInDimensionToSomeKeyword"/>
+                <owl:onClass rdf:resource="&ontology;Dimension"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -1484,22 +1484,15 @@
     <owl:Class rdf:about="&ontology;Relation">
         <rdfs:subClassOf>
             <owl:Restriction>
+                <owl:onProperty rdf:resource="&ontology;hasRelationType"/>
+                <owl:onClass rdf:resource="&ontology;RelationType"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
                 <owl:onProperty rdf:resource="&ontology;hasWeightCoefficient"/>
                 <owl:onClass rdf:resource="&ontology;Coefficient"/>
-                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontology;hasOriginProcess"/>
-                <owl:onClass rdf:resource="&ontology;Process"/>
-                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontology;hasDestinationProcess"/>
-                <owl:onClass rdf:resource="&ontology;Process"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -1512,8 +1505,15 @@
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontology;hasRelationType"/>
-                <owl:onClass rdf:resource="&ontology;RelationType"/>
+                <owl:onProperty rdf:resource="&ontology;hasDestinationProcess"/>
+                <owl:onClass rdf:resource="&ontology;Process"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&ontology;hasOriginProcess"/>
+                <owl:onClass rdf:resource="&ontology;Process"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -7900,7 +7900,7 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
 
     <owl:NamedIndividual rdf:about="&ontology;ref/ecotransit_2011">
         <rdf:type rdf:resource="&ontology;Reference"/>
-        <ontology:date rdf:datatype="&xsd;string">2011-07-31</ontology:date>
+        <ontology:date rdf:datatype="&xsd;string">2011</ontology:date>
         <ontology:title rdf:datatype="&xsd;string">Ecological Transport Information Tool for Worldwide Transports, Methodology and Data Update</ontology:title>
         <ontology:source rdf:datatype="&xsd;string">Ecotransit</ontology:source>
         <ontology:shortName rdf:datatype="&xsd;string">Ecotransit 2011</ontology:shortName>
@@ -7926,7 +7926,7 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
 
     <owl:NamedIndividual rdf:about="&ontology;ref/ipcc_ar5_2013_wg1">
         <rdf:type rdf:resource="&ontology;Reference"/>
-        <ontology:date rdf:datatype="&xsd;string">2013-09</ontology:date>
+        <ontology:date rdf:datatype="&xsd;string">2013</ontology:date>
         <ontology:title rdf:datatype="&xsd;string">Fifth Assessment Report (AR5), Climate Change 2013, The Physical Science Basis</ontology:title>
         <ontology:shortName rdf:datatype="&xsd;string">IPCC AR5 2013 WG1</ontology:shortName>
         <ontology:creator rdf:datatype="&xsd;string">Integovernemental Panel on Climate Change, Working Group 1</ontology:creator>
@@ -7981,7 +7981,7 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
 
     <owl:NamedIndividual rdf:about="&ontology;ref/jec_wtt_v4a_2014">
         <rdf:type rdf:resource="&ontology;Reference"/>
-        <ontology:date rdf:datatype="&xsd;string">2014-04</ontology:date>
+        <ontology:date rdf:datatype="&xsd;string">2014</ontology:date>
         <ontology:creator rdf:datatype="&xsd;string">JEC (Joint Research Centre-EUCAR-CONCAWE collaboration)</ontology:creator>
         <ontology:shortName rdf:datatype="&xsd;string">JEC WTT v4a 2014</ontology:shortName>
         <ontology:title rdf:datatype="&xsd;string">Well-to-Tank Report, version 4.a</ontology:title>
@@ -8008,7 +8008,7 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
 
     <owl:NamedIndividual rdf:about="&ontology;ref/staffel_2011">
         <rdf:type rdf:resource="&ontology;Reference"/>
-        <ontology:date rdf:datatype="&xsd;string">2011-03</ontology:date>
+        <ontology:date rdf:datatype="&xsd;string">2011</ontology:date>
         <ontology:creator rdf:datatype="&xsd;string">Iain Staffell (University of Birmingham)</ontology:creator>
         <ontology:shortName rdf:datatype="&xsd;string">Staffel 2011</ontology:shortName>
         <ontology:title rdf:datatype="&xsd;string">The Energy and Fuel Data Sheet</ontology:title>
