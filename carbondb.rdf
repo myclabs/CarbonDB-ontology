@@ -2738,23 +2738,6 @@
     
 
 
-    <!-- http://www.carbondb.org/ontology#d/motorcycle_engine_displacement -->
-
-    <owl:NamedIndividual rdf:about="&ontology;d/motorcycle_engine_displacement">
-        <ontology:containsKeyword rdf:resource="&ontology;k/less_than_750_cm3"/>
-        <ontology:containsKeyword rdf:resource="&ontology;k/more_than_750_cm3"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/ontology#d/motorcycle_fuel -->
-
-    <owl:NamedIndividual rdf:about="&ontology;d/motorcycle_fuel">
-        <ontology:containsKeyword rdf:resource="&ontology;k/gasoline_engine"/>
-    </owl:NamedIndividual>
-    
-
-
     <!-- http://www.carbondb.org/ontology#d/natural_gas -->
 
     <owl:NamedIndividual rdf:about="&ontology;d/natural_gas">
@@ -3846,21 +3829,6 @@ Refining fuel is assumed to be crude oil. </rdfs:comment>
     
 
 
-    <!-- http://www.carbondb.org/ontology#gc/volume_of_fuel_consumed_per_unit_of_distance_travelled_motorcycle -->
-
-    <owl:NamedIndividual rdf:about="&ontology;gc/volume_of_fuel_consumed_per_unit_of_distance_travelled_motorcycle">
-        <rdf:type rdf:resource="&ontology;CoefficientGroup"/>
-        <rdfs:label xml:lang="en">Volume of fuel consumed per unit of distance travelled, motorcycle</rdfs:label>
-        <rdfs:label xml:lang="fr">Volume de carburant consommé par unité de distance parcourue, moto</rdfs:label>
-        <ontology:belongsToCategoryOfGroup rdf:resource="&ontology;c/road_passenger_transport_source_data"/>
-        <ontology:hasVerticalDimension rdf:resource="&ontology;d/motorcycle_engine_displacement"/>
-        <ontology:hasHorizontalDimension rdf:resource="&ontology;d/motorcycle_fuel"/>
-        <ontology:hasCommonTag rdf:resource="&ontology;k/fuel_consumption"/>
-        <ontology:hasUnit rdf:resource="&ontology;u/litre_per_vehicle_100_kilometre"/>
-    </owl:NamedIndividual>
-    
-
-
     <!-- http://www.carbondb.org/ontology#gc/volume_of_fuel_consumed_per_unit_of_distance_travelled_road_freight_transport -->
 
     <owl:NamedIndividual rdf:about="&ontology;gc/volume_of_fuel_consumed_per_unit_of_distance_travelled_road_freight_transport">
@@ -4657,20 +4625,6 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
         <ontology:belongsToCategoryOfGroup rdf:resource="&ontology;c/road_passenger_transport"/>
         <ontology:hasVerticalDimension rdf:resource="&ontology;d/car_engine"/>
         <ontology:hasVerticalDimension rdf:resource="&ontology;d/tax_horsepower"/>
-        <ontology:hasHorizontalDimension rdf:resource="&ontology;d/transport_process"/>
-        <ontology:hasUnit rdf:resource="&ontology;u/vehicle_kilometre"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/ontology#gp/travel_by_motorcycle -->
-
-    <owl:NamedIndividual rdf:about="&ontology;gp/travel_by_motorcycle">
-        <rdf:type rdf:resource="&ontology;ProcessGroup"/>
-        <rdfs:label xml:lang="en">Travel by motorcycle</rdfs:label>
-        <rdfs:label xml:lang="fr">Déplacement en moto</rdfs:label>
-        <ontology:belongsToCategoryOfGroup rdf:resource="&ontology;c/road_passenger_transport"/>
-        <ontology:hasVerticalDimension rdf:resource="&ontology;d/motorcycle_engine_displacement"/>
         <ontology:hasHorizontalDimension rdf:resource="&ontology;d/transport_process"/>
         <ontology:hasUnit rdf:resource="&ontology;u/vehicle_kilometre"/>
     </owl:NamedIndividual>
@@ -5758,15 +5712,6 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     
 
 
-    <!-- http://www.carbondb.org/ontology#k/less_than_750_cm3 -->
-
-    <owl:NamedIndividual rdf:about="&ontology;k/less_than_750_cm3">
-        <rdfs:label xml:lang="en">Less than 750 cm3</rdfs:label>
-        <rdfs:label xml:lang="fr">Inférieure à 750 cm3</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
     <!-- http://www.carbondb.org/ontology#k/lifespan_allocation -->
 
     <owl:NamedIndividual rdf:about="&ontology;k/lifespan_allocation">
@@ -5971,15 +5916,6 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     <owl:NamedIndividual rdf:about="&ontology;k/more_than_7000_km">
         <rdfs:label xml:lang="en">More than 7000 kilometers</rdfs:label>
         <rdfs:label xml:lang="fr">Plus de 7000 kilomètres</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/ontology#k/more_than_750_cm3 -->
-
-    <owl:NamedIndividual rdf:about="&ontology;k/more_than_750_cm3">
-        <rdfs:label xml:lang="en">More than 750 cm3</rdfs:label>
-        <rdfs:label xml:lang="fr">Plus de 750 cm3</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -7856,19 +7792,6 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
         <ontology:hasWeightCoefficient rdf:resource="&ontology;gc/volume_of_fuel_consumed_per_unit_of_distance_travelled_car"/>
         <ontology:hasOriginProcess rdf:resource="&ontology;gp/combustion_of_fuel_for_car"/>
         <ontology:hasDestinationProcess rdf:resource="&ontology;gp/travel_by_car"/>
-        <ontology:hasRelationType rdf:resource="&ontology;rt/synchronous_dependency"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/ontology#r/volume_of_fuel_consumed_per_unit_of_distance_travelled_motorcycle -->
-
-    <owl:NamedIndividual rdf:about="&ontology;r/volume_of_fuel_consumed_per_unit_of_distance_travelled_motorcycle">
-        <rdf:type rdf:resource="&ontology;SourceRelation"/>
-        <ontology:exponent rdf:datatype="&xsd;short">1</ontology:exponent>
-        <ontology:hasWeightCoefficient rdf:resource="&ontology;gc/volume_of_fuel_consumed_per_unit_of_distance_travelled_motorcycle"/>
-        <ontology:hasOriginProcess rdf:resource="&ontology;gp/combustion_unit_of_volume"/>
-        <ontology:hasDestinationProcess rdf:resource="&ontology;gp/travel_by_motorcycle"/>
         <ontology:hasRelationType rdf:resource="&ontology;rt/synchronous_dependency"/>
     </owl:NamedIndividual>
     
