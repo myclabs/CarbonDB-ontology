@@ -3065,7 +3065,7 @@
     <owl:NamedIndividual rdf:about="&ontology;gc/amount_of_final_energy_required_for_production_of_chemical">
         <rdf:type rdf:resource="&ontology;CoefficientGroup"/>
         <rdfs:label xml:lang="en">Amount of final energy required for production of a chemical</rdfs:label>
-        <rdfs:comment xml:lang="en">Data are taken from [JRC Biofuels 2012], p. 17, 18, 25, 29, 47.
+        <rdfs:comment xml:lang="en">Data are taken from {ref/jrc_biofuels_2012}, p. 17, 18, 25, 29, 47.
 
 For synthetic nitrogen fertilizer, hydro power and nuclear fuel inputs were ignored at this stage. 
 
@@ -3134,7 +3134,7 @@ Units of measure are :
     <owl:NamedIndividual rdf:about="&ontology;gc/composition_of_electricity_mix">
         <rdf:type rdf:resource="&ontology;CoefficientGroup"/>
         <rdfs:label xml:lang="en">Composition of electricity mix</rdfs:label>
-        <rdfs:comment xml:lang="en">WARNING ! Work under construction. The values were roughly derived from [JEC WTT v4a 2014], but they are neither precise nor complete. </rdfs:comment>
+        <rdfs:comment xml:lang="en">WARNING ! Work under construction. The values were roughly derived from {ref/jec_wtt_v4a_2014}, but they are neither precise nor complete. </rdfs:comment>
         <ontology:belongsToCategoryOfGroup rdf:resource="&ontology;c/electricity_source_data"/>
         <ontology:hasHorizontalDimension rdf:resource="&ontology;d/power_plant_type"/>
         <ontology:hasVerticalDimension rdf:resource="&ontology;d/type_of_electricity_consumption"/>
@@ -3150,7 +3150,7 @@ Units of measure are :
     <owl:NamedIndividual rdf:about="&ontology;gc/crop_yield">
         <rdf:type rdf:resource="&ontology;CoefficientGroup"/>
         <rdfs:label xml:lang="en">Mass of agricultural product produced by unit of cultivated area</rdfs:label>
-        <rdfs:comment xml:lang="en">Data are taken from [JRC Biofuels 2012], p. 49.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Data are taken from {ref/jrc_biofuels_2012}, p. 49.</rdfs:comment>
         <ontology:belongsToCategoryOfGroup rdf:resource="&ontology;c/crop_cultivation_source_data"/>
         <ontology:hasVerticalDimension rdf:resource="&ontology;d/crop"/>
         <ontology:hasCommonTag rdf:resource="&ontology;k/crop_yield"/>
@@ -3167,7 +3167,7 @@ Units of measure are :
         <rdfs:label xml:lang="en">Crude oil allocation to refined product</rdfs:label>
         <rdfs:comment xml:lang="en">We made the assumption that, apart the refining fuel, one unit of crude oil is required in order to produce one unit of refined fuer, for each refined fuel considered. 
 
-This is a rough hypothesis, which does not take into account the fact that, for instance, gas/diesel oil and gasoline demands grow faster than gasoline demand (see p 29 of \ref{ref/jec_wtt_v4a_2014}. See also the &quot;refining energy&quot; coefficient group. </rdfs:comment>
+This is a rough hypothesis, which does not take into account the fact that, for instance, gas/diesel oil and gasoline demands grow faster than gasoline demand (see p 29 of {ref/jec_wtt_v4a_2014}. See also the &quot;refining energy&quot; coefficient group. </rdfs:comment>
         <ontology:belongsToCategoryOfGroup rdf:resource="&ontology;c/fuel_calculation_tool"/>
         <ontology:hasVerticalDimension rdf:resource="&ontology;d/refined_fossil_fuel"/>
         <ontology:hasCommonTag rdf:resource="&ontology;k/allocation_to_refined_product"/>
@@ -3185,7 +3185,7 @@ This is a rough hypothesis, which does not take into account the fact that, for 
     <owl:NamedIndividual rdf:about="&ontology;gc/distance_between_source_and_market_of_fossil_fuel">
         <rdf:type rdf:resource="&ontology;CoefficientGroup"/>
         <rdfs:label xml:lang="en">Distance between source and market of a fossil fuel</rdfs:label>
-        <rdfs:comment xml:lang="en">Hypothesis is taken from [JEC WTT v4a 2014], paragraph 3.2.3, p. 32.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Hypothesis is taken from {ref/jec_wtt_v4a_2014}, paragraph 3.2.3, p. 32.</rdfs:comment>
         <ontology:belongsToCategoryOfGroup rdf:resource="&ontology;c/fuel_source_data_transportation_to_market"/>
         <ontology:hasVerticalDimension rdf:resource="&ontology;d/natural_gas"/>
         <ontology:hasCommonTag rdf:resource="&ontology;k/distance_between_source_and_market"/>
@@ -3200,7 +3200,7 @@ This is a rough hypothesis, which does not take into account the fact that, for 
     <owl:NamedIndividual rdf:about="&ontology;gc/efficiency_of_diesel_electric_conversion">
         <rdf:type rdf:resource="&ontology;CoefficientGroup"/>
         <rdfs:label xml:lang="en">Efficiency of diesel-electric conversion</rdfs:label>
-        <rdfs:comment xml:lang="en">Value is taken from [Ecotransit 2011], p. 47. A more direct reference would be welcomed. </rdfs:comment>
+        <rdfs:comment xml:lang="en">Value is taken from {ref/ecotransit_2011}, p. 47. A more direct reference would be welcomed. </rdfs:comment>
         <ontology:belongsToCategoryOfGroup rdf:resource="&ontology;c/rail_transport_source_data"/>
         <ontology:hasCommonTag rdf:resource="&ontology;k/efficiency_of_diesel_electric_conversion"/>
         <ontology:hasCommonTag rdf:resource="&ontology;k/gas_diesel_oil"/>
@@ -3215,7 +3215,7 @@ This is a rough hypothesis, which does not take into account the fact that, for 
     <owl:NamedIndividual rdf:about="&ontology;gc/efficiency_of_power_plant">
         <rdf:type rdf:resource="&ontology;CoefficientGroup"/>
         <rdfs:label xml:lang="en">Efficiency of power plant</rdfs:label>
-        <rdfs:comment xml:lang="en">Values are taken from [JEC WTT v4a 2014], appendix 4, electricity spreadsheet, &quot;KE2.1&quot;, &quot;KE2.2&quot;, and &quot;FO1&quot; process codes.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Values are taken from {ref/jec_wtt_v4a_2014}, appendix 4, electricity spreadsheet, &quot;KE2.1&quot;, &quot;KE2.2&quot;, and &quot;FO1&quot; process codes.</rdfs:comment>
         <ontology:belongsToCategoryOfGroup rdf:resource="&ontology;c/electricity_source_data"/>
         <ontology:hasHorizontalDimension rdf:resource="&ontology;d/power_plant_fuel"/>
         <ontology:hasVerticalDimension rdf:resource="&ontology;d/power_plant_type"/>
@@ -3259,7 +3259,7 @@ This is a rough hypothesis, which does not take into account the fact that, for 
     <owl:NamedIndividual rdf:about="&ontology;gc/energy_consumption_per_unit_of_mass_transported_times_distance_travelled_for_electric_train">
         <rdf:type rdf:resource="&ontology;CoefficientGroup"/>
         <rdfs:label xml:lang="en">Energy consumption per unit of mass transported and distance travelled for an electric train</rdfs:label>
-        <rdfs:comment xml:lang="en">Data are taken from [Ecotransit 2011], p. 46.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Data are taken from {ref/ecotransit_2011}, p. 46.</rdfs:comment>
         <ontology:belongsToCategoryOfGroup rdf:resource="&ontology;c/rail_transport_source_data"/>
         <ontology:hasHorizontalDimension rdf:resource="&ontology;d/freight_density"/>
         <ontology:hasVerticalDimension rdf:resource="&ontology;d/freight_train_type"/>
@@ -3276,7 +3276,7 @@ This is a rough hypothesis, which does not take into account the fact that, for 
     <owl:NamedIndividual rdf:about="&ontology;gc/energy_for_pipeline_transport_of_natural_gas">
         <rdf:type rdf:resource="&ontology;CoefficientGroup"/>
         <rdfs:label xml:lang="en">Energy for pipeline transport of natural gas</rdfs:label>
-        <rdfs:comment xml:lang="en">Energy is measured as the proportion of the transported fuel which is consumed in order to supply the compression power. Data is taken from [JEC WTT v4a 2014], paragraph 3.2.3, p. 32. </rdfs:comment>
+        <rdfs:comment xml:lang="en">Energy is measured as the proportion of the transported fuel which is consumed in order to supply the compression power. Data is taken from {ref/jec_wtt_v4a_2014}, paragraph 3.2.3, p. 32. </rdfs:comment>
         <ontology:belongsToCategoryOfGroup rdf:resource="&ontology;c/fuel_source_data_transportation_to_market"/>
         <ontology:hasCommonTag rdf:resource="&ontology;k/energy"/>
         <ontology:hasCommonTag rdf:resource="&ontology;k/natural_gas"/>
@@ -3295,7 +3295,7 @@ This is a rough hypothesis, which does not take into account the fact that, for 
     <owl:NamedIndividual rdf:about="&ontology;gc/energy_for_transportation_to_market_of_crude_oil">
         <rdf:type rdf:resource="&ontology;CoefficientGroup"/>
         <rdfs:label xml:lang="en">Energy for transportation to market of crude oil</rdfs:label>
-        <rdfs:comment xml:lang="en">Data are taken from [JEC WTT v4a 2014], paragraph 3.1.2, p. 27 : energy for transportation to market is supposed to represent approximatively 1% of crude oil transported, under the form of residual fuel oil (tanker propulsion). </rdfs:comment>
+        <rdfs:comment xml:lang="en">Data are taken from {ref/jec_wtt_v4a_2014}, paragraph 3.1.2, p. 27 : energy for transportation to market is supposed to represent approximatively 1% of crude oil transported, under the form of residual fuel oil (tanker propulsion). </rdfs:comment>
         <ontology:belongsToCategoryOfGroup rdf:resource="&ontology;c/fuel_source_data_transportation_to_market"/>
         <ontology:hasCommonTag rdf:resource="&ontology;k/crude_oil"/>
         <ontology:hasCommonTag rdf:resource="&ontology;k/energy"/>
@@ -3413,7 +3413,7 @@ This is a rough hypothesis, which does not take into account the fact that, for 
     <owl:NamedIndividual rdf:about="&ontology;gc/loss_during_pipeline_transport_of_natural_gas">
         <rdf:type rdf:resource="&ontology;CoefficientGroup"/>
         <rdfs:label xml:lang="en">Loss during pipeline transport of natural gas</rdfs:label>
-        <rdfs:comment xml:lang="en">Data is taken from [JEC WTT v4a 2014], paragraph 3.2.3, p. 32. Hypothesis made is that the loss represent 0.13% of the transported natural gas per 1000km. 
+        <rdfs:comment xml:lang="en">Data is taken from {ref/jec_wtt_v4a_2014}, paragraph 3.2.3, p. 32. Hypothesis made is that the loss represent 0.13% of the transported natural gas per 1000km. 
 
 Since the downstream process (pipeline transport) measures the fuel in terms of energy and the upstream process (direct emission of greenhouse gas) measures is terms of mass, the figure 0.13% has to be divided by the lower heating value of natural gas, namely 48 GJ/t. </rdfs:comment>
         <ontology:belongsToCategoryOfGroup rdf:resource="&ontology;c/fuel_source_data_transportation_to_market"/>
@@ -3435,7 +3435,7 @@ Since the downstream process (pipeline transport) measures the fuel in terms of 
     <owl:NamedIndividual rdf:about="&ontology;gc/lower_heating_value_of_fuel">
         <rdf:type rdf:resource="&ontology;CoefficientGroup"/>
         <rdfs:label xml:lang="en">Lower heating value (LHV) of a fuel</rdfs:label>
-        <rdfs:comment xml:lang="en">Values were taken from [IPCC Guidelines 2006 Vol. 2 Ch. 1], table 1.2, p. 18. </rdfs:comment>
+        <rdfs:comment xml:lang="en">Values were taken from {ref/ipcc_guidelines_2006_vol_2_ch_1}, table 1.2, p. 18. </rdfs:comment>
         <ontology:belongsToCategoryOfGroup rdf:resource="&ontology;c/fuel_source_data_physical_property"/>
         <ontology:hasVerticalDimension rdf:resource="&ontology;d/fuel_unit_of_energy_or_mass"/>
         <ontology:hasCommonTag rdf:resource="&ontology;k/lower_heating_value"/>
@@ -3456,7 +3456,7 @@ Since the downstream process (pipeline transport) measures the fuel in terms of 
 - mass of potassium oxide (K2O) for a potash fertilizer;
 - mass of active ingredient for other inputs. 
 
-Data for use of pesticide are taken from [JRC Biofuels 2012], p. 51.</rdfs:comment>
+Data for use of pesticide are taken from {ref/jrc_biofuels_2012}, p. 51.</rdfs:comment>
         <ontology:belongsToCategoryOfGroup rdf:resource="&ontology;c/crop_cultivation_source_data"/>
         <ontology:hasHorizontalDimension rdf:resource="&ontology;d/agricultural_input"/>
         <ontology:hasVerticalDimension rdf:resource="&ontology;d/crop"/>
@@ -3505,7 +3505,7 @@ Data for use of pesticide are taken from [JRC Biofuels 2012], p. 51.</rdfs:comme
     <owl:NamedIndividual rdf:about="&ontology;gc/mass_of_greenhouse_gas_emitted_by_combustion_of_fuel_unit_of_energy_lhv">
         <rdf:type rdf:resource="&ontology;CoefficientGroup"/>
         <rdfs:label xml:lang="en">Mass of greenhouse gas emitted by combustion of a fuel, measured in unit of energy (LHV)</rdfs:label>
-        <rdfs:comment xml:lang="en">Values were taken from [IPCC Guidelines 2006 Vol. 2 Ch. 2], table 2.2, p. 16: default emission factors for stationary combustion in the energy industries.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Values were taken from {ref/ipcc_guidelines_2006_vol_2_ch_2}, table 2.2, p. 16: default emission factors for stationary combustion in the energy industries.</rdfs:comment>
         <ontology:belongsToCategoryOfGroup rdf:resource="&ontology;c/fuel_source_data_physical_property"/>
         <ontology:hasHorizontalDimension rdf:resource="&ontology;d/co2_ch4_n2o"/>
         <ontology:hasVerticalDimension rdf:resource="&ontology;d/fuel_unit_of_energy_or_mass"/>
@@ -3556,11 +3556,11 @@ Data for use of pesticide are taken from [JRC Biofuels 2012], p. 51.</rdfs:comme
         <rdfs:label xml:lang="en">Mass of greenhouse gas emitted by production and conditioning of fossil fuel at source, measured in unit of energy (LHV)</rdfs:label>
         <rdfs:comment xml:lang="en">Typical European Union supply, without transportation. 
 
-Data for anthracite are taken from [JEC WTT v4a 2014], appendix 4 (electricity, KOEL code). 
+Data for anthracite are taken from {ref/jec_wtt_v4a_2014}, appendix 4 (electricity, KOEL code). 
 
-Data for crude oil are taken from [JEC WTT v4a 2014], paragraph 3.1.1, p. 26. For lignite, we took identical values (awaiting something better).
+Data for crude oil are taken from {ref/jec_wtt_v4a_2014}, paragraph 3.1.1, p. 26. For lignite, we took identical values (awaiting something better).
 
-Data for natural gas are taken from [JEC WTT v4a 2014], paragraph 3.2.3, p. 31. Source hypotheses are: 
+Data for natural gas are taken from {ref/jec_wtt_v4a_2014}, paragraph 3.2.3, p. 31. Source hypotheses are: 
 - 2% of processed gas energy is burned (energy used in production), this represents approximatively 1g/MJ of CO2.
 - 1% of volume is vented as CO2, this represents approximatively 0.5 g/MJ of CO2.
 - 0.4% of volume is vented as CH4, this represents approximatively 0.08 g/MJ of CH4.
@@ -3586,9 +3586,9 @@ Data for natural gas are taken from [JEC WTT v4a 2014], paragraph 3.2.3, p. 31. 
         <rdfs:label xml:lang="en">Mass of volatised nitrous oxide per mass of nitrogen contained in a nitrogen-based fertilizer</rdfs:label>
         <rdfs:comment rdf:datatype="&xsd;string">These figures take into account three ways through which N2O is released. 
 
-1. A fraction of the spread nitrogen directly converts into N2O ([IPCC Guidelines 2006 Vol. 4 Ch. 11], table 11.1, p. 11). This fraction is about 1.5 % for an organic fertilizer, and 1 % of a synthetic fertilizer. 
-2. A fraction of the spread nitrogen volatilises as NH3 and NOx (about 20% for an organic fertilizer and 10% for a synthetic fertilizer), and 1% of nitrogen contained in this NH3 and NOx enerates N2O emissions ([IPCC Guidelines 2006 Vol. 4 Ch. 11], table 11.3, p. 24).
-3. A fraction of 30% of the nitrogen is washed and 0.75% of this washed nitrogen will be emitted from leachate ([IPCC Guidelines 2006 Vol. 4 Ch. 11], table 11.3, p. 24).
+1. A fraction of the spread nitrogen directly converts into N2O ({ref/ipcc_guidelines_2006_vol_4_ch_11}, table 11.1, p. 11). This fraction is about 1.5 % for an organic fertilizer, and 1 % of a synthetic fertilizer. 
+2. A fraction of the spread nitrogen volatilises as NH3 and NOx (about 20% for an organic fertilizer and 10% for a synthetic fertilizer), and 1% of nitrogen contained in this NH3 and NOx enerates N2O emissions ({ref/ipcc_guidelines_2006_vol_4_ch_11}, table 11.3, p. 24).
+3. A fraction of 30% of the nitrogen is washed and 0.75% of this washed nitrogen will be emitted from leachate ({ref/ipcc_guidelines_2006_vol_4_ch_11}, table 11.3, p. 24).
 
 The final figure is therefore : 
 (0.015 + 0.2 x 0.01 + 0.3 x 0.075) x (44 / 28) = 1.93 % in the case of an organic fertilizer;
@@ -3609,7 +3609,7 @@ The final figure is therefore : 
     <owl:NamedIndividual rdf:about="&ontology;gc/milk_yield_of_dairy_animal">
         <rdf:type rdf:resource="&ontology;CoefficientGroup"/>
         <rdfs:label xml:lang="en">Milk yield of a dairy animal</rdfs:label>
-        <rdfs:comment rdf:datatype="&xsd;string">Data are taken from [DEFRA 2006], p. 4.</rdfs:comment>
+        <rdfs:comment rdf:datatype="&xsd;string">Data are taken from {ref/defra_2006}, p. 4.</rdfs:comment>
         <ontology:belongsToCategoryOfGroup rdf:resource="&ontology;c/animal_husbandry_source_data"/>
         <ontology:hasVerticalDimension rdf:resource="&ontology;d/dairy_animal"/>
         <ontology:hasCommonTag rdf:resource="&ontology;k/milk_yield"/>
@@ -3626,11 +3626,11 @@ The final figure is therefore : 
         <rdfs:label xml:lang="en">Primary energy for production and conditioning of fossil fuel at source, measured in unit of energy (LHV)</rdfs:label>
         <rdfs:comment xml:lang="en">Typical European Union supply, without transportation.
 
-Data for anthracite are taken from [JEC WTT v4a 2014], appendix 4, electricity file, &quot;KO1&quot; process. For lignite, we took identical values (awaiting something better).
+Data for anthracite are taken from {ref/jec_wtt_v4a_2014}, appendix 4, electricity file, &quot;KO1&quot; process. For lignite, we took identical values (awaiting something better).
 
-Data for crude oil are taken from [JEC WTT v4a 2014], paragraph 3.1.1, p.26. We slightly increased the energy use in production figure, since apparently the data from [JEC 2014] deal with final energy consumed, not primary energy extracted.
+Data for crude oil are taken from {ref/jec_wtt_v4a_2014}, paragraph 3.1.1, p.26. We slightly increased the energy use in production figure, since apparently the data from {ref/jec_wtt_v4a_2014} deal with final energy consumed, not primary energy extracted.
 
-Data for natural gas are taken from [JEC WTT v4a 2014], paragraph 3.2.3, p.31 and data in appendix 4 of the same reference. 
+Data for natural gas are taken from {ref/jec_wtt_v4a_2014}, paragraph 3.2.3, p.31 and data in appendix 4 of the same reference. 
 
 Entry &quot;Produced fuel&quot;  takes into account the energy of the produced fuel itself (therefore the obvious &quot;1&quot; values for the corresponding coefficients).</rdfs:comment>
         <ontology:belongsToCategoryOfGroup rdf:resource="&ontology;c/fuel_source_data_production_and_conditioning_at_source"/>
@@ -3664,7 +3664,7 @@ Entry &quot;Produced fuel&quot;  takes into account the energy of the produced f
     <owl:NamedIndividual rdf:about="&ontology;gc/ratio_before_over_after_high_voltage_system_transmission_losses">
         <rdf:type rdf:resource="&ontology;CoefficientGroup"/>
         <rdfs:label xml:lang="en">Ratio &quot;before over after&quot; high voltage system transmission losses</rdfs:label>
-        <rdfs:comment xml:lang="en">Value is taken from [JEC WTT v4a 2014], p. 69.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Value is taken from {ref/jec_wtt_v4a_2014}, p. 69.</rdfs:comment>
         <ontology:belongsToCategoryOfGroup rdf:resource="&ontology;c/electricity_source_data"/>
         <ontology:hasCommonTag rdf:resource="&ontology;k/ratio_before_over_after_high_voltage_system_transmission_losses"/>
         <ontology:hasReference rdf:resource="&ontology;ref/jec_wtt_v4a_2014"/>
@@ -3678,7 +3678,7 @@ Entry &quot;Produced fuel&quot;  takes into account the energy of the produced f
     <owl:NamedIndividual rdf:about="&ontology;gc/ratio_before_over_after_low_voltage_system_transmission_losses">
         <rdf:type rdf:resource="&ontology;CoefficientGroup"/>
         <rdfs:label xml:lang="en">Ratio &quot;before over after&quot; low voltage system transmission losses</rdfs:label>
-        <rdfs:comment xml:lang="en">Value is taken from [JEC WTT v4a 2014], p. 69.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Value is taken from {ref/jec_wtt_v4a_2014}, p. 69.</rdfs:comment>
         <ontology:belongsToCategoryOfGroup rdf:resource="&ontology;c/electricity_source_data"/>
         <ontology:hasCommonTag rdf:resource="&ontology;k/ratio_before_over_after_low_voltage_system_transmission_losses"/>
         <ontology:hasReference rdf:resource="&ontology;ref/jec_wtt_v4a_2014"/>
@@ -3692,7 +3692,7 @@ Entry &quot;Produced fuel&quot;  takes into account the energy of the produced f
     <owl:NamedIndividual rdf:about="&ontology;gc/ratio_before_over_after_medium_voltage_system_transmission_losses">
         <rdf:type rdf:resource="&ontology;CoefficientGroup"/>
         <rdfs:label xml:lang="en">Ratio &quot;before over after&quot; medium voltage system transmission losses</rdfs:label>
-        <rdfs:comment xml:lang="en">Value is taken from [JEC WTT v4a 2014], p. 69.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Value is taken from {ref/jec_wtt_v4a_2014}, p. 69.</rdfs:comment>
         <ontology:belongsToCategoryOfGroup rdf:resource="&ontology;c/electricity_source_data"/>
         <ontology:hasCommonTag rdf:resource="&ontology;k/ratio_before_over_after_medium_voltage_system_transmission_losses"/>
         <ontology:hasReference rdf:resource="&ontology;ref/jec_wtt_v4a_2014"/>
@@ -3706,7 +3706,7 @@ Entry &quot;Produced fuel&quot;  takes into account the energy of the produced f
     <owl:NamedIndividual rdf:about="&ontology;gc/ratio_before_over_after_pumping_in_hydro_electric_schemes">
         <rdf:type rdf:resource="&ontology;CoefficientGroup"/>
         <rdfs:label xml:lang="en">Ratio &quot;before over after&quot; pumping in hydro-electric schemes</rdfs:label>
-        <rdfs:comment xml:lang="en">Value is taken from [JEC WTT v4a 2014], p. 69.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Value is taken from {ref/jec_wtt_v4a_2014}, p. 69.</rdfs:comment>
         <ontology:belongsToCategoryOfGroup rdf:resource="&ontology;c/electricity_source_data"/>
         <ontology:hasCommonTag rdf:resource="&ontology;k/ratio_before_over_after_pumping_in_hydro_electric_schemes"/>
         <ontology:hasReference rdf:resource="&ontology;ref/jec_wtt_v4a_2014"/>
@@ -3720,7 +3720,7 @@ Entry &quot;Produced fuel&quot;  takes into account the energy of the produced f
     <owl:NamedIndividual rdf:about="&ontology;gc/ratio_gross_over_net_electricity_production">
         <rdf:type rdf:resource="&ontology;CoefficientGroup"/>
         <rdfs:label xml:lang="en">Ratio &quot;gross over net&quot; electricity production</rdfs:label>
-        <rdfs:comment xml:lang="en">Value is taken from [JEC WTT v4a 2014], p. 69.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Value is taken from {ref/jec_wtt_v4a_2014}, p. 69.</rdfs:comment>
         <ontology:belongsToCategoryOfGroup rdf:resource="&ontology;c/electricity_source_data"/>
         <ontology:hasCommonTag rdf:resource="&ontology;k/ratio_gross_over_net_electricity_production"/>
         <ontology:hasReference rdf:resource="&ontology;ref/jec_wtt_v4a_2014"/>
@@ -3737,7 +3737,7 @@ Entry &quot;Produced fuel&quot;  takes into account the energy of the produced f
         <rdfs:label xml:lang="fr">Rapport PCS/PCI (pouvoir calorifique supérieur / pouvoir calorifique inférieur) d&apos;un combustible</rdfs:label>
         <rdfs:comment xml:lang="en">1 kwh HHV of fuel represents a smaller quantity of fuel than 1 kwh LHV. Therfore, in order to obtain impact by kwh HHV, you have to divide by (and not multiply by) those ratios, that are slightly larger than 1. 
 
-Values were taken from [Staffel 2011].</rdfs:comment>
+Values were taken from {ref/staffel_2011}.</rdfs:comment>
         <ontology:belongsToCategoryOfGroup rdf:resource="&ontology;c/fuel_source_data_physical_property"/>
         <ontology:hasVerticalDimension rdf:resource="&ontology;d/fuel_unit_of_energy_or_mass"/>
         <ontology:hasCommonTag rdf:resource="&ontology;k/ratio_of_hhv_to_lhv"/>
@@ -3765,7 +3765,7 @@ Values were taken from [Staffel 2011].</rdfs:comment>
     <owl:NamedIndividual rdf:about="&ontology;gc/refining_energy">
         <rdf:type rdf:resource="&ontology;CoefficientGroup"/>
         <rdfs:label xml:lang="en">Refining energy</rdfs:label>
-        <rdfs:comment xml:lang="en">Data for gas/Diesel oil and motor gasoline are taken from [JEC WTT v4a 2014], paragraph 3.1.3, p. 29. 
+        <rdfs:comment xml:lang="en">Data for gas/Diesel oil and motor gasoline are taken from {ref/jec_wtt_v4a_2014}, paragraph 3.1.3, p. 29. 
 
 Data for jet kerosene and residual fuel oil do NOT rely on any source at this stage. 
 
@@ -3914,7 +3914,7 @@ Refining fuel is assumed to be crude oil. </rdfs:comment>
     <owl:NamedIndividual rdf:about="&ontology;gc/volumetric_mass_density_of_fuel">
         <rdf:type rdf:resource="&ontology;CoefficientGroup"/>
         <rdfs:label xml:lang="en">Volumetric mass density of fuel</rdfs:label>
-        <rdfs:comment xml:lang="en">Values were taken from [Staffel 2011].</rdfs:comment>
+        <rdfs:comment xml:lang="en">Values were taken from {ref/staffel_2011}.</rdfs:comment>
         <ontology:belongsToCategoryOfGroup rdf:resource="&ontology;c/fuel_source_data_physical_property"/>
         <ontology:hasVerticalDimension rdf:resource="&ontology;d/fuel_unit_of_volume"/>
         <ontology:hasCommonTag rdf:resource="&ontology;k/volumetric_mass_density"/>
@@ -4178,9 +4178,9 @@ Refining fuel is assumed to be crude oil. </rdfs:comment>
 
 By looking at greenhouse gas emission impacts, you can view the values of global warming potentials that are used in all the computations. 
 
-Global warming potentials at horizons 20 and 100 years are taken from [IPCC AR5 2013 WG1], chapter 8 (Anthropogenic and Natural Radiative Forcing) table 8.7, p. 714. They include climate-cabon feedbacks in response to emissions of both CO2 and non-CO2 gases.
+Global warming potentials at horizons 20 and 100 years are taken from {ref/ipcc_ar5_2013_wg1}, chapter 8 (Anthropogenic and Natural Radiative Forcing) table 8.7, p. 714. They include climate-cabon feedbacks in response to emissions of both CO2 and non-CO2 gases.
 
-Global warming potentials at horizon 500 years are taken from [IPCC AR4 2007 WG1], chapter 2 (Changes in Atmospheric Constituents and in Radiative Forcing), table 2.14, p. 212. </rdfs:comment>
+Global warming potentials at horizon 500 years are taken from {ref/ipcc_ar4_2007_wg1}, chapter 2 (Changes in Atmospheric Constituents and in Radiative Forcing), table 2.14, p. 212. </rdfs:comment>
         <ontology:belongsToCategoryOfGroup rdf:resource="&ontology;c/direct_generic_elementary_flow"/>
         <ontology:hasVerticalDimension rdf:resource="&ontology;d/greenhouse_gas"/>
         <ontology:hasCommonTag rdf:resource="&ontology;k/direct_emission"/>
