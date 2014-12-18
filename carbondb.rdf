@@ -940,15 +940,15 @@
     <owl:Class rdf:about="&ontology;CategoryOfGroup">
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontology;belongsToParentCategoryOfGroup"/>
-                <owl:onClass rdf:resource="&ontology;CategoryOfGroup"/>
-                <owl:maxQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onProperty rdf:resource="&ontology;categorizesGroup"/>
+                <owl:someValuesFrom rdf:resource="&ontology;Group"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontology;categorizesGroup"/>
-                <owl:someValuesFrom rdf:resource="&ontology;Group"/>
+                <owl:onProperty rdf:resource="&ontology;belongsToParentCategoryOfGroup"/>
+                <owl:onClass rdf:resource="&ontology;CategoryOfGroup"/>
+                <owl:maxQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxQualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <owl:disjointWith rdf:resource="&ontology;ComponentOfImpactType"/>
@@ -1009,7 +1009,21 @@
     <owl:Class rdf:about="&ontology;ComponentOfImpactType">
         <rdfs:subClassOf>
             <owl:Restriction>
+                <owl:onProperty rdf:resource="&ontology;contributesToImpactType"/>
+                <owl:onClass rdf:resource="&ontology;ImpactType"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
                 <owl:onProperty rdf:resource="&ontology;uncertainty"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;double"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&ontology;value"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
                 <owl:onDataRange rdf:resource="&xsd;double"/>
             </owl:Restriction>
@@ -1019,20 +1033,6 @@
                 <owl:onProperty rdf:resource="&ontology;isBasedOnElementaryFlowType"/>
                 <owl:onClass rdf:resource="&ontology;ElementaryFlowType"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontology;contributesToImpactType"/>
-                <owl:onClass rdf:resource="&ontology;ImpactType"/>
-                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontology;value"/>
-                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onDataRange rdf:resource="&xsd;double"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <owl:disjointWith rdf:resource="&ontology;Dimension"/>
@@ -1068,13 +1068,13 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&ontology;containsKeyword"/>
-                <owl:someValuesFrom rdf:resource="&ontology;Keyword"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&ontology;containsKeyword"/>
-                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
+                <owl:someValuesFrom rdf:resource="&ontology;Keyword"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <owl:disjointWith rdf:resource="&ontology;ElementaryFlow"/>
@@ -1120,9 +1120,9 @@
     <owl:Class rdf:about="&ontology;ElementaryFlow">
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontology;isFlowOfSingleProcess"/>
-                <owl:onClass rdf:resource="&ontology;SingleProcess"/>
+                <owl:onProperty rdf:resource="&ontology;value"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;double"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -1134,9 +1134,9 @@
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontology;value"/>
+                <owl:onProperty rdf:resource="&ontology;isFlowOfSingleProcess"/>
+                <owl:onClass rdf:resource="&ontology;SingleProcess"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onDataRange rdf:resource="&xsd;double"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -1205,7 +1205,7 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&ontology;hasDimension"/>
-                <owl:someValuesFrom rdf:resource="&ontology;Dimension"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -1218,7 +1218,7 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&ontology;hasDimension"/>
-                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
+                <owl:someValuesFrom rdf:resource="&ontology;Dimension"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <owl:disjointWith rdf:resource="&ontology;Impact"/>
@@ -1239,9 +1239,9 @@
     <owl:Class rdf:about="&ontology;Impact">
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontology;hasImpactType"/>
-                <owl:onClass rdf:resource="&ontology;ImpactType"/>
+                <owl:onProperty rdf:resource="&ontology;uncertainty"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;double"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -1253,9 +1253,9 @@
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontology;uncertainty"/>
+                <owl:onProperty rdf:resource="&ontology;hasImpactType"/>
+                <owl:onClass rdf:resource="&ontology;ImpactType"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onDataRange rdf:resource="&xsd;double"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <owl:disjointWith rdf:resource="&ontology;ImpactType"/>
@@ -1276,15 +1276,15 @@
     <owl:Class rdf:about="&ontology;ImpactType">
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontology;belongsToCategoryOfImpactType"/>
-                <owl:onClass rdf:resource="&ontology;CategoryOfImpactType"/>
-                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onProperty rdf:resource="&ontology;isImpactType"/>
+                <owl:someValuesFrom rdf:resource="&ontology;Impact"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontology;isImpactType"/>
-                <owl:someValuesFrom rdf:resource="&ontology;Impact"/>
+                <owl:onProperty rdf:resource="&ontology;belongsToCategoryOfImpactType"/>
+                <owl:onClass rdf:resource="&ontology;CategoryOfImpactType"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <owl:disjointWith rdf:resource="&ontology;Keyword"/>
@@ -1356,15 +1356,15 @@
         <rdfs:subClassOf rdf:resource="&ontology;Position"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontology;providesPositionInGroupToSomeCommonTag"/>
-                <owl:onClass rdf:resource="&ontology;Group"/>
+                <owl:onProperty rdf:resource="&ontology;providesPositionToCommonTagInSomeGroup"/>
+                <owl:onClass rdf:resource="&ontology;Keyword"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontology;providesPositionToCommonTagInSomeGroup"/>
-                <owl:onClass rdf:resource="&ontology;Keyword"/>
+                <owl:onProperty rdf:resource="&ontology;providesPositionInGroupToSomeCommonTag"/>
+                <owl:onClass rdf:resource="&ontology;Group"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -1382,15 +1382,15 @@
         <rdfs:subClassOf rdf:resource="&ontology;Position"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontology;providesPositionInGroupToSomeDimension"/>
-                <owl:onClass rdf:resource="&ontology;Group"/>
+                <owl:onProperty rdf:resource="&ontology;providesPositionToDimensionInSomeGroup"/>
+                <owl:onClass rdf:resource="&ontology;Dimension"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontology;providesPositionToDimensionInSomeGroup"/>
-                <owl:onClass rdf:resource="&ontology;Dimension"/>
+                <owl:onProperty rdf:resource="&ontology;providesPositionInGroupToSomeDimension"/>
+                <owl:onClass rdf:resource="&ontology;Group"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -1426,15 +1426,15 @@
         <rdfs:subClassOf rdf:resource="&ontology;Position"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontology;providesPositionToKeywordInSomeDimension"/>
-                <owl:onClass rdf:resource="&ontology;Keyword"/>
+                <owl:onProperty rdf:resource="&ontology;providesPositionInDimensionToSomeKeyword"/>
+                <owl:onClass rdf:resource="&ontology;Dimension"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontology;providesPositionInDimensionToSomeKeyword"/>
-                <owl:onClass rdf:resource="&ontology;Dimension"/>
+                <owl:onProperty rdf:resource="&ontology;providesPositionToKeywordInSomeDimension"/>
+                <owl:onClass rdf:resource="&ontology;Keyword"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -1484,8 +1484,8 @@
     <owl:Class rdf:about="&ontology;Relation">
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontology;hasRelationType"/>
-                <owl:onClass rdf:resource="&ontology;RelationType"/>
+                <owl:onProperty rdf:resource="&ontology;hasOriginProcess"/>
+                <owl:onClass rdf:resource="&ontology;Process"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -1512,8 +1512,8 @@
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontology;hasOriginProcess"/>
-                <owl:onClass rdf:resource="&ontology;Process"/>
+                <owl:onProperty rdf:resource="&ontology;hasRelationType"/>
+                <owl:onClass rdf:resource="&ontology;RelationType"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -2455,6 +2455,18 @@
     
 
 
+    <!-- http://www.carbondb.org/ontology#d/chemical -->
+
+    <owl:NamedIndividual rdf:about="&ontology;d/chemical">
+        <ontology:containsKeyword rdf:resource="&ontology;k/ammonia"/>
+        <ontology:containsKeyword rdf:resource="&ontology;k/pesticide"/>
+        <ontology:containsKeyword rdf:resource="&ontology;k/phosphate_fertilizer"/>
+        <ontology:containsKeyword rdf:resource="&ontology;k/potash_fertilizer"/>
+        <ontology:containsKeyword rdf:resource="&ontology;k/synthetic_nitrogen_fertilizer"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.carbondb.org/ontology#d/co2_ch4 -->
 
     <owl:NamedIndividual rdf:about="&ontology;d/co2_ch4">
@@ -2528,6 +2540,7 @@
 
     <owl:NamedIndividual rdf:about="&ontology;d/energy_vector">
         <ontology:containsKeyword rdf:resource="&ontology;k/anthracite"/>
+        <ontology:containsKeyword rdf:resource="&ontology;k/crude_oil"/>
         <ontology:containsKeyword rdf:resource="&ontology;k/electricity"/>
         <ontology:containsKeyword rdf:resource="&ontology;k/gas_diesel_oil"/>
         <ontology:containsKeyword rdf:resource="&ontology;k/natural_gas"/>
@@ -3069,9 +3082,17 @@
     <owl:NamedIndividual rdf:about="&ontology;gc/amount_of_final_energy_required_for_production_of_chemical">
         <rdf:type rdf:resource="&ontology;CoefficientGroup"/>
         <rdfs:label xml:lang="en">Amount of final energy required for production of a chemical</rdfs:label>
-        <rdfs:comment xml:lang="en">Data are taken from [JRC Biofuels 2012], p. 17, 18, 29.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Data are taken from [JRC Biofuels 2012], p. 17, 18, 25, 29, 47.
+
+For synthetic nitrogen fertilizer, hydro power and nuclear fuel inputs were ignored at this stage. 
+
+Units of measure are : 
+- mass of nitrogen for a nitrogen fertilizer;
+- mass of phosphorus pentoxide (P2O5) for a phosphate fertilizer;
+- mass of potassium oxide (K2O) for a potash fertilizer;
+- mass of active ingredient for other inputs. </rdfs:comment>
         <ontology:belongsToCategoryOfGroup rdf:resource="&ontology;c/processing_industry"/>
-        <ontology:hasVerticalDimension rdf:resource="&ontology;d/agricultural_input"/>
+        <ontology:hasVerticalDimension rdf:resource="&ontology;d/chemical"/>
         <ontology:hasHorizontalDimension rdf:resource="&ontology;d/energy_vector"/>
         <ontology:hasCommonTag rdf:resource="&ontology;k/final_energy_required_for_production"/>
         <ontology:hasReference rdf:resource="&ontology;ref/jrc_biofuels_2012"/>
@@ -3146,10 +3167,11 @@
     <owl:NamedIndividual rdf:about="&ontology;gc/crop_yield">
         <rdf:type rdf:resource="&ontology;CoefficientGroup"/>
         <rdfs:label xml:lang="en">Mass of agricultural product produced by unit of cultivated area</rdfs:label>
-        <rdfs:label xml:lang="fr">Masse de produit agricole produit par unité de surface cultivée</rdfs:label>
+        <rdfs:comment xml:lang="en">Data are taken from [JRC Biofuels 2012], p. 49.</rdfs:comment>
         <ontology:belongsToCategoryOfGroup rdf:resource="&ontology;c/crop_cultivation_source_data"/>
         <ontology:hasVerticalDimension rdf:resource="&ontology;d/crop"/>
         <ontology:hasCommonTag rdf:resource="&ontology;k/crop_yield"/>
+        <ontology:hasReference rdf:resource="&ontology;ref/jrc_biofuels_2012"/>
         <ontology:hasUnit rdf:resource="&ontology;u/tonne_per_hectare"/>
     </owl:NamedIndividual>
     
@@ -3162,7 +3184,7 @@
         <rdfs:label xml:lang="en">Crude oil allocation to refined product</rdfs:label>
         <rdfs:comment xml:lang="en">We made the assumption that, apart the refining fuel, one unit of crude oil is required in order to produce one unit of refined fuer, for each refined fuel considered. 
 
-This is a rough hypothesis, which does not take into account the fact that, for instance, gas/diesel oil and gasoline demands grow faster than gasoline demand (see p 29 of [JEC WTT v4a 2014]). See also the &quot;refining energy&quot; coefficient group. </rdfs:comment>
+This is a rough hypothesis, which does not take into account the fact that, for instance, gas/diesel oil and gasoline demands grow faster than gasoline demand (see p 29 of \ref{ref/jec_wtt_v4a_2014}. See also the &quot;refining energy&quot; coefficient group. </rdfs:comment>
         <ontology:belongsToCategoryOfGroup rdf:resource="&ontology;c/fuel_calculation_tool"/>
         <ontology:hasVerticalDimension rdf:resource="&ontology;d/refined_fossil_fuel"/>
         <ontology:hasCommonTag rdf:resource="&ontology;k/allocation_to_refined_product"/>
@@ -3445,21 +3467,18 @@ Since the downstream process (pipeline transport) measures the fuel in terms of 
     <owl:NamedIndividual rdf:about="&ontology;gc/mass_of_agricultural_input_for_cultivation_of_unit_of_area">
         <rdf:type rdf:resource="&ontology;CoefficientGroup"/>
         <rdfs:label xml:lang="en">Mass of agricultural input used for cultivation of a unit of area</rdfs:label>
-        <rdfs:label xml:lang="fr">Masse d&apos;intrant agricol utilisée pour la la culture d&apos;une unité de surface</rdfs:label>
         <rdfs:comment xml:lang="en">Units of measure are : 
 - mass of nitrogen for a nitrogen fertilizer;
 - mass of phosphorus pentoxide (P2O5) for a phosphate fertilizer;
 - mass of potassium oxide (K2O) for a potash fertilizer;
-- mass of active ingredient for other inputs. </rdfs:comment>
-        <rdfs:comment xml:lang="fr">Les unités de mesure sont : 
-- masse d&apos;azote pour un engrais azoté ;
-- masse de pentoxyde de phosphore (P2O5) pour un engrais phosphoré ;
-- masse d&apos;oxyde de potassium (K2O) pour un engrais potassique.
-- masse de matière active pour les autres intrants. </rdfs:comment>
+- mass of active ingredient for other inputs. 
+
+Data for use of pesticide are taken from [JRC Biofuels 2012], p. 51.</rdfs:comment>
         <ontology:belongsToCategoryOfGroup rdf:resource="&ontology;c/crop_cultivation_source_data"/>
         <ontology:hasHorizontalDimension rdf:resource="&ontology;d/agricultural_input"/>
         <ontology:hasVerticalDimension rdf:resource="&ontology;d/crop"/>
-        <ontology:hasCommonTag rdf:resource="&ontology;k/agricultural_input"/>
+        <ontology:hasCommonTag rdf:resource="&ontology;k/mass_of_agricultural_input"/>
+        <ontology:hasReference rdf:resource="&ontology;ref/jrc_biofuels_2012"/>
         <ontology:hasUnit rdf:resource="&ontology;u/kilogram_per_hectare"/>
     </owl:NamedIndividual>
     
@@ -3538,6 +3557,7 @@ Since the downstream process (pipeline transport) measures the fuel in terms of 
         <rdf:type rdf:resource="&ontology;CoefficientGroup"/>
         <rdfs:label xml:lang="en">Mass of greenhouse gas emitted by manufacture of a vehicle, measured in unit of mass</rdfs:label>
         <rdfs:label xml:lang="fr">Masse de gas à effet de serre émise par la fabrication d&apos;un véhicule, mesuré en unité de masse</rdfs:label>
+        <ontology:belongsToCategoryOfGroup rdf:resource="&ontology;c/road_transport"/>
         <ontology:hasHorizontalDimension rdf:resource="&ontology;d/greenhouse_gas_emitted_by_manufacture_of_vehicle"/>
         <ontology:hasVerticalDimension rdf:resource="&ontology;d/road_vehicle"/>
         <ontology:hasCommonTag rdf:resource="&ontology;k/manufacture"/>
@@ -3606,10 +3626,11 @@ The final figure is therefore : 
     <owl:NamedIndividual rdf:about="&ontology;gc/milk_yield_of_dairy_animal">
         <rdf:type rdf:resource="&ontology;CoefficientGroup"/>
         <rdfs:label xml:lang="en">Milk yield of a dairy animal</rdfs:label>
-        <rdfs:label xml:lang="fr">Rendement d&apos;un animal producteur de lait</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string">Data are taken from [DEFRA 2006], p. 4.</rdfs:comment>
         <ontology:belongsToCategoryOfGroup rdf:resource="&ontology;c/animal_husbandry_source_data"/>
         <ontology:hasVerticalDimension rdf:resource="&ontology;d/dairy_animal"/>
         <ontology:hasCommonTag rdf:resource="&ontology;k/milk_yield"/>
+        <ontology:hasReference rdf:resource="&ontology;ref/defra_2006"/>
         <ontology:hasUnit rdf:resource="&ontology;u/litre_per_animal_year"/>
     </owl:NamedIndividual>
     
@@ -3647,7 +3668,6 @@ Entry &quot;Produced fuel&quot;  takes into account the energy of the produced f
     <owl:NamedIndividual rdf:about="&ontology;gc/proportion_of_dry_matter_in_agricultural_procuct">
         <rdf:type rdf:resource="&ontology;CoefficientGroup"/>
         <rdfs:label xml:lang="en">Proportion of dry matter in an agricultural product</rdfs:label>
-        <rdfs:label xml:lang="fr">Proportion de matière sèche d&apos;un produit agricole</rdfs:label>
         <ontology:belongsToCategoryOfGroup rdf:resource="&ontology;c/crop_cultivation_source_data"/>
         <ontology:hasVerticalDimension rdf:resource="&ontology;d/crop"/>
         <ontology:hasCommonTag rdf:resource="&ontology;k/proportion_of_dry_matter"/>
@@ -3885,6 +3905,7 @@ Refining fuel is assumed to be crude oil. </rdfs:comment>
         <ontology:belongsToCategoryOfGroup rdf:resource="&ontology;c/ship_freight_transport_source_data"/>
         <ontology:hasVerticalDimension rdf:resource="&ontology;d/waterway_freight_transport_ship"/>
         <ontology:hasCommonTag rdf:resource="&ontology;k/fuel_consumption"/>
+        <ontology:hasCommonTag rdf:resource="&ontology;k/gas_diesel_oil"/>
         <ontology:hasCommonTag rdf:resource="&ontology;k/waterway_transport"/>
         <ontology:hasPositionAsGroupForSomeCommonTag rdf:resource="&ontology;pos/ctg/volume_of_fuel_consumed_per_unit_of_distance_travelled_waterway_freight_transport+1"/>
         <ontology:hasPositionAsGroupForSomeCommonTag rdf:resource="&ontology;pos/ctg/volume_of_fuel_consumed_per_unit_of_distance_travelled_waterway_freight_transport+2"/>
@@ -4408,7 +4429,7 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
         <rdfs:label xml:lang="en">Production of chemical for cultivation of an agricultural area</rdfs:label>
         <rdfs:label xml:lang="fr">Production de produit chimique pour la culture d&apos;une surface agricole</rdfs:label>
         <ontology:belongsToCategoryOfGroup rdf:resource="&ontology;c/crop_cultivation_upstream_processes"/>
-        <ontology:hasHorizontalDimension rdf:resource="&ontology;d/agricultural_input"/>
+        <ontology:hasHorizontalDimension rdf:resource="&ontology;d/chemical"/>
         <ontology:hasVerticalDimension rdf:resource="&ontology;d/crop"/>
         <ontology:hasCommonTag rdf:resource="&ontology;k/production_of_chemical"/>
         <ontology:hasUnit rdf:resource="&ontology;u/hectare"/>
@@ -4421,9 +4442,8 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     <owl:NamedIndividual rdf:about="&ontology;gp/production_of_chemical_unit_of_mass">
         <rdf:type rdf:resource="&ontology;ProcessGroup"/>
         <rdfs:label xml:lang="en">Production of chemical, measured in unit of mass</rdfs:label>
-        <rdfs:label xml:lang="fr">Production de produit chimique, mesuré en unité de masse</rdfs:label>
         <ontology:belongsToCategoryOfGroup rdf:resource="&ontology;c/processing_industry"/>
-        <ontology:hasVerticalDimension rdf:resource="&ontology;d/agricultural_input"/>
+        <ontology:hasVerticalDimension rdf:resource="&ontology;d/chemical"/>
         <ontology:hasCommonTag rdf:resource="&ontology;k/production"/>
         <ontology:hasUnit rdf:resource="&ontology;u/kilogram"/>
     </owl:NamedIndividual>
@@ -4931,14 +4951,6 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     
 
 
-    <!-- http://www.carbondb.org/ontology#k/agricultural_input -->
-
-    <owl:NamedIndividual rdf:about="&ontology;k/agricultural_input">
-        <rdfs:label xml:lang="en">Agricultural input</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
     <!-- http://www.carbondb.org/ontology#k/agricultural_machinery -->
 
     <owl:NamedIndividual rdf:about="&ontology;k/agricultural_machinery">
@@ -4994,6 +5006,14 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
 
     <owl:NamedIndividual rdf:about="&ontology;k/allocation_to_refined_product">
         <rdfs:label xml:lang="en">Allocation to refined product</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.carbondb.org/ontology#k/ammonia -->
+
+    <owl:NamedIndividual rdf:about="&ontology;k/ammonia">
+        <rdfs:label xml:lang="en">Ammonia (NH3)</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -5881,6 +5901,14 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     <owl:NamedIndividual rdf:about="&ontology;k/mass">
         <rdfs:label xml:lang="en">Mass</rdfs:label>
         <rdfs:label xml:lang="fr">Masse</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.carbondb.org/ontology#k/mass_of_agricultural_input -->
+
+    <owl:NamedIndividual rdf:about="&ontology;k/mass_of_agricultural_input">
+        <rdfs:label xml:lang="en">Mass of agricultural input</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -7420,6 +7448,7 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
 
     <owl:NamedIndividual rdf:about="&ontology;r/identity_coefficient_group+use_of_agricultural_machinery">
         <rdf:type rdf:resource="&ontology;SourceRelation"/>
+        <ontology:exponent rdf:datatype="&xsd;short">1</ontology:exponent>
         <ontology:hasWeightCoefficient rdf:resource="&ontology;gc/identity_coefficient_group"/>
         <ontology:hasDestinationProcess rdf:resource="&ontology;gp/cultivation_of_agricultural_area"/>
         <ontology:hasOriginProcess rdf:resource="&ontology;gp/use_of_agricultural_machinery_for_cultivation_of_area"/>
@@ -7875,6 +7904,7 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
 
     <owl:NamedIndividual rdf:about="&ontology;r/volume_of_fuel_consumed_per_unit_of_distance_travelled_waterway_freight_transport">
         <rdf:type rdf:resource="&ontology;SourceRelation"/>
+        <ontology:exponent rdf:datatype="&xsd;short">1</ontology:exponent>
         <ontology:hasWeightCoefficient rdf:resource="&ontology;gc/volume_of_fuel_consumed_per_unit_of_distance_travelled_waterway_freight_transport"/>
         <ontology:hasOriginProcess rdf:resource="&ontology;gp/combustion_of_gas_diesel_oil_unit_of_volume"/>
         <ontology:hasDestinationProcess rdf:resource="&ontology;gp/ship_freight_transport_unit_of_vehicle_times_distance"/>
@@ -7892,6 +7922,20 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
         <ontology:hasDestinationProcess rdf:resource="&ontology;gp/production_of_dairy_product"/>
         <ontology:hasOriginProcess rdf:resource="&ontology;gp/production_of_milk"/>
         <ontology:hasRelationType rdf:resource="&ontology;rt/asynchronous_dependency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.carbondb.org/ontology#ref/defra_2006 -->
+
+    <owl:NamedIndividual rdf:about="&ontology;ref/defra_2006">
+        <rdf:type rdf:resource="&ontology;Reference"/>
+        <ontology:date rdf:datatype="&xsd;string">2006</ontology:date>
+        <ontology:title rdf:datatype="&xsd;string">Analysis of recent data on dairy cows in England and implications for the environment</ontology:title>
+        <ontology:source rdf:datatype="&xsd;string">DEFRA (Department for Environment, Food and Rural Affairs), UK</ontology:source>
+        <ontology:shortName rdf:datatype="&xsd;string">DEFRA 2006</ontology:shortName>
+        <ontology:creator rdf:datatype="&xsd;string">Defra Agricultural Change and Environment Observatory</ontology:creator>
+        <ontology:URL rdf:datatype="&xsd;anyURI">http://archive.defra.gov.uk/evidence/statistics/foodfarm/enviro/observatory/research/documents/observatory03.pdf</ontology:URL>
     </owl:NamedIndividual>
     
 
@@ -8054,45 +8098,6 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
         <rdf:type rdf:resource="&ontology;Synchronous"/>
         <rdfs:label xml:lang="en">Synchronous dependency</rdfs:label>
         <rdfs:comment xml:lang="en">Upstream and downstream process occur simultaneously. Upstream process can be viewed as a part of downstream process. </rdfs:comment>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/ontology#sc/agricultural_input+fodder_corn+phosphate_fertilizer -->
-
-    <owl:NamedIndividual rdf:about="&ontology;sc/agricultural_input+fodder_corn+phosphate_fertilizer">
-        <rdf:type rdf:resource="&ontology;SingleCoefficient"/>
-        <ontology:value rdf:datatype="&xsd;double">8.0</ontology:value>
-        <ontology:hasTag rdf:resource="&ontology;k/agricultural_input"/>
-        <ontology:hasTag rdf:resource="&ontology;k/fodder_corn"/>
-        <ontology:hasTag rdf:resource="&ontology;k/phosphate_fertilizer"/>
-        <ontology:hasUnit rdf:resource="&ontology;u/kilogram_per_hectare"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/ontology#sc/agricultural_input+fodder_corn+potash_fertilizer -->
-
-    <owl:NamedIndividual rdf:about="&ontology;sc/agricultural_input+fodder_corn+potash_fertilizer">
-        <rdf:type rdf:resource="&ontology;SingleCoefficient"/>
-        <ontology:value rdf:datatype="&xsd;double">20.0</ontology:value>
-        <ontology:hasTag rdf:resource="&ontology;k/agricultural_input"/>
-        <ontology:hasTag rdf:resource="&ontology;k/fodder_corn"/>
-        <ontology:hasTag rdf:resource="&ontology;k/potash_fertilizer"/>
-        <ontology:hasUnit rdf:resource="&ontology;u/kilogram_per_hectare"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.carbondb.org/ontology#sc/agricultural_input+fodder_corn+synthetic_nitrogen_fertilizer -->
-
-    <owl:NamedIndividual rdf:about="&ontology;sc/agricultural_input+fodder_corn+synthetic_nitrogen_fertilizer">
-        <rdf:type rdf:resource="&ontology;SingleCoefficient"/>
-        <ontology:value rdf:datatype="&xsd;double">120.0</ontology:value>
-        <ontology:hasTag rdf:resource="&ontology;k/agricultural_input"/>
-        <ontology:hasTag rdf:resource="&ontology;k/fodder_corn"/>
-        <ontology:hasTag rdf:resource="&ontology;k/synthetic_nitrogen_fertilizer"/>
-        <ontology:hasUnit rdf:resource="&ontology;u/kilogram_per_hectare"/>
     </owl:NamedIndividual>
     
 
@@ -8737,7 +8742,7 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
 
     <owl:NamedIndividual rdf:about="&ontology;sc/crop_yield+fodder_corn">
         <rdf:type rdf:resource="&ontology;SingleCoefficient"/>
-        <ontology:value rdf:datatype="&xsd;double">37.0</ontology:value>
+        <ontology:value rdf:datatype="&xsd;double">39.0</ontology:value>
         <ontology:hasTag rdf:resource="&ontology;k/crop_yield"/>
         <ontology:hasTag rdf:resource="&ontology;k/fodder_corn"/>
         <ontology:hasUnit rdf:resource="&ontology;u/tonne_per_hectare"/>
@@ -9105,6 +9110,19 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     
 
 
+    <!-- http://www.carbondb.org/ontology#sc/final_energy_required_for_production+ammonia+natural_gas -->
+
+    <owl:NamedIndividual rdf:about="&ontology;sc/final_energy_required_for_production+ammonia+natural_gas">
+        <rdf:type rdf:resource="&ontology;SingleCoefficient"/>
+        <ontology:value rdf:datatype="&xsd;double">36.54</ontology:value>
+        <ontology:hasTag rdf:resource="&ontology;k/ammonia"/>
+        <ontology:hasTag rdf:resource="&ontology;k/final_energy_required_for_production"/>
+        <ontology:hasTag rdf:resource="&ontology;k/natural_gas"/>
+        <ontology:hasUnit rdf:resource="&ontology;u/megajoule_per_kilogram"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.carbondb.org/ontology#sc/final_energy_required_for_production+pesticide+anthracite -->
 
     <owl:NamedIndividual rdf:about="&ontology;sc/final_energy_required_for_production+pesticide+anthracite">
@@ -9269,6 +9287,45 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
         <ontology:hasTag rdf:resource="&ontology;k/final_energy_required_for_production"/>
         <ontology:hasTag rdf:resource="&ontology;k/natural_gas"/>
         <ontology:hasTag rdf:resource="&ontology;k/potash_fertilizer"/>
+        <ontology:hasUnit rdf:resource="&ontology;u/megajoule_per_kilogram"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.carbondb.org/ontology#sc/final_energy_required_for_production+synthetic_nitrogen_fertilizer+anthracite -->
+
+    <owl:NamedIndividual rdf:about="&ontology;sc/final_energy_required_for_production+synthetic_nitrogen_fertilizer+anthracite">
+        <rdf:type rdf:resource="&ontology;SingleCoefficient"/>
+        <ontology:value rdf:datatype="&xsd;double">0.4</ontology:value>
+        <ontology:hasTag rdf:resource="&ontology;k/anthracite"/>
+        <ontology:hasTag rdf:resource="&ontology;k/final_energy_required_for_production"/>
+        <ontology:hasTag rdf:resource="&ontology;k/synthetic_nitrogen_fertilizer"/>
+        <ontology:hasUnit rdf:resource="&ontology;u/megajoule_per_kilogram"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.carbondb.org/ontology#sc/final_energy_required_for_production+synthetic_nitrogen_fertilizer+crude_oil -->
+
+    <owl:NamedIndividual rdf:about="&ontology;sc/final_energy_required_for_production+synthetic_nitrogen_fertilizer+crude_oil">
+        <rdf:type rdf:resource="&ontology;SingleCoefficient"/>
+        <ontology:value rdf:datatype="&xsd;double">0.59</ontology:value>
+        <ontology:hasTag rdf:resource="&ontology;k/crude_oil"/>
+        <ontology:hasTag rdf:resource="&ontology;k/final_energy_required_for_production"/>
+        <ontology:hasTag rdf:resource="&ontology;k/synthetic_nitrogen_fertilizer"/>
+        <ontology:hasUnit rdf:resource="&ontology;u/megajoule_per_kilogram"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.carbondb.org/ontology#sc/final_energy_required_for_production+synthetic_nitrogen_fertilizer+natural_gas -->
+
+    <owl:NamedIndividual rdf:about="&ontology;sc/final_energy_required_for_production+synthetic_nitrogen_fertilizer+natural_gas">
+        <rdf:type rdf:resource="&ontology;SingleCoefficient"/>
+        <ontology:value rdf:datatype="&xsd;double">54.79</ontology:value>
+        <ontology:hasTag rdf:resource="&ontology;k/final_energy_required_for_production"/>
+        <ontology:hasTag rdf:resource="&ontology;k/natural_gas"/>
+        <ontology:hasTag rdf:resource="&ontology;k/synthetic_nitrogen_fertilizer"/>
         <ontology:hasUnit rdf:resource="&ontology;u/megajoule_per_kilogram"/>
     </owl:NamedIndividual>
     
@@ -10303,6 +10360,58 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
     
 
 
+    <!-- http://www.carbondb.org/ontology#sc/mass_of_agricultural_input+fodder_corn+pesticide -->
+
+    <owl:NamedIndividual rdf:about="&ontology;sc/mass_of_agricultural_input+fodder_corn+pesticide">
+        <rdf:type rdf:resource="&ontology;SingleCoefficient"/>
+        <ontology:value rdf:datatype="&xsd;double">0.0070</ontology:value>
+        <ontology:hasTag rdf:resource="&ontology;k/fodder_corn"/>
+        <ontology:hasTag rdf:resource="&ontology;k/mass_of_agricultural_input"/>
+        <ontology:hasTag rdf:resource="&ontology;k/pesticide"/>
+        <ontology:hasUnit rdf:resource="&ontology;u/kilogram_per_hectare"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.carbondb.org/ontology#sc/mass_of_agricultural_input+fodder_corn+phosphate_fertilizer -->
+
+    <owl:NamedIndividual rdf:about="&ontology;sc/mass_of_agricultural_input+fodder_corn+phosphate_fertilizer">
+        <rdf:type rdf:resource="&ontology;SingleCoefficient"/>
+        <ontology:value rdf:datatype="&xsd;double">8.0</ontology:value>
+        <ontology:hasTag rdf:resource="&ontology;k/fodder_corn"/>
+        <ontology:hasTag rdf:resource="&ontology;k/mass_of_agricultural_input"/>
+        <ontology:hasTag rdf:resource="&ontology;k/phosphate_fertilizer"/>
+        <ontology:hasUnit rdf:resource="&ontology;u/kilogram_per_hectare"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.carbondb.org/ontology#sc/mass_of_agricultural_input+fodder_corn+potash_fertilizer -->
+
+    <owl:NamedIndividual rdf:about="&ontology;sc/mass_of_agricultural_input+fodder_corn+potash_fertilizer">
+        <rdf:type rdf:resource="&ontology;SingleCoefficient"/>
+        <ontology:value rdf:datatype="&xsd;double">20.0</ontology:value>
+        <ontology:hasTag rdf:resource="&ontology;k/fodder_corn"/>
+        <ontology:hasTag rdf:resource="&ontology;k/mass_of_agricultural_input"/>
+        <ontology:hasTag rdf:resource="&ontology;k/potash_fertilizer"/>
+        <ontology:hasUnit rdf:resource="&ontology;u/kilogram_per_hectare"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.carbondb.org/ontology#sc/mass_of_agricultural_input+fodder_corn+synthetic_nitrogen_fertilizer -->
+
+    <owl:NamedIndividual rdf:about="&ontology;sc/mass_of_agricultural_input+fodder_corn+synthetic_nitrogen_fertilizer">
+        <rdf:type rdf:resource="&ontology;SingleCoefficient"/>
+        <ontology:value rdf:datatype="&xsd;double">120.0</ontology:value>
+        <ontology:hasTag rdf:resource="&ontology;k/fodder_corn"/>
+        <ontology:hasTag rdf:resource="&ontology;k/mass_of_agricultural_input"/>
+        <ontology:hasTag rdf:resource="&ontology;k/synthetic_nitrogen_fertilizer"/>
+        <ontology:hasUnit rdf:resource="&ontology;u/kilogram_per_hectare"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.carbondb.org/ontology#sc/mass_of_ghg_for_production_and_conditioning_at_source+anthracite+energy_use_in_production+co2 -->
 
     <owl:NamedIndividual rdf:about="&ontology;sc/mass_of_ghg_for_production_and_conditioning_at_source+anthracite+energy_use_in_production+co2">
@@ -10453,7 +10562,7 @@ Those &quot;abstract&quot; processes are used as upstream processes of &quot;rea
 
     <owl:NamedIndividual rdf:about="&ontology;sc/milk_yield+dairy_cow">
         <rdf:type rdf:resource="&ontology;SingleCoefficient"/>
-        <ontology:value rdf:datatype="&xsd;double">6600.0</ontology:value>
+        <ontology:value rdf:datatype="&xsd;double">7000.0</ontology:value>
         <ontology:hasTag rdf:resource="&ontology;k/dairy_cow"/>
         <ontology:hasTag rdf:resource="&ontology;k/milk_yield"/>
         <ontology:hasUnit rdf:resource="&ontology;u/litre_per_animal_year"/>
